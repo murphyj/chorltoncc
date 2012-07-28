@@ -1,0 +1,449 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Email Template Syntax</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#the_dada_mail_email_template_syntax">The Dada Mail Email Template Syntax</a></li>
+	<li><a href="#audience">Audience</a></li>
+	<li><a href="#the_basics">The Basics</a></li>
+	<ul>
+
+		<li><a href="#tags">Tags</a></li>
+		<li><a href="#built_in_tags">Built-in Tags</a></li>
+		<ul>
+
+			<li><a href="#global_tags">Global Tags</a></li>
+			<li><a href="#date_related_tags">Date-related tags</a></li>
+			<ul>
+
+				<li><a href="#little_endian_forms">Little endian forms</a></li>
+				<li><a href="#big_endian_forms">Big endian forms</a></li>
+				<li><a href="#middle_endian_forms">Middle endian forms</a></li>
+				<li><a href="#flexible_date_and_time_formats">Flexible Date and Time formats</a></li>
+			</ul>
+
+			<li><a href="#list_specific_tags">List-Specific Tags</a></li>
+			<li><a href="#subscriber_specific_tags">Subscriber-Specific Tags</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#using_tags_in_email_messages">Using Tags in Email Messages</a></li>
+	<ul>
+
+		<li><a href="#looping">Looping</a></li>
+	</ul>
+
+	<li><a href="#advanced_templating_syntax">Advanced Templating Syntax</a></li>
+	<ul>
+
+		<li><a href="#html__template__expr_support">HTML::Template::Expr Support</a></li>
+		<li><a href="#old_style_template_tags">Old-Style Template Tags</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="the_dada_mail_email_template_syntax">The Dada Mail Email Template Syntax</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="audience">Audience</a></h1>
+<p>This guide is meant to be read by everyone who would like to use the template features in Dada Mail's email messages.</p>
+<p>
+</p>
+<hr />
+<h1><a name="the_basics">The Basics</a></h1>
+<p>
+</p>
+<h2><a name="tags">Tags</a></h2>
+<p>Templating in email messages works, because email messages have things called, <strong>tags</strong>, which are placeholders for other information.</p>
+<p>A tag looks like this:</p>
+<pre>
+ &lt;!-- tmpl_var tag --&gt;</pre>
+<p>A tag will start with, <code>&lt;!-- tmpl_var </code>, will have a some text and then, <code> --&gt;</code>. Before an email message is sent out, the email
+message is first <strong>parsed</strong> and these placeholder tags are replaced with what they represent.</p>
+<p>Not all tags will represent everything - for example, you can't just have a tag that says:</p>
+<pre>
+ &lt;!-- tmpl_var Current_President_Of_The_United_States --&gt;</pre>
+<p>and expect Dada Mail to figure out what you want.</p>
+<p>
+</p>
+<h2><a name="built_in_tags">Built-in Tags</a></h2>
+<p>There's basically three different groups of tags that you can be sure are always available to you.</p>
+<p>
+</p>
+<h3><a name="global_tags">Global Tags</a></h3>
+<p>These tags can be used in most every email message. This list isn't exhaustive, but should give you a good start</p>
+<ul>
+<li><strong><a name="tmpl_var_program_name" class="item">&lt;!-- tmpl_var PROGRAM_NAME --&gt;</a></strong>
+
+<p>The name of this program - usually it's set to, <strong>Dada Mail</strong></p>
+</li>
+<li><strong><a name="tmpl_var_program_url" class="item">&lt;!-- tmpl_var PROGRAM_URL --&gt;</a></strong>
+
+<p>The URL to Dada Mail, ie: <a href="http://example.com/cgi-bin/dada/mail.cgi">http://example.com/cgi-bin/dada/mail.cgi</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="date_related_tags">Date-related tags</a></h3>
+<p>Dada Mail includes a few tags to dynamically put the current data in your email message. They'll take on the form:</p>
+<pre>
+        &lt;!-- tmpl_var date.x --&gt;</pre>
+<p>Where, <code>x</code> is a specific variable, which we'll explain below.</p>
+<p>For example, if the current date is: <strong>Monday, October 15th, 2011 at 2:55 PM</strong>, the following tags would return:</p>
+<ul>
+<li><strong><a name="tmpl_var_date_month" class="item">&lt;!-- tmpl_var date.month --&gt;</a></strong>
+
+<p>Will print out the month. For &quot;October&quot;, this would print out,</p>
+<pre>
+        10</pre>
+</li>
+<li><strong><a name="tmpl_var_date_padded_month" class="item">&lt;!-- tmpl_var date.padded_month --&gt;</a></strong>
+
+<p>Will return the month, padded with a, &quot;0&quot; if the value is less than &quot;0&quot;. For October, it would look the same as, <code>date.month</code>:</p>
+<pre>
+        10</pre>
+<p>But, for something like January, it'll look like this:</p>
+<pre>
+        01</pre>
+</li>
+<li><strong><a name="tmpl_var_date_named_month" class="item">&lt;!-- tmpl_var date.named_month --&gt;</a></strong>
+
+<p>Will print out the name of the month. For October, this would print out,</p>
+<pre>
+        October</pre>
+</li>
+<li><strong><a name="tmpl_var_date_abbr_named_month" class="item">&lt;!-- tmpl_var date.abbr_named_month --&gt;</a></strong>
+
+<p>Will print out the name of the month, in an abbreviated form. For October, this would print out,</p>
+<pre>
+        Oct</pre>
+</li>
+<li><strong><a name="tmpl_var_date_day" class="item">&lt;!-- tmpl_var date.day --&gt;</a></strong>
+
+<p>Will print the day of the month. For, &quot;October 17th&quot;, this would print out:</p>
+<pre>
+        17</pre>
+</li>
+<li><strong><a name="tmpl_var_date_nth_day" class="item">&lt;!-- tmpl_var date.nth_day --&gt;</a></strong>
+
+<p>Will print the day of the month, with the correct ordinal suffix. For, &quot;October 17th&quot;, this would print out:</p>
+<pre>
+        17th</pre>
+</li>
+<li><strong><a name="tmpl_var_date_padded_day" class="item">&lt;!-- tmpl_var date.padded_day --&gt;</a></strong>
+
+<p>Will print the day of the month, padded for values less than, &quot;10&quot;. For the 17th, this would print out,</p>
+<pre>
+        17</pre>
+<p>But for October 1st, this would print out:</p>
+<pre>
+        01</pre>
+</li>
+<li><strong><a name="tmpl_var_date_day_of_the_week" class="item">&lt;!-- tmpl_var date.day_of_the_week --&gt;</a></strong>
+
+<p>Will print out the day of the week. For, &quot;Monday, October 15th&quot;, this would print out,</p>
+<pre>
+        Monday</pre>
+</li>
+<li><strong><a name="tmpl_var_date_abbr_day_of_the_week" class="item">&lt;!-- tmpl_var date.abbr_day_of_the_week --&gt;</a></strong>
+
+<p>Will print out the day of the week, in an abbreviated form. For, &quot;Monday&quot;, this would print out,</p>
+<pre>
+        Mon</pre>
+</li>
+<li><strong><a name="tmpl_var_date_year" class="item">&lt;!-- tmpl_var date.year --&gt;</a></strong>
+
+<p>Will print out the current year. For example:</p>
+<pre>
+        2011</pre>
+</li>
+<li><strong><a name="tmpl_var_date_abbr_year" class="item">&lt;!-- tmpl_var date.abbr_year --&gt;</a></strong>
+
+<p>Will print out the abbreviated year (last two digits). For example 2011, will be printed out as:</p>
+<pre>
+        11</pre>
+</li>
+<li><strong><a name="tmpl_var_date_time" class="item">&lt;!-- tmpl_var date.time --&gt;</a></strong>
+
+<p>Will print out the, &quot;Unix Time&quot; For example:</p>
+<pre>
+        1318884939</pre>
+</li>
+<li><strong><a name="tmpl_var_date_localtime" class="item">&lt;!-- tmpl_var date.localtime --&gt;</a></strong>
+
+<p>Will print out the current date and time in a format like this:</p>
+<pre>
+        Mon Oct 17 14:55:39 2011</pre>
+</li>
+<li><strong><a name="tmpl_var_date_24_time" class="item">&lt;!-- tmpl_var date.24_time --&gt;</a></strong>
+
+<p>Will print out the time (hour:minute:second) in 24 hour time. So, if it's 4:33 PM, this will be printed out as:</p>
+<pre>
+        16:33:25</pre>
+</li>
+</ul>
+<p>You can then use these different tags to create different date formats.</p>
+<p>
+</p>
+<h4><a name="little_endian_forms">Little endian forms</a></h4>
+<ul>
+<li><strong><a name="18_october_2011" class="item">18 October 2011</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var date.day --&gt; &lt;!-- tmpl_var date.named_month --&gt; &lt;!-- tmpl_var date.year --&gt;</pre>
+<li><strong><a name="10_" class="item">10/18/2011</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var date.day --&gt;/&lt;!-- tmpl_var date.month --&gt;/&lt;!-- tmpl_var date.year --&gt;</pre>
+</ul>
+<p>
+</p>
+<h4><a name="big_endian_forms">Big endian forms</a></h4>
+<ul>
+<li><strong><a name="17" class="item">2011-10-17 (ISO 8601 international standard)</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var date.year --&gt;-&lt;!-- tmpl_var date.padded_month --&gt;-&lt;!-- tmpl_var date.padded_day --&gt;</pre>
+<li><strong><a name="2011_oct_17_monday" class="item">2011-Oct-17, Monday</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var date.year --&gt;-&lt;!-- tmpl_var date.abbr_named_month --&gt;-&lt;!-- tmpl_var date.day --&gt;, &lt;!-- tmpl_var date.day_of_the_week --&gt;</pre>
+</ul>
+<p>
+</p>
+<h4><a name="middle_endian_forms">Middle endian forms</a></h4>
+<ul>
+<li><strong><a name="monday_october_17_2011" class="item">Monday, October 17, 2011</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var date.day_of_the_week --&gt;, &lt;!-- tmpl_var date.named_month --&gt; &lt;!-- tmpl_var date.day --&gt;, &lt;!-- tmpl_var date.year --&gt;</pre>
+<li><strong><a name="11_" class="item">11/09/03</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var date.padded_month --&gt;/&lt;!-- tmpl_var date.padded_day --&gt;/&lt;!-- tmpl_var date.abbr_year --&gt;</pre>
+</ul>
+<p>
+</p>
+<h4><a name="flexible_date_and_time_formats">Flexible Date and Time formats</a></h4>
+<p>If the included simple date tags are not enough, Dada Mail has support for <code>strftime</code> formatting.</p>
+<p>The formatting is documented at:</p>
+<p><a href="http://www.unix.com/man-page/FreeBSD/3/strftime/">http://www.unix.com/man-page/FreeBSD/3/strftime/</a></p>
+<p>If you're familiar with PHP's time formatting:</p>
+<p><a href="http://php.net/manual/en/function.strftime.php">http://php.net/manual/en/function.strftime.php</a></p>
+<p>it's the same thing.</p>
+<p>To use this in Dada Mail's templating syntax, use the <code>&lt;!-- tmpl_strftime --&gt;</code> tag, like this:</p>
+<pre>
+        &lt;!-- tmpl_strftime %a, %d %b %Y --&gt;</pre>
+<p>This will print out,</p>
+<pre>
+        Mon, 17 Oct 2011</pre>
+<p>
+</p>
+<h3><a name="list_specific_tags">List-Specific Tags</a></h3>
+<p>Your list has a whole slew of attributes that make up its behavior. Most of the these attributes can be used  as tags in your email messages.</p>
+<p>You'll know you're working with a list-specific attribute, as the tag will start out with:</p>
+<pre>
+        &lt;!-- tmpl_var list_settings.</pre>
+<p>Notice the dot, <code>.</code> at the end.</p>
+<p>The tag will then be proceeded with the attribute you want to use and end with,</p>
+<pre>
+ --&gt;</pre>
+<p>For example, if you want to have a tag to show the List's Name, you'd write:</p>
+<pre>
+ &lt;!-- tmpl_var list_settings.list_name --&gt;</pre>
+<p>To have a tag to show the list ower's email address, you'd write:</p>
+<pre>
+ &lt;!-- tmpl_var list_settings.list_owner_email --&gt;</pre>
+<p>Here's a non-exhaustive list of available list-specific tags:</p>
+<ul>
+<li><strong><a name="tmpl_var_list_settings_list" class="item">&lt;!-- tmpl_var list_settings.list --&gt;</a></strong>
+
+<p>Your list's shortname</p>
+</li>
+<li><strong><a name="tmpl_var_list_settings_list_name" class="item">&lt;!-- tmpl_var list_settings.list_name --&gt;</a></strong>
+
+<p>Your list's name</p>
+</li>
+<li><strong><a name="tmpl_var_list_settings_list_owner_email" class="item">&lt;!-- tmpl_var list_settings.list_owner_email --&gt;</a></strong>
+
+<p>The List Owner's email address</p>
+</li>
+<li><strong><a name="tmpl_var_list_settings_info" class="item">&lt;!-- tmpl_var list_settings.info --&gt;</a></strong>
+
+<p>The description of your list</p>
+</li>
+<li><strong><a name="tmpl_var_list_settings_privacy_policy" class="item">&lt;!-- tmpl_var list_settings.privacy_policy --&gt;</a></strong>
+
+<p>Your list's Privacy Policy</p>
+</li>
+<li><strong><a name="tmpl_var_list_settings_physical_address" class="item">&lt;!-- tmpl_var list_settings.physical_address --&gt;</a></strong>
+
+<p>Your list's physical address</p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="subscriber_specific_tags">Subscriber-Specific Tags</a></h3>
+<p>Information about whom you are emailing to is also available to you.</p>
+<p>This concept is somewhat tricky, so explanation is necessary.</p>
+<p>We're going to use the term, <strong>subscriber</strong> in this case to describe the person we're emailing to, in the email message we're working on here.</p>
+<p>For example, if we're sending a <strong>confirmation email message</strong>, our subscriber will be the address that we're current emailing to, 
+even though they haven't yet subscribed.</p>
+<p>Similar to the List-Specific Tags, Subscriber-Specific tags also have a way to let you know you're working with a subscriber-specific
+attribute. Tags that deal with subscriber information start with: <code>&lt;!-- tmpl_var subscriber.</code> and are proceeded with the attribute we want to use.</p>
+<p>For example, to use a subscriber's email address, you would use:</p>
+<pre>
+ &lt;!-- tmpl_var subscriber.email --&gt;</pre>
+<p>A few subscriber-specific tags are usually always available to you. In these examples we'll use the email address, 
+<code>user@example.com</code> as the subscriber email address. The subscriber-specific tags are:</p>
+<ul>
+<li><strong><a name="tmpl_var_subscriber_email" class="item">&lt;!-- tmpl_var subscriber.email --&gt;</a></strong>
+
+<p><a href="mailto:user@example.com">user@example.com</a></p>
+</li>
+<li><strong><a name="tmpl_var_subscriber_email_name" class="item">&lt;!-- tmpl_var subscriber.email_name --&gt;</a></strong>
+
+<p>user</p>
+</li>
+<li><strong><a name="tmpl_var_subscriber_email_domain" class="item">&lt;!-- tmpl_var subscriber.email_domain --&gt;</a></strong>
+
+<p>example.com</p>
+</li>
+</ul>
+<p>A very special case happens with email messages that are sent for <strong>email subscription confirmations</strong>, <strong>email unsubscriotion confirmations</strong> and <strong>List Invitations</strong></p>
+<p>In these email messages you also have the option to use the, <code>&lt;!-- tmpl_var subscriber.pin --&gt;</code> tag. This tag holds the <strong>pin number</strong> used to subscribe and unsubscribe an email subscriber.</p>
+<p>You can also access the subscriber's saved field values. For example, if you have a field named, <strong>first_name</strong>, you can use the following tag:</p>
+<pre>
+ &lt;!-- tmpl_var subscriber.first_name --&gt;</pre>
+<p>
+</p>
+<hr />
+<h1><a name="using_tags_in_email_messages">Using Tags in Email Messages</a></h1>
+<p>Once you understand how these tags are made, it's simple to use them in your message. For example, we can great our subscriber as such:</p>
+<pre>
+ Hello,  &lt;!-- tmpl_var subscriber.email --&gt;
+ 
+ You are subscribed to my list, &lt;!-- tmpl_var list_settings.list_name --&gt;.</pre>
+<pre>
+ Hazzah!</pre>
+<pre>
+ -- &lt;!-- tmpl_var list_settings.list_owner_email --&gt;</pre>
+<p>This will print out something like:</p>
+<pre>
+ Hello, user@example.com
+ 
+ You are subscribed to my list, My Awesome List. 
+ 
+ Hazzah!
+ 
+ -- listowner@example.com</pre>
+<p>And that's all there is to it.</p>
+<p>If you have a subcriber field named, <strong>first_name</strong>, we can change the example above to:</p>
+<pre>
+ Hello,  &lt;!-- tmpl_var subscriber.first_name --&gt;
+ 
+ You are subscribed to my list, &lt;!-- tmpl_var list_settings.list_name --&gt;. 
+ 
+ Hazzah!
+ 
+ -- &lt;!-- tmpl_var list_settings.list_owner_email --&gt;
+ 
+This could print out something like: 
+ 
+ Hello, John,
+ 
+ You are subscribed to my list, My Awesome List. 
+ 
+ Hazzah!
+ 
+ -- listowner@example.com</pre>
+<p>
+</p>
+<h2><a name="looping">Looping</a></h2>
+<p>Alongside tags that represent something, there's also tags that allow you to loop through all the information available.</p>
+<p>Currently, you can loop through all the <strong>subscriber</strong> and <strong>list</strong> specific information, using the, <code>&gt;!-- tmpl_loop --&lt;</code> tag, like so:</p>
+<pre>
+ &lt;!-- tmpl_loop subscriber --&gt;
+        &lt;!-- tmpl_var name --&gt;: &lt;!-- tmpl_var value --&gt;
+ &lt;!-- /tmpl_loop --&gt;</pre>
+<p>This will print out every attribute that's associated with the current email address.</p>
+<p>Similarily, you can do this with the List Attributes:</p>
+<pre>
+ &lt;!-- tmpl_loop list_settings --&gt;
+        &lt;!-- tmpl_var name --&gt;: &lt;!-- tmpl_var value --&gt; 
+ &lt;!-- /tmpl_loop --&gt;</pre>
+<p>
+</p>
+<hr />
+<h1><a name="advanced_templating_syntax">Advanced Templating Syntax</a></h1>
+<p>Under the hood, Dada Mail's email templating system is powered by <strong>HTML::Template</strong>. Everything that can be done with it, 
+can probably be done with Dada Mail.</p>
+<p>Here's more information:</p>
+<p><a href="http://search.cpan.org/~samtregar/HTML-Template/Template.pm">http://search.cpan.org/~samtregar/HTML-Template/Template.pm</a></p>
+<p>
+</p>
+<h2><a name="html__template__expr_support">HTML::Template::Expr Support</a></h2>
+<p>If simple <code>if</code> and <code>loop</code> statements don't have enough horesepower for you, Dada Mail does support the use of <code>HTML::Template::Expr</code> type expressions.</p>
+<p>More information:</p>
+<p><a href="http://search.cpan.org/~samtregar/HTML-Template-Expr/Expr.pm">http://search.cpan.org/~samtregar/HTML-Template-Expr/Expr.pm</a></p>
+<p>To enable, log into your list control panel and under, <strong>Manage Copy -&amp;gt; Email Templates</strong>, you should see an option, under, <strong>Advanced Options</strong> titled,</p>
+<p><strong>Use the advanced templating syntax for email messages.</strong></p>
+<p>You'll want to enable this option and HTML::Template::Expr syntax should be enabled.</p>
+<p>With this option enabled, you can make statements, such as this:</p>
+<pre>
+ Hello &lt;!-- tmpl_var subscriber.first_name --&gt;, 
+ 
+ &lt;!-- tmpl_if expr=&quot;subscriber.favorite_fruit eq 'apples'&quot; --&gt;
+ I see you like apples!
+ &lt;!-- tmpl_else --&gt;
+ You don't like apples?!
+ &lt;!-- /tmpl_if --&gt;</pre>
+<p>This will print:</p>
+<pre>
+ Hello John,
+ 
+ I see you like apples!</pre>
+<p>If your subscriber has the field value, &quot;first_name&quot; set to, &quot;John&quot; and the, &quot;favorite_fruit&quot; set to, &quot;Apples&quot;. If favorite fruit is
+set to something other than apples, this would be printed:</p>
+<pre>
+ Hello John,
+ 
+ You don't like apples?!</pre>
+<p>
+</p>
+<h2><a name="old_style_template_tags">Old-Style Template Tags</a></h2>
+<p>Prior to Dada Mail 4, template tags and templates themselves used the old-style format.</p>
+<p>Old-style template tags look like this:</p>
+<pre>
+ [tag]</pre>
+<p>They were simply just a string, surrounded by square brackets.</p>
+<p>We'd like to move away from that, so that syntax is now, deprecated. These types of
+tags still work, 100%. If you're upgrading, you shouldn't find any problems, <strong>yet</strong>, 
+but please do not use the old-style tags in any feature templating you do.</p>
+
+</body>
+
+</html>

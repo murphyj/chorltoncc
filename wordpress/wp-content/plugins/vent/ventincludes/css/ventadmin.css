@@ -1,0 +1,22 @@
+/* @override 
+	http://localhost:8888/wpplugindev/wp-content/plugins/vent/ventincludes/css/ventadmin.css?version=4
+	http://localhost:8888/wpplugindev/wp-content/plugins/vent/ventincludes/css/ventadmin.css?version=3
+*/
+
+div.wrap li {
+	list-style-position: outside;
+	font-weight: bold;
+}
+
+div.wrap li span {
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+div.wrap li span select {
+	
+}
+
+.wide {
+	width: 75%;
+}

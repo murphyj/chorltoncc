@@ -1,0 +1,334 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>List Subscription Form in Flash</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name_a_sample_subscription_form_using_flash">NAME A Sample Subscription Form Using Flash</a></li>
+	<ul>
+
+		<li><a href="#flash_5_version">Flash 5 Version</a></li>
+	</ul>
+
+	<li><a href="#introduction">INTRODUCTION</a></li>
+	<ul>
+
+		<li><a href="#the_returned_xml">The Returned XML</a></li>
+	</ul>
+
+	<li><a href="#working_example">Working Example</a></li>
+	<ul>
+
+		<li><a href="#flash_security_notice_">Flash Security Notice!</a></li>
+	</ul>
+
+	<li><a href="#up_to_date_action_script_code">Up-To-Date Action Script Code</a></li>
+	<ul>
+
+		<li><a href="#action_script_2_version">Action Script 2 Version</a></li>
+		<li><a href="#action_script_3_version">Action Script 3 Version</a></li>
+	</ul>
+
+	<li><a href="#debugging">DEBUGGING</a></li>
+	<li><a href="#faqs">FAQS</a></li>
+	<ul>
+
+		<li><a href="#is_there_a_sample_unsubscription_form_in_flash">Is there a sample unsubscription form in Flash?</a></li>
+	</ul>
+
+	<li><a href="#author">AUTHOR</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="name_a_sample_subscription_form_using_flash">NAME A Sample Subscription Form Using Flash</a></h1>
+<p>
+</p>
+<h2><a name="flash_5_version">Flash 5 Version</a></h2>
+<p>The Flash SWF described in this doc was made when Flash 5 was the new kid on the block. It's 
+ways of doing things are probably outdated.</p>
+<p>There is now an AS2 script and AS3 code examples (below)</p>
+<p>
+</p>
+<hr />
+<h1><a name="introduction">INTRODUCTION</a></h1>
+<p>Dada Mail now has hooks for Flash that will return an SWF-friendly, XML document
+ to allow you to create a subscription form in the animation itself, 
+ instead of having to use HTML form widgets. All the SWF animation has to do is load 
+ mail.cgi with the correct query string, which looks like this:</p>
+<pre>
+        <a href="http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com">http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com</a></pre>
+<p>Breaking that down,</p>
+<dl>
+<dt><strong><a name="http_yoursite_com_cgi_bin_dada_mail_cgi" class="item"><strong><a href="http://yoursite.com/cgi-bin/dada/mail.cgi">http://yoursite.com/cgi-bin/dada/mail.cgi</a></strong></a></strong>
+
+<dd>
+<p>The full URI to where Dada Mail has been <strong>correctly</strong> installed. Before I 
+get any further, please install Dada Mail and have it  working before 
+trying to make it work in Flash, you'll save yourself so much time. I've found, 
+especially when developing Flash animations on a Mac, that weird and wonderful things
+happen in animations once the word 'XML' enters the picture.</p>
+</dd>
+</li>
+<dt><strong><a name="f_subscribe_flash_xml" class="item"><strong>f=subscribe_flash_xml</strong></a></strong>
+
+<dd>
+<p>'f' is short for 'flavor', the hip way to tell Dada Mail what you want it to do, it
+dates back to when Dada was a part of my coffee speak (e.g. Mo' Joe) If you want 
+to geek it, think of 'f' as in function. The flavor we want to use is called 
+'subscribe_flash_xml' This will return a SWF-friendly XML document back to your animation</p>
+</dd>
+<dd>
+<p>What do I mean by SWF-friendly? It means the XML doc that gets past back should work for 
+all versions of the Flash 5 player and above, it does not have any newlines in it, or 
+whitespace between tags, so you don't need any groovy undocumented Flash 5 
+XML method calls or #included code. All the tags are lowercase as well. I know, 
+I've been there. I'm on your side, believe me. Oh, and the XML is given to Flash with a 
+content type of 'application/x-www-form-urlencoded'.</p>
+</dd>
+</li>
+<dt><strong><a name="l_listshortname" class="item"><strong>l=listshortname</strong></a></strong>
+
+<dd>
+<p>replace 'listshortname' with the list's shortname you want to make the subscription 
+form for. The list's shortname is NOT the list name... shortened. If you created your
+list using version 2.6 and above, you were ask to make a shortname, for things like this. 
+If you created your list with a version below 2.6 than you list's shortname is your list name.</p>
+</dd>
+</li>
+<dt><strong><a name="e_someone_address_com" class="item"><strong><a href="mailto:e=someone@address.com">e=someone@address.com</a></strong></a></strong>
+
+<dd>
+<p>'e' is short for email, change it to the email you want to subscribe to.</p>
+</dd>
+<dd>
+<p>Once you sort all that out, it's just a simple call in Actionscript:</p>
+</dd>
+<dd>
+<pre>
+        var Dada = new XML(); 
+            Dada.load('<a href="http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com">http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com</a>');</pre>
+</dd>
+<dd>
+<p>to load up the XML. Well, what does the XML look like?</p>
+</dd>
+</li>
+</dl>
+<p>
+</p>
+<h2><a name="the_returned_xml">The Returned XML</a></h2>
+<p>The XML document for this query:</p>
+<pre>
+        <a href="http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com">http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com</a></pre>
+<p>will look like this: (newlines added for clarity)</p>
+<pre>
+        &lt;subscription&gt;
+         &lt;email&gt;someone@address.com&lt;/email&gt;
+         &lt;status&gt;1&lt;/status&gt;
+         &lt;errors&gt;&lt;/errors&gt;
+        &lt;/subscription&gt;</pre>
+<p>Pretty self-explanitory, (ah, the wonders of meta data) The only elusive 
+thing is the status. A status of 1 means everything checked out. The <strong>listshortname</strong>
+flavor checks to see if - the list exists, the email is valid, the email is already
+subscribed, if the list is closed and if the email is blacklisted. Possibly better 
+than the self-rolled version you may have been using.</p>
+<p>A query like this:</p>
+<pre>
+        <a href="http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=bad">http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=bad</a></pre>
+<p>Will return something like this:</p>
+<pre>
+
+        &lt;subscription&gt;
+         &lt;email&gt;bad&lt;/email&gt;
+         &lt;status&gt;0&lt;/status&gt;
+          &lt;errors&gt;
+           &lt;error&gt;invalid_email&lt;/error&gt;
+          &lt;/errors&gt;
+         &lt;/subscription&gt;</pre>
+<p>Pretty slick, eh?</p>
+<p>The error values are as follows:</p>
+<ul>
+<li><strong><a name="blacklisted" class="item">blacklisted</a></strong>
+
+<li><strong><a name="invite_only_list" class="item">invite_only_list</a></strong>
+
+<li><strong><a name="closed_list" class="item">closed_list</a></strong>
+
+<li><strong><a name="invalid_email" class="item">invalid_email</a></strong>
+
+<li><strong><a name="mx_lookup_failed" class="item">mx_lookup_failed</a></strong>
+
+<li><strong><a name="no_list" class="item">no_list</a></strong>
+
+<li><strong><a name="subscribed" class="item">subscribed</a></strong>
+
+<li><strong><a name="settings_possibly_corrupted" class="item">settings_possibly_corrupted</a></strong>
+
+<li><strong><a name="over_subscription_quota" class="item">over_subscription_quota</a></strong>
+
+<li><strong><a name="already_sent_sub_confirmation_already_sent_unsub_confirmation" class="item">already_sent_sub_confirmation/already_sent_unsub_confirmation</a></strong>
+
+</ul>
+<p>again, self explainitory.</p>
+<p>
+</p>
+<hr />
+<h1><a name="working_example">Working Example</a></h1>
+<p>There's an .fla file called email_subscription_form.fla In the first frame of Scene 1, there are two variables you
+need to change... have at it.</p>
+<p>The above instructions are meant to be digested by someone who knows what they're doin' in Flash Actionscript.
+Tutorials by me for Flash are up in coming.</p>
+<p>
+</p>
+<h2><a name="flash_security_notice_">Flash Security Notice!</a></h2>
+<p>If you save the example .fla in anything over version Flash 5, (which is a very very good chance), you'll have to follow the instructions located here:</p>
+<p><a href="http://www.macromedia.com/devnet/flash/articles/fplayer_security_03.html">http://www.macromedia.com/devnet/flash/articles/fplayer_security_03.html</a></p>
+<p>Generally, you'll need to put a file in your public html directory called, <em>crossdomain.xml</em>, with the following entry:</p>
+<pre>
+ &lt;?xml version=&quot;1.0&quot;?&gt;
+ &lt;!DOCTYPE cross-domain-policy SYSTEM  &quot;<a href="http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd</a>&quot;&gt;
+ &lt;cross-domain-policy&gt;
+   &lt;allow-access-from domain=&quot;*.example.com&quot; /&gt;
+ &lt;/cross-domain-policy&gt;</pre>
+<p>Where, <em>example.com</em> is the domain of the site you have Dada Mail installed.</p>
+<p>
+</p>
+<hr />
+<h1><a name="up_to_date_action_script_code">Up-To-Date Action Script Code</a></h1>
+<p>
+</p>
+<h2><a name="action_script_2_version">Action Script 2 Version</a></h2>
+<p>There <em>is</em> an updated flash file for Action Script 2.0 saved at:</p>
+<pre>
+ dada/extras/Flash/email_subscription_form_AS2.fla</pre>
+<p>I haven't thouroughly tested it, as I do not use Flash much myself, but it's 
+worth investigating.</p>
+<p>
+</p>
+<h2><a name="action_script_3_version">Action Script 3 Version</a></h2>
+<p>This code was submitted by the good people at <a href="http://runrobots.com">http://runrobots.com</a>:</p>
+<pre>
+        // note that this code will only work when the swf is on the server in the same directory as the Dada mail.cgi file.</pre>
+<pre>
+        // mainContent is a movieClip that contains all the text and buttons
+        // mainContent.signUpAddress is an input text field
+        // mainContent.submitMessage is a dynamic text field
+        // mainContent.submitButton is a button for processing the form
+        // mainContent.alternateSignUpLink is a button that appears if there is a problem. It will take the user to the html sign up page.</pre>
+<pre>
+        // when page loads:
+        mainContent.signUpAddress.maxChars=75;
+        mainContent.submitMessage.text=&quot;&quot;;
+        mainContent.alternateSignUpLink.mouseEnabled=false;
+        mainContent.alternateSignUpLink.alpha=0;
+        stage.focus=mainContent.signUpAddress;
+        mainContent.submitButton.mouseEnabled=true;
+        mainContent.submitButton.addEventListener(MouseEvent.CLICK, submitClick, false, 0, true);
+        mainContent.alternateSignUpLink.addEventListener(MouseEvent.CLICK, alternateSignUpClick, false, 0, true);</pre>
+<pre>
+        // when mainContent.submitButton is pressed:
+        function submitClick(e:MouseEvent):void {
+                var subLoader:URLLoader = new URLLoader();
+                subLoader.addEventListener(Event.COMPLETE, loadXML);
+                subLoader.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+                subLoader.load(new URLRequest(&quot;mail.cgi?flavor=subscribe_flash_xml&amp;list=listShortName&amp;email=&quot;+mainContent.signUpAddress.text));
+                mainContent.signUpAddress.type=TextFieldType.DYNAMIC;
+                mainContent.signUpAddress.selectable=false;
+                mainContent.submitButton.mouseEnabled=false;
+                mainContent.submitMessage.text=&quot;Processing. Please wait.&quot;;
+        }</pre>
+<pre>
+        // if there is a processing error:
+        function onIOError(e:Event):void {
+                mainContent.submitMessage.text=&quot;There was a connection error.\nPlease visit the following link to sign up:&quot;;
+                mainContent.alternateSignUpLink.mouseEnabled=true;
+                mainContent.alternateSignUpLink.alpha=1;
+        }</pre>
+<pre>
+        // once the connection is made, creating and interpreting the XML returned data
+        function loadXML(e:Event):void {
+                var subData:XML = new XML();
+                subData=new XML(e.target.data);
+                if (subData.status==&quot;1&quot;) {
+                        mainContent.submitMessage.text=&quot;Thank you for signing up.\nYou should receive a confirmation email shortly.&quot;;
+                } else {
+                        var errorMessage:String=subData.errors.error;
+                        switch (errorMessage) {
+                                case (&quot;invalid_email&quot;) :
+                                        mainContent.submitMessage.text=&quot;This email address is invalid, please re-enter your address.&quot;;
+                                        mainContent.signUpAddress.type=TextFieldType.INPUT;
+                                        mainContent.signUpAddress.selectable=true;
+                                        mainContent.submitButton.mouseEnabled=true;
+                                        break;
+                                case (&quot;subscribed&quot;) :
+                                        mainContent.submitMessage.text=&quot;The database shows that this email address has already been subscribed.&quot;;
+                                        break;
+                                case (&quot;already_sent_sub_confirmation&quot;) :
+                                        mainContent.submitMessage.text=&quot;A confirmation email has already been sent to this address.\nYou must visit the following link to sign up using this address:&quot;;
+                                        mainContent.alternateSignUpLink.mouseEnabled=true;
+                                        mainContent.alternateSignUpLink.alpha=1;
+                                        break;
+                                default :
+                                        // default is when none of the above are true (in case of any other errors)
+                                        mainContent.submitMessage.text=&quot;Oops, something went wrong.\nPlease visit the following link to sign up:&quot;;
+                                        mainContent.alternateSignUpLink.mouseEnabled=true;
+                                        mainContent.alternateSignUpLink.alpha=1;
+                                        break;
+                        }
+                }
+        }</pre>
+<pre>
+        // okay, this script submission isn't working, let's try the html page
+        function alternateSignUpClick(e:MouseEvent):void {
+                navigateToURL(new URLRequest(&quot;<a href="http://www.yourwebsite.com/mail.cgi/list/listShortName/&quot">http://www.yourwebsite.com/mail.cgi/list/listShortName/&quot</a>;),&quot;_blank&quot;);      
+        }</pre>
+<p>I haven't personally tested this code out myself, but should give you a good starting point for your own 
+AS3 Flash scripts.</p>
+<p>
+</p>
+<hr />
+<h1><a name="debugging">DEBUGGING</a></h1>
+<p>Sometimes using XML from an outside source within Flash can be difficult to debug, so 
+I made it easy for you to just check out the XML doc in your browser add <strong>&amp;test=1</strong> to the 
+end of the already-too-large-to-type-yet-again query string and paste that into a web browser.</p>
+<p>
+</p>
+<hr />
+<h1><a name="faqs">FAQS</a></h1>
+<p>
+</p>
+<h2><a name="is_there_a_sample_unsubscription_form_in_flash">Is there a sample unsubscription form in Flash?</a></h2>
+<p>No, but just change the query string from:</p>
+<pre>
+ <a href="http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com">http://yoursite.com/cgi-bin/dada/mail.cgi?f=subscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com</a></pre>
+<p>to:</p>
+<pre>
+ <a href="http://yoursite.com/cgi-bin/dada/mail.cgi?f=unsubscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com">http://yoursite.com/cgi-bin/dada/mail.cgi?f=unsubscribe_flash_xml&amp;l=listshortname&amp;e=someone@address.com</a></pre>
+<p>in your actionscript.</p>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<p>Justin Simoni</p>
+
+</body>
+
+</html>

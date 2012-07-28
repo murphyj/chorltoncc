@@ -1,0 +1,504 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dada Bridge - Discussion Lists and Email Sending from your Mail Reader</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#dada_bridge">Dada Bridge</a></li>
+	<li><a href="#user_guide">User Guide</a></li>
+	<li><a href="#description">Description</a></li>
+	<li><a href="#how_does_dada_bridge_work">How does Dada Bridge work?</a></li>
+	<li><a href="#requirements">Requirements</a></li>
+	<li><a href="#recommendations">Recommendations</a></li>
+	<li><a href="#obtaining_the_plugin">Obtaining The Plugin</a></li>
+	<li><a href="#installation">Installation</a></li>
+	<li><a href="#lightning_configuration_installation_instructions">Lightning Configuration/Installation Instructions</a></li>
+	<li><a href="#configuration_installation_screencasts">Configuration/Installation Screencasts</a></li>
+	<ul>
+
+		<li><a href="#part_1">Part 1</a></li>
+		<li><a href="#part_2">Part 2</a></li>
+	</ul>
+
+	<li><a href="#installation">Installation</a></li>
+	<ul>
+
+		<li><a href="#configuring_dada_bridge_s_plugin_side">Configuring Dada Bridge's Plugin Side</a></li>
+		<li><a href="#_1_change_the_permissions_of_the__dada_bridge_pl_script_to__755">#1 Change the permissions of the, dada_bridge.pl script to, &quot;755&quot;</a></li>
+		<li><a href="#_2_configure_your_outside_config_file___dada_config_">#2 Configure your outside config file (.dada_config)</a></li>
+	</ul>
+
+	<li><a href="#configuring_the_cronjob_to_automatically_run_dada_bridge">Configuring the Cronjob to Automatically Run Dada Bridge</a></li>
+	<ul>
+
+		<li><a href="#setting_the_cronjob">Setting the cronjob</a></li>
+		<li><a href="#disallowing_running_dada_bridge_manually__via_url_">Disallowing running Dada Bridge manually (via URL)</a></li>
+		<li><a href="#security_concerns_manual_run_passcode">Security Concerns &quot;Manual_Run_Passcode&quot;</a></li>
+		<ul>
+
+			<li><a href="#other_options_you_may_pass">Other options you may pass</a></li>
+			<li><a href="#notes_on_setting_the_cronjob_for_curl">Notes on Setting the Cronjob for curl</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#command_line_interface">Command Line Interface</a></li>
+	<ul>
+
+		<li><a href="#command_line_interface_for_cronjobs_">Command Line Interface for Cronjobs:</a></li>
+	</ul>
+
+	<li><a href="#remember_to_enable_sending_using_this_method_">Remember to enable sending using this method!</a></li>
+	<li><a href="#plugin_configuration_settings">Plugin Configuration Settings</a></li>
+	<ul>
+
+		<li><a href="#plugin_name">Plugin_Name</a></li>
+		<li><a href="#plugin_url">Plugin_URL</a></li>
+		<li><a href="#allow_manual_run">Allow_Manual_Run</a></li>
+		<li><a href="#manual_run_passcode">Manual_Run_Passcode</a></li>
+		<li><a href="#messagesatonce">MessagesAtOnce</a></li>
+		<li><a href="#soft_max_size_of_any_message">Soft_Max_Size_Of_Any_Message</a></li>
+		<li><a href="#max_size_of_any_message">Max_Size_Of_Any_Message</a></li>
+		<li><a href="#allow_open_discussion_list">Allow_Open_Discussion_List</a></li>
+		<li><a href="#room_for_one_more_check">Room_For_One_More_Check</a></li>
+		<li><a href="#enable_pop3_file_locking">Enable_POP3_File_Locking</a></li>
+		<li><a href="#check_list_owner_return_path_header">Check_List_Owner_Return_Path_Header</a></li>
+		<li><a href="#check_multiple_return_path_headers">Check_Multiple_Return_Path_Headers</a></li>
+	</ul>
+
+	<li><a href="#debugging">DEBUGGING</a></li>
+	<ul>
+
+		<li><a href="#debugging_your_pop3_account_information">Debugging your POP3 account information</a></li>
+	</ul>
+
+	<li><a href="#copyright">COPYRIGHT</a></li>
+	<li><a href="#license">LICENSE</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="dada_bridge">Dada Bridge</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="user_guide">User Guide</a></h1>
+<p>The below documentation go into detail on how to install and configure Dada Bridge. A user guide for Dada Bridge is
+ available in the Dada Mail Manual chapter, <strong>Using Dada Bridge</strong>:</p>
+<p><a href="http://dadamailproject.com/pro_dada/using_dada_bridge.html">http://dadamailproject.com/pro_dada/using_dada_bridge.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="description">Description</a></h1>
+<p>Dada Bridge is a plugin for Dada Mail that adds support to send email from your mail reader to a Dada Mail mailing list, both for announce-only tasks and discussion lists.</p>
+<p>Dada Bridge allows you to do two things, fairly easily:</p>
+<ul>
+<li><strong><a name="set_up_an_announce_only_list" class="item">Set up an Announce-Only list.</a></strong>
+
+<p>Dada Bridge allows you to send an email message to the List Email address, which will then be sent to your entire mailing list.</p>
+</li>
+<li><strong><a name="set_up_a_discussion_list" class="item">Set up a Discussion List.</a></strong>
+
+<p>Anyone subscribed to your mailing list will be able send an email to the List Email Address, which will then be sent to the entire mailing list. Anyone else may reply to messages sent to the same mailing list.</p>
+</li>
+</ul>
+<p>There's some advantages to using Dada Bridge over more sophisticated programs:</p>
+<ul>
+<li><strong><a name="you_do_not_need_root_access_to_the_server_to_install_the_program_or_setup_the_list_email_address" class="item">You do NOT need root access to the server to install the program, or setup the List Email address</a></strong>
+
+<li><strong><a name="you_do_not_need_to_use_an_alias_to_a_script_to_use_dada_bridge" class="item">You do NOT need to use an alias to a script to use Dada Bridge</a></strong>
+
+</ul>
+<p>Having solved these two problems also makes Dada Bridge potentially more secure to use and opens its use to a wider audience.</p>
+<p>
+</p>
+<hr />
+<h1><a name="how_does_dada_bridge_work">How does Dada Bridge work?</a></h1>
+<p>Many of Dada Bridge's concepts are slightly different than what you may be used to in traditional mailing lists:</p>
+<ul>
+<li><strong><a name="subscription_unsubscription_requests_are_handled_via_dada_mail_itself" class="item">Subscription/Unsubscription requests are handled via Dada Mail itself</a></strong>
+
+<p>In other words, it's all web-based. There are currently no subscription mechanisms that use email commands.</p>
+</li>
+<li><strong><a name="a_list_email_is_just_a_pop3_email_account" class="item">A, &quot;List Email&quot; is just a POP3 email account.</a></strong>
+
+<p>In Dada Mail, the <strong>List Email</strong> is the address you send to when you want to post a message to the list. This differs from the, <strong>List Owner</strong> email, which is the address that messages will be sent on behalf of (unless discussion lists are enabled).</p>
+<p>Usually in a mailing list manager, this address is created automatically by the program itself. In Dada Mail, you'll have to manually create the email  (POP3) account and plug in the email address, POP3 server and username/password into Dada Mail.</p>
+<p>This allows anyone who can make POP3 accounts to have a discussion mailing list. You also have a whole lot of flexibility when it comes to what the <strong>List Email</strong> can be.</p>
+<p>In normal use, Dada Bridge will check this account and deliver any messages it finds accordingly. When in normal use, do not check this account yourself.</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="requirements">Requirements</a></h1>
+<ul>
+<li><strong><a name="familiarity_with_setting_cron_jobs" class="item">Familiarity with setting cron jobs</a></strong>
+
+<p>If you do not know how to set up a cron job, attempting to set one up for Dada Bridge will result in much aggravation. Please read up on the topic before attempting!</p>
+</li>
+<li><strong><a name="a_free_pop3_account_for_each_mailing_list_you_want_to_use_dada_bridge_for" class="item">a free POP3 account for each mailing list you want to use Dada Bridge for.</a></strong>
+
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="recommendations">Recommendations</a></h1>
+<ul>
+<li><strong><a name="setup_dada_mail_using_the_sql_backend" class="item">Setup Dada Mail using the SQL Backend.</a></strong>
+
+<p>Multipart messages, attachments and inline embedded images will work very well if you use the SQL Backend.</p>
+</li>
+<li><strong><a name="disable_javascript_in_archived_messages" class="item">Disable Javascript in Archived Messages</a></strong>
+
+<p>In Dada Mail's List control panel under, <em>Message Archives - # Advanced Archive Options</em>, check the option, <strong>Disable Javascript in Archived Messages </strong>. This will prevent exploitations embedded in messages sent to the mailing list when viewed in Dada Mail's own archives. Along with Javascript, this option will strip out: <code>embed</code>, <code>object</code>, <code>frame</code>, <code>iframe</code>, and <code>meta</code> tags.</p>
+<p>This feature does require the use of a CPAN module called, <strong>HTML::Scrubber</strong>, which you may have to install yourself:</p>
+<p><a href="http://search.cpan.org/dist/HTML-Scrubber/">http://search.cpan.org/dist/HTML-Scrubber/</a></p>
+<p>If you do not have this available, I do urgently suggest you do not use archiving for <strong>discussion</strong> lists.</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="obtaining_the_plugin">Obtaining The Plugin</a></h1>
+<p>Dada Bridge is located in the, <em>dada/plugins</em> directory of the Dada Mail distribution, under the name: <em>dada_bridge.pl</em></p>
+<p>
+</p>
+<hr />
+<h1><a name="installation">Installation</a></h1>
+<p>This plugin can be installed during a Dada Mail install/upgrade, using the included installer that comes with Dada Mail. The below installation instructions go through how to install the plugin <strong>manually</strong>.</p>
+<p>If you install the plugin using the Dada Mail installer, you will still have set the cronjob manually, which is covered below.</p>
+<p>
+</p>
+<hr />
+<h1><a name="lightning_configuration_installation_instructions">Lightning Configuration/Installation Instructions</a></h1>
+<ul>
+<li><strong><a name="chmod_755_the_dada_bridge_pl_script" class="item">chmod 755 the dada_bridge.pl script</a></strong>
+
+<p>The, <code>dada_bridge.pl</code> script should be in your <em>dada/plugins</em> directory.</p>
+</li>
+<li><strong><a name="run_dada_bridge_pl_in_your_web_browser" class="item">Run dada_bridge.pl in your web browser.</a></strong>
+
+<p>In other words, visit it in your web browser <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl</a></p>
+</li>
+<li><strong><a name="set_the_cronjob" class="item">Set the cronjob</a></strong>
+
+<p>The command for your cronjob will be listed on the plugin's list control panel. Set it to run for every five minutes.</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="configuration_installation_screencasts">Configuration/Installation Screencasts</a></h1>
+<p>Configuring and Installing (and Using) Dada Bridge is covered in two screencasts:</p>
+<p>
+</p>
+<h2><a name="part_1">Part 1</a></h2>
+<p><a href="http://www.youtube.com/watch?v=PWzSbpCbfGI&hd=1">http://www.youtube.com/watch</a></p>
+<iframe title="YouTube video player" width="640" height="510" src="http://www.youtube.com/embed/PWzSbpCbfGI" frameborder="0" allowfullscreen></iframe><p>
+</p>
+<h2><a name="part_2">Part 2</a></h2>
+<p><a href="http://www.youtube.com/watch?v=S5GwxZnw3oU&hd=1">http://www.youtube.com/watch</a></p>
+<iframe title="YouTube video player" width="640" height="510" src="http://www.youtube.com/embed/S5GwxZnw3oU?hd=1" frameborder="0" allowfullscreen></iframe><p>
+</p>
+<hr />
+<h1><a name="installation">Installation</a></h1>
+<p>Before we get into installation, here's how Dada Bridge is used:</p>
+<p>One part of Dada Bridge is run as a Dada Mail plugin - you'll have to log into your list before you're able to make any changes to its settings.</p>
+<p>The second part of Dada Bridge is the part that actually looks for any new mail to be examined and hopefully, broadcasted and sent out to your list. This part of Dada Bridge is usually run via a <strong>cronjob</strong>.</p>
+<p>There's a few ways that Dada Bridge can do the second part, and we'll go in detail on how to set up both ways.</p>
+<p>
+</p>
+<h2><a name="configuring_dada_bridge_s_plugin_side">Configuring Dada Bridge's Plugin Side</a></h2>
+<p>
+</p>
+<h2><a name="_1_change_the_permissions_of_the__dada_bridge_pl_script_to__755">#1 Change the permissions of the, dada_bridge.pl script to, &quot;755&quot;</a></h2>
+<p>Find the <code>dada_bridge.pl</code> script in your <em>dada/plugins</em> directory. Change its permissions to, <code>755</code></p>
+<p>
+</p>
+<h2><a name="_2_configure_your_outside_config_file___dada_config_">#2 Configure your outside config file (.dada_config)</a></h2>
+<p>You'll most likely want to edit your outside config file (<code>.dada_config</code>)
+so that it shows Dada Bridge in the left-hand menu, under the, <strong>Plugins</strong> heading.</p>
+<p>First, see if the following lines are present in your <code>.dada_config</code> file:</p>
+<pre>
+ # start cut for list control panel menu
+ =cut</pre>
+<pre>
+ =cut
+ # end cut for list control panel menu</pre>
+<p>If they are, remove them.</p>
+<p>Then, find these lines:</p>
+<pre>
+ #                                      {-Title      =&gt; 'Discussion Lists',
+ #                                       -Title_URL  =&gt; $PLUGIN_URL.&quot;/dada_bridge.pl&quot;,
+ #                                       -Function   =&gt; 'dada_bridge',
+ #                                       -Activated  =&gt; 1,
+ #                                      },</pre>
+<p>Uncomment the lines, by taking off the, &quot;#&quot;'s:</p>
+<pre>
+                                        {-Title      =&gt; 'Discussion Lists',
+                                         -Title_URL  =&gt; $PLUGIN_URL.&quot;/dada_bridge.pl&quot;,
+                                         -Function   =&gt; 'dada_bridge',
+                                         -Activated  =&gt; 1,
+                                        },</pre>
+<p>Save your <code>.dada_config</code> file.</p>
+<p>You can now log into your List Control Panel and under the, <strong>plugins</strong> heading you should now see a linked entitled, &quot;Discussion lists&quot;. Clicking that will allow you to set up your list to receive mail from a mail reader.</p>
+<p>Messages will not yet be received and sent out via Dada Bridge.</p>
+<p>For that to happen - two things will have to be configured. The first is setting up the <strong>List Email</strong> - that's done in the control panel for the plugin itself and should (hopefully) be self-explanitory.</p>
+<p>The second is to set up the cronjob and that's what we'll talk about next:</p>
+<p>
+</p>
+<hr />
+<h1><a name="configuring_the_cronjob_to_automatically_run_dada_bridge">Configuring the Cronjob to Automatically Run Dada Bridge</a></h1>
+<p>We're going to assume that you already know how to set up the actual cronjob, but we'll be explaining in depth on what the cronjob you need to set is.</p>
+<p>
+</p>
+<h2><a name="setting_the_cronjob">Setting the cronjob</a></h2>
+<p>Generally, setting the cronjob to have Dada Bridge run automatically just means that you have to have a cronjob access a specific URL. The URL looks something like this:</p>
+<pre>
+ <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;verbose=1">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;verbose=1</a></pre>
+<p>Where, <em><a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl</a></em> is the URL to your copy of dada_bridge.pl</p>
+<p>You'll see the specific URL used for your installation of Dada Mail in the web-based control panel for Dada Bridge, under the fieldset legend, <strong>Manually Run Dada Bridge</strong>. under the heading, <strong>Manual Run URL:</strong></p>
+<p>This will have Dada Bridge check any awaiting messages.</p>
+<p>You may have to look through your hosting account's own FAQ, Knowledgebase and/or other docs to see exactly how you invoke a URL via a cronjob.</p>
+<p>A Pretty Good Guess of what the entire cronjob should be set to is located in the web-based crontrol panel for Dada Bridge, under the fieldset legend, <strong>Manually Run Dada Bridge</strong>, under the heading, <strong>curl command example (for a cronjob)</strong>:</p>
+<p>From my testing, this should work for most Cpanel-based hosting accounts.</p>
+<p>Here's the entire cronjob explained:</p>
+<p>In this example, I'll be running the script every 5 minutes ( */5 * * * * ) - tailor to your taste.</p>
+<pre>
+        */5 * * * * /usr/local/bin/curl -s --get --data run=1\;verbose=0\; --url <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl</a></pre>
+<p>
+</p>
+<h2><a name="disallowing_running_dada_bridge_manually__via_url_">Disallowing running Dada Bridge manually (via URL)</a></h2>
+<p>If you DO NOT want to use this way of invoking the program to check awaiting messages and send them out, make sure to set the <strong>plugin config variable</strong> (which we'll cover below) <code>Allow_Manual_Run</code> to, <code>0</code>.</p>
+<p>
+</p>
+<h2><a name="security_concerns_manual_run_passcode">Security Concerns &quot;Manual_Run_Passcode&quot;</a></h2>
+<p>Running the plugin like this is somewhat risky, as you're allowing an anonymous web browser to run the script in a way that was originally designed to only be run either after successfully logging into the list control panel, or, when invoking this script via the command line.</p>
+<p>If you'd like, you can set up a simple <strong>Passcode</strong>, to have some semblence of security over who runs the program. Do this by setting the, plugin config (again, we'll cover plugin configs, below), <code>Manual_Run_Passcode</code> to a password-like string:</p>
+<pre>
+        Manual_Run_Passcode                 =&gt; 'sneaky',</pre>
+<p>In this example, you'll then have to change the URL in these examples to:</p>
+<pre>
+ <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;passcode=sneaky">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;passcode=sneaky</a></pre>
+<p>
+</p>
+<h3><a name="other_options_you_may_pass">Other options you may pass</a></h3>
+<p>You can control quite a few things by setting variables right in the query string:</p>
+<ul>
+<li><strong><a name="passcode" class="item">passcode</a></strong>
+
+<p>As mentioned above, the <code>Manual_Run_Passcode</code> allows you to set some sort of security while running in this mode. Passing the actual password is done in the query string:</p>
+<pre>
+ <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;passcode=sneaky">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;passcode=sneaky</a></pre>
+</li>
+<li><strong><a name="verbose" class="item">verbose</a></strong>
+
+<p>By default, you'll receive the a report of how Dada Bridge is doing downloading awaiting messages, validating them and sending them off.</p>
+<p>This is sometimes not so desired, especially in a cron environment, since all this informaiton will be emailed to you (or someone) everytime the script is run. You can run Dada Bridge with a cron that looks like this:</p>
+<pre>
+ */5 * * * * /usr/local/bin/curl -s --get --data run=1 --url <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl</a> &gt;/dev/null 2&gt;&amp;1</pre>
+<p>The, &gt;/dev/null 2&gt;&amp;1 line throws away any values returned.</p>
+<p>Since all the information being returned from the program is done sort of indirectly, this also means that any problems actually running the program will also be thrown away.</p>
+<p>If you set verbose to, <code>0</code>, under normal operation, Dada Bridge won't show any output, but if there's a server error, you'll receive an email about it. This is probably a good thing. Example:</p>
+<pre>
+ * * * * * /usr/local/bin/curl -s --get --data run=1\;verbose=0 --url <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl</a></pre>
+</li>
+<li><strong><a name="test" class="item">test</a></strong>
+
+<p>Runs Dada Bridge in test mode by checking the messages awaiting and parsing them, but not actually carrying out any sending.</p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="notes_on_setting_the_cronjob_for_curl">Notes on Setting the Cronjob for curl</a></h3>
+<p>You may want to check your version of curl and see if there's a speific way to pass a query string. For example, this:</p>
+<pre>
+ */5 * * * * /usr/local/bin/curl -s <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;passcode=sneaky">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl?run=1&amp;passcode=sneaky</a></pre>
+<p>Doesn't work for me.</p>
+<p>I have to use the --get and --data flags, like this:</p>
+<pre>
+ */5 * * * * /usr/local/bin/curl -s --get --data run=1\;passcode=sneaky --url <a href="http://example.com/cgi-bin/dada/plugins/dada_bridge.pl">http://example.com/cgi-bin/dada/plugins/dada_bridge.pl</a></pre>
+<p>my query string is this part:</p>
+<pre>
+ run=1\;passcode=sneaky</pre>
+<p>And also note I had to escape the, ; character. You'll probably have to do the same for the &amp; character.</p>
+<p>Finally, I also had to pass the actual URL of the plugin using the --url flag.</p>
+<p>
+</p>
+<hr />
+<h1><a name="command_line_interface">Command Line Interface</a></h1>
+<p>There's a slew of optional arguments you can give to this script. To use Dada Bridge via the command line, first change into the directory that Dada Bridge resides in, and issue the command:</p>
+<pre>
+ ./dada_bridge.pl --help</pre>
+<p>
+</p>
+<h2><a name="command_line_interface_for_cronjobs_">Command Line Interface for Cronjobs:</a></h2>
+<p>You can also invoke <code>dada_bridge.pl</code> from the command line interface for cronjobs. The secret is to actually have two commands in one. The first command changes into the same directory as the <code>dada_bridge.pl</code> script, the second invokes the script with the paramaters you'd like.</p>
+<p>For example:</p>
+<pre>
+ */5 * * * * cd /home/myaccount/cgi-bin/dada/plugins; /usr/bin/perl ./dada_bridge.pl  &gt;/dev/null 2&gt;&amp;1</pre>
+<p>Where, <em>/home/myaccount/cgi-bin/dada/plugins</em> is the full path to the directory the <code>dada_bridge.pl</code> script is located.</p>
+<p>
+</p>
+<hr />
+<h1><a name="remember_to_enable_sending_using_this_method_">Remember to enable sending using this method!</a></h1>
+<p>By default, the ability for dada_bridge.pl to send and receive messages is disabled on a per-list basis. To enable sending, log into your list control panel and go to the dada_bridge.pl admin screen.</p>
+<p>Uncheck:</p>
+<pre>
+ Disable sending using this method</pre>
+<p>And you're off to the races.</p>
+<p>
+</p>
+<hr />
+<h1><a name="plugin_configuration_settings">Plugin Configuration Settings</a></h1>
+<p>The below settings are available to you, if you wish to further configure the plugin. You'll find the settings within the plugin itself - look at the top of the, <code>dada_bridge.pl</code> script.</p>
+<p><strong>BUT</strong>, we suggest that you set these plugin config settings in your outside config file (<code>.dada_config</code>).</p>
+<p>First, search and see if the following lines are present in your <code>.dada_config</code> file:</p>
+<pre>
+ # start cut for plugin configs
+ =cut</pre>
+<pre>
+ =cut
+ # end cut for plugin configs</pre>
+<p>If they are present, remove them.</p>
+<p>You can then configure the plugin variables on these lines:</p>
+<pre>
+        Dada_Bridge =&gt; {</pre>
+<pre>
+                Plugin_Name                         =&gt; undef,
+                Plugin_URL                          =&gt; undef,
+                Allow_Manual_Run                    =&gt; undef,
+                Manual_Run_Passcode                 =&gt; undef,
+                MessagesAtOnce                      =&gt; undef,
+                Soft_Max_Size_Of_Any_Message        =&gt; undef,
+                Max_Size_Of_Any_Message             =&gt; undef,
+                Allow_Open_Discussion_List          =&gt; undef,
+                Room_For_One_More_Check             =&gt; undef,
+                Enable_POP3_File_Locking            =&gt; undef,
+                Check_List_Owner_Return_Path_Header =&gt; undef,
+                Check_Multiple_Return_Path_Headers  =&gt; undef,</pre>
+<pre>
+        },</pre>
+<p>
+</p>
+<h2><a name="plugin_name">Plugin_Name</a></h2>
+<p>The name of the plugin. By default, <strong>Dada Bridge</strong>.</p>
+<p>
+</p>
+<h2><a name="plugin_url">Plugin_URL</a></h2>
+<p>Sometimes, the plugin has a hard time guessing what its own URL is. If this is happening, you can manually set the URL of the plugin in Plugin_URL.</p>
+<p>
+</p>
+<h2><a name="allow_manual_run">Allow_Manual_Run</a></h2>
+<p>Allows you to invoke the plugin to check and send awaiting messages via a URL.</p>
+<p>
+</p>
+<h2><a name="manual_run_passcode">Manual_Run_Passcode</a></h2>
+<p>Allows you to set a passcode if you want to allow manually running the plugin.</p>
+<p>
+</p>
+<h2><a name="messagesatonce">MessagesAtOnce</a></h2>
+<p>You can specify how many messages you want to have the program actually handle per execution of the script by changing the, <strong>MessagesAtOnce</strong> variable. By default, it's set conservatively to, <strong>1</strong>.</p>
+<p>
+</p>
+<h2><a name="soft_max_size_of_any_message">Soft_Max_Size_Of_Any_Message</a></h2>
+<p>Like its brethren, <code>Max_Size_Of_Any_Message</code> <code>Soft_Max_Size_Of_Any_Message</code> sets the maximum size of a message that's accepted, but
+If the message falls between, <code>Soft_Max_Size_Of_Any_Message</code> and, <code>Max_Size_Of_Any_Message</code> a, &quot;Your email message is too big!&quot; email message will
+be sent to the original poster.</p>
+<p>Set the size in octects.</p>
+<p>
+</p>
+<h2><a name="max_size_of_any_message">Max_Size_Of_Any_Message</a></h2>
+<p>Sets a hard limit on how large a single message can actually be, before you won't allow the message to be processed. If a message is too large, it'll be simple deleted. A warning will be written in the error log, but the original sender will not be notified.</p>
+<p>
+</p>
+<h2><a name="allow_open_discussion_list">Allow_Open_Discussion_List</a></h2>
+<p>If set to, <code>1</code> a new option will be available in Dada Bridge's list control panel to allow you to have a discussion list that anyone can send messages to.</p>
+<p>
+</p>
+<h2><a name="room_for_one_more_check">Room_For_One_More_Check</a></h2>
+<p><code>Room_For_One_More_Check</code> looks to see how many mass mailings are currently happening. If its at or above the limit set in <code>$MAILOUT_AT_ONCE_LIMIT</code>, Dada Bridge will not attempt to look for and (possibly) create another mass mailing to join the queue.</p>
+<p>
+</p>
+<h2><a name="enable_pop3_file_locking">Enable_POP3_File_Locking</a></h2>
+<p><code>Enable_POP3_File_Locking</code>. Sometimes, the pop3 locking stuff in Dada Mail simply goes haywire and you get deadlocks. Setting this configuration to, <code>0</code> stops that.</p>
+<p>
+</p>
+<h2><a name="check_list_owner_return_path_header">Check_List_Owner_Return_Path_Header</a></h2>
+<p>When testing the validity of a received message, Dada Mail will look to see if the, <code>Return-Path</code> header matches what's set in the, <code>From</code> header. If they do not match, this test fails and the message will be rejected. Setting, <code>Check_List_Owner_Return_Path_Header</code> will disable this test.</p>
+<p>
+</p>
+<h2><a name="check_multiple_return_path_headers">Check_Multiple_Return_Path_Headers</a></h2>
+<p><code>Check_Multiple_Return_Path_Headers</code> is another validity test for received messages. This time, the message is looked to see if it has more than one <code>Return-Path</code> header. If it does, it is rejected. If you set, <code>Check_Multiple_Return_Path_Headers</code> to, <code>0</code>, this test will be disabled.</p>
+<p>
+</p>
+<hr />
+<h1><a name="debugging">DEBUGGING</a></h1>
+<p>This plugin, much more so than the main Dada Mail program is a bit finicky, since you have to rely on getting a successful connection to your POP3 server and also be able to run the program via a cronjob.</p>
+<p>
+</p>
+<h2><a name="debugging_your_pop3_account_information">Debugging your POP3 account information</a></h2>
+<p>The easiest way to debug your POP3 account info is to actually test it out.</p>
+<p>If you have a command line, drop into it and connect to your POP3 server, like so:</p>
+<pre>
+ prompt:]telnet pop3.example.com 110
+ Trying 12.123.123.123...
+ Connected to pop3.example.com.
+ Escape character is '^]'.
+ +OK &lt;37892.1178250885@hedwig.summersault.com&gt;
+ user user%example.com
+ +OK 
+ pass sneaky
+ +OK 
+ list
+
+</pre>
+<p>In the above example, <strong>pop3.example.com</strong> is your POP3 server. You'll be typing in:</p>
+<pre>
+  user user%example.com
+
+</pre>
+<p>and:</p>
+<pre>
+  pass sneaky
+
+</pre>
+<p>(changing them to their real values) when prompted. This is basically what dada_bridge.pl does itself.</p>
+<p>If you don't have a command line, try adding an account in a desktop mail reader. If these credentials work there, they'll most likely work for dada_bridge.pl.</p>
+<p>If your account information is correct and also logs in when you test the pop3 login information through dada_bridge.pl yourself, check to see if there isn't an email filter attached the account that looks at messages before they're delivered to the POP3 Mailbox and outright deletes messages because it triggered a flag.</p>
+<p>This could be the cause of mysterious occurences of messages never reaching the POP3 Mailbox.</p>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright (c) 1999 - 2012 Justin Simoni All rights reserved.</p>
+<p>
+</p>
+<hr />
+<h1><a name="license">LICENSE</a></h1>
+<p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.</p>
+
+</body>
+
+</html>

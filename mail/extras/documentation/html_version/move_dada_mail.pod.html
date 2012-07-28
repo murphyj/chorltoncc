@@ -1,0 +1,244 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Moving Dada Mail to a new Server/Account</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#moving_dada_mail_between_servers">Moving Dada Mail Between Servers</a></li>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#gather_some_information">Gather Some Information</a></li>
+	<ul>
+
+		<li><a href="#basic__or__contemporary_installation">&quot;Basic&quot;, or, &quot;Contemporary&quot; Installation?</a></li>
+		<ul>
+
+			<li><a href="#basic_installation">Basic Installation</a></li>
+			<li><a href="#contemporary_installation">Contemporary Installation</a></li>
+		</ul>
+
+		<li><a href="#backend">Backend</a></li>
+	</ul>
+
+	<li><a href="#old_server__download_stuff">Old Server: Download Stuff</a></li>
+	<ul>
+
+		<li><a href="#download_dada_mail__the_program">Download Dada Mail, &quot;The Program&quot;</a></li>
+		<li><a href="#download_the_dada_mail_files_directory">Download the Dada Mail Files directory</a></li>
+		<li><a href="#export_the_sql_database">Export the SQL Database</a></li>
+	</ul>
+
+	<li><a href="#new_server__upload_stuff">New Server: Upload Stuff</a></li>
+	<ul>
+
+		<li><a href="#upload_dada_mail__the_program">Upload Dada Mail, &quot;The Program&quot;</a></li>
+		<li><a href="#upload_the_dada_mail_files_directory">Upload the Dada Mail Files directory</a></li>
+		<li><a href="#import_the_sql_database">Import the SQL Database</a></li>
+	</ul>
+
+	<li><a href="#new_server__reconfigure_stuff">New Server: Reconfigure Stuff</a></li>
+	<ul>
+
+		<li><a href="#basic_installation">Basic Installation</a></li>
+		<li><a href="#contemporary_installation">Contemporary Installation</a></li>
+		<li><a href="#sql_backend">SQL Backend</a></li>
+		<li><a href="#change_permissions_of_the_mail_cgi_script_to_755">Change permissions of the mail.cgi script to 755</a></li>
+	</ul>
+
+	<li><a href="#last_things_to_do">Last Things to Do</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="moving_dada_mail_between_servers">Moving Dada Mail Between Servers</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="introduction">Introduction</a></h1>
+<p>Moving Dada Mail between servers will basically require you to move two sets of Stuff:</p>
+<p>Dada Mail, &quot;The Program&quot; and the group of files that make up your various mailing lists.</p>
+<p>Once you've moved over the Stuff, you will need to reconfigure Dada Mail for
+the new environment.</p>
+<p>
+</p>
+<hr />
+<h1><a name="gather_some_information">Gather Some Information</a></h1>
+<p>
+</p>
+<h2><a name="basic__or__contemporary_installation">&quot;Basic&quot;, or, &quot;Contemporary&quot; Installation?</a></h2>
+<p>We're going to only differentiate between two types of installations: &quot;Basic&quot; and, &quot;Contemporary&quot;.</p>
+<p>In recent version of Dada Mail, you can log into any list's control panel with your Dada Mail Root Password and go to the, <strong>Dada Mail Setup Info</strong> screen. This screen will state whether you have a Basic or Contemporary installation of Dada Mail.</p>
+<p>If this screen is not available, try to find which installation you have with these techniques:</p>
+<p>
+</p>
+<h3><a name="basic_installation">Basic Installation</a></h3>
+<p>A, &quot;Basic&quot; installation changes the configuration variables right in the, <code>dada/DADA/Config.pm</code> file - usually you want to be very much aware of the following variables:</p>
+<ul>
+<li><strong><a name="_program_root_password" class="item">$PROGRAM_ROOT_PASSWORD</a></strong>
+
+<li><strong><a name="_files" class="item">$FILES</a></strong>
+
+<li><strong><a name="_mailprog" class="item">$MAILPROG</a></strong>
+
+<li><strong><a name="_program_url" class="item">$PROGRAM_URL</a></strong>
+
+</ul>
+<p>You'll know if you have a, &quot;Basic&quot; installation of Dada Mail, if the,
+ <a href="#_files"><code>$FILES</code></a> variable in the, <code>dada/DADA/Config.pm</code> file is  filled out to a directory that <em>actually</em> exists and that directory holds files/directories that have something to do with Dada Mail.</p>
+<p>Note the path of the, <a href="#_files"><code>$FILES</code></a> variable.</p>
+<p>
+</p>
+<h3><a name="contemporary_installation">Contemporary Installation</a></h3>
+<p>A Contemporary Installation uses an outside configuration file to set the configuration variables in called, <code>.dada_config</code>.</p>
+<p>You'll know if you have a Contemporary Installation, if those same four variables in the, <code>dada/DADA/Config.pm</code> file:</p>
+<ul>
+<li><strong>$PROGRAM_ROOT_PASSWORD</strong>
+
+<li><strong>$FILES</strong>
+
+<li><strong>$MAILPROG</strong>
+
+<li><strong>$PROGRAM_URL</strong>
+
+</ul>
+<p>Are still in their default values and your Dada Mail seems to be 
+functioning fine. This probably means that your config variables are being read from an outside config file, called <code>.dada_config</code>.</p>
+<p>Before moving Dada Mail, note what the, <code>$PROGRAM_CONFIG_FILE_DIR</code> in the, <code>dada/DADA/Config.pm</code> is set to. If it's set to, &quot;auto&quot; look for the, <code>.dada_files</code> directory in your hosting account's home directory.</p>
+<p>
+</p>
+<h2><a name="backend">Backend</a></h2>
+<p>If you're using the <strong>Default</strong> backend for Dada Mail, you won't have anything extra to move, but if you're using one the SQL backends, you'll also need to export your SQL database and import it into a new database on the new server.</p>
+<p>If you're unsure whether you're running the Default backend or the SQL backend, first see what features are available to you in Dada Mail:</p>
+<p>Features such as <strong>Profile Fields</strong> and <strong>Profiles</strong> are only available to installations that use the SQL backend. Try logging into your list control panel with the Dada Mail Root Password and going to <em>Profiles - Profile Fields</em>. If you can make new fields, you have the SQL backend installed.</p>
+<p>Also, try going to the default screen of Dada Mail. If there are links to log into an individual profile, you have one of the SQL backend installed.</p>
+<p>You can make sure which backend you're using by looking at your configuration. Look in the outside config file (<code>.dada_config</code> if you're using a contemporary installation of Dada Mail, or the <code>dada/DADA/Config.pm</code> file if you're using a Basic installation).</p>
+<p>The variables you want to look for are:</p>
+<ul>
+<li><strong><a name="_subscriber_db_type" class="item">$SUBSCRIBER_DB_TYPE</a></strong>
+
+<li><strong><a name="_archive_db_type" class="item">$ARCHIVE_DB_TYPE</a></strong>
+
+<li><strong><a name="_settings_db_type" class="item">$SETTINGS_DB_TYPE</a></strong>
+
+<li><strong><a name="_session_db_type" class="item">$SESSION_DB_TYPE</a></strong>
+
+<li><strong><a name="_clickthrough_db_type" class="item">$CLICKTHROUGH_DB_TYPE</a></strong>
+
+</ul>
+<p>If this group of variables looks like this:</p>
+<pre>
+        $SUBSCRIBER_DB_TYPE       ||= 'PlainText'; 
+        $ARCHIVE_DB_TYPE          ||= 'Db'; 
+        $SETTINGS_DB_TYPE         ||= 'Db'; 
+        $SESSION_DB_TYPE          ||= 'Db';
+        $BOUNCE_SCORECARD_DB_TYPE ||= 'Db';
+        $CLICKTHROUGH_DB_TYPE     ||= 'Db';</pre>
+<p>is isn't present at all, or is commented out: You are using the Default backend of Dada Mail.</p>
+<p>If this group of variables looks like this and is <strong>not</strong> commented out:</p>
+<pre>
+        $SUBSCRIBER_DB_TYPE       = 'SQL'; 
+        $ARCHIVE_DB_TYPE          = 'SQL'; 
+        $SETTINGS_DB_TYPE         = 'SQL'; 
+        $SESSION_DB_TYPE          = 'SQL'; 
+        $BOUNCE_SCORECARD_DB_TYPE = 'SQL';
+        $CLICKTHROUGH_DB_TYPE     = 'SQL';</pre>
+<p>You are using the SQL backend of Dada Mail. The details of where your database is located will then be in the, <code>%SQL_PARAMS</code> variable. If that variable seems to be missing information, double-check that you are actually using the SQL backend.</p>
+<p>
+</p>
+<hr />
+<h1><a name="old_server__download_stuff">Old Server: Download Stuff</a></h1>
+<p>Once you've gathered the above information:</p>
+<ul>
+<li><strong><a name="basic_or_contemporary_installation" class="item">Basic or Contemporary Installation?</a></strong>
+
+<li><strong><a name="default_or_sql_backend" class="item">Default, or SQL backend?</a></strong>
+
+</ul>
+<p>It's time to download everything needed.</p>
+<p>
+</p>
+<h2><a name="download_dada_mail__the_program">Download Dada Mail, &quot;The Program&quot;</a></h2>
+<p>First, download Dada Mail, &quot;The Program&quot;. This will most likely be the directory named, <strong>dada</strong>, that's located in your <strong>cgi-bin</strong> directory. It'll be the same directory that contains the, <strong>mail.cgi</strong> file, when you map the URL of Dada Mail to the server path.</p>
+<p>For example, if the URL to Dada Mail is:</p>
+<p><em><a href="http://example.com/cgi-bin/dada/mail.cgi">http://example.com/cgi-bin/dada/mail.cgi</a></em></p>
+<p>You'll know that you're, <strong>dada</strong> directory is located in your <strong>cgi-bin</strong> direcotry. Download that <strong>dada</strong> directory.</p>
+<p>
+</p>
+<h2><a name="download_the_dada_mail_files_directory">Download the Dada Mail Files directory</a></h2>
+<p><strong>If you have a Basic Installation:</strong></p>
+<p>Download the directory that's set in the <code>dada/DADA/Config.pm</code>'s <a href="#_files"><code>$FILES</code></a> variable.</p>
+<p><strong>If you have a Contemporary Installation:</strong></p>
+<p>Download the, <code>.dada_files</code> directory, that's a part of your <code>$PROGRAM_CONFIG_FILE_DIR</code> variable. For example, if that variable is set to,</p>
+<p><em>/home/youraccount/.dada_files/.configs</em></p>
+<p>Download the directory, <em>/home/youraccount/.dada_files</em></p>
+<p>
+</p>
+<h2><a name="export_the_sql_database">Export the SQL Database</a></h2>
+<p><strong>If</strong> you're using the SQL backend, you'll also want to export the entire SQL database. The domain, database name, username and password should be in that, <code>%SQL_PARAMS</code> variable.</p>
+<p>
+</p>
+<hr />
+<h1><a name="new_server__upload_stuff">New Server: Upload Stuff</a></h1>
+<p>Now, you basically just have to upload everything you just downloaded.</p>
+<p>
+</p>
+<h2><a name="upload_dada_mail__the_program">Upload Dada Mail, &quot;The Program&quot;</a></h2>
+<p>We again suggest (for now) to upload the, <em>dada</em> directory into the new account's <em>cgi-bin</em>.</p>
+<p>
+</p>
+<h2><a name="upload_the_dada_mail_files_directory">Upload the Dada Mail Files directory</a></h2>
+<p>We suggest placing this directory in your home directory.</p>
+<p>
+</p>
+<h2><a name="import_the_sql_database">Import the SQL Database</a></h2>
+<p><strong>If</strong> you're using the SQL backend, you'll want to now import the SQL database.</p>
+<p>
+</p>
+<hr />
+<h1><a name="new_server__reconfigure_stuff">New Server: Reconfigure Stuff</a></h1>
+<p>Once everything is in place, you'll need to now reconfigure Dada Mail to work in your new environment.</p>
+<p>
+</p>
+<h2><a name="basic_installation">Basic Installation</a></h2>
+<p>If your old Dada Mail was set up with a Basic Installation, you'll need to change, at the very least, the <a href="#_files"><code>$FILES</code></a> variable in your <code>dada/DADA/Config.pm</code> file, to point to the new location of your Dada Mail Files Directory.</p>
+<p>
+</p>
+<h2><a name="contemporary_installation">Contemporary Installation</a></h2>
+<p>If your old Dada Mail was set up with a Contemporary Installation, you'll need to:</p>
+<p>Update the <code>$PROGRAM_CONFIG_FILE_DIR</code> variable in your <code>dada/DADA/Config.pm</code> file to point to the new location of your, <code>.dada_files/.configs</code> directory</p>
+<p>Update the, <code>$DIR</code> variable in your <code>.dada_files/.configs/.dada_config</code> file to point to the new location of your, <code>.dada_files</code> directory (yes, the same directory that your <code>.dada_files</code> directory lives within).</p>
+<p>
+</p>
+<h2><a name="sql_backend">SQL Backend</a></h2>
+<p><strong>If</strong> you are using the SQL backend, you will also have to update the login information located in the <code>%SQL_PARAMS</code> variable.</p>
+<p>
+</p>
+<h2><a name="change_permissions_of_the_mail_cgi_script_to_755">Change permissions of the mail.cgi script to 755</a></h2>
+<p>The last thing you will need to do is change the permissions of the <code>mail.cgi</code> script to, <code>755</code>. If you've followed and completed all the above steps, correctly, you're Dada Mail should be back up in the new location!</p>
+<p>
+</p>
+<hr />
+<h1><a name="last_things_to_do">Last Things to Do</a></h1>
+<p>If you've installed any additional plugins/extensions, make sure they are also configured correctly and have their permissions changed.</p>
+<p>Also, make sure any previous cronjobs are also set on the new hosting account.</p>
+
+</body>
+
+</html>

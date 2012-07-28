@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mailing Monitor</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#mailing_monitor_plugin">Mailing Monitor Plugin</a></li>
+	<li><a href="#installation">Installation</a></li>
+	<ul>
+
+		<li><a href="#change_permissions_of_mailing_monitor_cgi_to_755">Change permissions of &quot;mailing_monitor.cgi&quot; to 755</a></li>
+		<li><a href="#configure_your__dada_config_file">Configure your .dada_config file</a></li>
+		<li><a href="#setting_the_cronjob">Setting the cronjob</a></li>
+		<ul>
+
+			<li><a href="#command_line">Command Line</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#bugs_and_limitations">BUGS AND LIMITATIONS</a></li>
+	<li><a href="#see_also">SEE ALSO</a></li>
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#licence_and_copyright">LICENCE AND COPYRIGHT</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="mailing_monitor_plugin">Mailing Monitor Plugin</a></h1>
+<p>The Mailing Monitor plugin is used to monitor the health of mass mailings as they go out. Since mass mailings take a potentially a long time to finish, this plugin can help monitor a mass mailing, but more importantly, can help in restarting a mailing that has been, &quot;<strong>dropped</strong>&quot;.</p>
+<p>Mass Mailings can also be monitored in Dada Mail's list control panel under, <strong>Mass Mailing - Monitor Your Mailings</strong> and done so in a much more  interactive way, so the power of this plugin is when it's run as a cron job, &quot;behind the scenes&quot;. This also allows you to not have your list control panel open in a browser, until your mass mailing is finished.</p>
+<p>Mass Mailings <strong>drop</strong> because a mass mailing process may need to run longer than is allowed by your hosting environment - especially if you are on a shared hosting environment with limited and shared resources.</p>
+<p>
+</p>
+<hr />
+<h1><a name="installation">Installation</a></h1>
+<p>This plugin can be installed during a Dada Mail install/upgrade, using the included installer that comes with Dada Mail. The below installation instructions go through how to install the plugin manually.</p>
+<p>If you install the plugin using the Dada Mail installer, you will still have set the cronjob manually, which is covered below.</p>
+<p>
+</p>
+<h2><a name="change_permissions_of_mailing_monitor_cgi_to_755">Change permissions of &quot;mailing_monitor.cgi&quot; to 755</a></h2>
+<p>The, <code>mailing_monitor.cgi</code> plugin will be located in your, <em>dada/plugins</em> diretory. Change the script to, <code>755</code></p>
+<p>
+</p>
+<h2><a name="configure_your__dada_config_file">Configure your .dada_config file</a></h2>
+<p>Now, edit your <code>.dada_config</code> file, so that it shows the plugin in the left-hand menu, under the, <strong>Plugins</strong> heading:</p>
+<p>First, see if the following lines are present in your <code>.dada_config</code> file:</p>
+<pre>
+ # start cut for list control panel menu
+ =cut</pre>
+<pre>
+ =cut
+ # end cut for list control panel menu</pre>
+<p>If they are, remove them.</p>
+<p>Then, find these lines:</p>
+<pre>
+ #                                      {
+ #                                      -Title      =&gt; 'Mailing Monitor',
+ #                                      -Title_URL  =&gt; $PLUGIN_URL.&quot;/mailing_monitor.cgi&quot;,
+ #                                      -Function   =&gt; 'mailing_monitor',
+ #                                      -Activated  =&gt; 0,
+ #                                      },</pre>
+<p>Uncomment the lines, by taking off the, &quot;#&quot;'s:</p>
+<pre>
+                                        {
+                                        -Title      =&gt; 'Mailing Monitor',
+                                        -Title_URL  =&gt; $PLUGIN_URL.&quot;/mailing_monitor.cgi&quot;,
+                                        -Function   =&gt; 'mailing_monitor',
+                                        -Activated  =&gt; 0,
+                                        },</pre>
+<p>Save your <code>.dada_config</code> file.</p>
+<p>
+</p>
+<h2><a name="setting_the_cronjob">Setting the cronjob</a></h2>
+<p>Generally, setting the cronjob to have this plugin run automatically just means that you have to have a cronjob access a specific URL. The URL looks something like this:</p>
+<pre>
+ <a href="http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi?run=1&amp;verbose=1">http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi?run=1&amp;verbose=1</a></pre>
+<p>Where, <em><a href="http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi">http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi</a></em> is the URL to your copy of this plugin.</p>
+<p>A <strong>Best Guess</strong> at what the entire cronjob that's needed (using the, <code>curl</code> command to access the actual URL) to be set manually will appear in this plugin's list control panel under the fieldset labled, <strong>Manually Run Mailing Monitor</strong> in the textbox labeled, <strong>curl command example (for a cronjob):</strong>. It'll look something like this:</p>
+<pre>
+ /usr/bin/curl  -s --get --data run=1\;passcode=\;verbose=0  --url <a href="http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi">http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi</a></pre>
+<p>Where, <em><a href="http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi">http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi</a></em> is the URL to this plugin. We suggest running this cronjob every 5 to 15 minutes. A complete cronjob, with the time set for, &quot;every 5 minutes&quot; would look like this:</p>
+<pre>
+ */5 * * * * /usr/bin/curl  -s --get --data run=1\;passcode=\;verbose=0  --url <a href="http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi">http://example.com/cgi-bin/dada/plugins/mailing_monitor.cgi</a></pre>
+<p>
+</p>
+<h3><a name="command_line">Command Line</a></h3>
+<p>This plugin can also be called directory on the command line and that can itself be used for the cronjob:</p>
+<pre>
+        cd /home/youraccount/cgi-bin/dada/plugins; /usr/bin/perl ./mailing_monitor.cgi</pre>
+<p>You may pass the, <code>--noverbose</code> flag to have the script return nothing at all:</p>
+<pre>
+        cd /home/youraccount/cgi-bin/dada/plugins; /usr/bin/perl ./mailing_monitor.cgi --noverbose</pre>
+<p>By default, it will print out the mailing monitor report.</p>
+<p>
+</p>
+<hr />
+<h1><a name="bugs_and_limitations">BUGS AND LIMITATIONS</a></h1>
+<p>Please, let me know if you find any bugs.</p>
+<p>
+</p>
+<hr />
+<h1><a name="see_also">SEE ALSO</a></h1>
+<p>The Mailing List Sending FAQ has a whole lot of information about Dada Mail's Mailing Monitor, plugin features and Batch Sending:</p>
+<p><a href="FAQ-mailing_list_sending.pod.html">FAQ-mailing_list_sending.pod.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<p>Justin Simoni</p>
+<p>See: <a href="http://dadamailproject.com/contact">http://dadamailproject.com/contact</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="licence_and_copyright">LICENCE AND COPYRIGHT</a></h1>
+<p>Copyright (c) 1999 - 2012 Justin Simoni All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, 
+Boston, MA  02111-1307, USA.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Screen Cache</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#screen_cache">Screen Cache</a></li>
+	<li><a href="#with_profiles">with Profiles</a></li>
+	<li><a href="#with_an_utf_8_configuration">with an UTF-8 configuration</a></li>
+	<li><a href="#location_of_cache_screens">Location of Cache Screens</a></li>
+	<ul>
+
+		<li><a href="#types_of_screens_cached">Types of Screens Cached</a></li>
+	</ul>
+
+	<li><a href="#managing_the_screen_cache">Managing the Screen Cache</a></li>
+	<ul>
+
+		<li><a href="#screen_cache_plugin">Screen Cache Plugin</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="screen_cache">Screen Cache</a></h1>
+<p>Dada Mail's Screen Cache is a simple way to speed up certain parts of Dada Mail.</p>
+<p>When enabled, Dada Mail will cache the output to many of the often-visted screens, 
+including the default screen, the list screen and archive screens, archive result screens, 
+ as well as javascript files, small parts (widgets) of other templates and even images used
+by Dada Mail.</p>
+<p>Caching is especially useful for Dada Mail installations that have many lists, 
+a lot of archives on busy websites. Caching helps in limiting how much the backend
+database is hit - the less the database is queried, the less load there is on 
+your hosting account. Everybody wins!</p>
+<p>
+</p>
+<hr />
+<h1><a name="with_profiles">with Profiles</a></h1>
+<p>Users who are logged in via their Dada Mail Profile will still see custom screens
+on certain assets of Dada Mail, since these screens will be different for each user.</p>
+<p>
+</p>
+<hr />
+<h1><a name="with_an_utf_8_configuration">with an UTF-8 configuration</a></h1>
+<p>Dada Mail Screen Caches should be 100% comptable with unicode/UTF-8.</p>
+<p>
+</p>
+<hr />
+<h1><a name="location_of_cache_screens">Location of Cache Screens</a></h1>
+<p>Cached Screens are located in a directory called, <code>_screen_cache</code>, inside wherever
+your Dada Mail .tmp directory (<code>(.dada_files/.tmp/_screen_cache)</code>) is set up.</p>
+<p>Removing this directory is safe to do. If enabled, the cache will be re-created.</p>
+<p>
+</p>
+<h2><a name="types_of_screens_cached">Types of Screens Cached</a></h2>
+<ul>
+<li><strong><a name="the_dada_mail_default_screen" class="item">The Dada Mail default screen</a></strong>
+
+<li><strong><a name="the_dada_mail_administration_screen" class="item">The Dada Mail administration screen</a></strong>
+
+<li><strong><a name="list_screens" class="item">list screens</a></strong>
+
+<li><strong><a name="archive_screens" class="item">archive screens</a></strong>
+
+<li><strong><a name="screens" class="item">archive search result screens (in most cases)</a></strong>
+
+<li><strong><a name="many_administration_screens" class="item">many administration screens</a></strong>
+
+<li><strong><a name="rss_atom_feeds" class="item">RSS/Atom feeds</a></strong>
+
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="managing_the_screen_cache">Managing the Screen Cache</a></h1>
+<p>Usually, there's nothing you'll need to do, to keep your cache working just fine. 
+When you make any changes to any Mailing List's settings or archives, the cache will
+be automatically flushed of any files, to be re-created again.</p>
+<p>If you are working on a new list-wide or installation-wide design for Dada Mail, 
+it could be helpful to temporarily disable Screen Caching, until you're all set with your 
+design.</p>
+<p>Disabling the Screen Cache is as easy as setting the Dada Mail config variable, <code>$SCREEN_CACHE</code> to something 
+other than, <code>1</code>. You can re-enable it at anytime by setting the <code>$SCREEN_CACHE</code> variable to, <code>1</code>.</p>
+<p>
+</p>
+<h2><a name="screen_cache_plugin">Screen Cache Plugin</a></h2>
+<p>There's also a plugin available to view and selectively remove cached screens:</p>
+<p><a href="screen_cache.cgi.html">screen_cache.cgi.html</a></p>
+
+</body>
+
+</html>

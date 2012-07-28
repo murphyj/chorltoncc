@@ -1,0 +1,16 @@
+<!-- begin help_link_widget.tmpl --> 
+
+<!-- tmpl_if SHOW_HELP_LINKS --> 
+
+
+	<div class="buttonfloat">
+		<form action="<!-- tmpl_var HELP_LINKS_URL -->/<!-- tmpl_var screen -->.html" target="_blank" accept-charset="<!-- tmpl_var HTML_CHARSET -->"> 
+			<input class="help" type="submit" value="[?] <!-- tmpl_var title escape="HTML" -->" /> 
+		</form>
+	</div>
+	<div class="floatclear"></div>
+	
+
+<!-- /tmpl_if --> 
+
+<!-- end help_link_widget.tmpl --> 

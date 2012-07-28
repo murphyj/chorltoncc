@@ -1,0 +1,89 @@
+/* @override http://localhost:8888/wpplugindev/wp-content/plugins/vent/ventincludes/css/ventpublic.css?version=1 */
+
+div.vevent {
+	border: 1px dashed #ff945d;
+	background-color: #feffc8;
+	padding: 2px 5px;
+	text-align: left;
+}
+
+div.vevent img {
+	vertical-align: top;
+	margin-right: 5px;
+}
+
+div.vevent a.summary.url {
+	margin-right: 5px;	
+}
+
+div.vevent abbr {
+	border: none;
+}
+
+div.vevent .datesblock {
+	display: block;	
+	padding-left: 25px;
+}
+
+div.vevent .hidden {
+	display: none;
+}
+
+div.vevent.hidden {
+	border: none;
+	background-color: transparent;
+	padding: 2px 0px;
+}
+
+div.vevent.hidden a.summary.url {
+	display: none;	
+}
+
+div.vevent.hidden .datesblock {
+	display: none;
+}
+
+#events_list ul.ventlist li {
+	background: none;
+	list-style: none;
+	padding-left: 0;
+}
+#events_list ul.ventlist li img {
+	vertical-align: top;
+	margin-right: 5px;
+	padding: 0;
+	border: none;
+}
+
+#events_list ul.ventlist li .datesblock {
+	display: block;	
+	padding-left: 25px;
+}
+#events_list ul.ventlist li div.datesblock abbr {
+	border: none;
+}
+
+#next_event div.vevent {
+	
+	background: transparent;
+	border: none;	
+	padding: 0;
+	margin-top: 10px;
+}
+
+#next_event div.vevent a.summary.url {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#next_event div.vevent a img {
+	padding: 0;
+	background: transparent;
+	border: 0;
+	margin: 10px 0;
+}
+
+#next_event div.vevent .datesblock {
+	margin: 5px 0 0;
+	padding: 0;
+}

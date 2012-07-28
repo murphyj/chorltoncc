@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Geo\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-04-06 20:55+0100\n"
+"Last-Translator: Ben Huson <ben@thewhiteroom.net>\n"
+"Language-Team: Alberto <alberto@berriart.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+
+# Latitude
+msgid "Latitude"
+msgstr "Latitud"
+
+# Longitude
+msgid "Longitude"
+msgstr "Longitud"
+
+# Label for location search field in admin
+msgid "Search for location"
+msgstr "Buscar localización"
+
+# Label for location search field in admin (in brackets)
+msgid "town, postcode or address"
+msgstr "ciudad, código postal o dirección"
+
+# Admin search button
+msgid "Search"
+msgstr "Buscar"
+
+# Clear location link in admin
+msgid "clear location"
+msgstr "borrar localización"
+
+# Widget options - Title
+msgid "Title"
+msgstr "Título"
+
+# Widget options - Width
+msgid "Width"
+msgstr "Anchura"
+
+# Widget options - Height
+msgid "Height"
+msgstr "Altura"
+
+# Settings - Updated Message
+msgid "WP Geo settings updated"
+msgstr "Opciones de WP Geo actualizadas"
+
+# Settings - <h2> Page Title
+msgid "WP Geo Settings"
+msgstr "Opciones WP Geo"
+
+# Settings - <h3> General Settings Title
+msgid "General Settings"
+msgstr "Opciones generales"
+
+# Settings - Label for Google API Key field
+msgid "Google API Key"
+msgstr "Clave API de Google"
+
+# Settings - Label for Map Type field
+msgid "Map Type"
+msgstr "Tipo de mapa"
+
+# Settings - Label for Show Post Map field
+msgid "Show Post Map"
+msgstr "Mostrar mapa en artículos"
+
+# Settings - Show Post Map - At top of post
+msgid "At top of post"
+msgstr "Al principio del artículo"
+
+# Settings - Show Post Map - At bottom of post
+msgid "At bottom of post"
+msgstr "Al final del artículo"
+
+# Settings - Show Post Map - Manually
+msgid "Manually"
+msgstr "Manualmente"
+
+# Settings - Label for Default Map Width field
+msgid "Default Map Width"
+msgstr "Anchura predeterminada del mapa"
+
+# Settings - Label for Default Map Height field
+msgid "Default Map Height"
+msgstr "Altura predeterminada del mapa"
+
+# Settings - Label for Default Map Zoom field
+msgid "Default Map Zoom"
+msgstr "Zoom predeterminado del mapa"
+
+# Settings - Default Map Zoom - Zoomed In
+msgid "Zoomed In"
+msgstr "Acercar"
+
+# Settings - Default Map Zoom - Zoomed Out
+msgid "Zoomed Out"
+msgstr "Alejar"
+
+# Settings - Label for Default Map Controls fields
+msgid "Default Map Controls"
+msgstr "Controladores por defecto del mapa"
+
+# Settings - Default Map Controls - Large pan/zoom control
+msgid "Large pan/zoom control"
+msgstr "Controlador grande de zoom y dirección"
+
+# Settings - Default Map Controls - Smaller pan/zoom control
+msgid "Smaller pan/zoom control"
+msgstr "Controlador pequeño de zoom y dirección"
+
+# Settings - Default Map Controls - Small zoom control (no panning controls)
+msgid "Small zoom control (no panning controls)"
+msgstr "Controlador pequeño de zoom (sin controlador de dirección)"
+
+# Settings - Default Map Controls - No pan/zoom controls
+msgid "No pan/zoom controls"
+msgstr "Sin controlador de zoom y dirección"
+
+# Settings - Default Map Controls - Map Type
+msgid "Map Type Controls"
+msgstr "Controlador de tipo de mapa"
+
+# Settings - Default Map Controls - Map Type - Message
+msgid "You must select at least 2 map types for the control to show."
+msgstr "Debes escoger al menos 2 tipos de mapa para que se muestre el controlador"
+
+# Settings - Default Map Controls - Map Type - Normal
+msgid "Normal"
+msgstr "Normal"
+
+# Settings - Default Map Controls - Map Type - Satellite
+msgid "Satellite (photographic map)"
+msgstr "Satélite (mapa fotográfico)"
+
+# Settings - Default Map Controls - Map Type - Hybrid
+msgid "Hybrid (photographic map with normal features)"
+msgstr "Híbrido (fotógrafico con calles superpuestas)"
+
+# Settings - Default Map Controls - Map Type - Physical
+msgid "Physical (terrain map)"
+msgstr "Relieve (mapa del terreno)"
+
+# Settings - Default Map Controls - Other
+msgid "Other Controls"
+msgstr "Otros controles"
+
+# Settings - Default Map Controls - Other - Show map scale
+msgid "Show map scale"
+msgstr "Mostrar escala del mapa"
+
+# Settings - Default Map Controls - Other - Show collapsible overview map (in the corner of the map)
+msgid "Show collapsible overview map (in the corner of the map)"
+msgstr "Mostrar vista general del mapa plegable (en la esquina del mapa)"
+
+# Settings - Label for Show Maps On fields
+msgid "Show Maps On"
+msgstr "Mostrar mapas en"
+
+# Settings - Show Maps On - Pages
+msgid "Pages"
+msgstr "Páginas"
+
+# Settings - Show Maps On - Posts (single posts)
+msgid "Posts (single posts)"
+msgstr "Artículos (posts)"
+
+# Settings - Show Maps On - Posts home page
+msgid "Posts home page"
+msgstr "Artículos en la portada"
+
+# Settings - Show Maps On - Posts in date archives
+msgid "Posts in date archives"
+msgstr "Artículos en archivos por fecha"
+
+# Settings - Show Maps On - Posts in category archives
+msgid "Posts in category archives"
+msgstr "Artículos en páginas de categoría"
+
+# Settings - Label for Feeds fields
+msgid "Feeds"
+msgstr "Feeds"
+
+# Settings - Feeds - Checkbox
+msgid "Add geographic information"
+msgstr "Añadir información geográfica"
+
+# Settings - Save Changes Button Text
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+# Settings - <h2> Marker Settings Title
+msgid "Marker Settings"
+msgstr "Opciones del marcador"
+
+# Settings - Large Marker Title
+msgid "Large Marker"
+msgstr "Marcador grande"
+
+# Settings - Large Marker Description
+msgid "This is the default marker used to indicate a location on most maps."
+msgstr "Éste es el marcador por defecto que se usa en la mayoría de mapas."
+
+# Settings - Small Marker Title
+msgid "Small Marker"
+msgstr "Marcador pequeño"
+
+# Settings - Small Marker Description
+msgid "This is the default marker used for the WP Geo sidebar widget."
+msgstr "Éste es el marcador por defecto que usa WP Geo en el widget lateral."
+
+# Settings - Dot Marker Title
+msgid "Dot Marker"
+msgstr "Marcador de punto"
+
+# Settings - Dot Marker Description
+msgid "This marker image is not currently used but it is anticipated that it will be used to indicate less important locations in a future versions of WP Geo."
+msgstr "Este marcador no se usa actualmente pero será usado en un futuro por WP Geo para indicar puntos de menor importancia."
+
+# Admin Section Title
+msgid "WP Geo Location"
+msgstr "Localización WP Geo"
+
+# Admin - Google API Key Notice
+msgid "WP Geo is not currently active as you have not entered a Google API Key"
+msgstr "WP Geo no se activará hasta que introduzcas una clave de API de Google"
+
+# Admin - Please update your WP Geo settings
+msgid "Please update your WP Geo settings"
+msgstr "Por favor actualiza la configuración de WP Geo"
+
+# Settings - Label for Default Map Zoom field
+msgid "Default"
+msgstr "Predeterminado"
+
+# Admin - Show Polylines
+msgid "Show Polylines"
+msgstr "Mostrar polilíneas"
+
+# Admin - Hide Polylines
+msgid "Hide Polylines"
+msgstr "Ocultar polilíneas"
+
+# Admin - Polyline Colour
+msgid "Polyline Colour"
+msgstr "Color de polilínea"
+

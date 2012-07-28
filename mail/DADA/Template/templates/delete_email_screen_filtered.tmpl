@@ -1,0 +1,118 @@
+<!-- begin delete_email_screen_filtered.tmpl -->
+
+<!-- tmpl_set name="title" value="Verify Deletions" -->
+<p>
+ Manage Subscribers (<!-- tmpl_var type_title -->)
+&#187;
+Remove
+&#187;
+ <strong>
+ Verify
+</strong> 
+&#187;
+ Unsubscribe
+</p>
+
+
+<form name="email_form" action="<!-- tmpl_var S_PROGRAM_URL -->" method="post" accept-charset="<!-- tmpl_var HTML_CHARSET -->">
+ <input type="hidden" name="process" value="delete" />
+ <input type="hidden" name="f"       value="remove_subscribers" />
+ <input type="hidden" name="type"    value="<!-- tmpl_var type -->" />
+  
+<!-- tmpl_if have_subscribed_addresses -->
+	 
+	<fieldset> 
+	 <legend>
+	  Verified Addresses
+	 </legend>
+	
+	 <p>
+	  These addresses have passed verification.
+	 <p>
+	 
+
+ 
+<!-- tmpl_loop name="addresses_to_remove" --> 
+	 
+	 <input type="checkbox" name="address" value="<!-- tmpl_var email escape="HTML" -->" checked="checked" /> &nbsp; <!-- tmpl_var email escape="HTML" -->
+	 <br />
+	 
+<!--/tmpl_loop-->
+ 
+
+</fieldset> 
+
+
+
+ <div class="buttonfloat">
+  <input type="button" class="cautionary" value="Re-Enter Email List" onclick="history.back()" />
+  <input type="submit" class="processing" value="Unsubscribe Checked <!-- tmpl_var type_title -->" />
+ </div>
+</form> 
+<div class="floatclear"></div>
+
+
+<!--/tmpl_if--> 
+
+<!-- tmpl_if not_subscribed_addresses --> 
+	
+	<fieldset> 
+	 <legend>
+		Not Subscribed Addresses
+	</legend>
+	
+	<p>
+	 These addresses are not part of your <!-- tmpl_var type_title --> currently.
+	</p>
+	
+	<ul>
+	 
+	<!-- tmpl_loop name="not_subscribed_addresses" -->
+		 
+		 <li>
+		  <p>
+		   <!-- tmpl_var email escape="HTML" -->
+		  </p>
+		 </li>
+		 
+	<!--/tmpl_loop-->
+	 
+	</ul>
+	
+	</fieldset>
+
+<!--/tmpl_if-->
+
+<!-- tmpl_if have_invalid_addresses -->
+	
+	
+	<fieldset> 
+	 <legend>
+	Invalid Email Addresses
+	 </legend>
+
+
+	<p>
+	 These addresses did not go through validation successfully. 
+	</p>
+	
+	<ul>
+	 
+	<!-- tmpl_loop name="invalid_addresses" -->
+		 
+		 <li>
+		  <p>
+		   <!-- tmpl_var email escape="HTML" -->
+		  </p>
+		 </li>
+		 
+	<!--/tmpl_loop-->
+	 
+	</ul>
+	
+	</fieldset>
+	
+	
+<!--/tmpl_if--> 
+
+<!-- end delete_email_screen_filtered.tmpl -->

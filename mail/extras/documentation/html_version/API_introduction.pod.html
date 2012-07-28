@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>The Dada Mail Libraries API</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#the_dada_mail_libraries_api">The Dada Mail Libraries API</a></li>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#dada__app">DADA::App</a></li>
+	<ul>
+
+		<li><a href="#dada__app__bouncehandler__scorekeeper">DADA::App::BounceHandler::ScoreKeeper</a></li>
+		<li><a href="#dada__app__dbihandle">DADA::App::DBIHandle</a></li>
+		<li><a href="#dada__app__error">DADA::App::Error</a></li>
+		<li><a href="#dada__app__formatmessages">DADA::App::FormatMessages</a></li>
+		<li><a href="#dada__app__genericdbfile">DADA::App::GenericDBFile</a></li>
+		<li><a href="#dada__app__guts">DADA::App::Guts</a></li>
+		<li><a href="#dada__app__licenses">DADA::App::Licenses</a></li>
+		<li><a href="#dada__app__logsearch">DADA::App::LogSearch</a></li>
+		<li><a href="#dada__app__masssend">DADA::App::MassSend</a></li>
+		<li><a href="#dada__app__messages">DADA::App::Messages</a></li>
+		<li><a href="#dada__app__mymimelitehtml">DADA::App::MyMIMELiteHTML</a></li>
+		<li><a href="#dada__app__pop3tools">DADA::App::POP3Tools</a></li>
+		<li><a href="#dada__app__screencache">DADA::App::ScreenCache</a></li>
+		<li><a href="#dada__app__session">DADA::App::Session</a></li>
+		<li><a href="#dada__app__subscribers_">DADA::App::Subscribers&gt;</a></li>
+	</ul>
+
+	<li><a href="#dada__config">DADA::Config</a></li>
+	<li><a href="#dada__mail">DADA::Mail</a></li>
+	<ul>
+
+		<li><a href="#dada__mail__send">DADA::Mail::Send</a></li>
+		<li><a href="#dada__mail__mailout">DADA::Mail::MailOut</a></li>
+	</ul>
+
+	<li><a href="#dada__mailinglist_pm">DADA::MailingList.pm</a></li>
+	<li><a href="#dada__mailinglist">DADA::MailingList</a></li>
+	<ul>
+
+		<li><a href="#dada__mailinglist__archives">DADA::MailingList::Archives</a></li>
+		<li><a href="#dada__mailinglist__schedules">DADA::MailingList::Schedules</a></li>
+		<li><a href="#dada__mailinglist__settings">DADA::MailingList::Settings</a></li>
+		<li><a href="#dada__mailinglist__subscriber">DADA::MailingList::Subscriber</a></li>
+		<ul>
+
+			<li><a href="#dada__mailinglist__subscriber__validate">DADA::MailingList::Subscriber::Validate</a></li>
+		</ul>
+
+		<li><a href="#dada__mailinglist__subscribers">DADA::MailingList::Subscribers</a></li>
+	</ul>
+
+	<li><a href="#dada__profile__">DADA::Profile::</a></li>
+	<ul>
+
+		<li><a href="#dada_profile__fields">DADA:Profile::Fields</a></li>
+		<li><a href="#dada__profile__session">DADA::Profile::Session</a></li>
+	</ul>
+
+	<li><a href="#dada__profilefieldsmanager">DADA::ProfileFieldsManager</a></li>
+	<li><a href="#dada__template">DADA::Template</a></li>
+	<ul>
+
+		<li><a href="#dada__template__html">DADA::Template::HTML</a></li>
+		<li><a href="#dada__template__widgets">DADA::Template::Widgets</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="the_dada_mail_libraries_api">The Dada Mail Libraries API</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="introduction">Introduction</a></h1>
+<p>Dada Mail's API and library design/structure has been created extremely piecemeal through it's almost ten year history of being a program. Dada Mail started out as a 90k single CGI perl script, but is now composed of more than 200 different libraries and many, many CPAN dependencies. As features were added, so has the API been enlarged. A, &quot;Grand Scheme&quot; has never been made of how Dada Mail was to be designed, but the growth of the API is much more akin to a city, or other organic organism.</p>
+<p>This doc is to help give you a birds eye view of the API  and describe which  modules do what. We understand that not all modules may be covered.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__app">DADA::App</a></h1>
+<p>The <code>DADA::App</code> namespace holds a mish-mash of modules that make up the program's behaviour, which doesn't fit in anywhere else. Very quickly:</p>
+<p>
+</p>
+<h2><a name="dada__app__bouncehandler__scorekeeper">DADA::App::BounceHandler::ScoreKeeper</a></h2>
+<p>Used to manage the, &quot;Bounce Score Card&quot; for the bounce handler</p>
+<p>
+</p>
+<h2><a name="dada__app__dbihandle">DADA::App::DBIHandle</a></h2>
+<p>A wrapper around <code>DBI</code> for SQL database access</p>
+<p>
+</p>
+<h2><a name="dada__app__error">DADA::App::Error</a></h2>
+<p>Displays pretty HTML error screens</p>
+<p>
+</p>
+<h2><a name="dada__app__formatmessages">DADA::App::FormatMessages</a></h2>
+<p>The main templating system for email messages. Also see <code>DADA::Template::Widgest</code></p>
+<p>
+</p>
+<h2><a name="dada__app__genericdbfile">DADA::App::GenericDBFile</a></h2>
+<p>This module is used as a base for the majority of Dada Mail's DB File support.</p>
+<p>
+</p>
+<h2><a name="dada__app__guts">DADA::App::Guts</a></h2>
+<p>This module is most likely the oldest module in Dada Mail and is the dump of utility subroutines. If you're looking at how to validate an email address, it's in here (for example)</p>
+<p>
+</p>
+<h2><a name="dada__app__licenses">DADA::App::Licenses</a></h2>
+<p>Stores the GPL for easy access</p>
+<p>
+</p>
+<h2><a name="dada__app__logsearch">DADA::App::LogSearch</a></h2>
+<p>Contains dead-simple search of plain text files.</p>
+<p>
+</p>
+<h2><a name="dada__app__masssend">DADA::App::MassSend</a></h2>
+<p>Subroutines in this module are subroutines that used to live in the <code>mail.cgi</code> file, but were taken out, due to being complicated and large. It's hoped that doing so would speed up execution of the <code>mail.cgi</code> script.</p>
+<p>
+</p>
+<h2><a name="dada__app__messages">DADA::App::Messages</a></h2>
+<p>Holds subroutines for often used email messages, like the confirmation message. Also has a high-level subroutine for creating email messages, to be passed to, <code>DADA::Mail::Send</code></p>
+<p>
+</p>
+<h2><a name="dada__app__mymimelitehtml">DADA::App::MyMIMELiteHTML</a></h2>
+<p>A wrapper around, <code>MIME::Lite::HTML</code> that fixes a lot of annoyances.</p>
+<p>
+</p>
+<h2><a name="dada__app__pop3tools">DADA::App::POP3Tools</a></h2>
+<p>A wrapper around <code>Mail::POP3Client</code> and provides the majority of POP3 access and support in Dada Mail.</p>
+<p>
+</p>
+<h2><a name="dada__app__screencache">DADA::App::ScreenCache</a></h2>
+<p>Gives caching support for HTML screens in Dada Mail</p>
+<p>
+</p>
+<h2><a name="dada__app__session">DADA::App::Session</a></h2>
+<p>Session/State management for access to the list control panel. See, <code>DADA::Profile::Session</code> for session/state management of Dada Mail Profiles. Both this and that other module are mostly wrappers around <code>CGI::Session</code></p>
+<p>
+</p>
+<h2><a name="dada__app__subscribers_">DADA::App::Subscribers&gt;</a></h2>
+<p>Holds extremely high level subroutines to work directly with Dada Mail's subscription and unsubsription system. Extremely useful. API is a little tricky.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__config">DADA::Config</a></h1>
+<p>Holds the default configuration of Dada Mail. Must be customized when Dada Mail is installed, but hopefully minimally. It's better to save customizations in an installation in an outside configuration file. In Dada Mail, this is the, <code>.dada_config</code> file.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__mail">DADA::Mail</a></h1>
+<p>
+</p>
+<h2><a name="dada__mail__send">DADA::Mail::Send</a></h2>
+<p><code>DADA::Mail::Send</code> is used to send out messages, both individually and to an entire mailing list. It's very convoluted and contains extremely large dragons. It also works pretty well, but isn't a pearl of coding aestheticism.</p>
+<p>It's main job is to send mail, as the name suggests. For messages to an entire mailing list, its uses <code>DADA::Mail::MailOut</code> extremely closely.</p>
+<p>
+</p>
+<h2><a name="dada__mail__mailout">DADA::Mail::MailOut</a></h2>
+<p><code>DADA::Mail::MailOut</code> is used to manage and monitor sending a Mailing List Message. A Mailing List Message goes to (primarily) an entire mailing list full of subscribers. When a Mailing List Message is sent out a ton of meta information is created about the actual sending of the message, everything from a copy of the original message, to information about where the sending process is, how long its taken, if the message has been paused, etc. It's fairly well documented, but still very complicated on the inside. It's not very complicated to use, though. Bugs in this module are very hard to fix.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__mailinglist_pm">DADA::MailingList.pm</a></h1>
+<p>Although it sounds lofty, <code>DADA::MailingList.pm</code> is mostly used to create and remove mailing lists. Most of the API for actual mailing lists is in the DADA::MailingList namespace.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__mailinglist">DADA::MailingList</a></h1>
+<p>This namespace maps out various major components that make up a, &quot;Mailing List&quot; It's one of the oldest namespaces in Dada Mail and also one of the most fractured, given what it has to do. There's no one &quot;mailing list&quot; object to use - each part of a mailing list has to be used separately. This may change, in the future.</p>
+<p>
+</p>
+<h2><a name="dada__mailinglist__archives">DADA::MailingList::Archives</a></h2>
+<p><code>DADA::MailingList::Archives</code> handles adding/editing/removing archived messages - messages sent by a mailing list, that are later saved. It also handles searching and various HTML formatting, including RSS/atom feeds. The one module is very monolithic and is due for being chopped up into much more manageable pieces.</p>
+<p>
+</p>
+<h2><a name="dada__mailinglist__schedules">DADA::MailingList::Schedules</a></h2>
+<p>Mailing List schedules are messages that are saved to be sent in the future. This module takes care of adding/editing/removing them, as well as the scheduling part of actually sending them out.</p>
+<p>
+</p>
+<h2><a name="dada__mailinglist__settings">DADA::MailingList::Settings</a></h2>
+<p><code>DADA::MailingList::Settings</code> namespace works with a mailing list's settings and options. Pretty straightforward.</p>
+<p>
+</p>
+<h2><a name="dada__mailinglist__subscriber">DADA::MailingList::Subscriber</a></h2>
+<p>Strangely enough, <code>DADA::MailingList::Subscriber</code> is a recent split from <code>DADA::MailingList::Subscribers</code>.  It's used when you want to work with an individual subscriber, mostly to add/edit/remove/copy one subscriber on one list.</p>
+<p>
+</p>
+<h3><a name="dada__mailinglist__subscriber__validate">DADA::MailingList::Subscriber::Validate</a></h3>
+<p>Holds validation routines to make sure the subscriber is allowed to subscribe. It's API is also not used directly by Dada Mail (yet), but probably used via the older, <code>DADA::MailingList::Subscribers</code> API.</p>
+<p>
+</p>
+<h2><a name="dada__mailinglist__subscribers">DADA::MailingList::Subscribers</a></h2>
+<p><code>DADA::MailingList::Subscribers</code> is generally used when you want to work with all of the subscribers of a mailing list. This could involve adding/editing/removing en-mass and its methods are optimized for more than one action at a time.</p>
+<p>Its methods also have indirect access to Dada Mail Profile information, as well as a backwards-compatibility with the new <code>DADA::MailingList::Subscriber</code> namespace, as most of the code of Dada Mail deosn't actually work with <code>DADA::MailingList::Subscriber</code> directly yet.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__profile__">DADA::Profile::</a></h1>
+<p>The modules that comprise the <code>DADA::Profile</code> namespace are some of the newest in the API. They comprise the API for Dada's, &quot;Profiles&quot;, which are very much separate from Mailing Lists.</p>
+<p>A Profile in Dada Mail holds meta information about an email address, which may be subscribed to one or many Dada Mail mailing lists.</p>
+<p>
+</p>
+<h2><a name="dada_profile__fields">DADA:Profile::Fields</a></h2>
+<p>Dada Mail Subscriber Profile Fields, once called, &quot;Subscriber Profile Fields&quot; holds free-form information tied to a Profile. This information can be anything that's been set by the list owners - things like, Name, Age, City, State - whatever information a list owner may want to capture, other than the email address, when an email address is subscribed to a list.</p>
+<p>
+</p>
+<h2><a name="dada__profile__session">DADA::Profile::Session</a></h2>
+<p><code>DADA::Profile::Session</code> is a wrapper (basically) around <code>CGI::Session</code> and handles the web-based profile control panel session/state handling for profile users themselves to manage their own profiles.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__profilefieldsmanager">DADA::ProfileFieldsManager</a></h1>
+<p><code>DADA::ProfileFieldsManager</code> is the API to change the design of the Subscriber Profile Fields that Dada Mail can manage. As well as the fields themselves, it also provides the API for the meta information about the various fields. This meta information is currently very bare-bones, but may be developed further, in the future.</p>
+<p>
+</p>
+<hr />
+<h1><a name="dada__template">DADA::Template</a></h1>
+<p>The DADA::Template namespace holds objects for generation of HTML and email messages via (mostly) templates. It's another very old API that's in need of a revision</p>
+<p>
+</p>
+<h2><a name="dada__template__html">DADA::Template::HTML</a></h2>
+<p>This is another one of the oldest modules in DADA Mail, it's slowly being deprecated, but still provides subroutines for the main, &quot;List&quot; template, as well as the, &quot;Admin&quot; template. These two templates are used for wrappers around content.</p>
+<p>
+</p>
+<h2><a name="dada__template__widgets">DADA::Template::Widgets</a></h2>
+<p><code>DADA::Template::Widgets</code>, as the name suggests, was first created to hold methods that would be called to return often-used pieces of HTML, like a subscription form, or even smaller things, like a HTML form field that holds a popup menu of all the lists.</p>
+<p>It still does that, but it's most important job is as the major templating system for most all of Dada Mail, HTML screens and email messages included. The most important and also most complicated subroutine is, <code>screen()</code>, which is a very fancy wrapper around what Dada Mail uses for its templating engine: <code>HTML::Template</code> and <code>HTML::Template::Expr</code>. Most every other method in, <code>DADA::Template::Widgets</code> calls screen to create the HTML, except for certain form fields, which are more easily created by wrapping calls to, <code>CGI.pm</code></p>
+<p><code>screen()</code> is fairly well documented and worth a look.</p>
+
+</body>
+
+</html>

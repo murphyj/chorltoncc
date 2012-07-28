@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DADA::Profile::Fields</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#public_methods">Public Methods</a></li>
+	<ul>
+
+		<li><a href="#new">new</a></li>
+		<li><a href="#insert">insert</a></li>
+		<li><a href="#get">get</a></li>
+		<li><a href="#exists">exists</a></li>
+		<li><a href="#remove">remove</a></li>
+	</ul>
+
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#licence_and_copyright">LICENCE AND COPYRIGHT</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="name">NAME</a></h1>
+<p>DADA::Profile::Fields</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="public_methods">Public Methods</a></h1>
+<p>
+</p>
+<h2><a name="new">new</a></h2>
+<pre>
+ my $pf = DADA::Profile::Fields-&gt;new</pre>
+<p><code>new</code> requires no paramaters.</p>
+<p>A <code>DADA::Profile::Fields</code> object will be returned.</p>
+<p>
+</p>
+<h2><a name="insert">insert</a></h2>
+<pre>
+ $df-&gt;insert(
+ { 
+        -email =&gt; 'user@example.com',
+ }      
+ );</pre>
+<p><code>insert</code> inserts a new record into the profile table. This method requires a few paramaters:</p>
+<p><code>-email</code> is required and should hold a valid email address in the form of: <code>user@example.com</code></p>
+<p><code>-fields</code> holds the Subscriber Profile Fields passed as a hashref. It is an optional paramater.</p>
+<p><code>-mode</code> sets the way the new profile will be created and can either be set to, <code>writeover</code> or, <code>preserve</code></p>
+<p>When set to, <code>writeover</code>, any existing profile belonging to the email passed in the &lt;-email&gt; paramater will be clobbered.</p>
+<p>When set to, <code>preserve</code>, this method will first look and see if an already existing profile exists and if so, will not create a new one, but simply exit the method.</p>
+<p><code>writeover</code> is the default, if no paramater is passed.</p>
+<p><code>-confirmed</code> confirmed can also be passed with a value of either <code>1</code> or, <code>0</code>, with <code>1</code> being the default if the paramater is not passed.</p>
+<p>Unconfirmed profiles are marked as existing, but not, &quot;live&quot; as a way to save the profile information, until the profile can be confirmed, by a user.</p>
+<p>This method should return, <code>1</code> on success.</p>
+<p>
+</p>
+<h2><a name="get">get</a></h2>
+<pre>
+ my $prof = $pf-&gt;get;</pre>
+<p><code>get</code> returns the Subscriber Profile Fields for the email address passed in, <code>-email</code> as a hashref.</p>
+<p><code>-email</code> is a required paramater. Not passing it will cause this method to return, <code>undef</code>.</p>
+<p>Passing an email that doesn't have a profile saved will also return, <code>undef</code>. Check before by using, <code>exists()</code></p>
+<p><code>-dotted</code> is an optional paramter, and will return the keys of the hashref appended with, <code>subscriber.</code></p>
+<p>
+</p>
+<h2><a name="exists">exists</a></h2>
+<pre>
+        my $exists = $pf-&gt;exists(
+                {
+                        -email =&gt; 'user@example.com', 
+                }
+        );</pre>
+<p><code>exists</code> return either <code>1</code>, if the profile associated with the email address passed in the <code>-email</code> paramater has a profile</p>
+<p>or, <code>0</code> if there is no profile.</p>
+<p>
+</p>
+<h2><a name="remove">remove</a></h2>
+<pre>
+ $pf-&gt;remove(
+        {
+                -email =&gt; 'user@example.com', 
+        }
+ );</pre>
+<p><code>remove</code> removes the Subscriber Profile Fields assocaited with the email address passed in the 
+<code>-email</code> paramater.</p>
+<p><code>remove</code> will return the number of rows removed - this should hopefully be only <code>1</code>. Any larger number 
+would be a serious problem.</p>
+<p><code>-email</code> is a required paramater. Not passing it will cause this method to return, <code>undef</code>.</p>
+<p>Passing an email that doesn't have a profile saved will also return, <code>undef</code>. Check before by using, <code>exists()</code></p>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<p>Justin Simoni <a href="http://dadamailproject.com">http://dadamailproject.com</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="licence_and_copyright">LICENCE AND COPYRIGHT</a></h1>
+<p>Copyright (c) 1999 - 2012 Justin Simoni All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, 
+Boston, MA  02111-1307, USA.</p>
+
+</body>
+
+</html>

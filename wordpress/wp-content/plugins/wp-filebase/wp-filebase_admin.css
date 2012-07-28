@@ -1,0 +1,78 @@
+.wpfilebase-progress {
+	margin: 4px;
+	border: 1px solid #dfdfdf;	
+}
+
+.wpfilebase-progress .label {
+	position: relative;
+	width: 100%;
+	height: 26px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.wpfilebase-date-edit p {
+	/* hide the buttons */
+	display: none;
+}
+
+.wpfilebase-list .offline {
+	/* color: #d33; */
+	background-color: #f99;
+}
+
+.wpfilebase-tpledit {
+	width: 98%;
+	font-size: 9px;
+	font-family: Consolas, Monaco, Courier, monospace;
+}
+
+#wpfilebaseopttabs {
+	border: 1px solid #e3e3e3;
+}
+
+#wpfilebaseopttabs legend {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.wpfilebase-optmenu {
+	background:#e3e3e3;
+	border-bottom:none;
+	margin:0 0 3px;
+	padding:3px 1em 0;
+}
+.wpfilebase-optmenu li {height:25px;display:inline;line-height:200%;list-style:none;text-align:center;white-space:nowrap; margin-right: 15px;}
+.wpfilebase-optmenu li a{color:#21759b;font-size:12px;text-decoration:none;padding:.3em .4em .4em;}
+.wpfilebase-optmenu li a:hover{color:#D54E21;}
+.wpfilebase-optmenu li.ui-tabs-selected{font-weight:700;background:#f9f9f9;color:#1C6280;padding:0.3em 0 0.4em;}
+.wpfilebase-optmenu li.ui-tabs-selected a{color:#464646;}
+.wpfilebase-optmenu li.ui-tabs-selected a:hover{background:#D54E21;color:#fff;}
+.wpfilebase-optmenu .tabs-hide{display:none;}
+
+.wpfilebase-opttab {
+	margin: 15px;
+}
+
+#wpfilebase-donate {
+	width: 350px;
+	margin: 30px auto 0px auto;
+	padding: 20px;
+	border: 2px solid #c90;
+	background-color: #ff9;
+	
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#wpfilebase-donate form {
+	margin: 40px;
+	text-align: center;
+}
+
+#wpfilebase-managebtns a {
+	/*margin: 20px; 5px 5px 10px 0px;*/
+	line-height: 30px;
+}

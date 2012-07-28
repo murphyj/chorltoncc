@@ -1,0 +1,541 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Tracker</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#tracker___tracker_cgi">Tracker - tracker.cgi</a></li>
+	<ul>
+
+		<li><a href="#birds_eye_view">Birds-Eye View</a></li>
+		<li><a href="#individual_messages_campaigns">Individual Messages/Campaigns</a></li>
+	</ul>
+
+	<li><a href="#screencasts">Screencasts</a></li>
+	<ul>
+
+		<li><a href="#part_1">Part 1</a></li>
+		<li><a href="#part_2">Part 2</a></li>
+	</ul>
+
+	<li><a href="#installing_tracker_cgi">Installing tracker.cgi</a></li>
+	<ul>
+
+		<li><a href="#list_control_panel_menu">List Control Panel Menu</a></li>
+	</ul>
+
+	<li><a href="#using_tracker_cgi">Using tracker.cgi</a></li>
+	<ul>
+
+		<li><a href="#preferences">Preferences</a></li>
+		<ul>
+
+			<li><a href="#enable_clickthrough_tracking">Enable Clickthrough Tracking</a></li>
+			<ul>
+
+				<li><a href="#clickthrough_track_all_message_links">Clickthrough Track All Message Links</a></li>
+			</ul>
+
+			<li><a href="#enable_open_messages_logging">Enable Open Messages Logging</a></li>
+			<li><a href="#enable_subscriber_count_logging">Enable Subscriber Count Logging</a></li>
+			<li><a href="#enable_forward_to_a_friend_logging">Enable &quot;Forward to a Friend&quot; Logging</a></li>
+			<li><a href="#enable_archive_views_logging">Enable Archive Views Logging</a></li>
+			<li><a href="#enable_bounce_logging">Enable Bounce Logging</a></li>
+			<li><a href="#clean_up_tracker_reports">Clean Up Tracker Reports</a></li>
+		</ul>
+
+		<li><a href="#clickthroughs">Clickthroughs</a></li>
+		<ul>
+
+			<li><a href="#backwards_compatibility_with_the__redirect___tag">Backwards Compatibility with the [redirect=] tag</a></li>
+			<li><a href="#clickthrough_tags_and_wysiwyg_editors__fckeditor_ckeditor_">Clickthrough Tags and WYSIWYG editors (FCKeditor/CKeditor)</a></li>
+			<li><a href="#limitations_of_redirect_tags">Limitations of Redirect tags</a></li>
+			<li><a href="#capturing_additional_paramaters_with_redirect_tags">Capturing Additional Paramaters with Redirect Tags</a></li>
+		</ul>
+
+		<li><a href="#open_message_logging">Open Message Logging</a></li>
+		<ul>
+
+			<li><a href="#limitations_of_open_message_logging">Limitations of Open Message Logging</a></li>
+		</ul>
+
+		<li><a href="#subscriber_count_logging">Subscriber Count Logging</a></li>
+	</ul>
+
+	<li><a href="#specific_plugin_config_variables">Specific Plugin Config Variables</a></li>
+	<ul>
+
+		<li><a href="#plugin_name">Plugin_Name</a></li>
+		<li><a href="#plugin_url">Plugin_URL</a></li>
+		<li><a href="#geo_ip_db">Geo_IP_Db</a></li>
+	</ul>
+
+	<li><a href="#getting_the_most_out_of_the_tracker_plugin">Getting the Most Out of the Tracker Plugin</a></li>
+	<ul>
+
+		<li><a href="#turn_on_archiving">Turn On Archiving</a></li>
+		<li><a href="#install_the_bounce_handler">Install the Bounce Handler</a></li>
+		<li><a href="#send_html_messages_if_you_want_message_open_logging">Send HTML Messages if you want Message Open logging</a></li>
+		<li><a href="#try_tracking_all_links_in_a_message">Try tracking all links in a message</a></li>
+		<ul>
+
+			<li><a href="#discussion_lists_and_clickthrough_tracking">Discussion Lists and Clickthrough Tracking</a></li>
+		</ul>
+
+		<li><a href="#sending_a_test_message">Sending a Test Message?</a></li>
+	</ul>
+
+	<li><a href="#compatibility_with_clickthrough_tracking_cgi">Compatibility with clickthrough_tracking.cgi</a></li>
+	<ul>
+
+		<li><a href="#upgrade_notes">Upgrade Notes</a></li>
+		<ul>
+
+			<li><a href="#_admin_menu">$ADMIN_MENU</a></li>
+			<ul>
+
+				<li><a href="#importing_old_clickthrough_logs">Importing Old Clickthrough Logs</a></li>
+			</ul>
+
+		</ul>
+
+	</ul>
+
+	<li><a href="#copyright">COPYRIGHT</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="tracker___tracker_cgi">Tracker - tracker.cgi</a></h1>
+<p>The Tracker plugin creates fancy reports of  activity and link 
+clickthroughs from your mass mailing messages.</p>
+<p>You can think of a mass mailing being a &quot;campaign&quot; if you'd like.</p>
+<p>The activities that are logged and reported include:</p>
+<ul>
+<li><strong><a name="subscribers_when_a_mass_mailing_was_sent_out" class="item"># subscribers when a mass mailing was sent out</a></strong>
+
+<li><strong><a name="of_recorded_clickthroughs" class="item"># of recorded clickthroughs</a></strong>
+
+<li><strong><a name="of_recorded_opens_views" class="item"># of recorded opens/views</a></strong>
+
+<li><strong><a name="bounces_both_soft_and_hard" class="item"># bounces, both soft and hard</a></strong>
+
+</ul>
+<p>
+</p>
+<h2><a name="birds_eye_view">Birds-Eye View</a></h2>
+<p>These fancy reports include the above information in tabular data, as well 
+as in a line graph, for past mass mailings to help you spot general trends. 
+This information can also be exported into .csv files, giving you more flexibility, 
+specific to your needs.</p>
+<p>The Tracker also displays a pie chart showing the breakdown of your 
+current subscribers based on their domain.</p>
+<p>
+</p>
+<h2><a name="individual_messages_campaigns">Individual Messages/Campaigns</a></h2>
+<p>Along with the birds-eye view of seeing data of many messages at once, each mass mailing/campaign
+can also be explored.</p>
+<ul>
+<li><strong><a name="clickthroughs_are_broken_down_per_of_clicks_per_link" class="item">Clickthroughs are broken down per # of clicks per link</a></strong>
+
+<li><strong><a name="clickthroughs_are_also_broken_down_by_country_of_origin_displayed_in_both_a_table_and_map" class="item">Clickthroughs are also broken down by country of origin, displayed in both a 
+table and map.</a></strong>
+
+<li><strong><a name="message_opens_are_also_broken_down_by_country_of_origin_and_displayed_both_in_a_table_and_map" class="item">Message opens are also broken down by country of origin and displayed both in 
+a table and map.</a></strong>
+
+<li><strong><a name="bounces_both_soft_and_hard_bounces_are_listed_by_date_and_email_address_of_the_bouncee_clicking_on_the_email_address_will_allow_you_to_view_the_data_about_the_bounced_message_itself_in_the_bounce_handler_plugin" class="item">Bounces, both soft and hard bounces are listed by date and email address of the bouncee. 
+Clicking on the email address will allow you to view the data about the bounced message itself
+in the bounce handler plugin.</a></strong>
+
+<p><em>(No bounces will be recorded, unless you've separately set up and 
+installed the bounce handler plugin that comes with Dada Mail 
+called Mystery Girl/dada_bounce_handler.pl)</em></p>
+<p>If you suddenly get a ton of bounced messages for a mailing from addresses you know 
+look legitimate, there's a good chance that something seriously went wrong in the 
+delivery part of a mass mailing. The reports that the Tracker plugin links to 
+may help in resolving this problem.</p>
+</li>
+</ul>
+<p>All this message-specific data can also be exported via .csv files that may be downloaded.</p>
+<p>
+</p>
+<hr />
+<h1><a name="screencasts">Screencasts</a></h1>
+<p>
+</p>
+<h2><a name="part_1">Part 1</a></h2>
+<object width="640" height="510"><param name="movie" value="http://www.youtube.com/v/CKEclo_URW0?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/CKEclo_URW0?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1" type="application/x-shockwave-flash" width="640" height="510" allowscriptaccess="always" allowfullscreen="true"></embed></object><p>
+</p>
+<h2><a name="part_2">Part 2</a></h2>
+<object width="640" height="510"><param name="movie" value="http://www.youtube.com/v/fGr-0qxcpZ4?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/fGr-0qxcpZ4?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1" type="application/x-shockwave-flash" width="640" height="510" allowscriptaccess="always" allowfullscreen="true"></embed></object><p>
+</p>
+<hr />
+<h1><a name="installing_tracker_cgi">Installing tracker.cgi</a></h1>
+<p>This plugin can be installed during a Dada Mail install/upgrade, using the included installer that comes with Dada Mail. The below installation instructions go through how to install the plugin manually.</p>
+<p>The tracker.cgi plugin comes with Dada Mail. You'll find it in the, <em>dada/plugins</em> directory with the file name, <em>tracker.cgi</em></p>
+<p>Change its permission to, <code>755</code>.</p>
+<p>
+</p>
+<h2><a name="list_control_panel_menu">List Control Panel Menu</a></h2>
+<p>Now, edit your <code>.dada_config</code> file, so that it shows the Tracker in the left-hand menu, under the, <strong>Plugins</strong> heading:</p>
+<p>First, see if the following lines are present in your <code>.dada_config</code> file:</p>
+<pre>
+ # start cut for list control panel menu
+ =cut</pre>
+<pre>
+ =cut
+ # end cut for list control panel menu</pre>
+<p>If they are, remove them.</p>
+<p>Then, find these lines:</p>
+<pre>
+ #                                      {
+ #                                      -Title      =&gt; 'Tracker',
+ #                                      -Title_URL  =&gt; $PLUGIN_URL.&quot;/tracker.cgi&quot;,
+ #                                      -Function   =&gt; 'tracker',
+ #                                      -Activated  =&gt; 1,
+ #                                      },</pre>
+<p>Uncomment the lines, by taking off the, &quot;#&quot;'s:</p>
+<pre>
+                                        {
+                                        -Title      =&gt; 'Tracker',
+                                        -Title_URL  =&gt; $PLUGIN_URL.&quot;/tracker.cgi&quot;,
+                                        -Function   =&gt; 'tracker',
+                                        -Activated  =&gt; 1,
+                                        },</pre>
+<p>Save your <code>.dada_config</code> file.</p>
+<p>
+</p>
+<hr />
+<h1><a name="using_tracker_cgi">Using tracker.cgi</a></h1>
+<p>For the most part, the Tracker plugin simply reports data that's collected about your mass mailings.</p>
+<p>
+</p>
+<h2><a name="preferences">Preferences</a></h2>
+<p>You may enabled/disable any of the items Tracker track independently in the plugin's Preferences.</p>
+<p>
+</p>
+<h3><a name="enable_clickthrough_tracking">Enable Clickthrough Tracking</a></h3>
+<p>When enabled, allows you to use the Redirect Tags to track links that are clicked on 
+in your mass mailing message.</p>
+<p>
+</p>
+<h4><a name="clickthrough_track_all_message_links">Clickthrough Track All Message Links</a></h4>
+<p>When enabled, ALL links found in an email message will be tracked by converting them into 
+redirect tags and then clickthrough-tracked links.</p>
+<p>
+</p>
+<h3><a name="enable_open_messages_logging">Enable Open Messages Logging</a></h3>
+<p>When enabled, allows you to track open/viewing of messages. Will only work with HTML 
+messages and only if your subscribers individualy allow images to be shown in email 
+messages they receive.</p>
+<p>
+</p>
+<h3><a name="enable_subscriber_count_logging">Enable Subscriber Count Logging</a></h3>
+<p>When enabled, tracks how many subscribers are on your mailing list when each mass
+mailing goes out</p>
+<p>
+</p>
+<h3><a name="enable_forward_to_a_friend_logging">Enable &quot;Forward to a Friend&quot; Logging</a></h3>
+<p>When enabled, use of the &quot;Forward to a Friend&quot; function for each message will be counted.</p>
+<p><strong>More Information</strong>:
+<a href="http://dadamailproject.com/d/features_forward_to_a_friend.pod.html">http://dadamailproject.com/d/features_forward_to_a_friend.pod.html</a></p>
+<p>
+</p>
+<h3><a name="enable_archive_views_logging">Enable Archive Views Logging</a></h3>
+<p>When enabled, allows you to track every time a visitor views an archived message.</p>
+<p>
+</p>
+<h3><a name="enable_bounce_logging">Enable Bounce Logging</a></h3>
+<p>When enabled, any bounces, both soft or hard, are tallied up. You will need to have the 
+bounce handler installed for this to work.</p>
+<p>
+</p>
+<h3><a name="clean_up_tracker_reports">Clean Up Tracker Reports</a></h3>
+<p>When enabled, tries to get rid of a lot of the, &quot;line noise&quot; that could be present in 
+your logs, because of weird logging behaviour.</p>
+<p>This will also remove opens/clickthroughs and even 
+bounces from <em>test</em> messages, so if you are sending a test message and you
+want to test out if the clickthrough URLs are working, etc, disable this preference, 
+send your test messages and enable it, after you're done.</p>
+<p>
+</p>
+<h2><a name="clickthroughs">Clickthroughs</a></h2>
+<p>Clickthroughs are tracked by creating a &quot;Redirect&quot; tag, that holds the URL you want to track.</p>
+<p>Sounds difficult, so let's break it down.</p>
+<p>If you have a PlainText message you want to send and you want to track who clicks on a specific link, say,</p>
+<pre>
+ <a href="http://example.com">http://example.com</a></pre>
+<p>You would write this URL inside a redirect tag, like this:</p>
+<pre>
+ &lt;?dada redirect url=&quot;<a href="http://example.com&quot">http://example.com&quot</a>; ?&gt;</pre>
+<p>Replace, &quot;http://example.com&quot; with whatever URL you would like to track.</p>
+<p>This redirect tag will be replaced by Dada Mail with a URL that, when clicked, will record 
+the click and redirect your user to the URL you specified within the tag.</p>
+<p>In an HTML message, you would craft the redirect tag the same way, except that the redirect tag goes
+within the, &quot;href&quot; paramater of the, &quot;a&quot; tag. Again, this sounds difficult, but for example:</p>
+<p>If you have a link created like this:</p>
+<pre>
+        &lt;a href=&quot;<a href="http://example.com">http://example.com</a>&quot;&gt;
+         Go to my Example site!
+        &lt;/a&gt;</pre>
+<p>You would simply, like before replace,</p>
+<pre>
+ <a href="http://example.com">http://example.com</a></pre>
+<pre>
+ with the redirect tag,</pre>
+<pre>
+ &lt;?dada redirect url=&quot;<a href="http://example.com&quot">http://example.com&quot</a>; ?&gt;</pre>
+<p>and put this inside the href parameter, like this:</p>
+<p>&lt;a href=&quot;&lt;?dada redirect url=&quot;http://example.com&quot; ?&gt;&quot;&gt;
+ Go to my Example site!
+&lt;/a&gt;</p>
+<p>If you have messages where you want to track many, many links and the above 
+sounds tedious and easy to mess up, or your authoring workflow doesn't 
+play nice with these redirect tags, there is an option in the preferences labeled,</p>
+<p><strong>Clickthrough Track All Message Links</strong></p>
+<p>Which will do all this for you, automatically. Any links that you have manually 
+added a redirect tag to will be untouched, just in case.</p>
+<p>
+</p>
+<h3><a name="backwards_compatibility_with_the__redirect___tag">Backwards Compatibility with the [redirect=] tag</a></h3>
+<p>Past versions of Dada Mail (before v4.5.0) used a different syntax for redirect URLs. 
+The syntax looked like this:</p>
+<pre>
+ [redirect=<a href="http://example.com">http://example.com</a>]</pre>
+<p>This tag format is still supported, but consider it deprecated.</p>
+<p>
+</p>
+<h3><a name="clickthrough_tags_and_wysiwyg_editors__fckeditor_ckeditor_">Clickthrough Tags and WYSIWYG editors (FCKeditor/CKeditor)</a></h3>
+<p>In-browser WYSIWYG editors, like FCKeditor and CKeditor have a hard time working with Dada Mail's redirect tags, 
+and will corrupt the tags by turning many of the characters into their entities, like this:</p>
+<pre>
+        &lt;a href=&quot;&amp;lt;?dada redirect url=&amp;quot;<a href="http://example.com&amp;quot">http://example.com&amp;quot</a>; ?&amp;gt;&quot;&gt;
+         Go to my Example site!
+        &lt;/a&gt;</pre>
+<p>If you use FCKeditor or CKeditor with Dada Mail, we suggest using the, <strong>Clickthrough 
+Track All Message Links</strong> option in Dada Mail, or disable FCKeditor/CKeditor.</p>
+<p>Copying and pasting HTML from a separate program which does not corrupt the tag 
+(like Dreamweaver),  will still be affected, if you simply paste the HTML into FCKeditor/CKeditor, 
+even if you do it into the HTML Source.</p>
+<p>For most other Desktop-based WYSIWYG editors, including Dreamweaver, 
+double-check that the editor does not corrupt the redirect tag.</p>
+<p>
+</p>
+<h3><a name="limitations_of_redirect_tags">Limitations of Redirect tags</a></h3>
+<p>One thing that you cannot do with the redirect tags, is embedd other Dada Mail Template Tags within the redirect tag.</p>
+<p>This will not work:</p>
+<pre>
+ &lt;?dada redirect url=&quot;<a href="http://example.com/index.html?email=&lt">http://example.com/index.html?email=&lt</a>;!-- tmpl_var subscriber.email --&gt;&quot; ?&gt;</pre>
+<p>
+</p>
+<h3><a name="capturing_additional_paramaters_with_redirect_tags">Capturing Additional Paramaters with Redirect Tags</a></h3>
+<p>It is possible to capture and log additional paramaters in the redirect tags, besides the 
+URL clicked on. For example, you can craft a redirect tag, like this:</p>
+<pre>
+ &lt;?dada redirect url=&quot;<a href="http://example.com&quot">http://example.com&quot</a>; custom_param=&quot;some value&quot; ?&gt;</pre>
+<p>Where, <code>custom_param</code> is the additional paramater you'd like to capture and, <code>some value</code> is the value you'd like
+to save. The value can be different for different links, in different messages, across different messages, etc.</p>
+<p><strong>Treat this feature as experimental.</strong> The Tracker plugin will not display additional paramater data, 
+but the data can be found in the downloadable .csv files created by the Tracker Plugin.</p>
+<p>Before using your additional paramaters, make sure both the <code>dada_clickthrough_urls</code> 
+and <code>dada_clickthrough_url_log</code> tables both hold a column named the same as this paramater as the last column.</p>
+<p>In our above example, the following SQL will do the job:</p>
+<pre>
+        ALTER TABLE dada_clickthrough_urls    ADD custom_param TEXT;
+        ALTER TABLE dada_clickthrough_url_log ADD custom_param TEXT;</pre>
+<p>You may add as many different params as you would like.</p>
+<p>
+</p>
+<h2><a name="open_message_logging">Open Message Logging</a></h2>
+<p>Open Message Logging allows you to keep count of how many times a message is viewed
+by your subscribers.</p>
+<p>
+</p>
+<h3><a name="limitations_of_open_message_logging">Limitations of Open Message Logging</a></h3>
+<p>Open Message Logging will only work with HTML messages, since the Open Message logger works simply 
+by embedding a small image within your message and counting how many times this images is 
+requested.</p>
+<p>Open Message Logging will also only work if your subscribers allow images to be displayed within 
+an HTML message.</p>
+<p>Because of this, one should never look at the logged open messages and the subscriber count 
+and make a <em>precise</em> observation over the &quot;impact&quot; of your message (how many people are looking at it) 
+but simply gleam a general trend of your messages: are they reaching people, is the general 
+amount of logged opens increasing, decreasing or staying the same? That sort of thing.</p>
+<p>
+</p>
+<h2><a name="subscriber_count_logging">Subscriber Count Logging</a></h2>
+<p>Subscriber Count Logging simply records how many subscribers are on your mailing list, 
+at the time a mass mailing goes out.</p>
+<p>Subscriber Count Logging does not work by tallying up all individual subscribers/unsubscribes, 
+so the graph created will tend to look fairly normalized.</p>
+<p>
+</p>
+<hr />
+<h1><a name="specific_plugin_config_variables">Specific Plugin Config Variables</a></h1>
+<p>These variables have defaults saved in this plugin itself, but encourage you to 
+reset the defaults to the values you may want, instead in your <code>.dada_config</code> file, 
+in the, <code>$PLUGIN_CONFIGS</code> variable, under the, <code>Tracker</code> entry</p>
+<p>
+</p>
+<h2><a name="plugin_name">Plugin_Name</a></h2>
+<p>The name of this plugin</p>
+<p>
+</p>
+<h2><a name="plugin_url">Plugin_URL</a></h2>
+<p>The URL of this plugin. This is usually found by default, but sometimes the default
+doesn't work correctly. If this happens to you, fill it out in this variable</p>
+<p>
+</p>
+<h2><a name="geo_ip_db">Geo_IP_Db</a></h2>
+<p>This variable holds the file path to the location ofthe GeoIP database. The GeoIP 
+database is a IP Address -&gt; Location lookup table, to quickly and easily figure out 
+the location based on the IP Address.</p>
+<p>This database is updated monthly and new copies can be obtained at:</p>
+<p><a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz">http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz</a></p>
+<p>The database is licensed under the LGPL, so it's OK to ship Dada Mail with a copy of 
+this database.</p>
+<p>If you find it necessary, you may keep a copy of this database outside of Dada Mail and 
+update it regularly and tell this plugin where to find the database to use.</p>
+<p>For more information, see:</p>
+<p><a href="http://search.cpan.org/~borisz/Geo-IP-PurePerl-1.25/lib/Geo/IP/PurePerl.pm">http://search.cpan.org/~borisz/Geo-IP-PurePerl-1.25/lib/Geo/IP/PurePerl.pm</a></p>
+<p><em>This product includes GeoLite data created by MaxMind, available <em>from <a href="http://www.maxmind.com/">http://www.maxmind.com/</a></em></em></p>
+<p>
+</p>
+<hr />
+<h1><a name="getting_the_most_out_of_the_tracker_plugin">Getting the Most Out of the Tracker Plugin</a></h1>
+<p>
+</p>
+<h2><a name="turn_on_archiving">Turn On Archiving</a></h2>
+<p>Having messages archived allows you to see the message the reports are generated for. Without it, you'll 
+just have a long list of dates/numbers to remember about your mass mailings/campaigns.</p>
+<p>You can have archiving enabled, but not show your archives publically. This is a better 
+option than disabling archiving completely.</p>
+<p>
+</p>
+<h2><a name="install_the_bounce_handler">Install the Bounce Handler</a></h2>
+<p>The bounces that are logged and shown with the Tracker plugin only work if you have the bounce handler installed,
+It's installation is a little more trickier than the Tracker plugin, but it's well worth it for data it generates</p>
+<p>
+</p>
+<h2><a name="send_html_messages_if_you_want_message_open_logging">Send HTML Messages if you want Message Open logging</a></h2>
+<p>Logging of message opens only works when sending HTML messages. If this type of data
+is important to you, you'll def. need to send an HTML message. HTML messages need not to be 
+overly complicated with formatting, included images, etc. Some small flourishes of formatting 
+goes a long way.</p>
+<p>
+</p>
+<h2><a name="try_tracking_all_links_in_a_message">Try tracking all links in a message</a></h2>
+<p>It's interesting to track one or a view links using the redirect tags to track clickthroughs, but another
+trend to follow would be how all links in an email message fare against each other.</p>
+<p>
+</p>
+<h3><a name="discussion_lists_and_clickthrough_tracking">Discussion Lists and Clickthrough Tracking</a></h3>
+<p>Discussion Lists may not benefit as much from clickthrough tracking and tracking all lists in a message, since 
+the list owner gives up control over the content of a message. Rather, the members of a list create the content and 
+having clickthrough URLs in place of the actual URLs written can get in the way of discussions. There's also a chance that 
+nefarious URLs can be hidden within a clickthrough URL - not something you want.</p>
+<p>
+</p>
+<h2><a name="sending_a_test_message">Sending a Test Message?</a></h2>
+<p>Test message will not be shown in the Tracker's reports.</p>
+<p>
+</p>
+<hr />
+<h1><a name="compatibility_with_clickthrough_tracking_cgi">Compatibility with clickthrough_tracking.cgi</a></h1>
+<p>The previous iteration of this plugin (tracker.cgi) was called, <strong>clickthrough_tracker.cgi</strong>. Do not 
+use this old plugin with anything newer than v4.5.0 of Dada Mail. It will not work correctly.</p>
+<p>
+</p>
+<h2><a name="upgrade_notes">Upgrade Notes</a></h2>
+<p>The below is information for people who have used the <strong>clickthrough_tracking.cgi</strong> script in past
+versions of Dada Mail (before v4.5.0) and want to take advantage of the new Tracker plugin 
+and also want to move over the old logged data.</p>
+<p>
+</p>
+<h3><a name="_admin_menu">$ADMIN_MENU</a></h3>
+<p>Most likely, you will need to update your <code>$ADMIN_MENU</code> and change over the Clickthrough 
+Tracker entry with the new Tracker entry. The piece of code to look for, within the <code>$ADMIN_MENU</code>
+variable looks like this:</p>
+<pre>
+                                        {-Title      =&gt; 'Clickthrough Tracking',
+                                         -Title_URL  =&gt; $PLUGIN_URL.&quot;/clickthrough_tracking.cgi&quot;,
+                                         -Function   =&gt; 'clickthrough_tracking',
+                                         -Activated  =&gt; 1,
+                                        },
+
+</pre>
+<p>You will want to change it to:</p>
+<pre>
+                                        {-Title      =&gt; 'Tracker',
+                                         -Title_URL  =&gt; $PLUGIN_URL.&quot;/tracker.cgi&quot;,
+                                         -Function   =&gt; 'tracker',
+                                         -Activated  =&gt; 1,
+                                        },
+
+</pre>
+<p>So as not to break everyone's current installations when upgrading and cause less of 
+a hassle, a simple  compatibility script called, <strong>clickthrough_tracking.cgi</strong> 
+is currently included with this  distribution so the old <code>$ADMIN_MENU</code> entry 
+will continue to work.</p>
+<p>The <strong>tracker.cgi</strong> plugin comes with support for all the backends of Dada Mail: 
+PlainText, MySQL, PostgreSQL and SQLite. The <strong>clickthrough_tracking.cgi</strong> plugin 
+only supported the PlainText backend for all the logs.</p>
+<p>If you run Dada Mail with the Default backend of Dada Mail, are wanting to 
+upgrade, there's really nothing you have to do, as the PlainText log formats 
+of <strong>clickthrough_tracking.cgi</strong> and <strong>tracker.cgi</strong> are exactly the same.</p>
+<p>One notable difference between the PlainText and SQL backends is that no IP
+ address data is saved in the PlainText backend.</p>
+<p>If you run Dada Mail with one of the SQL backends, the required additional SQL tables 
+will be created automatically for you upon your first run of Dada Mail - no upgrade scripts 
+will be needed. If you want to create these tables manually, do so before upgrading. 
+The tables to create are called, <code>dada_mass_mailing_event_log</code> and, <code>dada_clickthrough_url_log</code>.</p>
+<p>See the appropriate schema files in, <em>dada/extras/SQL</em> for the exact SQL query to use.</p>
+<p>
+</p>
+<h4><a name="importing_old_clickthrough_logs">Importing Old Clickthrough Logs</a></h4>
+<p>Data saved within the older, PlainText clickthrough logs would have to 
+be moved over,</p>
+<p>There is a script called, <em>dada_clickthrough_plaintext2sql.pl</em> located in the, 
+<em>dada/extras/scripts</em> directory that will do this conversion. Move it into your, 
+<em>dada</em> directory, change its permissions to, <code>755</code> and run it <em>once</em> in your 
+web browser. It may take a few minutes to run to completion.</p>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright (c) 1999 - 2012 Justin Simoni All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, 
+Boston, MA  02111-1307, USA.</p>
+
+</body>
+
+</html>

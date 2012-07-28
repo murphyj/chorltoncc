@@ -1,0 +1,7 @@
+[Mon Jan  9 16:30:43 2012]	members	2.125.241.22	List Created	remote_host:,ip_address:2.125.241.22
+[Mon Jan  9 16:30:56 2012]	members	2.125.241.22	login	remote_host:, ip_address:2.125.241.22
+[Mon Jan  9 16:38:38 2012]	members	2.125.241.22	Unsubscribed from members.sub_confirm_list	jamurphy84@hotmail.com
+[Mon Jan  9 16:38:38 2012]	members	2.125.241.22	Subscribed to members.sub_confirm_list	jamurphy84@hotmail.com
+[Mon Jan  9 16:38:39 2012]	members	2.125.241.22	Subscription Confirmation Sent for members.list	jamurphy84@hotmail.com
+[Mon Jan  9 16:39:23 2012]	members	2.125.241.22	Unsubscribed from members.sub_confirm_list	jamurphy84@hotmail.com
+[Mon Jan  9 16:39:23 2012]	members	2.125.241.22	Subscribed to members.list	jamurphy84@hotmail.com

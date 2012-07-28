@@ -1,0 +1,239 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CAPTCHA</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#captcha_in_dada_mail">CAPTCHA in Dada Mail</a></li>
+	<ul>
+
+		<li><a href="#subscription_confirmations">Subscription Confirmations</a></li>
+		<ul>
+
+			<li><a href="#enabling">Enabling</a></li>
+		</ul>
+
+		<li><a href="#forward_a_friend">&quot;Forward a Friend&quot;</a></li>
+		<li><a href="#profile_registrations">Profile Registrations</a></li>
+		<ul>
+
+			<li><a href="#enabling">Enabling</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#captcha_configuration">CAPTCHA Configuration</a></li>
+	<ul>
+
+		<li><a href="#_captcha_type">$CAPTCHA_TYPE</a></li>
+		<ul>
+
+			<li><a href="#recaptcha_configuration">reCAPTCHA Configuration</a></li>
+			<li><a href="#default_captcha_configuration">Default CAPTCHA Configuration</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#recaptcha_mailhide">reCAPTCHA Mailhide</a></li>
+	<ul>
+
+		<li><a href="#configuration">Configuration</a></li>
+		<li><a href="#enabling">Enabling</a></li>
+		<li><a href="#requirements">Requirements</a></li>
+		<ul>
+
+			<li><a href="#installing_the_needed_cpan_modules__cpanel_">Installing the needed CPAN modules (cPanel)</a></li>
+		</ul>
+
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="captcha_in_dada_mail">CAPTCHA in Dada Mail</a></h1>
+<p>CAPTCHA may be used for:</p>
+<p>
+</p>
+<h2><a name="subscription_confirmations">Subscription Confirmations</a></h2>
+<p>A CAPTCHA form is shown after a subscriber clicks on a subscription confirmation URL and before they are allowed to subscribed.</p>
+<p><em>Why then, instead of say, on the initial sign up form?</em></p>
+<p>First, showing the CAPTCHA later is one less hurtle at the beginning of the
+subscription process.</p>
+<p>Second, the actual confirmation process of Dada Mail is quite the hurtle for a 
+bot to go through, before even attempting to solve a CAPTCHA.</p>
+<p>
+</p>
+<h3><a name="enabling">Enabling</a></h3>
+<p>In the list control panel, navigate to: <strong>Manage List - Mailing List Options</strong>, under <strong>Subscriptions</strong>, check the option labeled, <strong>Enable CAPTCHA'ing</strong></p>
+<p>
+</p>
+<h2><a name="forward_a_friend">&quot;Forward a Friend&quot;</a></h2>
+<p>CAPTCHA protection in the &quot;Forward to a Friend&quot; Form is <em>highly suggested</em>, as this form is easy to spoof.</p>
+<p>In the list control panel, navigate to: <strong>Message Archives - Archive Options</strong>.</p>
+<p>Under, <strong>Basic Options</strong> check the option labeled, <strong>Enable CAPTCHA'ing on the, &quot;Forward to a Friend&quot; Form</strong></p>
+<p>
+</p>
+<h2><a name="profile_registrations">Profile Registrations</a></h2>
+<p>CAPTCHA protection is available for Dada Mail Profile Registrations.</p>
+<p>
+</p>
+<h3><a name="enabling">Enabling</a></h3>
+<p>CAPTCHA for Profile Registrations is enabled by default. If you'd like to <em>disable</em> CAPTCHA, you can do so in the config variable, <code>$PROFILE_OPTIONS</code></p>
+<p>
+</p>
+<hr />
+<h1><a name="captcha_configuration">CAPTCHA Configuration</a></h1>
+<p>
+</p>
+<h2><a name="_captcha_type">$CAPTCHA_TYPE</a></h2>
+<p>Dada Mail supports two different CAPTCHA types. The first is just called, <strong>Default</strong>, the other one is called, <strong>reCAPTCHA</strong>. The Default CAPTCHA type is based on:</p>
+<p><a href="http://search.cpan.org/~burak/GD-SecurityImage/lib/GD/SecurityImage.pm">http://search.cpan.org/~burak/GD-SecurityImage/lib/GD/SecurityImage.pm</a></p>
+<p>reCAPTCHA is based on the reCAPTCHA service:</p>
+<p><a href="http://recaptcha.net/">http://recaptcha.net/</a></p>
+<p>It's suggested that you use the <strong>reCAPTCHA service</strong>, as it's a lot more sophisticated than the Default type.</p>
+<p>
+</p>
+<h3><a name="recaptcha_configuration">reCAPTCHA Configuration</a></h3>
+<p>Add the following lines to your <code>.dada_config</code> file:</p>
+<pre>
+        $CAPTCHA_TYPE     = 'reCAPTCHA';
+        $RECAPTCHA_PARAMS = {</pre>
+<pre>
+            remote_address =&gt; $ENV{'REMOTE_ADDR'}, 
+            public_key     =&gt; undef,
+            private_key    =&gt; undef,</pre>
+<pre>
+        };</pre>
+<p>You will then have to fill in the, <code>public_key</code> and <code>private_key</code> in the <code>$RECAPTCHA_PARAMS</code> hashref:</p>
+<p>First, grab an account:</p>
+<p><a href="https://www.google.com/recaptcha/admin/create">https://www.google.com/recaptcha/admin/create</a></p>
+<p>and fill in the <code>public_key</code> and <code>private_key</code> in <code>$RECAPTCHA_PARAMS</code> that are provided to you.</p>
+<p><strong>See Also:</strong></p>
+<p><a href="http://search.cpan.org/~andya/Captcha-reCAPTCHA/">http://search.cpan.org/~andya/Captcha-reCAPTCHA/</a></p>
+<p>
+</p>
+<h3><a name="default_captcha_configuration">Default CAPTCHA Configuration</a></h3>
+<p>This CAPTCHA type also requires the <strong>GD</strong> CPAN Perl Module, which itself require the GD C Library. If you do not have those, you will have to install them separately.</p>
+<p>In your <code>.dada_config</code> file, add the following line:</p>
+<pre>
+        $CAPTCHA_TYPE = 'Default';</pre>
+<p>If you would like to customize the Default CAPTCHA, also add the <code>$GD_SECURITYIMAGE_PARAMS</code> hashref:</p>
+<pre>
+        $GD_SECURITYIMAGE_PARAMS = {</pre>
+<pre>
+            'rand_string_from' =&gt; 'ABCDEFGHIJKLMNOPQRSTUVWXYZaeiouy', 
+            'rand_string_size' =&gt; 6, 
+   
+            'new' =&gt; { 
+    
+                width      =&gt; 250,
+                height     =&gt; 125,
+                lines      =&gt; 10,
+                #gd_font    =&gt; 'Giant',
+                send_ctobg =&gt; 1, 
+        
+                # There's some magic here, 
+                # If the font is located in the, 
+                # dada/DADA/Template/templates directory, 
+                # You don't have to put the absolute path, 
+                # just the filename. 
+        
+                font       =&gt; 'StayPuft.ttf', 
+                bgcolor    =&gt; &quot;#CCFFCC&quot;,
+                angle      =&gt; 13, 
+                ptsize     =&gt; 30,
+                                          
+            }, 
+    
+            create =&gt; {
+    
+               ttf =&gt; 'circle',
+               # normal =&gt; 'circle',      
+            }, 
+    
+            particle =&gt; [
+                500, 
+                undef
+            ],</pre>
+<pre>
+        };</pre>
+<p>and tailor to your taste.</p>
+<p>See Also:</p>
+<p><a href="http://search.cpan.org/~burak/GD-SecurityImage/lib/GD/SecurityImage.pm">http://search.cpan.org/~burak/GD-SecurityImage/lib/GD/SecurityImage.pm</a></p>
+<p>Each key in the <code>$GD_SECURITYIMAGE_PARAMS</code> hashref corresponds to the different methods of this module ie:</p>
+<ul>
+<li><strong><a name="new" class="item">new</a></strong>
+
+<li><strong><a name="create" class="item">create</a></strong>
+
+<li><strong><a name="particle" class="item">particle</a></strong>
+
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="recaptcha_mailhide">reCAPTCHA Mailhide</a></h1>
+<p>If you're using the reCAPTCHA service, you an also take advantage of reCAPTCHA Mailhide. In Dada Mail, this is used to protect individual email addresses in mailing list archives. Before an email address can be viewed, a CAPTCHA has to be solved.</p>
+<p>
+</p>
+<h2><a name="configuration">Configuration</a></h2>
+<p>Add the following lines to your <code>.dada_config</code> file:</p>
+<pre>
+        $RECAPTHCA_MAILHIDE_PARAMS = { 
+            public_key     =&gt; '',
+            private_key    =&gt; '',
+        };</pre>
+<p>You'll need to fill out the <code>public_key</code> and <code>private_key</code> with what's provided to you at:</p>
+<p><a href="http://www.google.com/recaptcha/mailhide/apikey">http://www.google.com/recaptcha/mailhide/apikey</a></p>
+<p>
+</p>
+<h2><a name="enabling">Enabling</a></h2>
+<p>In your list control panel, go to: <strong>Manage Archives - Advanced Archive Options</strong>, under, <strong>Email Address Protection</strong> select, <strong>reCAPTCHA MailHide</strong>.</p>
+<p>
+</p>
+<h2><a name="requirements">Requirements</a></h2>
+<p>Although Dada Mail supports <code>Captcha::reCAPTCHA::Mailhide</code>, it <strong>does not come with it.</strong> This is because it's not possible to bundle the module with Dada Mail. You'll need to install it manually (using the CPAN shell, etc).</p>
+<p>
+</p>
+<h3><a name="installing_the_needed_cpan_modules__cpanel_">Installing the needed CPAN modules (cPanel)</a></h3>
+<p>If you have a cPanel-powered hosting account (Bluehost, for example) search within your cPanel for an icon labled, &quot;Perl Modules&quot; - the icon itself will be of the famous Perl camel. This part of your cPanel will allow you to install the needed CPAN Perl modules.</p>
+<p>Within the screen, find the textbox labeled, <strong>Install a Perl Module</strong> and in the textbox itself, type in,</p>
+<pre>
+        Captcha::reCAPTCHA::Mailhide</pre>
+<p>and click the button labled, <strong>Install Now</strong>. The screen will refresh and go through the installation process.</p>
+<p>Once finished and on the main <strong>Perl Modules</strong> screen, find the heading entitled, <strong>Using Your Perl Module(s)</strong>. Below this heading, will be some snippets of code that you can include in your Perl program (like, Dada Mail) to then take advantage of the Perl modules you just installed. It'll look similar to this:</p>
+<pre>
+        BEGIN {
+            my $b__dir = (-d '/home8/dadademo/perl'?'/home8/dadademo/perl':( getpwuid($&gt;) )[7].'/perl');
+            unshift @INC,$b__dir.'5/lib/perl5',$b__dir.'5/lib/perl5/x86_64-linux-thread-multi',map { $b__dir . $_ } @INC;
+        }</pre>
+<p><em>Copy</em> <strong>your specific</strong> snippet of code and <em>Paste</em> it into the <code>dada/mail.cgi</code> file, near the top - say, on the third line. The first two lines look like this:</p>
+<pre>
+        #!/usr/bin/perl
+        package mail;</pre>
+<p>Save the <code>dada/mail.cgi</code> file and you should now have the ability to use <strong>reCAPTCHA Mailhide</strong> in Dada Mail. Rejoice!</p>
+<p>See also:</p>
+<p><a href="http://search.cpan.org/~andya/Captcha-reCAPTCHA-Mailhide/">http://search.cpan.org/~andya/Captcha-reCAPTCHA-Mailhide/</a></p>
+
+</body>
+
+</html>

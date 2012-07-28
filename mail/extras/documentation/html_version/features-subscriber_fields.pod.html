@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Subscriber Profile Fields</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#subscriber_profile_fields">Subscriber Profile Fields</a></li>
+	<li><a href="#implementation">Implementation</a></li>
+	<li><a href="#requirements">Requirements</a></li>
+	<li><a href="#downgrading">Downgrading</a></li>
+	<li><a href="#using">Using</a></li>
+	<ul>
+
+		<li><a href="#adding_a_new_subscriber_field">Adding a New Subscriber Field</a></li>
+		<li><a href="#mail_merging">Mail Merging</a></li>
+		<li><a href="#partial_list_sending">Partial List Sending</a></li>
+		<li><a href="#subscriptions">Subscriptions</a></li>
+		<li><a href="#the_subscription_form_template">The Subscription Form Template</a></li>
+		<li><a href="#importing_subscribers">Importing Subscribers</a></li>
+		<li><a href="#editing_individual_subscriber_information">Editing Individual Subscriber Information</a></li>
+	</ul>
+
+	<li><a href="#see_also">See Also</a></li>
+	<ul>
+
+		<li><a href="#technical_documentation">Technical Documentation</a></li>
+		<ul>
+
+			<li><a href="#subscriber_backend">Subscriber Backend</a></li>
+			<ul>
+
+				<li><a href="#dada__mailinglist__subscribers">DADA::MailingList::Subscribers</a></li>
+			</ul>
+
+			<li><a href="#profiles">Profiles</a></li>
+			<ul>
+
+				<li><a href="#dada__profile">Dada::Profile</a></li>
+				<li><a href="#dada__profile__fields">DADA::Profile::Fields</a></li>
+				<li><a href="#dada__profile__session">DADA::Profile::Session</a></li>
+				<li><a href="#dada__profilefieldsmanager">DADA::ProfileFieldsManager</a></li>
+			</ul>
+
+			<li><a href="#templating_system">Templating System</a></li>
+		</ul>
+
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="subscriber_profile_fields">Subscriber Profile Fields</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="implementation">Implementation</a></h1>
+<p>The extra Subscriber Profile Fields in Dada Mail are saved in the <code>dada_profiles</code> table. Right now, there's a limit of 100 extra columns and each column is given the data type of, <code>text</code>.</p>
+<p>
+</p>
+<hr />
+<h1><a name="requirements">Requirements</a></h1>
+<p>The Subscriber Profile Fields feature in Dada Mail requires that you use one of the supporting SQL backends. Currently, Dada Mail supports <strong>MySQL</strong>, <strong>Postgres</strong> and <strong>SQLite</strong>.</p>
+<p>
+</p>
+<hr />
+<h1><a name="downgrading">Downgrading</a></h1>
+<p>Most likely, if you ever have to <em>downgrade</em> Dada Mail, these extra fields shouldn't hurt too much to keep around. From my tests, Dada Mail will simply just ignore the extra fields.</p>
+<p>
+</p>
+<hr />
+<h1><a name="using">Using</a></h1>
+<p>
+</p>
+<h2><a name="adding_a_new_subscriber_field">Adding a New Subscriber Field</a></h2>
+<p>Adding a new subscriber field is pretty easy. Log into the list control panel <strong>with the Dada Mail Root Password</strong> (very important) to any list. On the left hand menu, under, <strong>Profiles</strong>, click, <strong>Profile Fields</strong></p>
+<p>This screen will allow you to add/remove the Subscriber Profile Fields. This screen will also let you set a fallback value. The fallback value is used in mailmerging and is used as the value fo the field tag when no value is present.</p>
+<p>The fallback value is saved in the dada_settings table in the <strong>fallback_field_values</strong> setting.</p>
+<p>Please note that removing any Subscriber Profile Fields will <strong>permanently delete all the information that once was saved in this particular field for ALL Mailing Lists</strong>.</p>
+<p>The other thing to note is that Subscriber Profile Fields are <strong>GLOBAL</strong>, meaning, they'll be there for each Mailing List that Dada Mail manages.</p>
+<p>
+</p>
+<h2><a name="mail_merging">Mail Merging</a></h2>
+<p>Mail Merging in Dada Mail in mailing list messages using your new Subscriber Profile Fields is pretty easy:</p>
+<p>Say you have a field named, <strong>first_name</strong>. To use the value of the saved field in an email message, you'd write the field as a tag, like this: <strong>&lt;!-- tmpl_var subscriber.first_name --&gt;</strong>. It would look like this in your actual message:</p>
+<pre>
+ Hello, &lt;!-- tmpl_var subscriber.first_name --&gt;
+ 
+      It's really nice to talk to you!
+      
+  -- Me.</pre>
+<p>Mail Merging works for almost every single type of email message Dada Mail can send out.</p>
+<p>
+</p>
+<h2><a name="partial_list_sending">Partial List Sending</a></h2>
+<p>You can now make a query on your subscription list to send to only part of your mailing list. For example, if you have a field named, &quot;city&quot;, you can tell Dada Mail, &quot;only send to people whose, &quot;city&quot;  value is set to, 'Denver'.</p>
+<p>Currently, this is done in the, &quot;Send a Message&quot; and, &quot;Send a Webpage&quot; screens. Click the, <strong> +/- Partial Sending Options</strong>. You'll be presented with a form that allows you to make simple queries and give you a preview of who's going to the message.</p>
+<p>
+</p>
+<h2><a name="subscriptions">Subscriptions</a></h2>
+<p>The subscription process is similar to previous versions of the program, except that the subscription form now supports capturing any Subscriber Profile Fields present.</p>
+<p>Currently, all subscription fields will be shown, except (by default), Subscriber Profile Fields that are prefixed with an underscore (&quot;_&quot;). For example, the field,</p>
+<pre>
+ first_name</pre>
+<p>Will be shown! The field,</p>
+<pre>
+ _secret_field</pre>
+<p>Will not. Consult the Config.pm file for how to set the special prefix.</p>
+<p>Currently, all the subscription fields are optional, except the email address.</p>
+<p>You may acquire the HTML code needed to embed the subscription form in a webpage in the usual location: Under <strong>Appearance and Templates </strong>, click on, <strong>Subscription Form HTML</strong>.</p>
+<p>There's also a new option to embed a javascript call that will create the HTML form for you. This is beneficial, since the subscription form on your webpage will automatically update, if you add/remove a form field.</p>
+<p>There are a few difference internally with the subscription process. The largest is that all subscription requests by users will first have the subscriber information saved in the, &quot;sub_confirm&quot; sublist. This is where the information filled out in your subscription form is saved, before a subscription is confirmed. Once a subscription is confirmed, the information is moved to the main, &quot;list&quot; sublist.</p>
+<p>A similar scenario takes place for unsubscriptons: The subscriber is first put on a, &quot;unsub_confirm&quot; sublist and is taken off this list, as well as the main, &quot;list&quot; sublist once the confirmation process is completed.</p>
+<p>Because of this, you will no longer be able to use complete confirmaton URLS, (URLS that have the pin number and email address embeded in the URL) in any place other than in the subscription and unsubscription confirmation email messages.</p>
+<p>
+</p>
+<h2><a name="the_subscription_form_template">The Subscription Form Template</a></h2>
+<p>Every single instance of the subscription form is handled by one template file, living in the dada/DADA/Template/templates directory called, <code>subscription_form_widget.tmpl</code>. Changes to this file will affect every instance of the subscription form in the program.</p>
+<p>
+</p>
+<h2><a name="importing_subscribers">Importing Subscribers</a></h2>
+<p>The file type you need to import your subscribers in must be in CSV format. The order of the fields in that CSV format should be displayed at the top of the screen.</p>
+<p>
+</p>
+<h2><a name="editing_individual_subscriber_information">Editing Individual Subscriber Information</a></h2>
+<p>You can edit an individual's subscriber information in the list control. Under, <strong>Your Subscribers</strong>, click on, <strong>View</strong>. You'll be presented with a table of your subscribers, with all their subscription information. Clicking on the email address of the subscriber will bring you to a screen to edit the subscription information. Pretty simple.</p>
+<p>
+</p>
+<hr />
+<h1><a name="see_also">See Also</a></h1>
+<p>
+</p>
+<h2><a name="technical_documentation">Technical Documentation</a></h2>
+<p>
+</p>
+<h3><a name="subscriber_backend">Subscriber Backend</a></h3>
+<p>
+</p>
+<h4><a name="dada__mailinglist__subscribers">DADA::MailingList::Subscribers</a></h4>
+<p><a href="MailingList_Subscribers.pm.html">MailingList_Subscribers.pm.html</a></p>
+<p>
+</p>
+<h3><a name="profiles">Profiles</a></h3>
+<p>
+</p>
+<h4><a name="dada__profile">Dada::Profile</a></h4>
+<p><a href="Profile.pm.html">Profile.pm.html</a></p>
+<p>
+</p>
+<h4><a name="dada__profile__fields">DADA::Profile::Fields</a></h4>
+<p><a href="Profile_Fields.pm.html">Profile_Fields.pm.html</a></p>
+<p>
+</p>
+<h4><a name="dada__profile__session">DADA::Profile::Session</a></h4>
+<p><a href="Profile_Session.pm.html">Profile_Session.pm.html</a></p>
+<p>
+</p>
+<h4><a name="dada__profilefieldsmanager">DADA::ProfileFieldsManager</a></h4>
+<p><a href="ProfileFieldsManager.pm.html">ProfileFieldsManager.pm.html</a></p>
+<p>
+</p>
+<h3><a name="templating_system">Templating System</a></h3>
+<p>The HTML Screen and Email Template parts of Dada Mail all use the same system. See:</p>
+<p><a href="Template_Widgets.pm.html#screen">Template_Widgets.pm.html#screen</a></p>
+<p>And also:</p>
+<p><a href="App_FormatMessages.pm.html#email_template">App_FormatMessages.pm.html#email_template</a></p>
+
+</body>
+
+</html>

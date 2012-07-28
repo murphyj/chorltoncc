@@ -1,0 +1,153 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Subscription Cookbook</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#subscription_cookbook">Subscription Cookbook</a></li>
+	<li><a href="#how_to_subscribe_an_email_address_to_a_mailing_list">How to Subscribe an Email Address to a Mailing List</a></li>
+	<ul>
+
+		<li><a href="#command_line_utility___subscribe_email_pl">Command Line Utility - subscribe_email.pl</a></li>
+		<ul>
+
+			<li><a href="#arguments">Arguments</a></li>
+		</ul>
+
+		<li><a href="#web_services">Web Services</a></li>
+		<li><a href="#soap">SOAP</a></li>
+		<li><a href="#rest">REST</a></li>
+	</ul>
+
+	<li><a href="#other_examples">Other examples</a></li>
+	<ul>
+
+		<li><a href="#formmail_integration">FormMail Integration</a></li>
+		<li><a href="#tfmail_integration">TFmail Integration</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="subscription_cookbook">Subscription Cookbook</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="how_to_subscribe_an_email_address_to_a_mailing_list">How to Subscribe an Email Address to a Mailing List</a></h1>
+<p>A challenge people face is trying to tie Dada Mail's subscription system with another system, like a checkout part of a shopping cart, boards/forum, blog or CMS software.</p>
+<p>Dada Mail has hooks into its subscribe system, that you can use by making a small perl script, that can be called from your main program. (If you app is written in Perl, an outside program may not be something you'll need to make)</p>
+<p>
+</p>
+<h2><a name="command_line_utility___subscribe_email_pl">Command Line Utility - subscribe_email.pl</a></h2>
+<p>Find a copy of <code>subscribe_email.pl</code> in the Dada Mail distro at:</p>
+<p><code>dada/extras/scripts/subscribe/subscribe_email.pl</code></p>
+<p>
+</p>
+<h3><a name="arguments">Arguments</a></h3>
+<p>Run <code>subscribe_email.pl</code> as a shell script, like this:</p>
+<pre>
+ prompt&gt;perl ./subscribe_email.pl --list mylist --email user@example.com</pre>
+<p><code>--list</code> should hold the listshortname of the list you want to subscribe to.</p>
+<p><code>--email</code> should hold the email address you want to subscribe.</p>
+<p><code>--verbose</code> is optional. If set to, <code>1</code>, you will get a small report on the request.</p>
+<p>You can also pass Profile Fields for the subscriber, just use the, <code>-fields</code> paramater:</p>
+<pre>
+ prompt&gt;perl ./subscribe_email.pl --list mylist --email user@example.com ---fields first_name=John --fields last_name=Doe</pre>
+<p><code>subscribe_email.pl</code> can also be called from within another script using something like Perl's, <code>exec</code> function.</p>
+<p>
+</p>
+<h2><a name="web_services">Web Services</a></h2>
+<p>
+</p>
+<h2><a name="soap">SOAP</a></h2>
+<p>A proof of concept SOAP server and clients (one client written in Perl, one in php) are bundled with Dada Mail. More information:</p>
+<p><a href="http://dadamailproject.com/d/README_SOAP.pod.html">http://dadamailproject.com/d/README_SOAP.pod.html</a></p>
+<p>for more inspiration</p>
+<p>
+</p>
+<h2><a name="rest">REST</a></h2>
+<p>A rest server and example client are bundled with the Dada Mail distro. You can find them at:</p>
+<ul>
+<li><strong><a name="rest_server" class="item">REST server:</a></strong>
+
+<p><em>dada/extras/scripts/subscribe/subscribe_rest_server.cgi</em></p>
+</li>
+<li><strong><a name="rest_example_client" class="item">REST example client:</a></strong>
+
+<p><em>dada/extras/scripts/subscribe/subscribe_rest_client.cgi</em></p>
+</li>
+</ul>
+<p>Both are written in perl (although you may write your client in whatever you may like)</p>
+<p>The example client will need the following CPAN modules:</p>
+<ul>
+<li><strong><a name="json" class="item">JSON</a></strong>
+
+<li><strong><a name="http_request" class="item">HTTP::Request</a></strong>
+
+<li><strong><a name="http_request_common" class="item">HTTP::Request::Common</a></strong>
+
+<li><strong><a name="lwp_useragent" class="item">LWP::UserAgent</a></strong>
+
+</ul>
+<p>The REST server will need the folling CPAN modules:</p>
+<ul>
+<li><strong><a name="json2" class="item">JSON</a></strong>
+
+</ul>
+<p>The example client (<code>subscribe_rest_client.cgi</code>) needs a few variables filled out:</p>
+<ul>
+<li><strong><a name="_host" class="item">$host</a></strong>
+
+<p>This will be the URL of the <code>subscribe_rest_server.cgi</code></p>
+</li>
+<li><strong><a name="_email" class="item">$email</a></strong>
+
+<p>Should hold the email address you want to subscribe.</p>
+</li>
+<li><strong><a name="_list" class="item">$list</a></strong>
+
+<p>Should hold the listshortname of the list you want to subscribe to.</p>
+</li>
+<li><strong><a name="_fields" class="item">$fields</a></strong>
+
+<p>(hashref) Should hold any Profile Fields you want for the addressee.</p>
+</li>
+</ul>
+<p>Use the <code>subscribe_rest_client.cgi</code> script as inspiration for integration in your own perl/php program it, by itself, is not a complete script.</p>
+<p>
+</p>
+<hr />
+<h1><a name="other_examples">Other examples</a></h1>
+<p>
+</p>
+<h2><a name="formmail_integration">FormMail Integration</a></h2>
+<p>See the sourcecode to FormMail to see how we integrated Dada Mail subscription capabilities in this simple form handler:</p>
+<p><a href="http://dadamailproject.com/d/Dada-ized_FormMail_README.pod.html">http://dadamailproject.com/d/Dada-ized_FormMail_README.pod.html</a></p>
+<p>
+</p>
+<h2><a name="tfmail_integration">TFmail Integration</a></h2>
+<p>See the sourcecode to TFmail to see how we integrated Dada Mail subscription capabilities in this simple form handler:</p>
+<p><a href="http://dadamailproject.com/d/Dada-ized_TFMail_README.pod.html">http://dadamailproject.com/d/Dada-ized_TFMail_README.pod.html</a></p>
+
+</body>
+
+</html>

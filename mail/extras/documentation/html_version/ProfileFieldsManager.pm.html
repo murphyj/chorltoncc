@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DADA::ProfileFieldsManager</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#public_methods">Public Methods</a></li>
+	<ul>
+
+		<li><a href="#new">new</a></li>
+		<li><a href="#fields">fields</a></li>
+		<li><a href="#add_field">add_field</a></li>
+		<li><a href="#save_field_attributes">save_field_attributes</a></li>
+		<li><a href="#edit_field">edit_field</a></li>
+		<li><a href="#remove_field">remove_field</a></li>
+		<li><a href="#change_field_order">change_field_order</a></li>
+	</ul>
+
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#licence_and_copyright">LICENCE AND COPYRIGHT</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="name">NAME</a></h1>
+<p>DADA::ProfileFieldsManager</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="public_methods">Public Methods</a></h1>
+<p>
+</p>
+<h2><a name="new">new</a></h2>
+<pre>
+ my $pfm = DADA::ProfileFieldsManager-&gt;new</pre>
+<p><code>new</code> requires no paramaters.</p>
+<p>A <code>DADA::ProfileFieldsManager</code> object will be returned.</p>
+<p>
+</p>
+<h2><a name="fields">fields</a></h2>
+<pre>
+ my $fields = $pfm-&gt;fields;</pre>
+<p><code>fields</code> returns an array ref of the names of the columns that represent the Subscriber Profile Fields currently created.</p>
+<p><code>fields</code> returns the fields in the order they are usually stored in the SQL table.</p>
+<p><code>fields</code> requires no paramaters.</p>
+<p>
+</p>
+<h2><a name="add_field">add_field</a></h2>
+<pre>
+ $pfm-&gt;add_field(
+        {
+                -field          =&gt; 'myfield', 
+                -fallback_value =&gt; 'a default', 
+                -label          =&gt; 'My Field!', 
+        }
+ );</pre>
+<p><code>add_field()</code> adds a field to the profile_fields table.</p>
+<p><code>-field</code> is a required paramater and should be the name of the field you want to 
+create. This field has to be a valid column name for whatever backend you're using. 
+It's suggested that you stick with lowercase, less than 16 character names.</p>
+<p>Not passing a name for your field in the <code>-field</code> paramater will cause the an unrecoverable error.</p>
+<p><code>-fallback_value</code> is an optional paramater, it's a more free form value, used when the profile does not have a value for this profile field. This is usually used in templating</p>
+<p><code>-label</code> is an optional paramater and is used in forms that capture Subscriber Profile Fields information as a, &quot;friendlier&quot; version of the field name.</p>
+<p>This method will return <code>undef</code> if there's a problem with the paramaters passed. See also the, <code>validate_subscriber_field_name()</code> method.</p>
+<p>
+</p>
+<h2><a name="save_field_attributes">save_field_attributes</a></h2>
+<pre>
+ $pfm-&gt;save_field_attributes(
+        {  
+                -field                  =&gt; 'myfield', 
+                -fallback_value =&gt; 'a default', 
+                -label          =&gt; 'My Field!',
+        }
+ );</pre>
+<p>Similar to <code>add_field()</code>, <code>save_field_attributes()</code> saves the fallback value and label for a field. It will not create a new field, 
+but will error if you attempt to save a field attribute to a field that does not exist.</p>
+<p>
+</p>
+<h2><a name="edit_field">edit_field</a></h2>
+<pre>
+        $pfm-&gt;edit_field(
+                {
+                        -old_name =&gt; 'myfield' ,
+                        -new_name =&gt; 'mynewname',
+                }
+        );      
+        
+C&lt;edit_subscriber_field()&gt; is used to rename a subscriber field. Usually, this means that a column is renamed in table. 
+Various SQL backends do this differently and this method should provide the necessary magic.</pre>
+<p><code>-old_name</code> and <code>-new_name</code> are required paramaters and the method will croak if you do not 
+pass both.</p>
+<p>This method will also croak if either the <code>-old_name</code> does not exist, or the <code>-new_name</code> exists.</p>
+<p>
+</p>
+<h2><a name="remove_field">remove_field</a></h2>
+<pre>
+ $pfm-&gt;remove_field(
+        { 
+                -field =&gt; 'myfield', 
+        }
+ );</pre>
+<p><code>remove_field</code> will remove the profile field passed in, <code>-field</code>.</p>
+<p><code>-field</code> must exist, or the method will croak.</p>
+<p>
+</p>
+<h2><a name="change_field_order">change_field_order</a></h2>
+<pre>
+ $pfm-&gt;change_field_order(
+        {
+                -field     =&gt; 'myfield', 
+                -direction =&gt; 'down', # or, 'up' 
+        }
+ );</pre>
+<p><code>change_field_order</code> is used to change the ordering of the Subscriber Profile Fields. Subscriber Profile Fields
+are usually in the order as they are stored in the SQL table and this method actually changes that 
+order itself.</p>
+<p>This method is not available for the SQLite or PostgreSQL backend.</p>
+<p><code>-field</code> should hold the name of the field you'd like to move.</p>
+<p><code>-direction</code> should be either <code>up</code> or, &lt;down&gt; to denote which direction you'd like the field to be 
+moved. Movements are not circular - if you attempt to push a field down and the field is already the last field, it'll stay 
+the last field and won't pop to the top of the stack.</p>
+<p>This method should return, <code>1</code>, but if a field cannot be moved, it will return, <code>0</code></p>
+<p>This method will also croak if you pass a field that does not exist, or if you pass no field at all.</p>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<p>Justin Simoni <a href="http://dadamailproject.com">http://dadamailproject.com</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="licence_and_copyright">LICENCE AND COPYRIGHT</a></h1>
+<p>Copyright (c) 1999 - 2012 Justin Simoni All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, 
+Boston, MA  02111-1307, USA.</p>
+
+</body>
+
+</html>

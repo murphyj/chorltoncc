@@ -1,0 +1,281 @@
+<!-- begin edit_template_screen.tmpl -->
+
+<!-- tmpl_set name="title" value="Your Mailing List Template" -->
+
+<!-- tmpl_include help_link_widget.tmpl -->
+
+<!-- tmpl_if done -->
+	<!--tmpl_var GOOD_JOB_MESSAGE -->
+<!--/tmpl_if-->
+
+<p>
+	The Mailing List Template is used to personalize the look of your Mailing List, when you visit it in a web browser. 
+</p> 
+<p>
+	For example, your design will be reflected in your 
+	<a href="<!-- tmpl_var PROGRAM_URL -->/list/<!-- tmpl_var list_settings.list -->/"  target="_blank">
+		List Screen
+	</a>
+	and your
+	<a href="<!-- tmpl_var PROGRAM_URL -->/archive/<!-- tmpl_var list_settings.list -->/" target="_blank">
+		Archive Screens</a>.
+</p>
+
+<!-- tmpl_if template_oldstyle_backwards_compatibility --> 
+	<p class="alert">Old Style template tag support is enabled.</p>
+<!-- tmpl_else --> 
+	<p class="alert">Old Style template tag support has been disabled.</p>
+<!-- /tmpl_if --> 
+
+<form name="the_form" action="<!-- tmpl_var S_PROGRAM_URL -->" method="post" accept-charset="<!-- tmpl_var HTML_CHARSET -->">
+
+<fieldset> 
+	<legend>Your Mailing List Template</legend> 
+
+
+
+
+	<!-- tmpl_if content_tag_found_in_default_template --> 
+		<p class="positive">
+			&quot;content&quot; tag found in default template. Good!
+		</p>
+	<!-- tmpl_else --> 
+		<p class="error">
+			Yikes! Couldn't find the content tag (<code>&lt;!-- tmpl_var content --&gt;</code>) in your default template! 
+		</p>
+	<!-- /tmpl_if -->
+
+ <p>
+  <input type="radio" name="get_template_data" id="from_default_template" value="from_default_template" <!-- tmpl_if get_template_data_from_default_template -->checked="checked"<!--/tmpl_if--> />
+  <label for="from_default_template">
+   Use the Default Mailing List Template
+  </label>
+ </p>
+
+ <p>
+  <input type="radio" name="get_template_data" id="from_template_file" value="from_template_file" <!-- tmpl_if get_template_data_from_template_file -->checked="checked"<!--/tmpl_if--> />
+  <label for="from_template_file">
+   Use this Custom Template for your Mailing List: 
+  </label>
+  </p> 
+	<!-- tmpl_if content_tag_found_in_template --> 
+		<p class="positive">
+			&quot;content&quot; tag found in custom template. Good!
+		</p>
+	<!-- tmpl_else --> 
+		<p class="error">
+			Yikes! Couldn't find the content tag (<code>&lt;!-- tmpl_var content --&gt;</code>) in your custom template! 
+		</p>
+	<!-- /tmpl_if --> 
+
+ 
+  <textarea name="template_info" cols="70" rows="20" wrap="off"><!-- tmpl_var edit_this_template --></textarea>
+ </p>
+<!-- tmpl_if template_saved --> 
+	<p class="alert">
+		Saved at: <em><!-- tmpl_var TEMPLATES -->/<!-- tmpl_var list_settings.list -->.template</em>
+	</p>
+<!-- /tmpl_if --> 
+ 
+ <!-- tmpl_if can_use_lwp_simple -->
+	 
+	 <p>
+	  <input type="radio" name="get_template_data" id="from_url" value="from_url" <!-- tmpl_if get_template_data_from_url -->checked="checked"<!--/tmpl_if--> />
+	  <label for="from_url">
+	   Use the Custom Template at this URL for your Mailing List:
+	  </label>
+	
+	<!-- tmpl_if list_settings.url_template --> 
+		<!-- tmpl_if template_url_check --> 
+			<p class="positive">
+				URL can be accessed. Good!
+			</p>
+			<!-- tmpl_if content_tag_found_in_url_template --> 
+				<p class="positive">
+					&quot;content&quot; tag found in url template. Good!
+				</p>
+			<!-- tmpl_else --> 
+				<p class="error">
+					Yikes! Couldn't find the content tag (<code>&lt;!-- tmpl_var content --&gt;</code>) in your url template! 
+				</p>
+			<!-- /tmpl_if -->
+		<!-- tmpl_else --> 
+	          <p class="error">
+				Yikes! Problems fetching the below URL. Please check the URL and try again:
+			</p>
+		<!-- /tmpl_if --> 
+	<!-- /tmpl_if --> 
+	
+	
+	
+<p>
+ <input type="text" id="url_template" name="url_template" value="<!-- tmpl_var list_settings.url_template ESCAPE="HTML"-->" class="full" />
+</p>
+	 
+<!--/tmpl_if -->
+
+
+</fieldset> 
+
+<fieldset> 
+	<legend>Options</legend> 
+
+<table cellpadding="5">
+ <tr>
+  <td>
+   <p>
+    <input type="checkbox" id="apply_list_template_to_html_msgs" name="apply_list_template_to_html_msgs" value="1" <!-- tmpl_if list_settings.apply_list_template_to_html_msgs -->checked="checked"<!--/tmpl_if--> />
+   </p>
+  </td>
+  <td>
+   <p>
+    <label for="apply_list_template_to_html_msgs">
+     	Wrap your HTML Mailing List Messages in your Mailing List Template
+    </label>
+  </td>
+ </tr>
+</table>
+
+
+ 
+</fieldset> 
+
+
+ <p>
+	
+	<input type="hidden" name="process" value="true" />
+	<input type="hidden" name="f"       value="edit_template" />
+
+  <input type="hidden" name="default_template" value="<!-- tmpl_var default_template escape="HTML" -->" />
+  <div class="buttonfloat">
+   <input type="submit" class="plain"      value="Preview Template"  onclick="preview_template();" />
+   <input type="submit" class="processing" value="Change Template"   onclick="change_template();" />
+   <input type="reset"  class="cautionary" value="Clear Changes" />
+   <input type="button" class="alertive"   value="Revert to Default" onclick="set_to_default();">
+  </div>
+ </p>
+</form> 
+<div class="floatclear"></div>
+<hr />
+
+<table class="tagchart">
+	
+	
+ <tr align="center">
+  <td>
+   <strong>
+    This Tag
+   </strong>
+  </td>
+  <td>
+   <strong>
+    Is Replaced With
+   </strong>
+  </td>
+ </tr>
+
+
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var content  --&gt;</code>
+  </td>
+  <td>
+
+The content of the screen. 
+
+This tag is 
+   <strong>required</strong>. Think of this tag as the content of 
+   your webpage.
+  </td>
+ </tr>
+
+
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var title  --&gt;</code>
+  </td>
+  <td>
+   A brief header describing what the message on the screen is about.
+  </td>
+ </tr>
+
+
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var PROGRAM_NAME --&gt;</code>
+  </td>
+  <td>
+   The name of the program (<!-- tmpl_var PROGRAM_NAME -->).
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <code>&lt;!-- tmpl_var VER --&gt; </code> 
+  </td>
+  <td>
+   The version of the program (<!-- tmpl_var VER -->).
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var  PROGRAM_URL --&gt;</code>
+  </td>
+  <td>
+   The URL of <!-- tmpl_var PROGRAM_NAME -->
+   (<a href="<!-- tmpl_var PROGRAM_URL -->" target="_blank"><!-- tmpl_var PROGRAM_URL --></a>).
+  </td>
+ </tr>
+
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var default_css --&gt;</code>  
+</td>
+  <td>
+   The Cascading Style Sheet used in <!-- tmpl_var PROGRAM_NAME -->.
+   (<a href="<!-- tmpl_var PROGRAM_URL -->/css" target="_blank">view</a>)
+  </td>
+ </tr>
+
+
+
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var show_profile_widget --&gt;</code>  
+</td>
+  <td>
+  Will have a value of, 1 if profiles are enabled, 0 if not. 
+  </td>
+ </tr>
+
+
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var profile_widget --&gt;</code>  
+</td>
+  <td>
+  The profile widget
+  </td>
+ </tr>
+
+ <tr>
+  <td>
+   <code>&lt;!-- tmpl_var subscribed_to_list --&gt;</code>  
+</td>
+  <td>
+  Will have a value of, 1 if the visitor to <!-- tmpl_var PROGRAM_NAME --> is subscribed to your list. 
+  </td>
+ </tr>
+
+
+
+
+
+
+
+
+
+</table>
+
+ 
+
+<!-- end edit_template_screen.tmpl -->

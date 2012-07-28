@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Upgrade Dada Mail from a Simple Scripts Installation</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#upgrade_dada_mail_from_a_simple_scripts_installation">Upgrade Dada Mail from a Simple Scripts Installation</a></li>
+	<li><a href="#before_going_forward_">Before Going Forward:</a></li>
+	<li><a href="#what_s_the_big_difference">What's the big difference?</a></li>
+	<li><a href="#move_the__dada_files_directory">Move the .dada_files directory</a></li>
+	<li><a href="#update_the__dada_config_file">Update the .dada_config file</a></li>
+	<li><a href="#remove_the_listing_of_dada_mail_from_simple_scripts">Remove the Listing of Dada Mail from Simple Scripts</a></li>
+	<li><a href="#remove_the_old__dada_directory">Remove the old, &quot;dada&quot; directory</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="upgrade_dada_mail_from_a_simple_scripts_installation">Upgrade Dada Mail from a Simple Scripts Installation</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="before_going_forward_">Before Going Forward:</a></h1>
+<p>Simple Scripts is a great way to get started with Dada Mail, as their easy installer 
+makes it painless to begin using Dada Mail. Many people who begin to use Dada Mail 
+this way, move over to Pro Dada. Upgrading to Pro Dada from a Simple Scripts install of Dada Mail is not automatic
+ - Simple Scripts won't do this for you.</p>
+<p>Simple Scripts has, in its history of offering Dada Mail, sometimes changed the method that 
+they install Dada Mail. Since starting to offer the program, their installs 
+are less and less different from the install directions we give, and thus, it's much 
+easier to upgrade.</p>
+<p>The below directions will work to upgrade <strong>Dada Mail v4.3.2</strong> 
+as installed on, <strong>1/16/11</strong> to <strong>Pro Dada</strong> on a <strong>cPanel-based</strong> hosting account.</p>
+<p>To do this upgrade, you will need:</p>
+<ul>
+<li><strong><a name="a_good_working_knowledge_on_how_to_use_a_text_editor" class="item">A good working knowledge on how to use a Text Editor</a></strong>
+
+<li><strong><a name="a_good_working_knowledge_on_how_to_use_a_ftp_program" class="item">A good working knowledge on how to use a FTP Program</a></strong>
+
+<p><em>see if it has the option to, &quot;Show invisible files - invisible files start with a, &quot;.&quot; (dot)</em></p>
+</li>
+<li><strong><a name="enough_familiarity_with_your_hosting_account_to_move_stuff_around_and_edit_files" class="item">Enough familiarity with your hosting account to move stuff around and edit files</a></strong>
+
+</ul>
+<p>If the below directions seem out of date, please let us know and post your questions
+on the boards:</p>
+<p><a href="http://dadamailproject.com/support/boards">http://dadamailproject.com/support/boards</a></p>
+<p>Thanks!</p>
+<p>
+</p>
+<hr />
+<h1><a name="what_s_the_big_difference">What's the big difference?</a></h1>
+<p>As far as we can currently tell, the only difference that a Simple Scripts install 
+has when compared to our own instructions to install Dada Mail, is the placement of the 
+<strong>.dada_files</strong> directory. Simple Scripts will put this directory in the same directory 
+it installs Dada Mail, <strong>The Program</strong>. Our directions say to put this directory 
+under your, <strong>home directory</strong>.</p>
+<p>That's it!</p>
+<p>The easiest course of action would be to move the <strong>.dada_files</strong> directory and 
+update the, <strong>.dada_config</strong> file - this file is located in the, <code>.dada_files/.configs</code>
+directory.</p>
+<p>For this walkthrough, we've installed Dada Mail, via Simple Scripts at:</p>
+<p><strong><a href="http://dadademo.com/dada/mail.cgi">http://dadademo.com/dada/mail.cgi</a></strong></p>
+<p>The absolute path to that, <strong>dada</strong> directory is,</p>
+<p><strong>/home8/dadademo/public_html/dada</strong></p>
+<p>We're going to install Pro Dada at:</p>
+<p><strong><a href="http://dadademo.com/cgi-bin/dada/mail.cgi">http://dadademo.com/cgi-bin/dada/mail.cgi</a></strong></p>
+<p>The absolute path to this site's cgi-bin is:</p>
+<p><strong>/home8/dadademo/public_html/cgi-bin</strong></p>
+<p>Our home directory is:</p>
+<p><strong>/home8/dadademo</strong></p>
+<p>This information is going to different for you.</p>
+<p>
+</p>
+<hr />
+<h1><a name="move_the__dada_files_directory">Move the .dada_files directory</a></h1>
+<p>The first thing you want to do is move the, <strong>.dada_files</strong> directory.</p>
+<p>Simple Scripts sets the, <strong>.dada_files</strong> to be created in the same directory as Dada Mail, <strong>The Program</strong>. 
+For us, the absolute path to this directory is:</p>
+<p><strong>/home8/dadademo/public_html/dada/.dada_files</strong></p>
+<p>Remember, <em>/home8/dadademo</em> is our <em>home directory</em>, that'll probably be the default 
+directory we log into, with our FTP program.</p>
+<p>We just need to move the current <strong>.dada_files</strong> directory into our home directory. The FTP 
+program I use allows me just to drag the directories to different locations - much 
+like you would do with your desktop computer:</p>
+<p><object width="960" height="745"><param name="movie" value="http://www.youtube.com/v/5vNkYXHMBio?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1&amp;color1=0x3a3a3a&amp;color2=0x999999"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/5vNkYXHMBio?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1&amp;color1=0x3a3a3a&amp;color2=0x999999" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="960" height="745"></embed></object></p><p>If you're having trouble doing that, you can try simply downloading the entire, <strong>.dada_files</strong> 
+directory and uploading it again.</p>
+<p>
+</p>
+<hr />
+<h1><a name="update_the__dada_config_file">Update the .dada_config file</a></h1>
+<p>We need to update two variables in the <code>.dada_config</code> file. They are:</p>
+<ul>
+<li><strong><a name="_dir" class="item">$DIR</a></strong>
+
+<li><strong><a name="_program_url" class="item">$PROGRAM_URL</a></strong>
+
+</ul>
+<p>Most likely, they'll be the first two variables at the top.</p>
+<p>The, <code>.dada_config</code> file is located in your <code>.dada_files</code> directory. Here's what the path, 
+starting with, <code>.dada_files</code> will look like:</p>
+<p><em>.dada_files/.configs/.dada_config</em></p>
+<p>In my example, the <a href="#_dir"><code>$DIR</code></a> directory is set to:</p>
+<pre>
+ my $DIR         = '/home8/dadademo/public_html/dada/.dada_files';</pre>
+<p>I want to change it to the location I just moved it to - right under my home directory:</p>
+<pre>
+ my $DIR         = '/home8/dadademo/.dada_files';</pre>
+<p>Then, I just need to update the <a href="#_program_url"><code>$PROGRAM_URL</code></a> variable. It's currently set to:</p>
+<pre>
+ $PROGRAM_URL    = '<a href="http://www.dadademo.com/dada/mail.cgi">http://www.dadademo.com/dada/mail.cgi</a>';</pre>
+<p>I'm going to set it to:</p>
+<pre>
+ $PROGRAM_URL    = '<a href="http://www.dadademo.com/cgi-bin/dada/mail.cgi">http://www.dadademo.com/cgi-bin/dada/mail.cgi</a>';</pre>
+<p>Save your file - and you're done!</p>
+<p><object width="960" height="745"><param name="movie" value="http://www.youtube.com/v/zGFdCHQPJu8?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1&amp;color1=0x3a3a3a&amp;color2=0x999999"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/zGFdCHQPJu8?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1&amp;color1=0x3a3a3a&amp;color2=0x999999" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="960" height="745"></embed></object></p><p>At this point, your previous Dada Mail <strong>will not work.</strong> All you have to do now is
+install your new (Pro) Dada Mail!</p>
+<p>You can use the instructions located at:</p>
+<p><a href="http://dadamailproject.com/d/install_dada_mail.pod.html">http://dadamailproject.com/d/install_dada_mail.pod.html</a></p>
+<p><a href="http://dadamailproject.com/d/upgrade_dada_mail.pod.html">http://dadamailproject.com/d/upgrade_dada_mail.pod.html</a></p>
+<p>When using the our installer, just make sure that when it asks for your, <strong>.dada_files &quot; Directory Location&quot;</strong>, you use your home directory.</p>
+<p>Again, for us, that was:</p>
+<pre>
+ /home8/dadademo/</pre>
+<p>And again, this will be different for you.</p>
+<p>You won't need to fill anything else out - just click the, <strong>Configure Pro Dada!</strong> button at the bottom.</p>
+<p>The installer will say that it cannot make  a new, <strong>.dada_files</strong> directory, because one already exists, 
+but it will <em>also</em> say that you can use the current <strong>.dada_files</strong> directory. Use that option and click, <strong>Configure Pro Dada!</strong>, Again:</p>
+<p><object width="960" height="745"><param name="movie" value="http://www.youtube.com/v/ZiJl63FYZgs?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1&amp;color1=0x3a3a3a&amp;color2=0x999999"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/ZiJl63FYZgs?fs=1&amp;hl=en_US&amp;rel=0&amp;hd=1&amp;color1=0x3a3a3a&amp;color2=0x999999" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="960" height="745"></embed></object></p><p>Your Dada Mail should now be upgraded from a Simple Scripts installation.</p>
+<p>
+</p>
+<hr />
+<h1><a name="remove_the_listing_of_dada_mail_from_simple_scripts">Remove the Listing of Dada Mail from Simple Scripts</a></h1>
+<p>In the Simple Scripts interface, you may want to remove the listing of Dada Mail, so as to avoid confusion when working 
+in Simple Scripts in the future.</p>
+<p>In your Simple Scripts home screen, you should see a list of your installed apps under, &quot;My Installs&quot;. Under the Dada Mail listing, click, 
+&quot;Uninstall&quot;. Use the option, <strong>Remove from the List</strong> and not, <em>Automatic Removal</em> - this will make sure you do not remove anything important, inadvertantly.</p>
+<p>
+</p>
+<hr />
+<h1><a name="remove_the_old__dada_directory">Remove the old, &quot;dada&quot; directory</a></h1>
+<p>To clean things up, you'll want to remove the old <code>dada</code> directory that Simple Scripts put in place. In our example, that directory was at:</p>
+<p><em>/home8/dadademo/public_html/dada</em></p>
+<p>(Make sure not to remove the, <strong>dada</strong> directory we just installed!</p>
+
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dada Mail 3.x to Dada Mail 4.x Guide</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#dada_mail_3_to_dada_mail_4_upgrade_guide">Dada Mail 3 to Dada Mail 4 Upgrade Guide</a></li>
+	<li><a href="#changes_to_the_installation_process">Changes to the Installation Process</a></li>
+	<li><a href="#upgrading_dada_mail_3_x_to_dada_mail_4_x">Upgrading Dada Mail 3.x to Dada Mail 4.x</a></li>
+	<ul>
+
+		<li><a href="#default_backend">Default Backend</a></li>
+		<li><a href="#templating_and_template_tags">Templating and Template Tags</a></li>
+		<li><a href="#sql_backend">SQL Backend</a></li>
+		<ul>
+
+			<li><a href="#background_on_changes">Background on Changes</a></li>
+			<li><a href="#changing_the_sql_schema">Changing the SQL Schema</a></li>
+		</ul>
+
+		<li><a href="#_dada_config_changes_you_ll_want_to_know_about">.dada_config changes you'll want to know about</a></li>
+		<ul>
+
+			<li><a href="#_sql_params">%SQL_PARAMS</a></li>
+		</ul>
+
+		<li><a href="#_admin_menu">$ADMIN_MENU</a></li>
+		<li><a href="#dada_mail_profile_options">Dada Mail Profile Options</a></li>
+		<li><a href="#list_of_changes_from_3_x_to_4_x">List of Changes from 3.x to 4.x</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="dada_mail_3_to_dada_mail_4_upgrade_guide">Dada Mail 3 to Dada Mail 4 Upgrade Guide</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="changes_to_the_installation_process">Changes to the Installation Process</a></h1>
+<p>There's no change to the installation process. Hurray! (Hopefully).</p>
+<p>This means, there's nothing new you'll need to do, so if you're familiar and comfortable 
+in installing Dada Mail 3.x, you'll be comfortable in installing Dada Mail 4.x.</p>
+<p>Various configuration variables HAVE changed, so if you have your own custom <code>.dada_config</code> 
+file you like to use for multiple clients, you'll want to revise that, to be updated for 4.x.</p>
+<p>
+</p>
+<hr />
+<h1><a name="upgrading_dada_mail_3_x_to_dada_mail_4_x">Upgrading Dada Mail 3.x to Dada Mail 4.x</a></h1>
+<p>
+</p>
+<h2><a name="default_backend">Default Backend</a></h2>
+<p>If you are using the <strong>default</strong> backend, there's nothing extra you will need to know or do. 
+The usual upgrade instructions will work just fine.</p>
+<p>The <strong>default</strong> backend basically means you ARE NOT using the SQL backend.</p>
+<p>
+</p>
+<h2><a name="templating_and_template_tags">Templating and Template Tags</a></h2>
+<p>Dada Mail 4.0 has been ported over to ONLY use the new-style template tags -
+you're not going to see any old-style template tags.</p>
+<p>Old-style template tags look like this:</p>
+<pre>
+ [tag]</pre>
+<p>It's basically a string, surrounded by left and right brackets.</p>
+<p>New-style tags look like this:</p>
+<pre>
+ &lt;!-- tmpl_var tag --&gt;</pre>
+<p>Although old-style tags are not used in Dada Mail, they're still, 100% supported
+(but are now deprecated). This change shouldn't cause any upgrade problems.</p>
+<p>If you'd like to completely turn off support for old-style tags, Look into the
+Config variable, <code>$TEMPLATE_SETTINGS</code> and change the, <code>oldstyle_backwards_compatibility</code> 
+paramater to, <code>0</code>.</p>
+<p>
+</p>
+<h2><a name="sql_backend">SQL Backend</a></h2>
+<p>If you want to upgrade your Dada Mail 3.x installation to 4.x AND you are using the SQL backend (which we do suggest)</p>
+<p>You have ONE step you'll need to do, to make Dada Mail work.</p>
+<p>
+</p>
+<h3><a name="background_on_changes">Background on Changes</a></h3>
+<p>Dada Mail 4.x has a different <em>SQL Schema</em> than Dada Mail 3.x. It's not terribly different, but
+it's different enough that if you try to upgrade to Dada Mail 4.x, without changing your SQL Schema, 
+it won't work. Dada Mail WILL tell you and the worst thing that will happen is: you won't be able to use the program (all your information WILL be safe.)</p>
+<p>
+</p>
+<h3><a name="changing_the_sql_schema">Changing the SQL Schema</a></h3>
+<p>&quot;Changing teh SQL Schema&quot; sounds very frightening, we know, but thankfully, we've made a 
+migration tool for you that does all the hard work. All you need to do is upgrade your Dada Mail 3.x to 
+Dada Mail 4.x and run the migration tool. If you forget you need to run the migration tool, Dada Mail 
+will remind you.</p>
+<p>Here is the information on finding/using and running the 3.x to 4.x migration tool:</p>
+<p><a href="dada3_to_dada4_sql.pl.html">dada3_to_dada4_sql.pl.html</a></p>
+<p>Please! make sure to make manual backups of your SQL table information - all of it, so 
+in the event of a castastrophic error, you'll be OK.</p>
+<p>
+</p>
+<h2><a name="_dada_config_changes_you_ll_want_to_know_about">.dada_config changes you'll want to know about</a></h2>
+<p>If you're running Dada Mail without an outside config file (called, <code>.dada_config</code> you
+may have to make changes to what's saved in that file.</p>
+<p>If you want to see what an example <code>.dada_config</code> file looks like, open up:</p>
+<p><em>dada/extras/examples/example_dada_config.txt</em></p>
+<p>Here's what to look out for:</p>
+<p>
+</p>
+<h3><a name="_sql_params">%SQL_PARAMS</a></h3>
+<p>%SQL_PARAMS holds the configuration information, so that you can connect to the SQL server.</p>
+<p>It also holds the names of the tables that Dada Mail works with.</p>
+<p>The connection configuration information is the same, so if it's working for 3.x, it'll work for 4.x</p>
+<p>What has changed is the addition of several new table names.</p>
+<p>The, <code>%SQL_PARAMS</code> in .dada_config for 3.0.x may look like this:</p>
+<pre>
+        %SQL_PARAMS = (</pre>
+<pre>
+                # May just be, &quot;localhost&quot; 
+                dbserver         =&gt; 'localhost',
+                
+                database         =&gt; '',
+        
+                # MySQL:      3306
+                # PostgreSQL: 5432      
+                port             =&gt; '3306',
+        
+                # MySQL:      mysql 
+                # PostgreSQL: Pg
+                # SQLite:     SQLite
+                dbtype           =&gt; 'mysql',  
+        
+                user             =&gt; '',          
+                pass             =&gt; '',
+                
+                subscriber_table    =&gt; 'dada_subscribers',
+                archives_table      =&gt; 'dada_archives', 
+                settings_table      =&gt; 'dada_settings', 
+                session_table       =&gt; 'dada_sessions', 
+                bounce_scores_table =&gt; 'dada_bounce_scores', 
+                
+        );</pre>
+<p>In 4.x, it's going to look like this:</p>
+<pre>
+        %SQL_PARAMS = (</pre>
+<pre>
+                # May just be, &quot;localhost&quot; 
+                dbserver         =&gt; 'localhost',
+                
+                database         =&gt; '',
+        
+                # MySQL:      3306
+                # PostgreSQL: 5432      
+                port             =&gt; '3306',
+        
+                # MySQL:      mysql 
+                # PostgreSQL: Pg
+                # SQLite:     SQLite
+                dbtype           =&gt; 'mysql',  
+        
+                user             =&gt; '',          
+                pass             =&gt; '',
+                
+                subscriber_table                =&gt; 'dada_subscribers',
+                profile_table                   =&gt; 'dada_profiles', 
+                profile_fields_table            =&gt; 'dada_profile_fields', 
+                profile_fields_attributes_table =&gt; 'dada_profile_fields_attributes',
+                archives_table                  =&gt; 'dada_archives', 
+                settings_table                  =&gt; 'dada_settings', 
+                session_table                   =&gt; 'dada_sessions', 
+                bounce_scores_table             =&gt; 'dada_bounce_scores', 
+                clickthrough_urls_table         =&gt; 'dada_clickthrough_urls',
+                
+        );</pre>
+<p>New lines in 4.x:</p>
+<pre>
+                profile_table                   =&gt; 'dada_profiles', 
+                profile_fields_table            =&gt; 'dada_profile_fields', 
+                profile_fields_attributes_table =&gt; 'dada_profile_fields_attributes',
+                clickthrough_urls_table         =&gt; 'dada_clickthrough_urls',</pre>
+<p>Like we mentioned, these new lines are <code>just</code> listing the names of the new tables for Dada Mail, 4.x.</p>
+<p>If you DO NOT put these lines in your <code>.dada_config file</code>, Dada Mail will attempt to massage your configuration to work, anyways.</p>
+<p>
+</p>
+<h2><a name="_admin_menu">$ADMIN_MENU</a></h2>
+<p>The <code>$ADMIN_MENU</code> variable has changed, to help make things a little more organized. The changes are
+little too verbose to put in this doc, but its suggested that you delete the entire variable and re-paste 
+the <code>$ADMIN_MENU</code> variable for the example <code>.dada_config</code> file</p>
+<p><em>dada/extras/examples/example_dada_config.txt</em></p>
+<p>
+</p>
+<h2><a name="dada_mail_profile_options">Dada Mail Profile Options</a></h2>
+<p>The example <code>.dada_config</code> file does include global variables for the new Dada Profiles feature.</p>
+<p>They'll look something like this:</p>
+<pre>
+        =cut
+        # start cut for Dada Mail Profile Options</pre>
+<pre>
+        $PROFILE_OPTIONS ||= { 
+                
+                enabled                         =&gt; 1, 
+                profile_email                   =&gt; '', 
+                enable_captcha                  =&gt; 1, 
+                enable_magic_subscription_forms =&gt; 1, 
+        
+                cookie_params =&gt;
+                { 
+                        -name    =&gt; 'dada_profile',  
+                    -path    =&gt; '/',
+                    -expires =&gt; '+7d',          
+                },
+        
+                gravatar_options =&gt; 
+                {
+                        enable_gravators     =&gt; 1, 
+                        default_gravatar_url =&gt; undef,
+                },
+        };</pre>
+<pre>
+        =cut
+        # end cut for Dada Mail Profile Options</pre>
+<p>If you would like to use them, make sure to take the following lines out of your copy of the <code>.dada_config</code> file:</p>
+<pre>
+ =cut
+ # start cut for Dada Mail Profile Options</pre>
+<p>and,</p>
+<pre>
+ =cut
+ # end cut for Dada Mail Profile Options</pre>
+<p>For more information on what these variables do, see the documentation embedded in the <code>Config.pm</code> file:</p>
+<p><a href="http://dadamailproject.com/support/documentationConfig.pm.html#dada_mail_profile_options">http://dadamailproject.com/support/documentationConfig.pm.html#dada_mail_profile_options</a></p>
+<p>
+</p>
+<h2><a name="list_of_changes_from_3_x_to_4_x">List of Changes from 3.x to 4.x</a></h2>
+<p>The Master (I guess) list of changes from 3.x to 4.x is located at:</p>
+<p><a href="changes_4_x.pod.html">changes_4_x.pod.html</a></p>
+
+</body>
+
+</html>

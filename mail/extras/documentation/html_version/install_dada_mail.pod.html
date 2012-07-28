@@ -1,0 +1,256 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Install Dada Mail w/Dada Mail Installer</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#installing_and_configuring_dada_mail">Installing and Configuring Dada Mail</a></li>
+	<li><a href="#step__1__download_dada_mail">Step #1: Download Dada Mail</a></li>
+	<ul>
+
+		<li><a href="#pro_dada_subscriber">Pro Dada Subscriber?</a></li>
+	</ul>
+
+	<li><a href="#step__2_upload_the__dada_4_9_1_tar_gz_distro_to_your_cgi_bin">Step #2 Upload the, &quot;dada-4_9_1.tar.gz&quot; distro to your cgi-bin</a></li>
+	<li><a href="#step__3_upload_the__uncompress_dada_cgi_script_to_your_cgi_bin">Step #3 Upload the, &quot;uncompress_dada.cgi&quot; script to your cgi-bin</a></li>
+	<li><a href="#step__4_change_permissions_of_the__uncompress_dada_cgi_file_to__755">Step #4 Change permissions of the, &quot;uncompress_dada.cgi&quot; file to, &quot;755&quot;</a></li>
+	<li><a href="#step__5_visit_the__uncompress_dada_cgi_script_in_your_web_browser_">Step #5 Visit the, &quot;uncompress_dada.cgi&quot; script in your web browser.</a></li>
+	<li><a href="#configuring_dada_mail_with_the__install_cgi_script">Configuring Dada Mail with the, &quot;install.cgi&quot; Script</a></li>
+	<ul>
+
+		<li><a href="#a_warning_up_top">A Warning Up Top?</a></li>
+		<li><a href="#_dada_files__directory_location">&quot;.dada_files &quot; Directory Location</a></li>
+		<li><a href="#dada_mail_url">Dada Mail URL</a></li>
+		<li><a href="#dada_mail_root_password">Dada Mail Root Password</a></li>
+		<li><a href="#dada_mail_backend">Dada Mail Backend</a></li>
+		<ul>
+
+			<ul>
+
+				<li><a href="#default">Default</a></li>
+				<li><a href="#mysql_or_postgresql">MySQL or PostgreSQL</a></li>
+			</ul>
+
+			<li><a href="#another_shortcut_to_upgrading">Another Shortcut to Upgrading</a></li>
+		</ul>
+
+		<li><a href="#plugins_extensions">Plugins/Extensions</a></li>
+		<li><a href="#completing_the_installation_and_configuration_">Completing the Installation and Configuration.</a></li>
+		<li><a href="#do_you_need_to_manually_edit_the__dada_dada_config_pm_file">Do You Need to Manually Edit The, &quot;dada/DADA/Config.pm&quot; File?</a></li>
+		<li><a href="#moving_the__installer_directory">Moving the, &quot;installer&quot; directory</a></li>
+		<li><a href="#making_additional_edits">Making Additional Edits</a></li>
+		<li><a href="#running_dada_mail_for_the_first_time">Running Dada Mail for the First Time</a></li>
+	</ul>
+
+	<li><a href="#command_line_interface">Command Line Interface</a></li>
+	<li><a href="#screencasts">Screencasts</a></li>
+	<li><a href="#manual_installation">Manual Installation</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="installing_and_configuring_dada_mail">Installing and Configuring Dada Mail</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="step__1__download_dada_mail">Step #1: Download Dada Mail</a></h1>
+<p>Here's the direct download to Dada Mail v4.9.1:</p>
+<p><a href="https://github.com/downloads/justingit/dada-mail/dada-4_9_1.tar.gz">https://github.com/downloads/justingit/dada-mail/dada-4_9_1.tar.gz</a></p>
+<p>
+</p>
+<h2><a name="pro_dada_subscriber">Pro Dada Subscriber?</a></h2>
+<p>Download Pro Dada at:</p>
+<p><a href="http://dadamailproject.com/pro_dada">http://dadamailproject.com/pro_dada</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="step__2_upload_the__dada_4_9_1_tar_gz_distro_to_your_cgi_bin">Step #2 Upload the, &quot;dada-4_9_1.tar.gz&quot; distro to your cgi-bin</a></h1>
+<p>Download the <code>dada-4_9_1.tar.gz</code> distro (you will <strong>not</strong> have to uncompress the distribution) and then upload it to your hosting account's <em>cgi-bin</em>.</p>
+<div class="see_also">
+<p>
+ In these directions we suggest the <code>cgi-bin</code>, but feel free to use any directory that you <strong>know</strong> will work. See also: <a href="./FAQ-install_upgrade.pod.html#installing_dada_mail_in_a_directory_other_than_in_your__cgi_bin">Installing Dada Mail in a directory other than in your, &quot;cgi-bin&quot;</a>
+</p>
+</div><p>
+</p>
+<hr />
+<h1><a name="step__3_upload_the__uncompress_dada_cgi_script_to_your_cgi_bin">Step #3 Upload the, &quot;uncompress_dada.cgi&quot; script to your cgi-bin</a></h1>
+<p>Download the, <code>uncompress_dada.cgi</code> script from here:</p>
+<ul>
+<li><strong><a href="https://github.com/justingit/dada-mail/raw/v4_9_1-stable_2012_01_04/uncompress_dada.cgi">uncompress_dada.cgi</a> (Save Page/Link As...)</strong></li></ul><p>and upload this script (PlainTest/ASCII mode - NOT binary!) to your hosting account's <em>cgi-bin</em> - right alongside the <em>dada-4_9_1.tar.gz</em> distro you just put up.</p>
+<p>
+</p>
+<hr />
+<h1><a name="step__4_change_permissions_of_the__uncompress_dada_cgi_file_to__755">Step #4 Change permissions of the, &quot;uncompress_dada.cgi&quot; file to, &quot;755&quot;</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="step__5_visit_the__uncompress_dada_cgi_script_in_your_web_browser_">Step #5 Visit the, &quot;uncompress_dada.cgi&quot; script in your web browser.</a></h1>
+<p>The, <code>uncompress_dada.cgi</code> should attempt to uncompress the <em>dada-4_9_1.tar.gz</em> distro, change the necessary permissions of various files and prep the actual installer for you to use.</p>
+<p>Once it's finished running, you should be presented a link to use the actual installer. Click the link at the end of the screen and go ahead and configure Dada Mail!</p>
+<div class="see_also"><p>See, <a href="./FAQ-install_upgrade.pod.html#prepping_dada_mail_manually">Prepping Dada Mail Manually</a> if this doesn't happen and you get a message in your browser window, sort of like this: </p><pre>
+Can't find dada-4_9_1.tar to uncompress!
+You may have to uncompress and prep Dada Mail manually.
+</pre></div><p>
+</p>
+<hr />
+<h1><a name="configuring_dada_mail_with_the__install_cgi_script">Configuring Dada Mail with the, &quot;install.cgi&quot; Script</a></h1>
+<p>The installer should be relatively straightforward on how it's used - just fill it out with the information it's asking for. Below, we'll explain exactly what it's looking for.</p>
+<p>
+</p>
+<h2><a name="a_warning_up_top">A Warning Up Top?</a></h2>
+<p>It's possible that before you even start using Dada Mail, that you'll receive a warning stating that Dada Mail won't be able to edit the, <code>dada/DADA/Config.pm</code> file. This would be because there's a difference in file permissions/privileges between the user that the installer is running under and the user that owns the <code>dada/DADA/Config.pm</code> file.</p>
+<p>This means you'll need to edit <em>one</em> line in the <code>dada/DADA/Config.pm</code> file to get Dada Mail running correctly.</p>
+<p>
+</p>
+<h2><a name="_dada_files__directory_location">&quot;.dada_files &quot; Directory Location</a></h2>
+<p>The first thing you'll need to fill out in the installer is the location to place the, <code>.dada_files</code> directory.</p>
+<p>The installer will do its best to pre-fill out the best location for you - and you can just use it's best guess and forgo having to know the exact details.</p>
+<p>For most installations, we suggest having the installer create the, <code>.dada_files</code> directory in your <strong>home directory</strong>. All you'll need to do is fill out where your home directory is located. Find out what the location of your home directory is from your webhost, if you do not already know it.</p>
+<ul>
+<li><strong><a name="select_auto" class="item">Select <strong>AUTO</strong></a></strong>
+
+<p>If the installer has successfully selected your home directory, or you like the directory it has selected.</p>
+</li>
+<li><strong><a name="select_manual" class="item">Select <strong>MANUAL</strong></a></strong>
+
+<p><em>(and fill in the location you'd like)</em> if the installer doesn't pick a good location or you'd rather the directory be somewhere else.</p>
+<div class="see_also">
+<p>
+	See, <a href="./FAQ-install_upgrade.pod.html#_dada_files_directory_location">.dada_files Directory Location</a> for help on picking an alternative location for your .dada_files directory.
+</p>
+</div></li>
+</ul>
+<p>
+</p>
+<h2><a name="dada_mail_url">Dada Mail URL</a></h2>
+<p>The Dada Mail URL is simply the URL that you will access Dada Mail's, <code>mail.cgi</code> file from. This form field should be filled out automatically, but if something doesn't look right, just look at the URL of the installer - for example, if the URL of the installer is:</p>
+<p><a href="http://example.com/cgi-bin/dada/installer/install.cgi">http://example.com/cgi-bin/dada/installer/install.cgi</a></p>
+<p>Your <strong>Dada Mail URL</strong> will be:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi">http://example.com/cgi-bin/dada/mail.cgi</a></p>
+<p>
+</p>
+<h2><a name="dada_mail_root_password">Dada Mail Root Password</a></h2>
+<p>The, <strong>Dada Mail Root Password</strong> is the main administrative password to your Dada Mail installation - choose a good, strong password - all you'll need to do is enter it twice, just to make sure you know exactly what it's set to.</p>
+<p>
+</p>
+<h2><a name="dada_mail_backend">Dada Mail Backend</a></h2>
+<p>Dada Mail will need to save its mailing lists and other information in various files and/or an SQL database. The SQL database is optional, but we highly suggest using it:</p>
+<ul>
+<li><strong><a name="upgrades_are_easier" class="item">upgrades are easier</a></strong>
+
+<li><strong><a name="your_information_will_be_saved_more_securely" class="item">your information will be saved more securely</a></strong>
+
+<li><strong><a name="any_migrations_you_do_will_be_easier_more_and_fancier_features_will_be_available_for_you" class="item">any migrations you do will be easier, more and fancier features will be available for you</a></strong>
+
+</ul>
+<p>Tons of stuff</p>
+<p>
+</p>
+<h4><a name="default">Default</a></h4>
+<p>Select <strong>Default</strong> if you cannot, don't know how, or do not want the SQL backend option <em>(we really suggest going the distance and using the SQL backend)</em></p>
+<p>
+</p>
+<h4><a name="mysql_or_postgresql">MySQL or PostgreSQL</a></h4>
+<p>Both <strong>MySQL</strong> and <strong>PostgreSQL</strong> will have the same features available and work under the hood, basically the same way. We like PostgreSQL better, but MySQL is going to be tested a bit more thouroughly and probably is more familiar to most people, so at the moment, it's the backend that we recommend.</p>
+<p>When you select one of the SQL backends, you'll also be asked to fill in the SQL connection information, including the database server, the port number, the name of the database itself and the username and password.</p>
+<p>The database has to be set up beforehand. It's not too hard to do if you have a cPanel w/phpMyAdmin to help you along. Just note the <strong>Server</strong>, <strong>Database</strong>, <strong>Username</strong> and <strong>Password</strong>, once you create the database (No tables have to be created, beforehand). The SQL user will need full priviliges to your database. We don't suggest, for security reasons, giving this same user any permissions to any other database.</p>
+<ul>
+<li><strong><a name="database_server" class="item">Database Server</a></strong>
+
+<p>The majority of the time, you'll set this to, <code>localhost</code>, unless you have specific instructions to set it to something a little different.</p>
+</li>
+<li><strong><a name="database" class="item">Database</a></strong>
+
+<p>Fill this out to whatever you've called your database.</p>
+</li>
+<li><strong><a name="port" class="item">Port</a></strong>
+
+<p>By default, this is set to, <code>auto</code>. If you do not know what port your database uses, Dada Mail will take its best guess. By default, if you use MySQL, the port will be, <code>3306</code>, for PostgreSQL, the port will be: <code>5432</code>. Unless your database is set up different from the default configuration, these two numbers should work for the majority of people out there.</p>
+</li>
+<li><strong><a name="username" class="item">Username</a></strong>
+
+<p>Fill this with the username that's associated with your database</p>
+</li>
+<li><strong><a name="password" class="item">Password</a></strong>
+
+<p>Fill this with the password associated with the username.</p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="another_shortcut_to_upgrading">Another Shortcut to Upgrading</a></h3>
+<p>If you have an already existing database from a previous Dada Mail installation, you may fill in the SQL server login information for this existing database and Dada Mail will use it, instead of creating a set of new tables for you. This is particularily useful if you're <strong>moving</strong> Dada Mail from one server to another.</p>
+<p>
+</p>
+<h2><a name="plugins_extensions">Plugins/Extensions</a></h2>
+<p>Optionally, you may also install many of the plugins and extensions that come with Dada Mail. Access to the plugins/extensions will be available in the list control panel's admin menu.</p>
+<p>Some of the plugins/extensions have additional configuration that will need to done, before they work completely. For the majority of these plugins/extensions, you'll need to also set a cron job.</p>
+<p>One plugin, the bounce handler, also requires you to fill out the credentials for the bounce handler email account you need to set up to capture bounced emails.</p>
+<p>
+</p>
+<h2><a name="completing_the_installation_and_configuration_">Completing the Installation and Configuration.</a></h2>
+<p>Once you've filled out the form completely, just click the, <strong>Configure Dada Mail!</strong> button. The screen will refresh and go about configuring Dada Mail for your hosting setup.</p>
+<p>If everything works well (and we hope it does) you should be all set to run Dada Mail.</p>
+<p>
+</p>
+<h2><a name="do_you_need_to_manually_edit_the__dada_dada_config_pm_file">Do You Need to Manually Edit The, &quot;dada/DADA/Config.pm&quot; File?</a></h2>
+<p>There's a possibility, especially if you were issued the warning before filling out the configuration form, that you'll have to edit a line in the, <code>dada/DADA/Config.pm</code> file. If this is the case, the installer will show you which file to look for and what to change it to.</p>
+<p>Be careful when editing this file, as any error will stop Dada Mail from working. When saving the file and putting it back up to your hosting account, make sure to upload the file in ASCII/Plain Text mode, NOT binary!</p>
+<p>
+</p>
+<h2><a name="moving_the__installer_directory">Moving the, &quot;installer&quot; directory</a></h2>
+<p>Dada Mail will not start working, until you move the, <code>dada/installer</code> directory out of the way. This is a security precaution, so someone else doesn't come along and attempt to reconfigure your Dada Mail!</p>
+<p>The provided button should do the trick, but if it fails (it'll let you know), you'll have to remove it manually. If you had to do the above step manually, you'll most likely have to do this step manually, too.</p>
+<p>
+</p>
+<h2><a name="making_additional_edits">Making Additional Edits</a></h2>
+<p>The installer should give you the full path to the, <code>.dada_config</code> file it creates. This is the file that is written that holds your configuration that the installer just created. There's a ton of additional configuration options you can set - the installer just gets you up and running correctly.</p>
+<p>Making additional configurations is a lot more advanced than running the installer, so be careful when editing this file - make a backup, first.</p>
+<p>
+</p>
+<h2><a name="running_dada_mail_for_the_first_time">Running Dada Mail for the First Time</a></h2>
+<p>Once you've gotten the, <code>dada/DADA/Config.pm</code> file edited (if needed) and moved the, <code>installer</code> directory out of the way, it's time to begin using Dada Mail. Click the, <code>Start Working With Dada Mail!</code> button to begin!</p>
+<p>Good Luck!</p>
+<p>
+</p>
+<hr />
+<h1><a name="command_line_interface">Command Line Interface</a></h1>
+<p>An alternative, command line interface is available, instructions can be 
+found on how to use it, by invoking the script with the, <code>--help</code> flag,</p>
+<pre>
+ shell&gt;./installer.cgi --help</pre>
+<p>most of the options available on the web-based interface are available in the command line interface, except the installation of the plugins/extensions.</p>
+<p>
+</p>
+<hr />
+<h1><a name="screencasts">Screencasts</a></h1>
+<p>The below screencasts go through the installation process:</p>
+<p><strong>How to Download, Install and Configure Dada Mail v4.9.1</strong></p>
+<p><iframe width="853" height="510" src="http://www.youtube.com/embed/MWz8O13yc0s?hd=1" frameborder="0" allowfullscreen></iframe></p><p>
+</p>
+<hr />
+<h1><a name="manual_installation">Manual Installation</a></h1>
+<p>We suggest using the Dada Mail Installer, but you can still install Dada Mail manually:</p>
+<p><a href="manually_install_dada_mail.pod.html">manually_install_dada_mail.pod.html</a></p>
+
+</body>
+
+</html>

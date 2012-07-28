@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Default Backend to SQL Backend Guide</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#converting_a_dada_mail_install_from_a_default_backend_to_an_sql_backend">Converting a Dada Mail Install From a Default Backend to an SQL Backend</a></li>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#a_contempory_installation">A Contempory Installation</a></li>
+	<li><a href="#setup_a_sql_database">Setup a SQL Database</a></li>
+	<li><a href="#run_the_export_scripts">Run the Export Scripts</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="converting_a_dada_mail_install_from_a_default_backend_to_an_sql_backend">Converting a Dada Mail Install From a Default Backend to an SQL Backend</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="introduction">Introduction</a></h1>
+<p>By default, Dada Mail does not use an SQL backend, but rather uses a simpler method of using a PlainText file for your mailing list subscribers (the format is one email per line) and using what's called, <strong>dbm</strong> files for everything else: list settings, archives, schedules, etc. Most likely, you're using the <strong>Berekeley DB File</strong> format.</p>
+<p>Although easier to set up, the Default backend for Dada Mail does not have as many features as the <strong>SQL</strong> backend alternative. These include Subscriber Profile Fields, Partial Mailing List Sending, Multiple Mailing List Sending and some other neat things.</p>
+<p>
+</p>
+<hr />
+<h1><a name="a_contempory_installation">A Contempory Installation</a></h1>
+<p>We highly suggest that you use the SQL Backend with a Contemporary Installation setup and NOT the Basic Installation setup. If you're not currently using a Contemporary Installation Method, switch:</p>
+<p><a href="basic_to_contemporary_installation.pod.html">basic_to_contemporary_installation.pod.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="setup_a_sql_database">Setup a SQL Database</a></h1>
+<p>Instructions on Setting up Dada Mail's SQL Database Backend can be found here:</p>
+<p><a href="http://dadamailproject.com/installation/configuration-sql_backend.html">http://dadamailproject.com/installation/configuration-sql_backend.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="run_the_export_scripts">Run the Export Scripts</a></h1>
+<p>There are <strong>three</strong> separate export scripts that can be run, to move your Mailing List information from the Default backend, to the SQL backend.</p>
+<p>The can be found in the,</p>
+<p><code>dada/extras/scripts</code></p>
+<p>directory of your Dada Mail distribution.</p>
+<p>We suggest that you move them into the,</p>
+<p><code>dada</code></p>
+<p>directory before you run them.</p>
+<p>They require <strong>no</strong> configuration themselves and installation is as simple as moving them into the <code>dada</code> directory and changing their permissions to, <code>755</code> but should be run in this order:</p>
+<ul>
+<li><strong><a name="dada_settings_dbtosql_pl" class="item">dada_settings_dbtosql.pl</a></strong>
+
+<p>Docs:</p>
+<p><a href="dada_settings_dbtosql.pl.html">dada_settings_dbtosql.pl.html</a></p>
+</li>
+<li><strong><a name="dada_archive_dbtosql_pl" class="item">dada_archive_dbtosql.pl</a></strong>
+
+<p>Docs:</p>
+<p><a href="dada_archive_dbtosql.pl.html">dada_archive_dbtosql.pl.html</a></p>
+</li>
+<li><strong><a name="dada_subscribers_plaintext2sql_pl" class="item">dada_subscribers_plaintext2sql.pl</a></strong>
+
+<p>Docs:</p>
+<p><a href="dada_subscribers_plaintext2sql.pl.html">dada_subscribers_plaintext2sql.pl.html</a></p>
+</li>
+<li><strong><a name="dada_clickthrough_plaintext2sql_pl" class="item">dada_clickthrough_plaintext2sql.pl</a></strong>
+
+<p><em>You'll only need to run this, if you were using the Clickthrough Tracking extension or Tracker plugin</em></p>
+<p>Docs:</p>
+<p><a href="dada_clickthrough_plaintext2sql.pl.html">dada_clickthrough_plaintext2sql.pl.html</a></p>
+</li>
+</ul>
+<p>You may run them by simply visiting the scripts in your web browser, or running them from a shell.</p>
+<p><strong>Do Not</strong> run these scripts twice, or data will be doubled-up.</p>
+
+</body>
+
+</html>

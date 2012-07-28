@@ -1,0 +1,2 @@
+[09-Jan-2012 16:28:14] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/ixedts.lin' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/ixedts.lin: undefined symbol: executor_globals_id in Unknown on line 0
+[09-Jan-2012 16:55:35] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/ixedts.lin' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/ixedts.lin: undefined symbol: executor_globals_id in Unknown on line 0

@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Projects within Dada Mail that we would like to work on</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#the_dada_mail_project">The Dada Mail Project</a></li>
+	<ul>
+
+		<li><a href="#revamp_of_mass_subscribing_in_the_list_control_panel">Revamp of Mass-Subscribing in the list control panel</a></li>
+		<li><a href="#mail_sending_web_services_api_integration">Mail Sending Web Services API Integration</a></li>
+		<li><a href="#multiple_fields__meta_information">Multiple Fields: Meta Information</a></li>
+		<li><a href="#sending_mailing_list_messages__preview">Sending Mailing List Messages: Preview</a></li>
+		<li><a href="#dada_bridge__rules">Dada Bridge: Rules</a></li>
+		<li><a href="#dada_bridge__moderation_enhancements">Dada Bridge: Moderation Enhancements</a></li>
+		<li><a href="#dada_bridge__digest_support_and_digest_sublist">Dada Bridge: Digest Support and Digest Sublist</a></li>
+		<li><a href="#mass_mailing_enhancements">Mass Mailing Enhancements</a></li>
+		<li><a href="#bundle_fckeditor_ckeditor_within_dada_mail">Bundle FCKeditor/CKEditor within Dada Mail</a></li>
+		<li><a href="#smart_groups_save_partial_sending_options">Smart Groups/Save Partial Sending Options</a></li>
+		<li><a href="#envelope_sending">Envelope Sending</a></li>
+		<li><a href="#click_through_tracking_enhancements">Click through Tracking Enhancements</a></li>
+		<li><a href="#dada_mail_installer">Dada Mail Installer</a></li>
+		<li><a href="#make_templates_easier_to_work_with">Make Templates Easier to Work With</a></li>
+		<li><a href="#under_the_hood__move_dada_mail_to_a_mature_web_framework">Under the Hood: Move Dada Mail to a mature Web Framework</a></li>
+		<li><a href="#under_the_hood__sql_backend_for_mailing_monitor">Under the Hood: SQL backend for Mailing Monitor</a></li>
+		<li><a href="#under_the_hood__make_dada_mail_mod_perl_compatible">Under the Hood: Make Dada Mail mod_perl compatible</a></li>
+	</ul>
+
+	<li><a href="#see_also">See Also</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="the_dada_mail_project">The Dada Mail Project</a></h1>
+<p>Below are a list of projects we'd like to work on for Dada Mail. Dada Mail development is commissioned generally by users, like you.</p>
+<p>These are broad ideas that we'd like to share about some new features we're like to bring into the fold of Dada Mail.</p>
+<p>
+</p>
+<h2><a name="revamp_of_mass_subscribing_in_the_list_control_panel">Revamp of Mass-Subscribing in the list control panel</a></h2>
+<p>We're looking for comments about this issue, here:</p>
+<p><a href="http://dadamailproject.com/support/boards/viewtopic.php?f=25&t=2457">http://dadamailproject.com/support/boards/viewtopic.php</a></p>
+<p>If you have ideas, please post them, we could really use your help!</p>
+<p>
+</p>
+<h2><a name="mail_sending_web_services_api_integration">Mail Sending Web Services API Integration</a></h2>
+<p><strong><em>Update 8/1/11 - Amazon SES Web Service Integration has been added in v4.6.0 as
+an experimental feature. See:</em></strong></p>
+<p><a href="http://dadamailproject.com/d/features-amazon_ses_support.pod.html">http://dadamailproject.com/d/features-amazon_ses_support.pod.html</a></p>
+<p><strong><em>Postmark is not looking super interesting, as they're focusing on transactional emails only</em></strong></p>
+<p>Currently, there's two ways to send mail with Dada Mail:</p>
+<ul>
+<li><strong><a name="using_the_local_sendmail_command" class="item">Using the local, &quot;sendmail&quot; command</a></strong>
+
+<p>which usually integrates with the local mail server</p>
+</li>
+<li><strong><a name="using_an_outside_smtp_server" class="item">Using an outside SMTP server</a></strong>
+
+<p>via the SMTP protocol</p>
+</li>
+</ul>
+<p>There's been a lot of interesting Email Sending API services that are cropping up. A few I've been looking at:</p>
+<ul>
+<li><strong><a name="postmark" class="item">Postmark</a></strong>
+
+<p><a href="http://postmarkapp.com">http://postmarkapp.com</a></p>
+</li>
+<li><strong><a name="amazon_ses" class="item">Amazon SES</a></strong>
+
+<p><a href="http://aws.amazon.com/ses/">http://aws.amazon.com/ses/</a></p>
+</li>
+</ul>
+<p>The most alluring reason to integrate these services are:</p>
+<ul>
+<li><strong><a name="the_removal_of_sending_speed_limitations_on_shared_hosting_accounts" class="item">The removal of sending speed limitations on shared hosting accounts</a></strong>
+
+<p>If you use an outside service (like the above), you don't use your hosting company's mail server, thus, you're not tied to their sending limitations.</p>
+</li>
+<li><strong><a name="increase_in_successful_deliveries" class="item">Increase in successful deliveries</a></strong>
+
+<p>These services claim to be  monitored much better than your hosting company's mail server. Because they have more information about you, they can stop people from abusing their services. Which, is great.</p>
+</li>
+</ul>
+<p>Some downsides:</p>
+<ul>
+<li><strong><a name="cost" class="item">Cost</a></strong>
+
+<p>These services do have a cost to them. Generally, they're pretty low.</p>
+</li>
+<li><strong><a name="configuration" class="item">Configuration</a></strong>
+
+<p>There needs to be some configuration done in Dada Mail to make them work. It's going to be similar to setting up stuff for SMTP sending.</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="multiple_fields__meta_information">Multiple Fields: Meta Information</a></h2>
+<p>Currently, multiple fields only allow you to set a name and fallback value, per field.</p>
+<p>We'd like to extend these features to include various meta-data about the field itself. For example, we'd like the option to allow you to set if a field is optional or required and what sort of HTML form field should be presented to the would-be subscriber, when they fill out the form itself.</p>
+<p>
+</p>
+<h2><a name="sending_mailing_list_messages__preview">Sending Mailing List Messages: Preview</a></h2>
+<p>There's currently no way to preview a mailing list message, before you send it.</p>
+<p>We'd like to add one that works really well and is incredibly easy to use.</p>
+<p>We'd like this previewer to allow you work well with the Subscriber Profile Fields and the advanced Dada Mail templating language, so you can see exactly and instantaneously what your advanced if/unless/loop blocks do to the customized message you're creating.</p>
+<p>
+</p>
+<h2><a name="dada_bridge__rules">Dada Bridge: Rules</a></h2>
+<p>Currently, Dada Bridge isn't completely flexible on letting you specify arbitrary and complex rules when it comes to the email messages it handles.</p>
+<p>We'd like to add in Mail Rules, similiar to Apple's Mail.app application, where you can have Dada Bridge look for specific criteria in messages it receives (who, specifically it's from, specific text it may have, if the message contains attachments) and, depending on the criteria met, have Dada Bridge to something specific to the message (broadcast to the list, reject, flag it for moderation, strip out attachments, forward to another address, etc)</p>
+<p>
+</p>
+<h2><a name="dada_bridge__moderation_enhancements">Dada Bridge: Moderation Enhancements</a></h2>
+<p>Currently, the moderation system is slightly less than rough. It works, but is a little kludgey. We'd like to make it much more easy to use, extendable and convenient.</p>
+<p>Currently, The options for moderation look something like this:</p>
+<p>[ ] Use Moderation
+Messages sent to your discussion list will have to be approved by the List Owner.</p>
+<pre>
+
+    [ ] Send a Rejection Message
+     The original poster will receive a message stating that the 
+     message was rejected.</pre>
+<p>Fairly spartan.</p>
+<p>We'd like to  extend the functionality to include:</p>
+<pre>
+    [ ] Use Moderation
+        Messages sent to your discussion list will have to be approved.
+        Send moderation accept/reject messages to: 
+ 
+        [ ] the list owner (recommended)
+        [ ] A separate Moderation list ( View/Add )
+        [ ] A random pool of subscribers
+            Randomly pick [-- 5 --] Subscribers
+            to moderate.
+    
+    [ ] Moderate messages sent by non-subscribers
+    
+    [ ] Allow moderator list to send messages to the entire list</pre>
+<pre>
+        [ ] Send messages sent by a moderator to all moderators</pre>
+<pre>
+    [ ] Send a Message Received Confirmation Message
+        The original poster will receive a message stating that the message
+        has  been received, but need moderating. 
+    
+    [ ] Send an Acceptance Message
+        The original poster will receive a message stating that the message 
+        was accepted</pre>
+<pre>
+    [ ] Send a Rejection Message
+        The original poster will receive a message stating that the message 
+        was rejected.</pre>
+<p>All these features should take off much of the burden of moderating from the list owner and spread it to specific moderators, as well as being able to opt for a self-moderating list.</p>
+<p>
+</p>
+<h2><a name="dada_bridge__digest_support_and_digest_sublist">Dada Bridge: Digest Support and Digest Sublist</a></h2>
+<p>Dada Bridge is really missing digest support. Digests should be able to be automatically created and sent to a &quot;digest&quot; sublist. This sublist should also be able to <em>reply</em> to the sublist, and join in on the discussion. Currently, this doesn't happen.</p>
+<p>
+</p>
+<h2><a name="mass_mailing_enhancements">Mass Mailing Enhancements</a></h2>
+<p>
+</p>
+<h2><a name="bundle_fckeditor_ckeditor_within_dada_mail">Bundle FCKeditor/CKEditor within Dada Mail</a></h2>
+<p>It may be possible to somehow bundle FCKeditor within Dada Mail, for a installation-free support. FCKeditor will, &quot;just be available&quot;</p>
+<p>
+</p>
+<h2><a name="smart_groups_save_partial_sending_options">Smart Groups/Save Partial Sending Options</a></h2>
+<p>Being able to save a set of your subscribers, based on a saved query of your Subscriber Profile Fields would be incredibly helpful to help keep track of various activities of your mailing list.</p>
+<p>Smart Groups can be created/edited/delete and Smart Groups can be used to view a specific part of your mailing list.</p>
+<p>
+</p>
+<h2><a name="envelope_sending">Envelope Sending</a></h2>
+<p>Envelope sending allows you to send one message to a specific domain that will go to more than one user of that domain.</p>
+<p>This allows you to send out a mailing list message to your entire subscriber list *very fast*, since you could, in theory, only have to send a tenth of the messages you currently do now. This would cut down your sending time also by a tenth of what it would currently take.</p>
+<p>The downside of envelope sending is that you would lose absolutely all your mail merging capabilities and each message would have to be generic. This comprimise may be worth it, if raw speed is important to you. If you have a discussion list, the mail merging capabilities may just be a moot feature anyways.</p>
+<p>
+</p>
+<h2><a name="click_through_tracking_enhancements">Click through Tracking Enhancements</a></h2>
+<p><strong><em>Update 8/1/11: Many of these features are found in the Tracker Plugin:</em></strong></p>
+<p><a href="http://dadamailproject.com/d/tracker.cgi.html">http://dadamailproject.com/d/tracker.cgi.html</a></p>
+<p>The Click through Tracker plugin currently tracks the following:</p>
+<ul>
+<li><strong><a name="how_many_times_certain_urls_are_clicked_on_in_your_list_messages" class="item">How many times certain urls are clicked on in your list messages</a></strong>
+
+<li><strong><a name="how_many_times_a_message_is_opened" class="item">How many times a message is opened</a></strong>
+
+<li><strong><a name="how_many_subscribers_are_present_every_time_a_message_is_sent" class="item">How many subscribers are present every time a message is sent</a></strong>
+
+<li><strong><a name="hard_email_bounces" class="item">&quot;Hard&quot; email Bounces</a></strong>
+
+</ul>
+<p>We'd like to extend the tracking to include Subscriptions and Unsubscriptions.</p>
+<p>We would also like to have the addition of graphing features in Dada Mail, so you can graph the data that's saved in the clickthrough tracker logs in practically any way you'd like.</p>
+<p>
+</p>
+<h2><a name="dada_mail_installer">Dada Mail Installer</a></h2>
+<p><strong><em>Update 8/1/11: There is an installer for Dada Mail:</em></strong></p>
+<p><a href="http://dadamailproject.com/d/install_dada_mail.pod.html">http://dadamailproject.com/d/install_dada_mail.pod.html</a></p>
+<p>Currently, there is no installer for Dada Mail - you have to, albeit minimally, edit Dada Mail's source file's manually to get Dada Mail installed.</p>
+<p>Installation should be as easy as uploaded the files to your hosting account, changing the permissions of one or two files and visiting a script in your web-browser that will then go through the steps needed to complete the installation process in a wizard-style, step oriented way, much like applications, like Joomla, Wordpress or Moveable Type.</p>
+<p>The installer should be able to configure Dada Mail using any of the backends, including any of the SQL backends, as well as some of the plugins and extensions that are included in Dada Mail, but currently have to be installed separately of Dada Mail itself.</p>
+<p>
+</p>
+<h2><a name="make_templates_easier_to_work_with">Make Templates Easier to Work With</a></h2>
+<p>Most all HTML in Dada Mail is separate from the actual Perl code, but it's still not as accessible as it could be.</p>
+<p>We'd like to have the template files completely separate from the Perl program part of Dada Mail to allow easier editing and theming. Instead of the template files almost hidden far in the program itself, they should simply be in a directory you upload into your public_html directory on your hosting account.</p>
+<p>This would also allow a much richer application experience, as currently, images cannot be used in Dada Mail in a big way for layout and design.</p>
+<p>We'd also like to make a web-based editor for these templates.</p>
+<p>Finally, we'd also like to make all Email Message templates exist outside of the Dada Mail program code an as easy to edit as the HTML screens.</p>
+<p>
+</p>
+<h2><a name="under_the_hood__move_dada_mail_to_a_mature_web_framework">Under the Hood: Move Dada Mail to a mature Web Framework</a></h2>
+<p>Dada Mail does not use an underlying web framework. This is fine on its own, but it does mean that development focuses on features specifically to Dada Mail, as well as common features that most complex web applications have to create. This includes session management, security issues, database interfaces, plugin schemes, AJAX-stuff, form and data validation and a whole bunch of other things that users of a program may never see on the surface of a program, but can make a big difference in making sure an application, like Dada Mail, is easy to add features to and keep bug-free.</p>
+<p>The web application framework I suggest using is CGI::Application:</p>
+<p><a href="http://cgi-app.org/">http://cgi-app.org/</a></p>
+<p>
+</p>
+<h2><a name="under_the_hood__sql_backend_for_mailing_monitor">Under the Hood: SQL backend for Mailing Monitor</a></h2>
+<p>The Mailing Monitor keeps track of your Mass Mailings. It's fairly complex and it's backend is created simply using the filesytem - it's a bunch of files and directories.</p>
+<p>In the name of performance and stability, we'd love to port this to an SQL backend. No new features would initially be added, but the added stability of the SQL backend should help things, such as corrupted mass mailings, given that we have very interesting tools, such as table/row locking and transaction support in the various SQL backends.</p>
+<p>
+</p>
+<h2><a name="under_the_hood__make_dada_mail_mod_perl_compatible">Under the Hood: Make Dada Mail mod_perl compatible</a></h2>
+<p>mod_perl runs a web application, like Dada Mail in a completely persistent environment, which can dramatically increase performance of the web application in a busy server environment.</p>
+<p>
+</p>
+<hr />
+<h1><a name="see_also">See Also</a></h1>
+<p>There's a file in the distro at,</p>
+<p><em>dada/extras/developers/TODOlist.txt</em></p>
+<p>Which has a running list of ideas in a very very raw form.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!-- begin setup_info_screen.tmpl -->
+
+<!-- tmpl_set name="title" value="Setup Information" -->
+<!-- tmpl_set name="show_profile_widget" value="0" -->
+<!-- tmpl_include help_link_widget.tmpl --> 
+
+
+<h1>Installation and Configuration</h1> 
+
+<!-- tmpl_if c_install --> 
+
+<h2>You have a Contemporary Install of Dada MaiL</h2> 
+
+<p><!-- tmpl_var PROGRAM_NAME --> is set up to use an outside config file.</p>
+
+<h3>Configuration Variables</h3> 
+<ul> 
+<li><p><strong>$PROGRAM_CONFIG_FILE_DIR</strong><br /> <code><!-- tmpl_var PROGRAM_CONFIG_FILE_DIR --></code></p></li>
+<li><p><strong>$PROGRAM_ERROR_LOG</strong><br /> <code><!-- tmpl_var PROGRAM_ERROR_LOG --></code></p></li>
+
+</ul> 
+
+
+<h2>.dada_config file</h2> 
+
+<p>The contents of your <code>.dada_config</code> file are below:</p> 
+
+<div style="width:95%;height:300px;overflow:auto;border:1px solid black;padding:5px;margin:5px">
+
+	<pre><!-- tmpl_var config_file_contents escape="HTML" --> </pre>
+
+</div>
+
+
+
+
+
+<!-- tmpl_else --> 
+
+<h2>You have a Basic Installation of <!-- tmpl_var PROGRAM_NAME --></h2> 
+
+<p><!-- tmpl_var PROGRAM_NAME --> is set up by configuring the, <code>dada/DADA/Config.pm</code> file, itself. No outside
+	configuration file has been found.</p>
+
+
+<h3>Configuration Variables</h3> 
+
+<ul> 
+
+<li><p><strong>$PROGRAM_ROOT_PASSWORD</strong><br /> <code><!-- tmpl_var PROGRAM_ROOT_PASSWORD --></code></p></li>
+
+<li><p><strong>$MAILPROG</strong><br /> <code><!-- tmpl_var MAILPROG --></code></p></li>
+
+<li><p><strong>$PROGRAM_URL</strong><br /> <code><!-- tmpl_var PROGRAM_URL --></code></p></li>
+
+<li><p><strong>$FILES</strong><br /> <code><!-- tmpl_var FILES --></code></p>
+	
+	
+	<!-- tmpl_if files_var_exist --> 
+
+	<!-- tmpl_else --> 
+
+		<p class="error">Warning! the directory, "<!-- tmpl_var FILES -->" does not seem to exist!</p>
+
+	<!-- /tmpl_if -->
+	
+	
+	</li>
+
+
+<li><p><strong>$PROGRAM_CONFIG_FILE_DIR</strong><br /> <code><!-- tmpl_var PROGRAM_CONFIG_FILE_DIR --></code></p></li>
+
+<li><p><strong>$PROGRAM_ERROR_LOG</strong><br /> <code><!-- tmpl_var PROGRAM_ERROR_LOG --></code></p></li>
+
+</ul>
+ 
+
+<!-- /tmpl_if --> 
+
+
+<h2>dada/DADA/Config.pm file</h2> 
+
+<p>Your entire <code>dada/DADA/Config.pm</code> file is below:</p> 
+
+
+<div style="width:95%;height:300px;overflow:auto;border:1px solid black;padding:5px;margin:5px">
+
+	<pre><!-- tmpl_var config_pm_file_contents escape="HTML"  --> </pre>
+
+</div>
+
+
+<h1>Raw Config Variables</h1> 
+
+<p>All configuration variables are below, in their raw form. You may use this to double-check the variables you 
+	are setting are being evaluated correctly: </p> 
+	
+
+<div style="width:95%;height:300px;overflow:auto;border:1px solid black;padding:5px;margin:5px">
+
+<table border="0" cellpadding="5"> 
+	<!-- tmpl_loop config_vals --> 
+	<tr> 
+		<td width="150px"><p><!-- tmpl_var name --></p></td> 
+		<td><p><pre><!-- tmpl_var value escape="HTML" --></pre></p></td> 
+	</tr>
+	<!-- /tmpl_loop -->
+</table> 
+</div> 
+<!-- end setup_info_screen.tmpl -->

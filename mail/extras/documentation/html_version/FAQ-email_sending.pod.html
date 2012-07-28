@@ -1,0 +1,390 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Email Sending with Dada Mail FAQ</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#email_sending_with_dada_mail_faq">Email Sending with Dada Mail FAQ</a></li>
+	<li><a href="#related_faq_s">Related FAQ's</a></li>
+	<li><a href="#general">General</a></li>
+	<ul>
+
+		<li><a href="#what_s_the_difference_between_the_sendmail_command_and_smtp">What's the difference between the Sendmail Command and SMTP?</a></li>
+		<li><a href="#which_one_should_i_use__the_sendmail_command_or_smtp">Which one should I use, the sendmail command or SMTP?</a></li>
+	</ul>
+
+	<li><a href="#smtp_sending">SMTP Sending</a></li>
+	<ul>
+
+		<li><a href="#what_does_dada_mail_use_for_its_smtp_sending">What does Dada Mail use for its SMTP Sending?</a></li>
+	</ul>
+
+	<li><a href="#smtp_authentication">SMTP Authentication</a></li>
+	<li><a href="#sasl_authentication_">SASL Authentication.</a></li>
+	<ul>
+
+		<li><a href="#what_username_and_password_are_you_supposed_to_give_the_smtp_server">What username and password are you supposed to give the SMTP server?</a></li>
+		<li><a href="#how_do_you_know_you_re_supposed_to_use_sasl_authentication">How do you know you're supposed to use SASL authentication?</a></li>
+	</ul>
+
+	<li><a href="#pop_before_smtp_authentication">POP-before-SMTP Authentication</a></li>
+	<ul>
+
+		<li><a href="#testing_your_smtp_sending">Testing Your SMTP Sending</a></li>
+		<li><a href="#how_can_i_enable_smtp_sending_using_ssl_tls">How can I enable SMTP sending using SSL/TLS?</a></li>
+	</ul>
+
+	<li><a href="#bounces">Bounces</a></li>
+	<ul>
+
+		<li><a href="#is_there_a_bounce_handler_for_dada_mail">Is there a bounce handler for Dada Mail?</a></li>
+		<li><a href="#where_are_my_bounce_messages_going">Where are my bounce messages going?</a></li>
+	</ul>
+
+	<li><a href="#dada_mail_and_google_apps_for_domains">Dada Mail and Google Apps for Domains</a></li>
+	<ul>
+
+		<li><a href="#before_you_begin">Before you begin</a></li>
+		<li><a href="#do_not_send_email_using_google_apps">Do not SEND email using Google Apps</a></li>
+		<li><a href="#use_your_local_mail_server_sendmail_command_to_send_mail">Use your local mail server/sendmail command to send mail</a></li>
+		<ul>
+
+			<li><a href="#spf_record">SPF record?</a></li>
+		</ul>
+
+		<li><a href="#using_dada_bridge_for_discussion_lists">Using Dada Bridge for Discussion Lists</a></li>
+		<ul>
+
+			<li><a href="#method__1_setup_the_list_email_account_on_google_apps__use_the_google_apps_login_info">Method #1 Setup the List Email account on Google Apps, use the Google Apps login info</a></li>
+			<li><a href="#method__2_setup_a_subdomain_with_a_different_mx_record">Method #2 Setup a subdomain with a different MX record</a></li>
+		</ul>
+
+		<li><a href="#using_mystery_girl__bounce_handler_">Using Mystery Girl (Bounce Handler)</a></li>
+		<ul>
+
+			<li><a href="#method__3_setup_a_local_mailbox">Method #3 Setup a local mailbox</a></li>
+			<li><a href="#method__2_setup_a_subdomain_with_a_different_mx_record">Method #2 Setup a subdomain with a different MX record</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#problems">Problems</a></li>
+	<ul>
+
+		<li><a href="#write_an_html_message__receive_it_as_plaintext">Write an HTML message, receive it as PlainText</a></li>
+		<li><a href="#no_mail_is_sending_at_all_">No Mail is Sending at All.</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="email_sending_with_dada_mail_faq">Email Sending with Dada Mail FAQ</a></h1>
+<p>This FAQ attempts to answer questions specifically to sending out email from Dada Mail.</p>
+<p>
+</p>
+<hr />
+<h1><a name="related_faq_s">Related FAQ's</a></h1>
+<ul>
+<li><strong><a name="mailing_list_sending_faq" class="item">Mailing List Sending FAQ</a></strong>
+
+<p><a href="FAQ-mailing_list_sending.pod.html">FAQ-mailing_list_sending.pod.html</a></p>
+</li>
+<li><strong><a name="general_faq" class="item">General FAQ</a></strong>
+
+<p><a href="FAQ-general.pod.html.html">FAQ-general.pod.html.html</a></p>
+</li>
+<li><strong><a name="error_faq" class="item">ERROR FAQ</a></strong>
+
+<p><a href="FAQ-general.pod.html.html">FAQ-general.pod.html.html</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="general">General</a></h1>
+<p>
+</p>
+<h2><a name="what_s_the_difference_between_the_sendmail_command_and_smtp">What's the difference between the Sendmail Command and SMTP?</a></h2>
+<p>Both SMTP sending and using the sendmail command do the same thing - they send email.</p>
+<p>The SMTP engine will connection directly to an SMTP server.</p>
+<p>The sendmail command will pass an email message to a server utility, which will then connect to the SMTP server.</p>
+<p>
+</p>
+<h2><a name="which_one_should_i_use__the_sendmail_command_or_smtp">Which one should I use, the sendmail command or SMTP?</a></h2>
+<p>If the sendmail command works, there's no reason to use SMTP directly.</p>
+<p>Some reasons you may want to use SMTP sending:</p>
+<ul>
+<li><strong><a name="your_mail_server_is_located_on_a_different_physical_computer_than_you_hosting_server" class="item">Your mail server is located on a different physical computer than you hosting server</a></strong>
+
+<li><strong><a name="you_do_not_have_access_to_the_sendmail_command" class="item">You do not have access to the sendmail command</a></strong>
+
+<li><strong><a name="you_want_more_control_over_when_your_bounced_messages_are_going" class="item">You want more control over when your bounced messages are going</a></strong>
+
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="smtp_sending">SMTP Sending</a></h1>
+<p>
+</p>
+<h2><a name="what_does_dada_mail_use_for_its_smtp_sending">What does Dada Mail use for its SMTP Sending?</a></h2>
+<p>Currently, Dada Mail uses the <strong>Net::SMTP_auth</strong> CPAN module to send email via SMTP. More information:</p>
+<p><a href="http://search.cpan.org/~apleiner/Net-SMTP_auth">http://search.cpan.org/~apleiner/Net-SMTP_auth</a></p>
+<p>In versions prior, it has used the <strong>Net::SMTP</strong> CPAN module:</p>
+<p><a href="http://search.cpan.org/~gbarr/libnet/Net/SMTP.pm">http://search.cpan.org/~gbarr/libnet/Net/SMTP.pm</a></p>
+<p>And the <strong>Mail::Bulkmail</strong> CPAN module:</p>
+<p><a href="http://search.cpan.org/~jimt/Mail-Bulkmail/Bulkmail.pm">http://search.cpan.org/~jimt/Mail-Bulkmail/Bulkmail.pm</a></p>
+<p>Net::SMTP_auth is a little more flexible than Net::SMTP when it comes to setting the authentication schemes to use and Mail::Bulkmail does not support SASL authentication at all, has some mysterious bugs we couldn't figure out and Dada Mail does much of the rest of the utilities that it packs.</p>
+<p>
+</p>
+<hr />
+<h1><a name="smtp_authentication">SMTP Authentication</a></h1>
+<p>One of the main disadvantages of using the, <em>Send via SMTP</em> feature in Dada Mail is actually, setting up a mailing list to use it. Not that you have to jump through flaming hoops to do so, it should be very similar to how you'd set up a desktop mail reader to send messages. But, if you haven't done that, it can be slightly intimidating.</p>
+<p>Currently, there are two different authentication schemes that Dada Mail supports for sending via SMTP.</p>
+<p><strong>Note:</strong> Be very wary if your SMTP server requires no authentication. This is also known as an, &quot;open relay&quot; mail server. Any mail sent through an open relay these days will be black listed by spam filters. Because of this fact, most SMTP servers require some sort of authentication.</p>
+<p>Only use an SMTP server that does not require authentication when the server has some other way of being selective on who connects to it. For example, your SMTP server may just be, <strong>localhost</strong> and will only accept <strong>local</strong> connections. In this setup, it would be OK to use SMTP sending without authentication.</p>
+<p>
+</p>
+<hr />
+<h1><a name="sasl_authentication_">SASL Authentication.</a></h1>
+<p>The first SMTP authentication scheme is called, <strong>SASL Authentication</strong>.</p>
+<p>Basically, Dada Mail will log into an SMTP mail server and the SMTP mail server will ask for the correct username and password. When Dada Mail gives this to the SMTP mail server, it can then send mail. Pretty simple.</p>
+<p>
+</p>
+<h2><a name="what_username_and_password_are_you_supposed_to_give_the_smtp_server">What username and password are you supposed to give the SMTP server?</a></h2>
+<p>The username and password that you want to give the SMTP server is either:</p>
+<ul>
+<li><strong><a name="the_list_owner_s_email_address" class="item">The List Owner's Email Address</a></strong>
+
+<li><strong><a name="the_list_admin_s_email_address" class="item">The List Admin's Email Address</a></strong>
+
+</ul>
+<p>Usually, I check the option in <strong>Mail Sending: Sending Preferences</strong>, <em>Set the Sender of SMTP Mailings to the List Administration Address</em> (under, Advanced SMTP Options</p>
+<p>). If I have to use Authentication with the SMTP server, it will then use the <strong>List Admin's username/password information</strong></p>
+<p>
+</p>
+<h2><a name="how_do_you_know_you_re_supposed_to_use_sasl_authentication">How do you know you're supposed to use SASL authentication?</a></h2>
+<p>Usually, the documentation provided by your hosting company will tell you if you need to use SASL authentication. If you do not need to use SASL authentication, you'll most likely need to use <strong>POP-before-SMTP</strong> authentication.</p>
+<p>
+</p>
+<hr />
+<h1><a name="pop_before_smtp_authentication">POP-before-SMTP Authentication</a></h1>
+<p><strong>POP-before-SMTP Authentication</strong> is slightly different than SASL Auth. Instead of the SMTP mail server requesting the appropriate username and password to log into the SMTP mail server, you'll instead have to  first, successfully log into the POP mail server.</p>
+<p>To clarify, a POP mail server is usually used to fetch <em>received</em> mail, as opposed to an SMTP mail server, which is used to <em>send</em> mail. So POP mail server: receives mail; SMTP mail server, sends mail.</p>
+<p>The SMTP server will know if you've recently successfully logged into the POP mail server and if so, will allow you to send mail through the SMTP mail server. Sounds weird, right? I think so too.</p>
+<p>Again, you'll probably want to use the <strong>list owner's email address</strong>'s username/password to log into the POP mail server and again, your hosting company will most likely let you know which authentication is required.</p>
+<p>
+</p>
+<h2><a name="testing_your_smtp_sending">Testing Your SMTP Sending</a></h2>
+<p>In the <strong>Manage List:  Mail Sending: Sending Preferences</strong> list control panel, you should see  a button labeled, <strong>Save, Then Test Your Sending Preferences...</strong>. Clicking this button will both Save your SMTP settings and test the settings to see if they work.</p>
+<p>Testing basically involves connecting to the SMTP server and attempting to send a message out.</p>
+<p>What you'll see in the test results is the actual communication between the (sometimes POP3 server if you're using POP-before-SMTP auth) SMTP server and Dada Mail.</p>
+<p>Sometimes, you can tell if you'll need SASL authentication when you see something similar to the following line:</p>
+<pre>
+ Net::SMTP=GLOB(0x56054)&lt;&lt;&lt; 250 AUTH LOGIN PLAIN CRAM-MD5</pre>
+<p>This means, the server requires SASL authentication, in either the, <strong>LOGIN</strong>, <strong>PLAIN</strong> or, <strong>CRAM-MD5</strong> type. <strong>Note!</strong> that sometimes SMTP servers advertise SASL authentication, but actually <strong>do not support it</strong>. Confusing? Yes.</p>
+<p>If you have problems with SASL Authentication, you'll usually see a message like this:</p>
+<pre>
+ [Sun Jan 21 17:35:59 2007] mail.cgi: Problems sending via SMTP:  at /Library/WebServer/CGI-Executables/dada/mail.cgi line 3295</pre>
+<p>If you do ask for help with debugging a problem connection, make sure to <strong>never post your password</strong> on any public mailing list/message board. It may be difficult to see, since your password will be encoded, but it's easily decoded.</p>
+<p>For example:</p>
+<pre>
+ Net::POP3=GLOB(0x54710)&gt;&gt;&gt; APOP user%example.com 15e134ff8f404386b79613cfd3254d6f</pre>
+<p><strong>15e134ff8f404386b79613cfd3254d6f</strong> is the encoded password.</p>
+<p>Another way to continually see these verbose results of ever SMTP connection made is to tweak the Config.pm variable, <strong>%CPAN_DEBUG_SETTINGS</strong>. The two key/value pairs you'll be interested in are:</p>
+<pre>
+ NET_POP3 =&gt; 0,</pre>
+<pre>
+ NET_SMTP =&gt; 0,</pre>
+<p>Change the <strong>0</strong> to <strong>1</strong> To have extremely verbose debugging information in your error log (set up your error log as well)</p>
+<p>
+</p>
+<h2><a name="how_can_i_enable_smtp_sending_using_ssl_tls">How can I enable SMTP sending using SSL/TLS?</a></h2>
+<p>You'll need a few things, none of which we can really bundle with Dada Mail (unfortunetly)</p>
+<ul>
+<li><strong><a name="the_openssl_c_library" class="item">The OpenSSL C Library</a></strong>
+
+<li><strong><a name="the_io_socket_ssl_cpan_module" class="item">The IO::Socket::SSL CPAN module</a></strong>
+
+</ul>
+<p>If you were hoping that you can just use SSL connections with Dada Mail - you can, but you'll need a few things already available on your server. The upshot is that these things may already be available. The downshot is, if they're not, it can be difficult to install, if you are not well-versed in administrating your own webserver. But, the support in Dada Mail is there.</p>
+<p>
+</p>
+<hr />
+<h1><a name="bounces">Bounces</a></h1>
+<p>
+</p>
+<h2><a name="is_there_a_bounce_handler_for_dada_mail">Is there a bounce handler for Dada Mail?</a></h2>
+<p>Yes, see:</p>
+<p><a href="dada_bounce_handler.pl.html">dada_bounce_handler.pl.html</a></p>
+<p>
+</p>
+<h2><a name="where_are_my_bounce_messages_going">Where are my bounce messages going?</a></h2>
+<p><strong>Short Answer:</strong></p>
+<p>Bounces will go to which ever email address is set in the <strong>Return-Path</strong> of your email messages. Look at the source of an email message sent by Dada Mail, to find where the Return-Path header is set.</p>
+<p><strong>Longer Answer:</strong></p>
+<p>A brief tutorial in email sending:</p>
+<p>An email message has basically two parts: the Message Headers and the Message Body. The Message Body is the easiest thing grasp - it's the message itself. The Message Headers all serve different roles, but a few should be familiar to anyone.</p>
+<p>For example, the <strong>Subject:</strong> header is where the subject of the message is, the <strong>From</strong> header tells you where the message originated from, the <strong>To:</strong> header tells you where it's going. Easy enough. I'll throw in two more headers at you, that sometimes do not visually appear when you view a message in your mail reader.</p>
+<p>The first is the <strong>Reply-To</strong> header. It'll hold a email address, just like the <strong>From:</strong> and <strong>To</strong> header. When you reply to a message, and the <strong>Reply-To</strong> header is present, it'll be sent to that address. If the <strong>Reply-To</strong> header is not present, your message will be sent to the email address that's present in the, <strong>From</strong> header.</p>
+<p>The other header I want to talk about is the <strong>Return-Path</strong> header. This header also contains an email address and serves a similar purpose as the <strong>Reply-To:</strong> header, but is instead used for automatic response systems - like when a server <strong>bounces</strong> your message back, or a vacation script sends a note to you. It'll never be used by a real live human being, so it's not something you <strong>need</strong> to check.</p>
+<p>So, in general:</p>
+<ul>
+<li><strong><a name="reply_to" class="item">Reply-To</a></strong>
+
+<p>Humans!</p>
+</li>
+<li><strong><a name="return_path" class="item">Return-Path</a></strong>
+
+<p>Computers!</p>
+</li>
+</ul>
+<p>Saying all that, Dada Mail's <strong>list administrator</strong> should be what's being set in its message <strong>Return-Path</strong>.</p>
+<p>By default, this is probably not the case - you'll have to do some minor tweaks to your list. If you don't, the best bet is that the <strong>Return-Path</strong> header is set to a email address that is quite foreign to you.</p>
+<p>Depending on how your Sending Preferences are setup, you need to do different tweaks. Here they are:</p>
+<ul>
+<li><strong><a name="setting_up_the_return_path_when_sending_via_smtp" class="item">Setting up the Return-Path when sending via SMTP</a></strong>
+
+<p>In <strong>Mail Settings - Sending Preferences</strong>  check,</p>
+<p><em>Set the Sender of SMTP mailings to the list administration email address </em></p>
+<p>You're all done.</p>
+</li>
+<li><strong><a name="setting_up_the_return_path_when_sending_via_the_sendmail_command_line" class="item">Setting up the Return-Path when sending via the sendmail command line</a></strong>
+
+<p><em>Usually</em> this works:</p>
+<p>In <strong>Mail Settings - Sending Preferences</strong> check,</p>
+<p><em>Add the Sendmail '-f' flag when sending messages</em></p>
+<p>You're all done.</p>
+<p>After checking this option, test and see if mailing is still functioning. Depending on how Sendmail is setup, this could in fact <strong>stop</strong> messages from being delivered.</p>
+<p>If this doesn't work, uncheck that option and try checking,</p>
+<p><em>Print the 'Return-Path' header in all list emails</em></p>
+<p>In my findings, this sometimes works for servers running Qmail - although you're not supposed to be able to directly set the <strong>Return-Path</strong> header.</p>
+</li>
+</ul>
+<p>And, that's it.</p>
+<p>Now that you know how to set the <strong>Return-Path</strong> header, put it to some good use! Set up Mystery Girl, the Bounce Handler for Dada Mail:</p>
+<p><a href="dada_bounce_handler.pl.html">dada_bounce_handler.pl.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="dada_mail_and_google_apps_for_domains">Dada Mail and Google Apps for Domains</a></h1>
+<p>Many people use Google Apps alongside their other resources available with their hosting company.</p>
+<p>There is a possibility that you can use Dada Mail in such a situation.</p>
+<p>
+</p>
+<h2><a name="before_you_begin">Before you begin</a></h2>
+<p>Double check that you have support to send messages using an SSL connection. If you can't - if these options are disabled in Dada Mail, you 
+may be out of luck.</p>
+<p>
+</p>
+<h2><a name="do_not_send_email_using_google_apps">Do not SEND email using Google Apps</a></h2>
+<p>One major limitation of using Google Apps for your email needs is that the <strong>daily</strong> email sending limitation per account is 
+around 250 messages. This makes running a mailing list fairly unrealistic and is the largest problem we'll need to overcome, 
+when setting up Dada Mail.</p>
+<p>
+</p>
+<h2><a name="use_your_local_mail_server_sendmail_command_to_send_mail">Use your local mail server/sendmail command to send mail</a></h2>
+<p>The easiest way to send mail with Dada Mail is to just use the local mail server on your hosting account, via the sendmail command, 
+instead of using Google's SMTP servers. Your local mail server will have a different, but hopefully higher limitation, than 
+the Google Apps limitation - hopefully 500 messages/hour and higher.</p>
+<p>One possible problem with this method is that subscribers with email addresses belonging to your domain (and which have addresses administrated by Google Apps) 
+<em>will not receive</em> messages sent by Dada Mail, since sending will be done to the local email account - which probably won't exist.</p>
+<p>
+</p>
+<h3><a name="spf_record">SPF record?</a></h3>
+<p>The only thing you want to make sure is set up correctly is the SPF record for sending email using your local mail server. How to do that is 
+a little over the reach of this tutorial - but it may be that there's nothing you need to do, as its the Google Apps server that'll require 
+the SPF record to be setup correctly.</p>
+<p>
+</p>
+<h2><a name="using_dada_bridge_for_discussion_lists">Using Dada Bridge for Discussion Lists</a></h2>
+<p>
+</p>
+<h3><a name="method__1_setup_the_list_email_account_on_google_apps__use_the_google_apps_login_info">Method #1 Setup the List Email account on Google Apps, use the Google Apps login info</a></h3>
+<p>You'll probably be able to use Dada Bridge with Google Apps, since Dada Bridge only needs to be able to <em>receive</em> email, if like above, 
+we're setting up Dada Mail to send using the local mail server.</p>
+<p>You'll want to setup the List Email POP account through Google Apps and plug in the Login Info 
+for this List Email into Dada Bridge. A few things should be the same for all Google Apps email accounts, as is listed at:</p>
+<p><a href="http://www.google.com/support/a/bin/answer.py?hl=en&answer=60730">http://www.google.com/support/a/bin/answer.py?hl=en&answer=60730</a></p>
+<p>For Dada Bridge, this is broken down as:</p>
+<pre>
+        List Email: youraddress@yourdomain.com          
+        POP3 Server pop.gmail.com       
+        POP3 Username: youraddress@yourdomain.com       
+        POP3 Password: (Password)       
+        Type: Automatic
+        Use Secure Sockets Layer (SSL) CHECKED.</pre>
+<p>If <strong>Use Secure Sockets Layer (SSL)</strong> is disabled, you may be out of luck, until the missing CPAN modules are installed.</p>
+<p>That's it. Mail will be received via Google Apps, sent using the local mail server and replies will be sent to the Google Apps POP3 List Owner email account.</p>
+<p>Nothing to it.</p>
+<p>
+</p>
+<h3><a name="method__2_setup_a_subdomain_with_a_different_mx_record">Method #2 Setup a subdomain with a different MX record</a></h3>
+<p>Another option may be to just setup a separate subdomain and a different MX record, so that mail sent to an email address with this 
+subdomain will simply be handled by your hosting account instead of Google Apps. This workflow works exactly like you'd work with Dada Mail, without Google Apps</p>
+<p>
+</p>
+<h2><a name="using_mystery_girl__bounce_handler_">Using Mystery Girl (Bounce Handler)</a></h2>
+<p>Using the Bounce Handler may be tricky.</p>
+<p>You'll want to use the local mail server, as before to send mail, but it's possible that the local mail server is also what's creating the bounced messages 
+that is supposed to be delivered to the Bounce Handler Email address. Sometimes, this means, the local mail server will look for a local email box belonging to the 
+bounce handler email address. If it can't find it, no bounced message will get delivered, even if you have the <em>exact same email account</em> setup correctly via Google Apps.</p>
+<p>
+</p>
+<h3><a name="method__3_setup_a_local_mailbox">Method #3 Setup a local mailbox</a></h3>
+<p>One option is to simply setup that local mailbox and use the login info that points to your hosting account's mail server, instead of using Google Apps. 
+This is a very strange setup, as you cannot <em>send</em> an email message to this mailbox, as you regularly would - it would just be checked via Google Apps, 
+but it <em>can</em> be used locally by your local mail server to store the bounce messages, as well as by Mystery Girl to, <em>check</em> this local messages.</p>
+<p>
+</p>
+<h3><a name="method__2_setup_a_subdomain_with_a_different_mx_record">Method #2 Setup a subdomain with a different MX record</a></h3>
+<p>Just like with Dada Bridge, another option would be just to set up a new subdomain, with a different MX record that points the subdomain's email delivery to your hosting account's mail server, instead of Google Apps.</p>
+<p>
+</p>
+<hr />
+<h1><a name="problems">Problems</a></h1>
+<p>
+</p>
+<h2><a name="write_an_html_message__receive_it_as_plaintext">Write an HTML message, receive it as PlainText</a></h2>
+<p>If you write your message in HTML, and it's received what looks like PlainText, a few things may be wrong:</p>
+<ul>
+<li><strong><a name="your_mail_reader_doesn_t_support_reading_the_message_in_html_and_will_show_the_plaintext_version_of_your_message" class="item">Your mail reader doesn't support reading the message in HTML and will show the PlainText version of your message.</a></strong>
+
+<p>That's pretty easy to find out if that's true - if *all* messages you receive are plaintext, it may be a good chance that this is true.</p>
+</li>
+<li><strong><a name="your_mail_reader_is_just_showing_you_the_plaintext_version_of_the_message_you_send_out" class="item">Your mail reader is just showing you the PlainText version of the message you send out.</a></strong>
+
+<p>Dada Mail sends both a plain text and HTML version of the message which are both embedded in the email message itself - this is called a multipart/alternative message. Usually, the mail reader will pick the HTML version to show, but, depending on your preferences, it may show the plain text version</p>
+</li>
+<li><strong><a name="something_on_your_hosting_account_server_is_stripping_the_html_version_from_your_email_message" class="item">Something on your hosting account server is stripping the HTML version from your email message</a></strong>
+
+<p>In rare occassions, the mail server will actually strip out the HTML version of your email message, before it actually sends the message to your subscribers. You can try sending a test message in HTML that's extremely simple and see if it goes through and then, continually make a more complex message. It's possible that a specific character is triggering this</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="no_mail_is_sending_at_all_">No Mail is Sending at All.</a></h2>
+<p>If you have root access to your own server and NO mail is being sent with any email utility, try rebooting your server. If that doesn't work, sincerely look for professional help, to solve the problem.</p>
+
+</body>
+
+</html>

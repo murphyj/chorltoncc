@@ -1,0 +1,1326 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>General FAQ</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#frequently_asked_questions">Frequently Asked Questions</a></li>
+	<li><a href="#errors">Errors</a></li>
+	<li><a href="#support">Support</a></li>
+	<li><a href="#using_dada_mail">Using Dada Mail</a></li>
+	<ul>
+
+		<li><a href="#how_do_i_install_dada_mail">How Do I Install Dada Mail?</a></li>
+		<ul>
+
+			<li><a href="#install_dada_mail_via_simple_scripts">Install Dada Mail via Simple Scripts</a></li>
+			<ul>
+
+				<li><a href="#cpanel">cPanel</a></li>
+			</ul>
+
+			<li><a href="#paid_installation">Paid Installation</a></li>
+		</ul>
+
+		<li><a href="#can_i_install_more_than_one_copy_of_dada_mail_on_the_same_hosting_account">Can I install more than one copy of Dada Mail on the same hosting account?</a></li>
+		<li><a href="#can_i_use_one_dada_mail_installation_for_multiple_domains">Can I use one Dada Mail installation for multiple domains?</a></li>
+		<li><a href="#how_do_i_create_a_new_list">How Do I Create a New List?</a></li>
+		<li><a href="#how_do_i_log_into_an_already_existing_list">How Do I Log Into an Already Existing List?</a></li>
+		<li><a href="#how_do_i_delete_a_list">How Do I Delete a List?</a></li>
+		<li><a href="#can_i_rename_the_mail_cgi_file">Can I rename the mail.cgi file?</a></li>
+		<li><a href="#how_do_i_fetch_reset_the_dada_mail_root_password">How do I fetch/reset the Dada Mail Root Password</a></li>
+		<li><a href="#is_there_any_way_to_stop_a_mass_mailing_once_it_is_started">Is there any way to stop a mass mailing once it is started?</a></li>
+	</ul>
+
+	<li><a href="#subscriptions">Subscriptions</a></li>
+	<ul>
+
+		<li><a href="#how_are_new_subscriptions_made">How are new subscriptions made?</a></li>
+		<ul>
+
+			<li><a href="#list_invitations">List Invitations</a></li>
+			<li><a href="#allowing_visitors_to_subscribe">Allowing Visitors to Subscribe</a></li>
+			<ul>
+
+				<li><a href="#see_also">See Also</a></li>
+			</ul>
+
+			<li><a href="#using_the_dada_mail_api_to_subscribe_new_addresses">Using the Dada Mail API to subscribe new addresses</a></li>
+		</ul>
+
+		<li><a href="#mass_subscribing_email_addresses_via_the_list_control_panel">Mass Subscribing Email Addresses via the List Control Panel</a></li>
+	</ul>
+
+	<li><a href="#unsubscriptions">Unsubscriptions</a></li>
+	<ul>
+
+		<li><a href="#how_do_i_turn_off__one_click_unsubscription_links">How do I turn off, &quot;one-click&quot; unsubscription links?</a></li>
+		<li><a href="#unsubscription_links_are_placed_on_top_of_my_mailing_list_messages__why">Unsubscription links are placed on top of my mailing list messages, why?</a></li>
+	</ul>
+
+	<li><a href="#hosting">Hosting</a></li>
+	<ul>
+
+		<li><a href="#do_you_host_dada_mail_or_do_i_host_dada_mail">Do you host Dada Mail or do I host Dada Mail?</a></li>
+		<li><a href="#do_you_provide_hosting_services">Do you provide hosting services?</a></li>
+		<li><a href="#dada_mail_looks_awesome__installation_is_way_over_my_head__do_you_provide_installation_services">Dada Mail looks awesome! Installation is way over my head, do you provide installation services?</a></li>
+	</ul>
+
+	<li><a href="#upgrading">Upgrading</a></li>
+	<ul>
+
+		<li><a href="#how_do_you_upgrade_dada_mail">How do you upgrade Dada Mail?</a></li>
+		<li><a href="#i_have_an_older_version_of_dada_mail__or_something_called_mojo_mail__should_i_upgrade">I have an older version of Dada Mail, or something called Mojo Mail, should I upgrade?</a></li>
+	</ul>
+
+	<li><a href="#features">Features</a></li>
+	<ul>
+
+		<li><a href="#does_dada_mail_handle_announce_only_lists_discussion_lists">Does Dada Mail handle announce-only lists? Discussion Lists?</a></li>
+		<li><a href="#does_dada_mail_handle_bounced_messages">Does Dada Mail handle bounced messages?</a></li>
+		<li><a href="#how_do_i_create_the_html_subscription_form_code_to_place_on_my_web_pages_to_allow_people_to_subscribe_to_my_list">How do I create the HTML Subscription form code to place on my web pages to allow people to subscribe to my list?</a></li>
+		<li><a href="#can_i_hook_dada_mail_up_to_a_form_on_my_website">Can I hook Dada Mail up to a form on my website?</a></li>
+		<li><a href="#can_you_compare_dada_mail_to_another_program_for_me">Can you compare Dada Mail to another program for me?</a></li>
+		<li><a href="#is_there_a_demo_of_dada_mail_set_up_that_i_can_use">Is there a Demo of Dada Mail set up that I can use?</a></li>
+		<li><a href="#do_i_need_to_keep_my_browser_window_open_for_the_entire_mail_sending">Do I need to keep my browser window open for the entire mail sending?</a></li>
+		<li><a href="#how_do_i_send_email_messages_with_formatted_text_images">How do I send email messages with formatted text/images?</a></li>
+		<li><a href="#how_do_i_get_the_file_browser_working_in_fckeditor">How do I get the File Browser working in FCKeditor?</a></li>
+		<ul>
+
+			<li><a href="#screen_casts_">Screen Casts!</a></li>
+			<li><a href="#step_1__install_fckeditor">Step 1: Install FCKEditor</a></li>
+			<li><a href="#step_2__configure_the_fckeditor_filemanager_connector">Step 2: Configure the FCKeditor Filemanager Connector</a></li>
+			<li><a href="#step_3__using_the_fckeditor_image_upload_capability">Step 3: Using the FCKeditor Image Upload Capability</a></li>
+			<li><a href="#see_also">See also</a></li>
+		</ul>
+
+		<li><a href="#how_do_you_install__cpan_perl_modules">How do you install, &quot;CPAN Perl Modules&quot;</a></li>
+		<ul>
+
+			<li><a href="#the_cpan_shell">The cpan Shell</a></li>
+			<li><a href="#cpanel_s_perl_module_installer">Cpanel's Perl Module Installer</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#the_list_confirmation_process">The List Confirmation Process</a></li>
+	<ul>
+
+		<li><a href="#can_you_explain_some_of_the_terminology_of_the_confirmation_process">Can you explain some of the terminology of the confirmation process?</a></li>
+	</ul>
+
+	<li><a href="#errors">Errors</a></li>
+	<li><a href="#dada_mail_and_html_templates">Dada Mail and HTML Templates</a></li>
+	<ul>
+
+		<li><a href="#how_do_you_change_the_dada_mail_logo">How do you change the Dada Mail Logo?</a></li>
+		<li><a href="#can_i_change_the_program_s_name">Can I change the Program's Name?</a></li>
+		<li><a href="#how_do_i_change_the_default_look_of_dada_mail">How do I change the default look of Dada Mail?</a></li>
+		<li><a href="#are_there_any_official_translations_of_dada_mail">Are there any official translations of Dada Mail?</a></li>
+		<li><a href="#how_do_you_translate_dada_mail">How do you translate Dada Mail?</a></li>
+		<li><a href="#how_do_you_change_the_character_set_encoding_of_dada_mail">How do you change the character set/encoding of Dada Mail?</a></li>
+	</ul>
+
+	<li><a href="#sql_and_dada_mail">SQL and Dada Mail</a></li>
+	<ul>
+
+		<li><a href="#does_dada_mail_need_an_sql_server_to_run">Does Dada Mail need an SQL server to run?</a></li>
+		<li><a href="#does_dada_mail_support_an_sql_backend">Does Dada Mail support an SQL backend?</a></li>
+		<li><a href="#what_are_the_benifits_of_using_the_sql_backends">What are the benifits of using the SQL backends?</a></li>
+		<li><a href="#what_are_the_disadvantages_of_using_the_sql_backends">What are the disadvantages of using the SQL backends?</a></li>
+		<li><a href="#how_do_i_move_from_the_default_backends_to_the_sql_backends">How do I move from the default backends to the SQL backends?</a></li>
+	</ul>
+
+	<li><a href="#mailing_list_messages">Mailing List Messages</a></li>
+	<ul>
+
+		<li><a href="#i_want_to_edit_the_unsubscribe_footer_of_my_mailing_list_message___how">I want to edit the unsubscribe footer of my Mailing List Message - how?</a></li>
+		<li><a href="#are_the_messages_i_send_with_dada_mail_traceable_back_to_me">Are the messages I send with Dada Mail traceable back to me?</a></li>
+	</ul>
+
+	<li><a href="#list_subscribers">List Subscribers</a></li>
+	<ul>
+
+		<li><a href="#how_many_subscribers_can_dada_mail_handle">How many subscribers can Dada Mail handle?</a></li>
+		<li><a href="#can_i_track_statistics_like__who_opens_my_email_messages__who_clicks_on_my_urls_or_anything_else_that_ties_activity_of_my_mailing_list_to_specific_email_addresses">Can I track statistics like, who opens my email messages, who clicks on my URLs or anything else that ties activity of my mailing list to specific email addresses?</a></li>
+		<li><a href="#can_i_directly_work_with_the_subscription_list">Can I directly work with the subscription list?</a></li>
+	</ul>
+
+	<li><a href="#performance">Performance</a></li>
+	<ul>
+
+		<li><a href="#tuning_dada_mail_to_send_mass_mailings_faster">Tuning Dada Mail to Send Mass Mailings Faster</a></li>
+		<li><a href="#is_there_a_way_to_speed_up_screen_rendering__how_to_use_the_screen_cache_">Is there a way to speed up screen rendering? (How to use the Screen Cache)</a></li>
+	</ul>
+
+	<li><a href="#mail_sending">Mail Sending</a></li>
+	<li><a href="#archiving">Archiving</a></li>
+	<ul>
+
+		<li><a href="#is_there_a_way_to_add_a_message_to_the_archive__without_sending_the_message">Is there a way to add a message to the archive, without sending the message?</a></li>
+		<ul>
+
+			<li><a href="#archive_but_do_not_send__method">Archive but DO NOT send, method</a></li>
+			<li><a href="#edit_the_sql_table_directly">Edit the SQL Table directly</a></li>
+			<li><a href="#edit_the_archive_backups_and_reload">Edit the archive backups and reload</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#glossary_terms">Glossary Terms</a></li>
+	<ul>
+
+		<li><a href="#path_to_sendmail">path to sendmail</a></li>
+		<li><a href="#absolute_path">absolute path</a></li>
+	</ul>
+
+	<li><a href="#system_requirements">System Requirements</a></li>
+	<ul>
+
+		<li><a href="#what_do_i_need_to_run_dada_mail">What do I need to run Dada Mail?</a></li>
+		<li><a href="#does_dada_mail_need_any_special_perl_cpan_modules_installed">Does Dada Mail need any special Perl CPAN modules installed?</a></li>
+	</ul>
+
+	<li><a href="#what_is_dada_mail">What is Dada Mail?</a></li>
+	<ul>
+
+		<li><a href="#is_dada_mail_a_server_a_daemon">Is Dada Mail a Server? A Daemon?</a></li>
+		<li><a href="#is_dada_mail_an_autoresponder">Is Dada Mail an Autoresponder?</a></li>
+		<li><a href="#what_is_dada_mail">What is Dada Mail?</a></li>
+		<li><a href="#what_does_dada_mail_do">What does Dada Mail do?</a></li>
+		<li><a href="#how_does_dada_mail_save_its_information">How does Dada Mail save its information?</a></li>
+		<li><a href="#who_develops_dada_mail">Who develops Dada Mail?</a></li>
+		<li><a href="#can_i_help">Can I help?</a></li>
+		<li><a href="#is_there_a_public_repository_for_dada_mail">Is there a public repository for Dada Mail?</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="frequently_asked_questions">Frequently Asked Questions</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="errors">Errors</a></h1>
+<p>See the Error FAQ:</p>
+<p><a href="FAQ-errors.pod.html">FAQ-errors.pod.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="support">Support</a></h1>
+<p>See the support page on the Dada Mail website:</p>
+<p><a href="http://dadamailproject.com/support">http://dadamailproject.com/support</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="using_dada_mail">Using Dada Mail</a></h1>
+<p>
+</p>
+<h2><a name="how_do_i_install_dada_mail">How Do I Install Dada Mail?</a></h2>
+<p>Complete installation docs are located at:</p>
+<p><a href="http://dadamailproject.com/d/install_dada_mail.pod.html">http://dadamailproject.com/d/install_dada_mail.pod.html</a></p>
+<p>
+</p>
+<h3><a name="install_dada_mail_via_simple_scripts">Install Dada Mail via Simple Scripts</a></h3>
+<p>Simple Scripts, also has a installer for Dada Mail, which we think is great:</p>
+<p><a href="https://www.simplescripts.com/page/id:8-pCU3Jz0E">https://www.simplescripts.com/page/id:8-pCU3Jz0E</a></p>
+<p>Double check the version they are offering to install, as it sometimes lags behind the official, stable release.</p>
+<p>
+</p>
+<h4><a name="cpanel">cPanel</a></h4>
+<p>If you have a cPanel-based hosting account (Bluehost, Hostmonster and many others), see if Simple Scripts is
+built right into your cPanel - it'll allow you to install Dada Mail with just a few clicks. We think that's pretty cool, as well.</p>
+<p>
+</p>
+<h3><a name="paid_installation">Paid Installation</a></h3>
+<p>We do install Dada Mail on behalf of our clients:</p>
+<p><a href="http://dadamailproject.com/installation/request.html">http://dadamailproject.com/installation/request.html</a></p>
+<p>We do a great job!</p>
+<p>
+</p>
+<h2><a name="can_i_install_more_than_one_copy_of_dada_mail_on_the_same_hosting_account">Can I install more than one copy of Dada Mail on the same hosting account?</a></h2>
+<p>Yes.</p>
+<p>The Dada Mail Installer usually picks your home directory as the location for the <code>.dada_files</code> directory. If you choose to install another copy of Dada Mail, the installer will then want to use this same (and currently in-use) location.</p>
+<p>The trick is to simply tell the installer to use a different location. For example, create a new directory in your home directory (call it something like <code>dada_files_for_xyz</code> and then point the installer to that directory (use the <em>Manual</em> location, instead of <em>Automatic</em>) and you're done!.</p>
+<p>
+</p>
+<h2><a name="can_i_use_one_dada_mail_installation_for_multiple_domains">Can I use one Dada Mail installation for multiple domains?</a></h2>
+<p>Currently, no. One Dada Mail installation will only work for one domain.</p>
+<p>
+</p>
+<h2><a name="how_do_i_create_a_new_list">How Do I Create a New List?</a></h2>
+<p>You can create a new list by visiting the administration screen. A link should be on the bottom of the default screen of Dada Mail, if it's not visible, point your browser to this location:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi/admin">http://example.com/cgi-bin/dada/mail.cgi/admin</a></p>
+<p>Replacing, <em><a href="http://example.com/cgi-bin/dada/mail.cgi">http://example.com/cgi-bin/dada/mail.cgi</a></em> with the URL of your own Dada Mail.</p>
+<p>Enter your Dada Mail Root Password in the form entitled, <strong>Create a New Mailing List</strong></p>
+<p>
+</p>
+<h2><a name="how_do_i_log_into_an_already_existing_list">How Do I Log Into an Already Existing List?</a></h2>
+<p>You can log into an already existing list by visiting the administration screen. A link should be on the bottom of the default screen of Dada Mail, if it's not visible, point your browser to this location:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi/admin">http://example.com/cgi-bin/dada/mail.cgi/admin</a></p>
+<p>Replacing, <em><a href="http://example.com/cgi-bin/dada/mail.cgi">http://example.com/cgi-bin/dada/mail.cgi</a></em> with the URL of your own Dada Mail.</p>
+<p>Select your list from the popup menu and enter either your <strong>List Password</strong>, or the <strong>Dada Mail Root Password</strong> in the form entitled, <strong>Enter Your List Control Panel</strong>.</p>
+<p>The, <strong>Dada Mail Root Password</strong> can be used to log into any list being administrated by Dada Mail, as well as allowing you to access any adminsitration screens that are not allowed to be accessed when logging in using the <strong>List Password</strong>.</p>
+<p>If the list you're attempting to access is not listed in the popup menu, you may have made your list, <strong>hidden</strong>. To log into a hidden list, click the, <strong>other...</strong> link that's located underneith the popup menu.</p>
+<p>When the screen is refreshed, the popup menu will be replaced by a text box. You can then enter the <strong>list short name</strong> of the list you want to log into.</p>
+<p>If you do not remember the <strong>list short name</strong> of the list you want to log into, you can also simply log into any list with your Dada Mail Root Password and once logged in, switch which list you want to work on, by selecting the list you want to work inthe popup menu on the upper left hand side of the List Control Panel. All lists available will be listed in this popup menu.</p>
+<p>
+</p>
+<h2><a name="how_do_i_delete_a_list">How Do I Delete a List?</a></h2>
+<p>Log into your mailing list using the <strong>Dada Mail Root Password</strong>.</p>
+<p>In the left-hand menu, go to <strong>Your Mailing List -&gt; Delete This Mailing List </strong></p>
+<p>
+</p>
+<h2><a name="can_i_rename_the_mail_cgi_file">Can I rename the mail.cgi file?</a></h2>
+<p>Yes. You can rename the, <strong>mail.cgi</strong> file to any other valid filename, like <em>newsletter.cgi</em> or <em>craaaaazyname.cgi</em>. You'll most likely have to keep the file ending either, <strong>.cgi</strong> or <strong>.pl</strong></p>
+<p>The only place that this variable is hardcoded is in the, <code>$PROGRAM_URL</code> variable - so make sure to change this variable as well to reflect the file name changes.</p>
+<p>
+</p>
+<h2><a name="how_do_i_fetch_reset_the_dada_mail_root_password">How do I fetch/reset the Dada Mail Root Password</a></h2>
+<p>The Dada Mail Root Password is usually saved in an encrypted form, so cannot be simply read from the configuration. You may manually reset the Dada Mail Root Password yourself.</p>
+<p>If you're running a contemporary installation of Dada Mail, 
+the Dada Mail Root Password is stored your <code>.dada_config</code> file.</p>
+<p><em>(The location of the <code>.dada_config</code></em> file is saved in the directory set in the <code>dada/DADA/Config.pm</code> file, in a variable called, <code>$PROGRAM_CONFIG_FILE_DIR</code>. That variable should hold the absolute path to the directory that your, <em>.dada_config</em>)</p>
+<p>Look for these lines:</p>
+<pre>
+        # Start Root_Password
+        
+        $ROOT_PASS_IS_ENCRYPTED = 1;
+        
+        $PROGRAM_ROOT_PASSWORD  = 'ws9shkqd4LeFI';
+        
+        # End Root_Password</pre>
+<p>In this example, the <code>$PROGRAM_ROOT_PASSWORD</code> variable holds an encrypted password as <code>$ROOT_PASS_IS_ENCRYPTED</code> is set to, <code>1</code>. There's no way to decrypt the password.</p>
+<p>You can encrypt a new password by visiting your Dada Mail with the query string, <code>?f=pass_gen</code>, like this:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi?f=pass_gen">http://example.com/cgi-bin/dada/mail.cgi</a></p>
+<p>Where, <em><a href="http://example.com/cgi-bin/dada/mail.cgi">http://example.com/cgi-bin/dada/mail.cgi</a></em> is the URL of your Dada Mail and have a new password encrypted. Copy the encrypted password and set the <code>$PROGRAM_ROOT_PASSWORD</code> variable to your new encrypted password.</p>
+<p>If you cannot figure out how to encrypt your own password, set, <code>$ROOT_PASS_IS_ENCRYPTED</code> to, <code>0</code> and type in a new Dada Mail Root Password:</p>
+<pre>
+        # Start Root_Password
+        
+        $ROOT_PASS_IS_ENCRYPTED = 0;
+        
+        $PROGRAM_ROOT_PASSWORD  = 'new_unsafe_pass';
+        
+        # End Root_Password</pre>
+<p>We do not suggest this, as now you're open to someone exploiting your Dada Mail, by simply reading your configuration.</p>
+<p>If you are running a Basic Installation of Dada Mail (ie: NO .dada_config file), look for the <code>$PROGRAM_ROOT_PASSWORD</code> variable in the <code>dada/DADA/Config.pm</code> file itself. It may or may not be encrypted. Again, the 
+<code>$ROOT_PASS_IS_ENCRYPTED</code> will let you know. follow similar steps to reset the <code>$PROGRAM_ROOT_PASSWORD</code> variable to either an encrypted or non-encrypted password, but do all the editing in your <code>dada/DADA/Config.pm</code> file.</p>
+<p>There is also plugin, described here:</p>
+<p><a href="change_root_password.cgi.html">change_root_password.cgi.html</a></p>
+<p>That will allow you to change the Dada Mail Root Password. You will first have to log into your list control panel, with the Dada Mail Root Password.</p>
+<p>
+</p>
+<h2><a name="is_there_any_way_to_stop_a_mass_mailing_once_it_is_started">Is there any way to stop a mass mailing once it is started?</a></h2>
+<p>Yes. In the list control panel, click on, &quot;Monitor Your Mailings&quot;, click on the mailing you want to stop and when on that specific message screen, click the, <strong>STOP Mailing</strong> button.</p>
+<p>
+</p>
+<hr />
+<h1><a name="subscriptions">Subscriptions</a></h1>
+<p>
+</p>
+<h2><a name="how_are_new_subscriptions_made">How are new subscriptions made?</a></h2>
+<ul>
+<li><strong><a name="list_invitations" class="item">List Invitations</a></strong>
+
+<p>The first way is by having the list owner log into the List Control Panel and inviting subscribers en-mass, via the, <strong>Manage Subscribers - Invite</strong> screen.</p>
+</li>
+<li><strong><a name="self_subscriptions" class="item">Self-Subscriptions</a></strong>
+
+<p>The second way is to provide a subscription form available to visitors of your website.</p>
+</li>
+<li><strong><a name="api" class="item">API</a></strong>
+
+<p>The third is to modify an already exisiting program to use Dada Mail's API either directory or indirectly.</p>
+<p>The first two ways are walked through in this screen cast:</p>
+<p><a href="http://www.youtube.com/watch?v=kUENzRN2EPA&hd=1">http://www.youtube.com/watch</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="list_invitations">List Invitations</a></h3>
+<p>Once logged in, the list owner will want to visit the, <strong>Manage Subscribers - Invite</strong> screen.</p>
+<p>New subscribers should be prepared in CSV format, with the email address being first and any other Subscriber Profile Fields coming afterwards. The actual order will be listed on this screen.</p>
+<p>If you do not have any Subscriber Profile Fields, the format needed to give Dada Mail is just, one email address and a newline.</p>
+<p>Click the, <strong>Verify Addresses...</strong> button. When the screen refreshes, Dada Mail will give a break down of the addresses that can be invited and also the addresses that cannot be invited for reasons that include: already being subscribed, being an invalid address, or that the address is currently banned from subsribing.</p>
+<p>A List Invitation will send out a short email message to the would-be subscribe and allow the subscriber themselves to choose to subscribe to the list.</p>
+<p>
+</p>
+<h3><a name="allowing_visitors_to_subscribe">Allowing Visitors to Subscribe</a></h3>
+<p>Visitors to your website can subscribe to your mailing list by filling out a List Subscription Form.</p>
+<p>This form is located  on the default screen of Dada Mail (for all lists) and also on the list-specific screen (for just that list)</p>
+<p>You can also place this subscription form on any page of an already existing website. The HTML form code can be copied from the List Control Panel screen, located at: <strong>Appearance and Templates - Subscription Form HTML</strong></p>
+<p>And pasting the HTML into your page's source.</p>
+<p>
+</p>
+<h4><a name="see_also">See Also</a></h4>
+<p>There's also a Dada Mail Extension that'll allow someone to subscribe to more than one list:</p>
+<p><a href="multiple_subscribe.cgi.html">multiple_subscribe.cgi.html</a></p>
+<p>And another extension that will allow you to embed an AJAX-enabled subscription form:</p>
+<p><a href="http://dadamailproject.com/support/documentation-dada-3_0_1/ajax_include_subscribe.cgi.html">http://dadamailproject.com/support/documentation-dada-3_0_1/ajax_include_subscribe.cgi.html</a></p>
+<p>
+</p>
+<h3><a name="using_the_dada_mail_api_to_subscribe_new_addresses">Using the Dada Mail API to subscribe new addresses</a></h3>
+<p>See the following docs that pertain to using the Dada Mail API directly or indirectly to use its subscription capabilities:</p>
+<p><a href="COOKBOOK-subscriptions.pod.html">COOKBOOK-subscriptions.pod.html</a></p>
+<p><a href="COOKBOOK-integration.pod.html">COOKBOOK-integration.pod.html</a></p>
+<p>This will be a more advanced topic.</p>
+<p>
+</p>
+<h2><a name="mass_subscribing_email_addresses_via_the_list_control_panel">Mass Subscribing Email Addresses via the List Control Panel</a></h2>
+<p><em>Is there a way to Mass-Subscribe email addresses from the list control panel?</em></p>
+<p><strong>Versions 4.7.0+</strong>:</p>
+<p>Log into your mailing list and go to: <strong>Your Mailing List - Mailing List Options</strong></p>
+<p>Under the heading, <strong>List Control Panel Subscriptions</strong> check the option, <strong>Enable Adding Subscribers from within the List Control Panel</strong></p>
+<p>You can then go to: <strong>Your Subscribers - Invite/Add</strong> and mass-subscribe 
+addresses.</p>
+<p><strong>Versions 4.4.0 - 4.6.1</strong></p>
+<p>Log into your mailing list with the <strong>Dada Mail Root Password</strong> and go to:</p>
+<p><strong>Your List Control Panel - Options</strong></p>
+<p>Check the option labeled, <strong>Enable, &quot;Subscribe Checked Subscribers&quot; button [...]</strong></p>
+<p>You can then go to: <strong>Your Subscribers - Invite/Add</strong> and mass-subscribe 
+addresses.</p>
+<p>
+</p>
+<hr />
+<h1><a name="unsubscriptions">Unsubscriptions</a></h1>
+<p>
+</p>
+<h2><a name="how_do_i_turn_off__one_click_unsubscription_links">How do I turn off, &quot;one-click&quot; unsubscription links?</a></h2>
+<p><em>I have a discussion list and the unsub links are being clicked on by other users, sending unsubscription confirmations out. Yikes!</em></p>
+<p>Replace the unsubscription tag:</p>
+<pre>
+ &lt;!-- tmpl_var list_unsubscribe_link --&gt;</pre>
+<p>With the following:</p>
+<pre>
+ &lt;!-- tmpl_var PROGRAM_URL --&gt;/u/&lt;!-- tmpl_var list_settings.list --&gt;</pre>
+<p>This will provide a link to unsubscribe, but the user will have to manually enter their email address. Good to use for discussion lists.</p>
+<p>
+</p>
+<h2><a name="unsubscription_links_are_placed_on_top_of_my_mailing_list_messages__why">Unsubscription links are placed on top of my mailing list messages, why?</a></h2>
+<p>Dada Mail has an in-program policy of requiring the unsubscription link to be prsent 
+in any mass mailing messages it sends out. This is to stop blatant abuse of the program, but we also 
+do sincerely suggest this as a best practice when using the program. If an unsubscribe link is not found 
+in your mailing list message, Dada Mail will simply add one to the top of the message.</p>
+<p>The following unsubscription links/tags can be used:</p>
+<ul>
+<li><strong><a name="path_info_style_embeds_in_the_email_address_of_the_subscriber" class="item">Path Info style, embeds in the email address of the subscriber</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var list_unsubscribe_link --&gt;</pre>
+<li><strong><a name="path_info_style_embeds_in_the_email_address_of_the_subscriber2" class="item">Path Info style, embeds in the email address of the subscriber</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var PROGRAM_URL --&gt;/u/&lt;!-- tmpl_var list_settings.list --&gt;/&lt;!-- tmpl_var subscriber.email_name --&gt;/&lt;!-- tmpl_var subscriber.email_domain --&gt;/</pre>
+<li><strong><a name="path_info_style_does_not_embed_the_email_address_of_the_subscriber" class="item">Path Info style, DOES NOT embed the email address of the subscriber</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var PROGRAM_URL --&gt;/u/&lt;!-- tmpl_var list_settings.list --&gt;</pre>
+<li><strong><a name="query_string_style_does_not_embed_the_email_address_of_the_subscriber" class="item">Query-String style, does NOT embed the email address of the subscriber:</a></strong>
+
+<pre>
+        &lt;!-- tmpl_var PROGRAM_URL --&gt;?f=u&amp;l=&lt;!-- tmpl_var list_settings.list --&gt;</pre>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="hosting">Hosting</a></h1>
+<p>
+</p>
+<h2><a name="do_you_host_dada_mail_or_do_i_host_dada_mail">Do you host Dada Mail or do I host Dada Mail?</a></h2>
+<p>Dada Mail is installed on your hosting account; thus, you will be the one hosting it.</p>
+<p>Dada Mail is not really intended to be run locally on your Desktop Computer (unless, say, you're testing it out). You'll want Dada Mail running on a server that's publically available via the web, so that subscription and unsubscription requests can be handled at all times.</p>
+<p>
+</p>
+<h2><a name="do_you_provide_hosting_services">Do you provide hosting services?</a></h2>
+<p>Personally, no - I do have some good suggestions on hosting:</p>
+<p><a href="http://dadamailproject.com/support/hosting.html">http://dadamailproject.com/support/hosting.html</a></p>
+<p>
+</p>
+<h2><a name="dada_mail_looks_awesome__installation_is_way_over_my_head__do_you_provide_installation_services">Dada Mail looks awesome! Installation is way over my head, do you provide installation services?</a></h2>
+<p>Yes:</p>
+<p><a href="http://dadamailproject.com/installation/request.html">http://dadamailproject.com/installation/request.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="upgrading">Upgrading</a></h1>
+<p>
+</p>
+<h2><a name="how_do_you_upgrade_dada_mail">How do you upgrade Dada Mail?</a></h2>
+<p>See:</p>
+<p><a href="upgrade_dada_mail.pod.html">upgrade_dada_mail.pod.html</a></p>
+<p>
+</p>
+<h2><a name="i_have_an_older_version_of_dada_mail__or_something_called_mojo_mail__should_i_upgrade">I have an older version of Dada Mail, or something called Mojo Mail, should I upgrade?</a></h2>
+<p>Please, yes.</p>
+<p>
+</p>
+<hr />
+<h1><a name="features">Features</a></h1>
+<p>
+</p>
+<h2><a name="does_dada_mail_handle_announce_only_lists_discussion_lists">Does Dada Mail handle announce-only lists? Discussion Lists?</a></h2>
+<p>Dada Mail handles announce only lists with ease - a standard installation will be all you need to run Dada Mail as an announce-only list.</p>
+<p>Dada Mail can also be set up to allow discussion lists, you'll have to also install the <strong>Dada Bridge</strong> plugin.</p>
+<p><a href="dada_bridge.pl.html">dada_bridge.pl.html</a></p>
+<p>The Dada Bridge Plugin can also be set up to provide announce-only message sending from your mail reader -</p>
+<p>
+</p>
+<h2><a name="does_dada_mail_handle_bounced_messages">Does Dada Mail handle bounced messages?</a></h2>
+<p>See the <strong>Mystery Girl</strong> plugin, the bounce handler for Dada Mail:</p>
+<p><a href="dada_bounce_handler.pl.html">dada_bounce_handler.pl.html</a></p>
+<p>
+</p>
+<h2><a name="how_do_i_create_the_html_subscription_form_code_to_place_on_my_web_pages_to_allow_people_to_subscribe_to_my_list">How do I create the HTML Subscription form code to place on my web pages to allow people to subscribe to my list?</a></h2>
+<p>Log into your list control panel, click, <strong>Appearance and Templates -  Subscription Form HTML</strong></p>
+<p>
+</p>
+<h2><a name="can_i_hook_dada_mail_up_to_a_form_on_my_website">Can I hook Dada Mail up to a form on my website?</a></h2>
+<p>Sure - in fact there are <strong>two</strong> different form handlers to choose from, FormMail.pl</p>
+<p><a href="Dada-ized_FormMail_README.pod.html">Dada-ized_FormMail_README.pod.html</a></p>
+<p>and: TFmail.pl</p>
+<p><a href="Dada-ized_TFMail_README.pod.html">Dada-ized_TFMail_README.pod.html</a></p>
+<p>Both do a similar job, emailing you the fields filled out on your form and subscribing an email address, also filled out on a form, to a Dada Mail list.</p>
+<p>You can also make your own - you may want to look at the cookbook for Mailing List Subscribers:</p>
+<p>If you know a little Perl, it isn't too hard. A great place to see a working example is in the FormMail and TFmail scripts themselves. Do a search for, &quot;dada&quot; and you'll see the relevant changes.</p>
+<p>
+</p>
+<h2><a name="can_you_compare_dada_mail_to_another_program_for_me">Can you compare Dada Mail to another program for me?</a></h2>
+<p>Not really. I can't in good faith tell you what Dada Mail has and Brand X lacks, since I, personally, only use Dada Mail. The feature list of Dada Mail is very verbose, so the easiest way to get an idea of what Dada Mail can do is try it out.</p>
+<p>From the very begining of the project in 1999, I set out to make something that was a little different than what was out there and I'm still doing that. Dada Mail is an experiment, if anything.</p>
+<p>
+</p>
+<h2><a name="is_there_a_demo_of_dada_mail_set_up_that_i_can_use">Is there a Demo of Dada Mail set up that I can use?</a></h2>
+<p>Yes! - see:</p>
+<p><a href="http://demo.dadamailproject.com">http://demo.dadamailproject.com</a></p>
+<p>
+</p>
+<h2><a name="do_i_need_to_keep_my_browser_window_open_for_the_entire_mail_sending">Do I need to keep my browser window open for the entire mail sending?</a></h2>
+<p>It's not the worst idea - the best thing to do is put on the, &quot;Monitor Your Mailings&quot; screen to the mailing you currently want to keep an eye on.</p>
+<p>There are chances that a mailing will stop unexpectantly, and keeping this monitor up will prevent that. There are also ways to not need to have this Monitor Your Mailings screen open, regardless of your hosting setup.</p>
+<p>This topic has it's own FAQ:</p>
+<p><a href="FAQ-mailing_list_sending.pod.html">FAQ-mailing_list_sending.pod.html</a></p>
+<p>Which is a must-read.</p>
+<p>
+</p>
+<h2><a name="how_do_i_send_email_messages_with_formatted_text_images">How do I send email messages with formatted text/images?</a></h2>
+<p><strong>Short Answer:</strong></p>
+<p>Email messages that are formatted with text, images, etc. are done by writing the message in HTML. So, write your message in HTML!</p>
+<p><strong>Long Answer:</strong></p>
+<p>(See short answer first)</p>
+<p>There are many many MANY ways to send an HTML-formatted email using Dada Mail.</p>
+<ul>
+<li><strong><a name="the_send_a_message_screen" class="item">The, &quot;Send a Message&quot; screen</a></strong>
+
+<p>In the list control panel, go to, <strong>Send a Message</strong>. Twiddle the <strong>HTML Version</strong> into view by clicking,</p>
+<p><strong>+/- HTML Version</strong></p>
+<p>If you do not know HTML, or are setting Dada Mail up for someone who does not know HTML, but want to create HTML images, you can transform this textarea into a WYSIWYG HTML editor by installing FCKeditor (which is relatively painless). Directions on how to do so are at:</p>
+<p><a href="Config.pm.html#fckeditor_integration___fckeditor_url">Config.pm.html#fckeditor_integration___fckeditor_url</a></p>
+</li>
+<li><strong><a name="the_send_a_webpage_screen" class="item">The, &quot;Send a Webpage&quot; screen</a></strong>
+
+<p>Create an HTML document using your favorite HTML editor. Post it somewhere on your website. Make sure you do one of the following:</p>
+<ul>
+<li><strong><a name="put_a_base_tag_in_the_head_of_the_document_to_make_all_the_urls_in_your_document_work_when_viewed_from_a_different_location_that_where_you_ve_saved_it_on_yours_server" class="item">put a &lt;base&gt; tag in the head of the document, to make all the URLs in your document work when viewed from a different location that where you've saved it on yours server</a></strong>
+
+<li><strong><a name="make_all_urls_in_your_html_document_absolute_meaning" class="item">make all URLs in your HTML document absolute - meaning:</a></strong>
+
+<ul>
+<li><strong><a name="no" class="item">NO!</a></strong>
+
+<pre>
+ &lt;img src=&quot;../../images/love.png&quot; /&gt;</pre>
+<li><strong><a name="yes" class="item">Yes!</a></strong>
+
+<pre>
+ &lt;img src=&quot;<a href="http://example.com/images/love.png&quot">http://example.com/images/love.png&quot</a>; /&gt;</pre>
+<li><strong><a name="no2" class="item">NO!</a></strong>
+
+<pre>
+ &lt;a href=&quot;index.html&quot;&gt;This is my link!&lt;/a&gt;</pre>
+<li><strong><a name="yes2" class="item">Yes!</a></strong>
+
+<pre>
+ &lt;a href=&quot;<a href="http://example.com/index.html">http://example.com/index.html</a>&quot;&gt;This is my link!&lt;/a&gt;</pre>
+</ul>
+<p>In the list control panel, go to, &lt;Send a Webpage&gt;. Under, <strong>HTML Verson (Your Webpage)</strong>, check: <em>Grab content from this webpage address (URL):</em> and fill in the url to use.</p>
+<li><strong><a name="install_the_the_dada_bridge_plugin_and_format_and_send_your_messages_from_your_mail_reader_your_messages_should_come_through_almost_exactly_as_you_ve_created_them" class="item">Install the the Dada Bridge Plugin and format and send your messages from your mail reader. Your messages <strong>should</strong> come through almost exactly as you've created them.</a></strong>
+
+</ul>
+<p><strong>NOTE:</strong> Before being sent, all HTML messages will be changed to a multipart/alternative message and have a PlainText version of your message created, if one is not present already. This is absolutely required these days and there is currently no way to turn off this behavior in Dada Mail.</p>
+</ul>
+<p>
+</p>
+<h2><a name="how_do_i_get_the_file_browser_working_in_fckeditor">How do I get the File Browser working in FCKeditor?</a></h2>
+<p>
+</p>
+<h3><a name="screen_casts_">Screen Casts!</a></h3>
+<p><em>I want to upload images to then put in my message - any help on that?</em></p>
+<p>These screencasts:</p>
+<p><a href="http://www.youtube.com/watch?v=AgNTNygI4MM&hd=1">http://www.youtube.com/watch?v=AgNTNygI4MM&hd=1</a></p>
+<p><a href="http://www.youtube.com/watch?v=uRdDOO5n_Cc&hd=1">http://www.youtube.com/watch?v=uRdDOO5n_Cc&hd=1</a></p>
+<p>Goes through the below process.</p>
+<p>These current directions are for FCKeditor, version <strong>2.6</strong>. The steps involved seem to always change in each revision of FCKeditor.</p>
+<p>
+</p>
+<h3><a name="step_1__install_fckeditor">Step 1: Install FCKEditor</a></h3>
+<p>First, get FCKeditor up and running:</p>
+<p><a href="Config.pm.html#fckeditor_integration___fckeditor_url">Config.pm.html#fckeditor_integration___fckeditor_url</a></p>
+<p>In a nutshell, this means downloading FCKeditor, and putting the, <strong>fckeditor</strong> directory onto your website.</p>
+<p>Once that's accomplished, you'll want to set Dada Mail's Config.pm variable, <code>$FCKEDITOR_URL</code> to point to the location of the fckeditor directory. Once that's set and you can see the FCKeditor in the, &quot;Send a Message&quot; screen, when the, &quot;HTML Version&quot; textarea is, you're ready to move on.</p>
+<p>
+</p>
+<h3><a name="step_2__configure_the_fckeditor_filemanager_connector">Step 2: Configure the FCKeditor Filemanager Connector</a></h3>
+<p>In this walkthrough, we'll be configuring the, <strong>php</strong> version of the Filemanager Connector... thingy. There is a version of the connector written in Perl (Dada Mail is written in Perl), but it doesn't seem to work as well.</p>
+<p>We'll be editing <strong>one</strong> file, located at:</p>
+<p><em>fckeditor/editor/filemanager/connectors/php/config.php</em></p>
+<p>in the FCKeditor distribution. This is the chunk of code that we'll want to edit:</p>
+<pre>
+        $Config['Enabled'] = false ;</pre>
+<pre>
+        // Path to user files relative to the document root.
+        $Config['UserFilesPath'] = '/userfiles/' ;</pre>
+<pre>
+        // Fill the following value it you prefer to specify the absolute path for the
+        // user files directory. Useful if you are using a virtual directory, symbolic
+        // link or alias. Examples: 'C:\\MySite\\userfiles\\' or '/root/mysite/userfiles/'.
+        // Attention: The above 'UserFilesPath' must point to the same directory.
+        $Config['UserFilesAbsolutePath'] = '' ;</pre>
+<p>The first variable:</p>
+<pre>
+        $Config['Enabled'] = false ;</pre>
+<p>Simply has to be set to, <code>true</code></p>
+<pre>
+        $Config['Enabled'] = true ;</pre>
+<p>The second and third variable are looking for the location you want to save any uploaded images to. The second variable wants it in the form of a URL,</p>
+<pre>
+        $Config['UserFilesPath'] = '<a href="http://example.com/userfiles/">http://example.com/userfiles/</a>' ;</pre>
+<p>One thing to make sure is that you've setup that directory under the same subdomain as your Dada Mail is installed. For example, if Dada Mail is at:</p>
+<p><a href="http://www.example.com/cgi-bin/dada/mail.cgi">http://www.example.com/cgi-bin/dada/mail.cgi</a></p>
+<p>You need to hace this directory at something like:</p>
+<p><a href="http://www.example.com/userfiles/">http://www.example.com/userfiles/</a></p>
+<p>and not,</p>
+<p><a href="http://different-subdomain.example.com/userfiles/">http://different-subdomain.example.com/userfiles/</a></p>
+<p>The third wants the location of that same directory, but as an absolute server path.</p>
+<pre>
+        $Config['UserFilesAbsolutePath'] = '/home/youraccount/public_html/userfiles/' ;</pre>
+<p>Make sure to taylor those last two variables to your specific account configuration.</p>
+<p>Other than that, you may have to change the permissions of that directory to, <code>777</code>.</p>
+<p>Once that's all set, uploading images using the FCKeditor should work like a charm.</p>
+<p>
+</p>
+<h3><a name="step_3__using_the_fckeditor_image_upload_capability">Step 3: Using the FCKeditor Image Upload Capability</a></h3>
+<p>Once FCKeditor is all up and running, you can navigate to &quot;Send a Message -&gt; Advanced&quot; (among other places) and get the WYSIWYG editor.</p>
+<p>Here's how the &quot;Insert/Edit Image&quot; thingy works:</p>
+<ul>
+<li><strong><a name="click_the_insert_edit_image_button_you_ll_get_the_image_properties_window" class="item">Click the Insert/Edit Image button, you'll get the, &quot;Image Properties&quot; Window</a></strong>
+
+<li><strong><a name="click_the_browse_server_button" class="item">Click the, &quot;Browse Server&quot; button.</a></strong>
+
+<p>You'll get this odd, empty file browser looking thing. It doesn't show anything, but you can select an image/whatever on your desktop and upload it to your account.</p>
+</li>
+<li><strong><a name="click_the_browse_button_at_the_bottom_of_the_screen" class="item">Click the, &quot;Browse...&quot; button at the bottom of the screen,</a></strong>
+
+<li><strong><a name="select_an_image_and_click_upload" class="item">select an image and click, &quot;Upload&quot;</a></strong>
+
+<p>That image will now show up in the file browser! Click on it and the file browser goes away and you get a preview of the image.</p>
+</li>
+<li><strong><a name="click_ok_and_the_image_will_be_inserted_into_your_message" class="item">Click, &quot;OK&quot; and the image will be inserted into your message.</a></strong>
+
+</ul>
+<p>Now, to have this image be embedded into your newsletter and sent within the image as an attachment, do all these steps, not in the, &quot;Send a Message -&gt; Advanced&quot; screen, but in the, &quot;Send a Webpage&quot; screen:</p>
+<ul>
+<li><strong><a name="check_the_use_the_following_html_as_content_option" class="item">Check the, &quot;Use the following HTML as content: &quot; option.</a></strong>
+
+<li><strong><a name="click_advanced_options_and_select" class="item">Click, &quot;+/- Advanced Options&quot; and select,</a></strong>
+
+<p><strong>( Images in this Webpage Should:) &quot;be embedded in the message itself. &quot;</strong></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="see_also">See also</a></h3>
+<p><a href="http://docs.fckeditor.net/FCKeditor_2.x/Developers_Guide/Configuration/Built_in_File_Browser">http://docs.fckeditor.net/FCKeditor_2.x/Developers_Guide/Configuration/Built_in_File_Browser</a></p>
+<p>
+</p>
+<h2><a name="how_do_you_install__cpan_perl_modules">How do you install, &quot;CPAN Perl Modules&quot;</a></h2>
+<p>There are many advanced features in Dada Mail, that rely on <em>CPAN Perl Modules</em></p>
+<p>CPAN is the <em>Comprehensive Perl Archive Network</em> - it's a great collection of reusable Perl code.</p>
+<p>Installing these modules may be tricky for the uninitiated. We'll go over a few ways you can install these modules:</p>
+<p>
+</p>
+<h3><a name="the_cpan_shell">The cpan Shell</a></h3>
+<pre>
+
+The, C&lt;cpan&gt; shell is how one usually installs CPAN modules. You'll need root access to your hosting account, 
+usually, but you can install CPAN modules in your home directory. This topic is well over the 
+forté of this particular FAQ, but do see:</pre>
+<p><a href="http://sial.org/howto/perl/life-with-cpan/non-root/">http://sial.org/howto/perl/life-with-cpan/non-root/</a></p>
+<p>Actually, this entire site is very helpful:</p>
+<p><a href="http://sial.org/howto/perl/life-with-cpan">http://sial.org/howto/perl/life-with-cpan</a></p>
+<p>So, say you need a Perl CPAN module that Dada Mail wants to use, like <code>Gravatar::URL</code>. Once you have your CPAN shell all set up, you'd just ask <code>cpan</code> to install it, like so:</p>
+<pre>
+ cpan install Gravatar::URL</pre>
+<p>If you do have your own, private CPAN library, you'll have to tweak Dada Mail to let it know where it is. Say you have your local CPAN library at,</p>
+<pre>
+ /home/youraccount/perllib</pre>
+<p>In Dada Mail's <code>mail.cgi</code> file, you'd have to find the, <code>use lib</code> lines:</p>
+<pre>
+ use lib qw(            
+        ./ 
+        ./DADA 
+        ./DADA/perllib
+        ../../../perl
+        ../../../perllib
+ );</pre>
+<p>And just add your new CPAN library:</p>
+<pre>
+ use lib qw(            
+        ./ 
+        ./DADA 
+        ./DADA/perllib
+        ../../../perl
+        ../../../perllib
+    /home/youraccount/perllib
+ );</pre>
+<p>
+</p>
+<h3><a name="cpanel_s_perl_module_installer">Cpanel's Perl Module Installer</a></h3>
+<p>If all this talk of shells and commands and CPANs has you confused, you're in luck, if you have a hosting account that's powered by Cpanel.</p>
+<p>Your Cpanel may have a Perl Module Installer - in your cPanel, look for, <em>Perl Module Installer</em>. Once in this screen, just enter the module you'd like to install, like, <code>Gravatar::URL</code>. and it'll handle on the hard stuff for you, similar to how its down above.</p>
+<p>You still have to tweak your <code>use lib</code> line in the <code>mail.cgi</code> directory - so be aware of that.</p>
+<p>
+</p>
+<hr />
+<h1><a name="the_list_confirmation_process">The List Confirmation Process</a></h1>
+<p>
+</p>
+<h2><a name="can_you_explain_some_of_the_terminology_of_the_confirmation_process">Can you explain some of the terminology of the confirmation process?</a></h2>
+<p>Why, yes. Here are some terms you'll hear:</p>
+<ul>
+<li><strong><a name="double_opt_in_closed_loop_confirmed_opt_in" class="item">Double-Opt In, Closed-loop, Confirmed Opt-in</a></strong>
+
+<p>These terms are all for the same idea: The subscriber of a mailing list has to first ask to be on the list to start with, and confirm via some means that the email address they want to subscribe with is theres. This is the one main reason why you'd want to use a mailing list manager. It uses are to the point where there may be legal steps against you if you run a mailing list without this system.</p>
+<p>Saying that, Dada Mail is completely compatible with this methodology. In Dada Mail this feature is called, &quot;<em>Subscription Confirmation Emails</em>&quot; and the option can be enabled/disabled in the <em>Manage List - Mailing List Options</em> screen. <strong>Under no circumstances should you disable this feature.</strong> Even though you may not like to have a would-be subscriber make two steps to subscribe, it's incredibly important that they do.</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="errors">Errors</a></h1>
+<p>Running the Program Generates a 500 Server Error Message when I do, &quot;x&quot;</p>
+<p>See the error FAQ:</p>
+<p><a href="FAQ-errors.pod.html">FAQ-errors.pod.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="dada_mail_and_html_templates">Dada Mail and HTML Templates</a></h1>
+<p>
+</p>
+<h2><a name="how_do_you_change_the_dada_mail_logo">How do you change the Dada Mail Logo?</a></h2>
+<p>Create a new image around 175 x 75 px (if you want to match the size of what's currently be used). Save it as, &quot;dada_mail_logo.png&quot;</p>
+<p>Place it in the, <em>dada/DADA/Template/templates</em> directory.</p>
+<p><em>Or</em> place it in your <em>.dada_files/.templates</em> directory. This copy will override the copy that comes with Dada Mail and any additional upgrades of the script will 
+not overwrite the custom version of the file you want to use. (This works for all templates located in the <em>dada/DADA/Template/templates</em> directory)</p>
+<p>Remove your screen cache (either delete the, <em>.dada_files/.tmp/_screen_cache</em> directory, or use the Screen Cache plugin) to see your changes take effect.</p>
+<p>
+</p>
+<h2><a name="can_i_change_the_program_s_name">Can I change the Program's Name?</a></h2>
+<p>Add this line to your <code>.dada_config</code> file:</p>
+<pre>
+        $PROGRAM_NAME = 'My Program'; 
+        
+Where, B&lt;My Program&gt; is the new name you'd like to use.</pre>
+<p>
+</p>
+<h2><a name="how_do_i_change_the_default_look_of_dada_mail">How do I change the default look of Dada Mail?</a></h2>
+<p><strong>Short Answer:</strong></p>
+<p>If all you want to do is tweak the CSS styles of Dada Mail, the global CSS file is located at:</p>
+<pre>
+ dada/DADA/Template/templates/default_css.css</pre>
+<p>You will never see this file directly in use in Dada Mail, but you can view it in your web browser by adding <em>/css</em> to the end of the URL to Dada Mail:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi/css">http://example.com/cgi-bin/dada/mail.cgi/css</a></p>
+<p>If you're comfortable with CSS, a <em>lot</em> can be changed with this file alone, from fonts and colors to the overall page layouts.
+Everything is nicely organized in there, and the few hacks used are thoroughly commented - it may be all you need.</p>
+<p><strong>Really Long Answer:</strong></p>
+<p>Going even beyond the considerable CSS control outlined above, Dada Mail is extremely flexible in this respect. Extremely.</p>
+<p><strong>First: Clarification.</strong></p>
+<p>Dada Mail uses different templating systems depending on what needs to be done, but there's basically two types:</p>
+<ul>
+<li><strong><a name="system" class="item">The Internal Templating System (HTML::Template)</a></strong>
+
+<p>Most of the HTML that Dada Mail produces is stored in templates in the:</p>
+<pre>
+ dada/DADA/Template/templates</pre>
+<p>directory.</p>
+<p>The templates themselves are written in a templating language called HTML::Template. More info here:</p>
+<p><a href="http://search.cpan.org/~samtregar/HTML-Template-2.7/Template.pm">http://search.cpan.org/~samtregar/HTML-Template-2.7/Template.pm</a></p>
+<p>A description of the templating language, by the author, is:</p>
+<p><em>just a normal HTML file with a few extra tags, the simplest being <code> &lt;  TMPL_VAR &gt; </code></em></p>
+<p>meaning, if you read the HTML::Template docs, you should have a pretty firm understanding on how to play with these templates.</p>
+<p>These templates control many of the administration screens. You'll want to play around with these templates if there are some layout/formatting/content output changes you want to do to the program itself.</p>
+<p><strong>Note:</strong> that by design, these templates have almost no programatic logic to them - they are almost strictly layout only, so don't expect to change the <em>behavior</em> of the program by editing the template files.</p>
+<p>To find the correct template to modify: visit the screen you'd like to modify, view its source code (&quot;view source&quot; in your 
+browser options), find the section in the source code that you'd like to change, and then continue reading down until 
+you see a comment,</p>
+<pre>
+ &lt;!-- end template_name.tmpl --&gt;</pre>
+<p>...or read <em>up</em> (that is, backwards) until you bump into a:</p>
+<pre>
+ &lt;!-- start template_name.tmpl --&gt;</pre>
+<p>comment. Either way, <code>template_name.tmpl</code> is the template that created that section of source code.</p>
+<p>Or if you prefer, just have a look at the screen's URL - usually, the template will be named similarily to the function name that
+responded to it (the &quot;flavor&quot; parameter, sometimes shortened to &quot;f&quot;, will tell you the name of the function), and usually, the template 
+name matches that function name.</p>
+<p>For example, the, &quot;Send a Message&quot; screen, has a flavor parameter query string of, <em>send_email</em>. The template that creates this screen is called, <em>send_email_screen.tmpl</em> Easy enough.</p>
+</li>
+<li><strong><a name="dada_mail_templating_system" class="item">Dada Mail Templating System</a></strong>
+
+<p>This now has its own FAQ:</p>
+<p><a href="features-email_template_syntax.pod.html">features-email_template_syntax.pod.html</a></p>
+<p>Some of the places this system is used are as follows:</p>
+<ul>
+<li><strong><a name="the_default_list_template" class="item">The Default List Template</a></strong>
+
+<p>Sometimes called the User Template, the default template lives at:</p>
+<pre>
+ dada/DADA/Template/templates/default_list_template.tmpl</pre>
+<p>You may edit this file directly, although you most likely do not want to, since your changes will be lost when you upgrade the program.</p>
+<p>There are a few ways to make changes to this template, without changing this copy.</p>
+<ul>
+<li><strong><a name="use_the_user_template_config_pm_variable" class="item">Use the $USER_TEMPLATE Config.pm variable</a></strong>
+
+<p>This is the preferred method. Simply make a copy of the default_list_template.tmpl file, save it in a another location on your server and set the Config.pm variable, <strong>$USER_TEMPLATE</strong> to the absolute path of its location.</p>
+<p>You can also set <strong>$USER_TEMPLATE</strong> to a URL - if your server supports that. There's more overhead involved with Dada Mail fetching the program this way, but it does allow you to preprocess the Template before it's seen by Dada Mail. For example, you want to have PHP calls in the template itself, or generate any sort of dynamic content.</p>
+</li>
+<li><strong><a name="make_a_copy_of_default_list_template_tmpl_and_place_it_in_your_templates_directory" class="item">Make a copy of default_list_template.tmpl and place it in your $TEMPLATES directory</a></strong>
+
+<p>Dada Mail will actually look for any of the template that are located in the default template directory,</p>
+<pre>
+ dada/DADA/Template/templates</pre>
+<p>in whichever directory you set the <strong>$TEMPLATES</strong> Config.pm variable to. If you did not set this variable, it defaults to whatever you set the $FILES variable to. Making changes to this copy will override the copy in the dada/DADA/Template/templates location.</p>
+<p>The above information is valid for any of the templates located in the dada/DADA/Template/templates directory.</p>
+</li>
+</ul>
+<p><strong>NOTE:</strong> The List/User Template can be overridden by any of the lists; meaning, each list has its own copy of the list template that it can change. This can be of some confusion if you're trying to edit the main template, and you don't see the changes taking effect for one of your lists, or, you make a change to the list template, and it's not affecting the default screen you see in Dada Mail.</p>
+<p>If you want to have all your lists use the default List/User Template:</p>
+<ul>
+<li><strong><a name="remove_any_file_that_ends_in_the_template_file_ending_in_your_templates_directory" class="item">Remove any file that ends in the, &quot;.template&quot; file ending in your <strong>$TEMPLATES</strong> directory.</a></strong>
+
+<p>These are the list templates that correspond to each of your lists.</p>
+</li>
+<li><strong><a name="change_the_default_list_template_using_the_techniques_above" class="item">Change the default list template, using the techniques above.</a></strong>
+
+<p>Either, don't edit the individual copy of the list template in the admin control panel under, <strong>Appearance and Templates - Your Mailing List Template</strong>, check the option, &quot; Use the default list template.&quot;  in that same screen, or, to be even more authorative, add this to your %LIST_SETUP_OVERRIDES Config.pm hash:</p>
+<pre>
+ get_template_data                =&gt; 'from_default_template',</pre>
+<p>Information on the %LIST_SETUP_OVERRIDES hash can be found at:</p>
+<p><a href="Config.pm.html#list_setting_defaults">Config.pm.html#list_setting_defaults</a></p>
+</li>
+</ul>
+<p>Again, any list screen that does not have a single list associated with it, will be given the default list template look.</p>
+<li><strong><a name="the_default_admin_template" class="item">The Default Admin Template</a></strong>
+
+<p>The Default Admin Template lives at:</p>
+<pre>
+ default_admin_template.tmpl</pre>
+<p>The information about the Default List Template also follows for the Default Admin Template. The Config.pm variable for it is: <strong>$DEFAULT_ADMIN_TEMPLATE</strong></p>
+<p>You may also be interested in the <strong>admin_menu_widget.tmpl</strong>, which is used to created the left hand menu. It's written using the HTML::Template templating system.</p>
+</li>
+<li><strong><a name="error_messages" class="item">Error Messages</a></strong>
+
+<p>Most Error Messages in Dada Mail live in the <strong>dada/DADA/App/Errors.pm</strong> Perl module. They're not templated out into individual files, since we've just haven't gotten around to it. Be careful when editing, since the file is a Perl program and follows the conventions and syntax requirements of Perl itseld.</p>
+</li>
+<li><strong><a name="email_messages" class="item">Email Messages</a></strong>
+
+<p>The default email messages that are easily editable are located in the Config.pm file itself. The variables are called:</p>
+<ul>
+<li><strong><a name="_subscribed_message" class="item">$SUBSCRIBED_MESSAGE</a></strong>
+
+<li><strong><a name="_unsubscribed_message" class="item">$UNSUBSCRIBED_MESSAGE</a></strong>
+
+<li><strong><a name="_confirmation_message" class="item">$CONFIRMATION_MESSAGE</a></strong>
+
+<li><strong><a name="_unsub_confirmation_message" class="item">$UNSUB_CONFIRMATION_MESSAGE</a></strong>
+
+<li><strong><a name="_mailing_list_message" class="item">$MAILING_LIST_MESSAGE</a></strong>
+
+<li><strong><a name="_mailing_list_message_html" class="item">$MAILING_LIST_MESSAGE_HTML</a></strong>
+
+<li><strong><a name="_not_allowed_to_post_message" class="item">$NOT_ALLOWED_TO_POST_MESSAGE</a></strong>
+
+<li><strong><a name="_text_invite_message" class="item">$TEXT_INVITE_MESSAGE</a></strong>
+
+<li><strong><a name="_html_invite_message" class="item">$HTML_INVITE_MESSAGE</a></strong>
+
+<li><strong><a name="_send_archived_message" class="item">$SEND_ARCHIVED_MESSAGE</a></strong>
+
+</ul>
+<p>Again, we just haven't gotten to placing these in separate template files.</p>
+<p>You can edit these messages separately for each list under: <strong>Manage Copy - Email Messages</strong>. To reset these messages to their default, select all the text in the textarea you want to reset, delete the text and click, <strong>Save all Changes</strong></p>
+<li><strong><a name="list_html_screens" class="item">List HTML Screens</a></strong>
+
+<p>List HTML screens are used for the operation of a mailing list. The screens that are easily editable are in the Config.pm file itself. The variables are called:</p>
+<ul>
+<li><strong><a name="_html_send_archived_message" class="item">$HTML_SEND_ARCHIVED_MESSAGE</a></strong>
+
+<li><strong><a name="_html_confirmation_message" class="item">$HTML_CONFIRMATION_MESSAGE</a></strong>
+
+<li><strong><a name="_html_unsub_confirmation_message" class="item">$HTML_UNSUB_CONFIRMATION_MESSAGE</a></strong>
+
+<li><strong><a name="_html_subscribed_message" class="item">$HTML_SUBSCRIBED_MESSAGE</a></strong>
+
+<li><strong><a name="_html_unsubscribed_message" class="item">$HTML_UNSUBSCRIBED_MESSAGE</a></strong>
+
+</ul>
+<p>You can edit these HTML screens separately for each list under: <strong>Manage Copy - HTML Messages</strong>.</p>
+</ul>
+<li><strong><a name="misc_html" class="item">Misc. HTML</a></strong>
+
+<p>Some HTML/Email Messages created by Dada Mail are done within the Perl code itself. This amount is now strikingly a minority, but it's still present. It comes in a variety of flavors, that don't really makes sense. But, here's some pointers:</p>
+<ul>
+<li><strong><a name="the_cgi_pm_module" class="item">The CGI.pm module</a></strong>
+
+<p>Lots of the inline HTML is created using the venerable CGI.pm module. Here's the docs:</p>
+<p><a href="http://search.cpan.org/dist/CGI.pm/CGI.pm">http://search.cpan.org/dist/CGI.pm/CGI.pm</a></p>
+<p>to spot it in the code, you'll want to look for Perl subroutines/functions that are named similar to HTML tags.</p>
+</li>
+</ul>
+</ul>
+<p>
+</p>
+<h2><a name="are_there_any_official_translations_of_dada_mail">Are there any official translations of Dada Mail?</a></h2>
+<p>At the moment, no, but check:</p>
+<p><a href="http://sourceforge.net/project/showfiles.php?group_id=13002">http://sourceforge.net/project/showfiles.php?group_id=13002</a></p>
+<p>For translations provided by Dada Mail users. For example:</p>
+<p><a href="http://prdownloads.sourceforge.net/mojomail/dada-2_10_2de.tar.gz?download">http://prdownloads.sourceforge.net/mojomail/dada-2_10_2de.tar.gz?download</a></p>
+<p>Is Dada Mail, version 2.10.2 translated into German. A more user-friendly list of translations is probably located at the main download page at:</p>
+<p><a href="http://dadamailproject.com/download">http://dadamailproject.com/download</a></p>
+<p>
+</p>
+<h2><a name="how_do_you_translate_dada_mail">How do you translate Dada Mail?</a></h2>
+<p>Basically, follow the instructions used to customize the Dada Mail templates (above)</p>
+<p>
+</p>
+<h2><a name="how_do_you_change_the_character_set_encoding_of_dada_mail">How do you change the character set/encoding of Dada Mail?</a></h2>
+<p>There's a few different things you'll need to change:</p>
+<p>HTML screens are control by the Config.pm variable, <code>$HTML_CHARSET</code>. You can change this to whatever you'd like. For example, if I'd want to change this to, <strong>UTF-8</strong> I'd write:</p>
+<pre>
+ $HTML_CHARSET ||= 'UTF-8';</pre>
+<p>Email messages are controlled per list. In the list control, go to: <strong>Mail Settings - Advanced Sending Preferences</strong> and select the charset you'd like to use under, <strong>Default Character Set of Mailings</strong></p>
+<p>If you do not see the charset you want to set Dada Mail to use, you can add the charset in the Config.pm array, <code>@CHARSETS</code></p>
+<p>You may want to make sure your list template does <strong>not</strong> also have the character set set in the headers. If it does, just make sure it's the same as what Dada Mail sets it as.</p>
+<p>One thing to note about email messages are character <em>encoding</em>: currently, Dada Mail does not support anything but Latin 1 in the message <strong>headers</strong>, anything else is going to look like gobble-de-gook. We hope to render this problem soon.</p>
+<p>
+</p>
+<hr />
+<h1><a name="sql_and_dada_mail">SQL and Dada Mail</a></h1>
+<p>
+</p>
+<h2><a name="does_dada_mail_need_an_sql_server_to_run">Does Dada Mail need an SQL server to run?</a></h2>
+<p>No. But, SQL is an option.</p>
+<p>
+</p>
+<h2><a name="does_dada_mail_support_an_sql_backend">Does Dada Mail support an SQL backend?</a></h2>
+<p>Short answer, <strong>yes</strong></p>
+<p>Long Answer:</p>
+<p>Dada Mail supports MySQL and Postgres with saving its:</p>
+<ul>
+<li><strong><a name="list_archives" class="item">List Archives</a></strong>
+
+<li><strong><a name="list_subscribers" class="item">List Subscribers</a></strong>
+
+<li><strong><a name="list_settings_preferences" class="item">List Settings/Preferences</a></strong>
+
+<li><strong><a name="sessions" class="item">Sessions</a></strong>
+
+<li><strong><a name="profiles" class="item">Profiles</a></strong>
+
+</ul>
+<p>It does not support SQL with saving its:</p>
+<ul>
+<li><strong><a name="logs" class="item">Logs</a></strong>
+
+<p>Most always, PlainText</p>
+</li>
+<li><strong><a name="mail_schedules" class="item">Mail Schedules</a></strong>
+
+<p>Again, DB File flavor - with a wrapper to provide saving complex data structures</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="what_are_the_benifits_of_using_the_sql_backends">What are the benifits of using the SQL backends?</a></h2>
+<p>Well, there are the basic benifits of SQL over a, &quot;Flat File&quot; DB:</p>
+<ul>
+<li><strong><a name="speed" class="item">Speed</a></strong>
+
+<li><strong><a name="scalability" class="item">Scalability</a></strong>
+
+<li><strong><a name="interoperability" class="item">Interoperability</a></strong>
+
+<li><strong><a name="data_integrity" class="item">Data Integrity</a></strong>
+
+</ul>
+<p>There are also certain features that are available when you use the SQL backend that are not available to you when using the (default) alternative.</p>
+<p>These include:</p>
+<dl>
+<dt><strong><a name="archiving" class="item">Archiving:</a></strong>
+
+<ul>
+<li><strong><a name="ability_to_view_embedded_inline_images_in_the_archive" class="item">Ability to View Embedded Inline Images in the archive</a></strong>
+
+<li><strong><a name="ability_to_download_attachments" class="item">Ability to download attachments</a></strong>
+
+</ul>
+<li><strong><a name="subscribers" class="item">Subscribers:</a></strong>
+
+<ul>
+<li><strong><a name="using_the_global_black_list" class="item">Using the Global Black List</a></strong>
+
+<li><strong><a name="sending" class="item">Global List Sending (Sending to more than one list at one time, without duplicates)</a></strong>
+
+<li><strong><a name="global_unsubscribe" class="item">Global Unsubscribe</a></strong>
+
+</ul>
+</dl>
+<p>
+</p>
+<h2><a name="what_are_the_disadvantages_of_using_the_sql_backends">What are the disadvantages of using the SQL backends?</a></h2>
+<p>The DB File backend for the Archives and Settings has an auto backup feature; the SQL backend does not - it is advised to you create a simple auto-backup routine for your SQL tables.</p>
+<p>Not really a disadvantage, but the SQL backend will not speed up your mailing list sendings.</p>
+<p>It is now my official recommendation that you use the SQL backend, if possible. This is not set by default for an easier installation process.</p>
+<p>
+</p>
+<h2><a name="how_do_i_move_from_the_default_backends_to_the_sql_backends">How do I move from the default backends to the SQL backends?</a></h2>
+<p>See:</p>
+<p><a href="FAQ-default_2_SQL_backend.pod.html">FAQ-default_2_SQL_backend.pod.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="mailing_list_messages">Mailing List Messages</a></h1>
+<p>
+</p>
+<h2><a name="i_want_to_edit_the_unsubscribe_footer_of_my_mailing_list_message___how">I want to edit the unsubscribe footer of my Mailing List Message - how?</a></h2>
+<p>By default, the Mailing List Messages - meaning, messages that are sent to everyone on a list, provide quite a bit of information about the list and how to unsubscribe. It's very verbose, but we feel that it's a good start.</p>
+<p>To change the mailing list message template, login into your list control panel and navigate to: <strong>Appearance and Templates - Email Message Templates</strong></p>
+<p>You'll see many text fields with all the email message templates that are easy to change. You are looking for two: <strong> Mailing List Message (Text Version) </strong> and <strong> Mailing List Message (HTML Version) </strong></p>
+<p>Edit to your liking - one special tag that you're going to want to make sure you still include is the: <strong>&lt;!-- tmpl_var message_body --&gt;</strong> tag. This tag will be replaced by your actually message body - meaning, what you wrote, when your mailing list message is sent.</p>
+<p>If your mailing list messages are coming to you as blank, make sure you did not remove the, <strong>&lt;!-- tmpl_var message_body --&gt;</strong> tag!</p>
+<p>These two messages can be changed globaly in the Config.pm file, under the variables: <strong>$MAILING_LIST_MESSAGE</strong> and <strong>$MAILING_LIST_MESSAGE_HTML</strong></p>
+<p>If a list already has edited any of the email message templates, your global changes will not take affect for that list.</p>
+<p>
+</p>
+<h2><a name="are_the_messages_i_send_with_dada_mail_traceable_back_to_me">Are the messages I send with Dada Mail traceable back to me?</a></h2>
+<p>Yes.</p>
+<p>
+</p>
+<hr />
+<h1><a name="list_subscribers">List Subscribers</a></h1>
+<p>
+</p>
+<h2><a name="how_many_subscribers_can_dada_mail_handle">How many subscribers can Dada Mail handle?</a></h2>
+<p>The amount of subscribers that Dada Mail can handle depends on your server setup. Roughly, the cheaper a setup you have, the smaller a subscription list you're going to be successfully be able to have. Cheap webhosts usually impose limits on the resources available to their clients. These limitations include the amount of emails that can be sent in a window of time, the amount of CPU time a program like Dada Mail can use and software libraries and helper applications available to Dada Mail.  Basically, you get what you pay for with web hosts.</p>
+<p>I do not have any stats.</p>
+<p>I have listed some hosts I like here:</p>
+<p><a href="http://dadamailproject.com/support/hosting.html">http://dadamailproject.com/support/hosting.html</a></p>
+<p>
+</p>
+<h2><a name="can_i_track_statistics_like__who_opens_my_email_messages__who_clicks_on_my_urls_or_anything_else_that_ties_activity_of_my_mailing_list_to_specific_email_addresses">Can I track statistics like, who opens my email messages, who clicks on my URLs or anything else that ties activity of my mailing list to specific email addresses?</a></h2>
+<p>Yes. See the <strong>Tracker</strong> plugin:</p>
+<p><a href="http://dadamailproject.com/d/tracker.cgi.html">http://dadamailproject.com/d/tracker.cgi.html</a></p>
+<p>It can keep track of url clickthroughs, email opens, forwards, archive views, # subscribers in your mailing list, when a message is sent and soft/hard bounces.</p>
+<p>
+</p>
+<h2><a name="can_i_directly_work_with_the_subscription_list">Can I directly work with the subscription list?</a></h2>
+<p>Yes, we do not suggest it. Dada Mail's, <code>Invite/Add</code> admin screen does a good job in keeping your list's clean of invalid email addresses, duplicates, blacklisted addresses - etc.</p>
+<p>If you're starting a new list and know for sure that you're list is squeaky clean and you're using the default, PlainText subscription backend, you can just open the subscription list. The list itself is saved in a file called:</p>
+<p><strong>listshortname.list</strong></p>
+<p>where, <strong>listshortname</strong> is the shortname of your list. The file itself is probably saved in the directory you've saved in the <strong>$FILES</strong> Config.pm variable.</p>
+<p>The format is as follows:</p>
+<p>One email address per line, followed immediately by a newline. The end of the file has a newline all by itself. All newlines are Unix style.</p>
+<p>Be very careful when editing the file manually, as unexpected things may happen if the format is broken.</p>
+<p>
+</p>
+<hr />
+<h1><a name="performance">Performance</a></h1>
+<p>
+</p>
+<h2><a name="tuning_dada_mail_to_send_mass_mailings_faster">Tuning Dada Mail to Send Mass Mailings Faster</a></h2>
+<p><em>Before trying any of these, make sure you do not have an hourly or daily quota on how many messages you 
+can send out with your current hosting account.</em> Many popular hosting companies have such limitations on their 
+most popular hosting packages (Bluehost, Hostmonster, etc)</p>
+<ul>
+<li><strong><a name="install_html_template_pro" class="item">Install HTML::Template::Pro</a></strong>
+
+<p><em>./features-html_template-pro.pod.html</em></p>
+<p><code>HTML::Template::Pro</code> can render email templates faster than the included <code>HTML::Template</code></p>
+</li>
+<li><strong><a name="do_not_use_the_advanced_email_templating_syntax" class="item">Do not use the advanced email templating syntax</a></strong>
+
+<p>The advanced email templating syntax engine (<code>HTML::Template::Expr</code>) is much slower than the regular syntax.</p>
+<p>Uncheck, <strong>Enable use of the advanced templating syntax for email messages.</strong> in <em>Appearance and Templates - Email Message Templates</em> (under, <em>Advanced Options
+</em>). Make sure there are no email messages that use any, C&lt;!-- tmpl_expr ... --&gt;&gt; tags.</p>
+</li>
+<li><strong><a name="set_the_config_variable_mime_optimize_to_faster" class="item">Set the config variable, $MIME_OPTIMIZE to, 'faster'</a></strong>
+
+<p>Add this to your <code>.dada_config</code> file:</p>
+<pre>
+        $MIME_OPTIMIZE = 'faster';</pre>
+</li>
+<li><strong><a name="offload_your_mail_sending_to_a_separate_mail_server_or_mail_service" class="item">Offload your mail sending to a separate mail server or mail service</a></strong>
+
+<p>This could mean different things for different setups. You may want to use a separate SMTP server, either your own, or a 
+SMTP host, like SendGrid (<a href="http://sendgrid.com">http://sendgrid.com</a>). If you do use SMTP to send message, enable this option:</p>
+<p><strong>Use One SMTP Connection per Batch (Experimental)</strong></p>
+<p>In, <em>Mail Sending - Mass Mailing Preferences</em></p>
+<p>You could also experiment with using <strong>Amazon SES</strong> for mail sending. See:</p>
+<p><em>./features-amazon_ses_support.pod.html</em></p>
+<p>Using a seperate mail service, like Sendgrid or Amazon SES will allow you to go over any hourly/daily email limitation imposted by your hosting company, 
+since you <em>are not</em> sending messages through this host's mail servers.</p>
+</li>
+<li><strong><a name="use_the_bounce_handler_plugin_to_keep_a_clean_mailing_list" class="item">Use the bounce handler plugin to keep a clean mailing list</a></strong>
+
+<p>Invalid email addresses on your list just make mass mailing go slower. Use the bounce handler 
+to remove those addresses from your mailing list:</p>
+<p><em>./dada_bounce_handler.pl.html</em></p>
+</li>
+<li><strong><a name="adjust_your_batch_settings" class="item">Adjust your batch settings</a></strong>
+
+<p>Adjust your batc setting to send more messages out per batch and/or wait less time between batches. 
+It's not recommended that you totally <em>disable</em> batch sending, but if you do not have a hourly/daily mail sending 
+limit, you can certainly bump up the batch settings to accomodate the resources you have available.</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="is_there_a_way_to_speed_up_screen_rendering__how_to_use_the_screen_cache_">Is there a way to speed up screen rendering? (How to use the Screen Cache)</a></h2>
+<p>Yes.</p>
+<p>As of version 2.10.6, Dada Mail has a caching system for the HTML screens  displayed in web browsers. This is handy, since many of the screens Dada Mail creates can be quite resource-intensive.</p>
+<p>To turn on the Screen Cache, set the Config.pm variable, <strong>$SCREEN_CACHE</strong> to, <strong>1</strong></p>
+<pre>
+ $SCREEN_CACHE = 1;</pre>
+<p>Screens cached include:</p>
+<ul>
+<li><strong><a name="the_default_screen" class="item">The default screen</a></strong>
+
+<li><strong><a name="the_admin_screen" class="item">The admin screen</a></strong>
+
+<li><strong><a name="list_screens" class="item">List screens</a></strong>
+
+<li><strong><a name="list_archive_index_screens" class="item">List Archive Index screens</a></strong>
+
+<li><strong><a name="individual_archived_messages_screens" class="item">Individual Archived Messages screens</a></strong>
+
+<li><strong><a name="results" class="item">Archive Search Results (if the search term is a single word - no funny characters)</a></strong>
+
+<li><strong><a name="file_attachments_in_archived_messages" class="item">File Attachments in archived messages</a></strong>
+
+<li><strong><a name="inline_images_in_archived_messages" class="item">Inline Images in archived messages</a></strong>
+
+<li><strong><a name="list_atom_feeds" class="item">List Atom Feeds</a></strong>
+
+<li><strong><a name="list_rss_feeds" class="item">List RSS Feeds</a></strong>
+
+</ul>
+<p>Of particular, archived messages take quite a bit of resources to parse, edit and display.</p>
+<p>The cache is, <strong>flushed</strong>, or deleted every time each list changes any list setting via the list control panel, add/edit/removes an archived message in any list and when any change is made in the, &quot;Your Mailing List Template&quot; list control panel screen.</p>
+<p>You can also administrate the cache by visiting:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi?f=clear_screen_cache">http://example.com/cgi-bin/dada/mail.cgi?f=clear_screen_cache</a></p>
+<p>You'll be able to view cached screens, etc, remove individual cached items and flush the entire cache. Handy.</p>
+<p>You may also manually remove these files from the cache. The cache is saved in the directory called, <strong>cache</strong> which itself is created in the directory set in the, <strong>$TMP</strong> Config variable. If you have not explicitly set this variable, it will be set to the directory you set in the, <strong>$FILES</strong> Config variable.</p>
+<p>Each file in the <strong>cache</strong> directory corresponds to a different screen cached. The names of the cache files correspond loosely to what they represent - for example:</p>
+<pre>
+ archive_rss.mylist</pre>
+<p>is the cache for the RSS feed for the list, <strong>mylist</strong>. Another example:</p>
+<pre>
+ archive.mylist.20060129172502</pre>
+<p>is the cache for the archived message with the key (internal identification number) for the list, <strong>mylist</strong>. You can visit this screen by visiting:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi/achive/mylist/20060129172502/">http://example.com/cgi-bin/dada/mail.cgi/achive/mylist/20060129172502/</a></p>
+<p><strong>Note</strong> that cached screens are not wholly HTML, RSS, Atom, Image, etc files, but will also include the HTTP headers required to be sent from the webserver for correct viewing.</p>
+<p>When the cache is enabled, be sure to realize that any changes to Dada Mail's Templates may not be viewable until the cache is flushed. Also remember that any dynamic content from outside of Dada Mail will be made static via the caching scheme. For example, if you pull a list template from a URL and the list template is actually a php script that dynamically creates, say, a side navigation bar, this navigation bar will become static.</p>
+<p>If you would like to flush the Cache on a regular basis, create a script like:</p>
+<pre>
+ #!/usr/bin/perl
+ 
+ # change the below line to absolute values:
+ use lib qw(./ ./DADA ./DADA/perllib);
+ 
+ use DADA::App::ScreenCache; 
+ 
+ my $c = DADA::App::ScreenCache-&gt;new; 
+    $c-&gt;flush;</pre>
+<p>And run it as a cron job.</p>
+<p>
+</p>
+<hr />
+<h1><a name="mail_sending">Mail Sending</a></h1>
+<p>See the Mail Sending FAQ at:</p>
+<p><a href="FAQ-email_sending.pod.html">FAQ-email_sending.pod.html</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="archiving">Archiving</a></h1>
+<p>
+</p>
+<h2><a name="is_there_a_way_to_add_a_message_to_the_archive__without_sending_the_message">Is there a way to add a message to the archive, without sending the message?</a></h2>
+<p>Yes! There are a few ways.</p>
+<p>
+</p>
+<h3><a name="archive_but_do_not_send__method">Archive but DO NOT send, method</a></h3>
+<ol>
+<li><strong><a name="find_the_message_you_would_like_to_edit_copy_its_contents" class="item">Find the message you would like to edit. Copy its contents.</a></strong>
+
+<li><strong><a name="log_into_dada_mail_s_list_control_panel_and_go_to_send_a_message_re_write_the_message" class="item">Log into Dada Mail's List control panel and go to, &quot;Send a Message&quot;. (Re)write the message.</a></strong>
+
+<li><strong><a name="find_the_link_at_the_bottom_of_the_page_titled_archiving_click_it" class="item">Find the link at the bottom of the page titled, <strong> +/-  Archiving </strong>. Click it.</a></strong>
+
+<li><strong><a name="check_archive_this_message" class="item">Check: <strong>Archive this message</strong></a></strong>
+
+<li><strong><a name="check_archive_but_do_not_send" class="item">Check: <strong>Archive but DO NOT send</strong></a></strong>
+
+<li><strong><a name="date" class="item">Change: <strong>Back Date ( month/day/year - hour:minute:second )</strong></a></strong>
+
+<p>To whatever you so desire.</p>
+</li>
+<li><strong><a name="click_submit_mailing_list_message" class="item">Click: <strong>Submit Mailing List Message</strong></a></strong>
+
+</ol>
+<p>This option is also available in the, &quot;Send a Webpage&quot; screen.</p>
+<p>
+</p>
+<h3><a name="edit_the_sql_table_directly">Edit the SQL Table directly</a></h3>
+<p>If you're using the SQL backend for archives, just edit the message in the SQL table. You'll most likely want to change the, &quot;subject&quot; and, &quot;raw_msg&quot; columns. Not for the faint of heart.</p>
+<p>
+</p>
+<h3><a name="edit_the_archive_backups_and_reload">Edit the archive backups and reload</a></h3>
+<p>This is definetely not for the faint of heart. HACK ahead:</p>
+<p>If you are not using the SQL backend for Archives, Dada Mail keeps a backup of your list's archives.</p>
+<p>If you set the $BACKUPS variable in the Config.pm, they'll be located in this location, in a directory named the same as your list's Short Name. If you did not set this variable, look in the directory you set in, <strong>$FILES</strong></p>
+<p>Inside this directory, you should see another directory called, <strong>archives</strong>. Navigate into there.</p>
+<p>Inside that directory, you should see one or more directories, who's names are all in numbers. Find the newest directory and navigate to that one.</p>
+<p>In that directory, you should see a whole lot of files, whose names are also numbers. Find the message that corresponds to the message-id of the message you want to edit. The format of the file is explained in this faq under, <em>How does Dada Mail save its information?</em> Edit that file.</p>
+<p>Visit:</p>
+<p><a href="http://example.com/cgi-bin/dada/mail.cgi?f=restore_lists">http://example.com/cgi-bin/dada/mail.cgi?f=restore_lists</a></p>
+<p>and go through the process of restoring your lists. Heed the warning of making redundant backups.</p>
+<p>Told you it was a hack.</p>
+<p>
+</p>
+<hr />
+<h1><a name="glossary_terms">Glossary Terms</a></h1>
+<p>What the heck is...</p>
+<p>
+</p>
+<h2><a name="path_to_sendmail">path to sendmail</a></h2>
+<p><em>sendmail</em> is a command on the server itself that... sends mail! It's a utility that Dada Mail can use for its mail sending. Usually, it's located at:</p>
+<pre>
+ /usr/sbin/sendmail</pre>
+<p>which is the default location set in Dada Mail. If you do not know what the path of sendmail is for your hosting account, use this value. If mail doesn't seem to be sent, ask your hosting provider what the, &quot;Path to sendmail&quot; is.</p>
+<p>
+</p>
+<h2><a name="absolute_path">absolute path</a></h2>
+<p>An absolute path is a path to some sort of file or directory that starts at the <strong>root</strong> of the filesystem. Example:</p>
+<pre>
+ /home/youraccount/</pre>
+<p>may be the absolute path to your, &quot;home&quot; directory.</p>
+<p>When accessing your account via FTP, you may not be able to navigate up to the, &quot;root&quot; of your filesystem. This is for security purposes.</p>
+<p>See also:</p>
+<p><a href="http://www.computerhope.com/jargon/a/absopath.htm">http://www.computerhope.com/jargon/a/absopath.htm</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="system_requirements">System Requirements</a></h1>
+<p>
+</p>
+<h2><a name="what_do_i_need_to_run_dada_mail">What do I need to run Dada Mail?</a></h2>
+<p><a href="requirements.pod.html">requirements.pod.html</a></p>
+<p>
+</p>
+<h2><a name="does_dada_mail_need_any_special_perl_cpan_modules_installed">Does Dada Mail need any special Perl CPAN modules installed?</a></h2>
+<p>Yes it does, but Dada Mail <em>should</em> come with all the CPAN modules that are needed within the distribution itself.</p>
+<p>Currently, this is done by copying a local perllib into the, <em>dada/DADA/perllib</em> directory of the Dada Mail distribution.</p>
+<p>If you'd like to have the CPAN modules required installed in your site-wide perl library, a Dada Mail-specific CPAN Bundle is located in the: <em>dada/DADA/extras/developers/DadaMail.pm</em> file.</p>
+<p>
+</p>
+<hr />
+<h1><a name="what_is_dada_mail">What is Dada Mail?</a></h1>
+<p>
+</p>
+<h2><a name="is_dada_mail_a_server_a_daemon">Is Dada Mail a Server? A Daemon?</a></h2>
+<p>No and no. Dada Mail does not listen to any particular port, nor does it always run in the background awaiting a request. Dada Mail runs (mostly) as a simple CGI script.</p>
+<p>Dada Mail does have some modes where it can be run from a command line/cron job, but even then, it runs and exits; there is no daemon activity in Dada Mail. Dada Mail should always be run as a regular user and <strong>never</strong> as root.</p>
+<p>
+</p>
+<h2><a name="is_dada_mail_an_autoresponder">Is Dada Mail an Autoresponder?</a></h2>
+<p>No. Dada Mail is not an autoresponder.</p>
+<p>The closet thing in Dada Mail is going to be <strong>Beatitude</strong>, which allows you to set mass mailings on a preset schedule, but it does not keep track, on a subscriber-by-subscriber basis, which messages an individual subscriber has received.</p>
+<p>
+</p>
+<h2><a name="what_is_dada_mail">What is Dada Mail?</a></h2>
+<p>Dada Mail is a light-weight, fully featured announce-only Mailing List Manager. It does also support discussion lists, with the help of the Dada Bridge Plugin. Discussion support is minimal, compared to its announce-only capabilities.</p>
+<p>Dada Mail is primarily run as a plain old CGI script, it does not need any special modules installed, except the one it comes with. It does not run as a mod_perl enabled script and needs no special treatment. If you can run CGI scripts on your hosting account, Dada Mail will work for you.</p>
+<p>
+</p>
+<h2><a name="what_does_dada_mail_do">What does Dada Mail do?</a></h2>
+<p>Dada Mail takes care of much of the drudgery of maintaining a mailing list. It primarily does three things very very well:</p>
+<ul>
+<li><strong><a name="list_subscriptions" class="item">List Subscriptions</a></strong>
+
+<p>Dada Mail will take care of subscriptions and unsubscriptions from each list it manages. Subscription and Unsubscription requests are done via web forms on web pages. Would-be subscribers fill out a form with their email address.</p>
+<p>When submitted, Dada Mail will take the request and email a confirmation. This email confirmation will include a special URL that includes a special 'pin' number, which is used to confirm the correct person wants to subscribe. Following this link will subscribe the email address.</p>
+<p>Unsubscription is a similar process, where someone who wants to unsubscribe will fill out a web form with their email address and receive a confirmation email.</p>
+<p>Dada Mail does not support email confirmation. That is, confirming an address by having to replying to an email. The URL confirmation is usually much simpler and doesn't make you create an alias email that goes to a program that does the confirmation. We circumvent quite a bit of complexity this way.</p>
+<p>Dada Mail can be configured to do these two simple things in a variety of ways. Dada Mail also takes account of if the email is already subscribed to the list, if the email is 'blacklisted' and thus unable to subscribe, invalid emails, and a plethora of 'gotchas' when dealing with these things.</p>
+</li>
+<li><strong><a name="message_sending" class="item">Message Sending</a></strong>
+
+<p>Dada Mail can send List Messages; email messages that go to the entire mailing list. Dada Mail can use the sendmail program to use to mail to, as well as qmail, exim and smail - anything that masquerades as the sendmail program (usually located at /usr/sbin/sendmail) will work. Dada Mail can also send out list messages using an SMTP connection to a SMTP server.</p>
+<p>Message sending can also be done in 'batches' a desired amount of emails are sent in timed intervals.</p>
+</li>
+<li><strong><a name="archiving2" class="item">Archiving</a></strong>
+
+<p>Dada Mail can archive all list messages it sends. Archived messages are archived with the list message, its subject and the date it was sent. The SQL archive backend saves a raw version of the message, that includes all headers. Archives are viewable and Dada Mail provides many features to make this quite a pleasant experience.</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="how_does_dada_mail_save_its_information">How does Dada Mail save its information?</a></h2>
+<p>See the Dada Mail File Format FAQ:</p>
+<p><a href="FAQ-file_formats.pod.html">FAQ-file_formats.pod.html</a></p>
+<p>
+</p>
+<h2><a name="who_develops_dada_mail">Who develops Dada Mail?</a></h2>
+<p>Justin J is the lead designer of Dada Mail.</p>
+<p>
+</p>
+<h2><a name="can_i_help">Can I help?</a></h2>
+<p>Yes.</p>
+<p>Please get in touch:</p>
+<p><a href="http://dadamailproject.com/contact">http://dadamailproject.com/contact</a></p>
+<p>
+</p>
+<h2><a name="is_there_a_public_repository_for_dada_mail">Is there a public repository for Dada Mail?</a></h2>
+<p>Yes.</p>
+<p><a href="http://github.com/justingit/dada-mail">http://github.com/justingit/dada-mail</a></p>
+
+</body>
+
+</html>

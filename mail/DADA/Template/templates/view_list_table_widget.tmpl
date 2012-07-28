@@ -1,0 +1,106 @@
+
+
+
+<!-- begin view_list_table_widget.tmpl --> 
+
+<div style="max-height: 200px; overflow: auto; border:1px solid black">
+ 
+ <table cellpadding="2" cellspacing="0" border="0" width="100%" style="background-color:#fff">
+  <tr>
+	 <!-- tmpl_unless no_checkboxes --> 
+   		<td width="25">
+    		<p>&nbsp;</p>
+   		</td>
+	<!-- /tmpl_unless --> 
+
+
+
+	<td>
+	    <p>
+	     <strong>
+	      List
+	     </strong>
+	    </p>
+	   </td>
+
+	
+   <td>
+    <p>
+     <strong>
+      Email
+     </strong>
+    </p>
+   </td>
+
+  
+  <!-- tmpl_loop field_names --> 
+
+   <td>
+    <p>
+     <strong>
+	  <!-- tmpl_if label --> 
+			<!-- tmpl_var label --> 
+	  <!-- tmpl_else --> 
+      		<!-- tmpl_var name --> 
+      <!-- /tmpl_if --> 
+	</strong>
+    </p>
+   </td>
+   
+    
+  <!--/tmpl_loop --> 
+  </tr>
+
+
+<!-- tmpl_loop subscribers -->
+	   
+	   <tr <!-- tmpl_if __odd__ -->style="background-color:#ccf;"<!--/tmpl_if-->>
+        
+		   <!-- tmpl_unless no_checkboxes --> 
+		
+	    <td width="25">
+	  
+			<input type="checkbox" name="address" value="<!-- tmpl_var email -->" />
+
+		</td>
+			    <!-- /tmpl_unless --> 
+	    
+	
+			<td>
+			    <p>
+			     <strong>
+			      <!-- tmpl_var list --> 
+			     </strong>
+			    </p>
+			   </td>
+				
+	<td>
+	     <p>
+		
+	     <!-- tmpl_unless no_email_links --> 
+	 	<a href="<!-- tmpl_var S_PROGRAM_URL -->?f=edit_subscriber&amp;email=<!-- tmpl_var email -->&amp;type=<!-- tmpl_var type -->" >
+	       <!-- tmpl_var email -->  
+	      </a>
+	    <!-- tmpl_else --> 
+		     <!-- tmpl_var email -->
+		<!-- /tmpl_unless--> 
+	 	</p>
+	    </td>
+	    
+	    <!-- tmpl_loop name="fields" --> 
+	    
+	    <td>
+	     <p>
+	       <!-- tmpl_var value -->
+	     </p>
+	    </td>
+	    <!-- /tmpl_loop --> 
+	    
+	    
+	   </tr>
+	   
+<!-- /tmpl_loop -->
+   
+  </table>
+ </div>
+<!-- end  begin view_list_table_widget.tmpl --> 

@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Requirements to Run Dada Mail</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#requirements">REQUIREMENTS</a></li>
+	<li><a href="#environment">Environment</a></li>
+	<li><a href="#supported_operating_systems">Supported Operating Systems</a></li>
+	<li><a href="#perl_5_8_1">Perl 5.8.1</a></li>
+	<li><a href="#mail_transport_agent">Mail Transport Agent</a></li>
+	<li><a href="#backend_options">Backend Options</a></li>
+	<ul>
+
+		<li><a href="#default_backend">Default Backend</a></li>
+		<li><a href="#sql_backend">SQL Backend</a></li>
+	</ul>
+
+	<li><a href="#configuration">Configuration</a></li>
+	<li><a href="#guide_to_hosting_companies">Guide to Hosting Companies</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="requirements">REQUIREMENTS</a></h1>
+<p>Requirements needed to run Dada Mail</p>
+<p>Dada Mail requires extremely little to run, but do double-check your setup has the following:</p>
+<p>
+</p>
+<hr />
+<h1><a name="environment">Environment</a></h1>
+<p>For the most part, Dada Mail is a web application; you interact with it via a web browser and it lives on top of a web server. Dada Mail is a simple CGI app for the most part, it does not currently support <code>mod_perl</code> or even <code>Fast CGI</code>, so those are not prerequisites.</p>
+<p>Dada Mail is not a desktop application.</p>
+<p>When we talk about what operating system, version of Perl, etc that's needed for Dada Mail to run - we're talking about what's needed on the <em>server</em> end. All you need to use Dada Mail is a modern web browser (we suggest Mozilla Firefox)  and because of this, any operating system that can run a modern web browser can be used.</p>
+<p>
+</p>
+<hr />
+<h1><a name="supported_operating_systems">Supported Operating Systems</a></h1>
+<p>Linux, Free BSD and Mac OS X should all work well.</p>
+<p>Solaris should also work well, but there are some issue with Sun's file locking system and Dada Mail. There may be workarounds.</p>
+<p>Dada Mail isn't ever tested on a Windows Server or even Apache running on top of Windows.</p>
+<p>Fair warning.</p>
+<p>One major stumbling block is Perl for Windows lack of support for the <code>fork()</code> built-in, but this support has gotten better in time. We still don't test Dada Mail on Windows, though.</p>
+<p>You'll also want to use the SQL backend if you ever attempt to run Dada Mail on a Windows-based server</p>
+<p>
+</p>
+<hr />
+<h1><a name="perl_5_8_1">Perl 5.8.1</a></h1>
+<p>Since Dada Mail is a CGI app, you'll need support for Perl CGI scripts within your web server environment.</p>
+<p>Dada Mail is not a PHP script, so the version of PHP that you have available will not make much of a difference.</p>
+<p>
+</p>
+<hr />
+<h1><a name="mail_transport_agent">Mail Transport Agent</a></h1>
+<p>Dada Mail can pass messages to send to a sendmail-like command that applications like sendmail, qmail, postfix, exim, etc come with, or it can pass messages using the SMTP protocol. You will need one of these. Dada Mail is not an SMTP server itself.</p>
+<p>
+</p>
+<hr />
+<h1><a name="backend_options">Backend Options</a></h1>
+<p>
+</p>
+<h2><a name="default_backend">Default Backend</a></h2>
+<p>The default backend uses a simple PlainText file for the subscription list and Db files for everything else. 
+Dada Mail supports using <code>Berkeley DB</code> (using the DB_File CPAN Perl module) or <code>GDBM_File</code>.</p>
+<p>
+</p>
+<h2><a name="sql_backend">SQL Backend</a></h2>
+<p>Dada Mail is tested with MySQL <strong>5</strong> (v4 will probably work), PostgreSQL <strong>8</strong> and SQLite <strong>3</strong>.</p>
+<p>
+</p>
+<hr />
+<h1><a name="configuration">Configuration</a></h1>
+<p>We do ship a web-based installer. It can also <em>help</em> with upgrades.</p>
+<p>
+</p>
+<hr />
+<h1><a name="guide_to_hosting_companies">Guide to Hosting Companies</a></h1>
+<p>This:</p>
+<p><a href="http://dadamailproject.com/support/hosting.html">http://dadamailproject.com/support/hosting.html</a></p>
+<p>is a very incomplete list of hosting companies that seem to work well with Dada Mail.</p>
+
+</body>
+
+</html>

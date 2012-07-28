@@ -1,0 +1,921 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dada Mail 3.x Changelog</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#dada_mail_changelog_for_version_3_x_x">Dada Mail Changelog for version 3.x.x</a></li>
+	<li><a href="#3_0_5">3.0.5</a></li>
+	<ul>
+
+		<li><a href="#download">Download</a></li>
+		<li><a href="#bug_fixes">Bug Fixes</a></li>
+	</ul>
+
+	<li><a href="#3_0_4">3.0.4</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_4">Download 3.0.4</a></li>
+		<li><a href="#changes_3_0_4">Changes 3.0.4</a></li>
+		<li><a href="#default_list_setting_changes_3_0_4">Default List Setting Changes 3.0.4</a></li>
+		<li><a href="#cpan_modules_3_0_4">CPAN Modules 3.0.4</a></li>
+		<li><a href="#bug_fixes_3_0_4">Bug Fixes 3.0.4</a></li>
+	</ul>
+
+	<li><a href="#3_0_3">3.0.3</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_3">Download 3.0.3</a></li>
+		<li><a href="#changes_3_0_3">Changes 3.0.3</a></li>
+		<li><a href="#bug_fixes_3_0_3">Bug Fixes 3.0.3</a></li>
+	</ul>
+
+	<li><a href="#3_0_2">3.0.2</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_2">Download 3.0.2</a></li>
+		<li><a href="#changes_3_0_2">Changes 3.0.2</a></li>
+		<li><a href="#bug_fixes_3_0_2">Bug Fixes 3.0.2</a></li>
+	</ul>
+
+	<li><a href="#3_0_1">3.0.1</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_1">Download 3.0.1</a></li>
+		<li><a href="#changes_3_0_1">Changes 3.0.1</a></li>
+		<li><a href="#bug_fixes_3_0_1">Bug Fixes 3.0.1</a></li>
+	</ul>
+
+	<li><a href="#3_0_0">3.0.0</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_0">Download 3.0.0</a></li>
+		<li><a href="#changes_3_0_0">Changes 3.0.0</a></li>
+		<ul>
+
+			<li><a href="#support_site_url_change">Support Site URL Change</a></li>
+		</ul>
+
+		<li><a href="#bug_fixes_3_0_0">Bug Fixes 3.0.0</a></li>
+	</ul>
+
+	<li><a href="#3_0_0___rc_1">3.0.0 - RC 1</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_0_rc_1">Download 3.0.0 RC 1</a></li>
+		<li><a href="#changes_3_0_0_rc_1">Changes 3.0.0 RC 1</a></li>
+		<li><a href="#bug_fixes_3_0_rc_1">Bug Fixes 3.0 RC 1</a></li>
+	</ul>
+
+	<li><a href="#3_0_beta_3">3.0 Beta 3</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_beta_3">Download 3.0 Beta 3</a></li>
+		<li><a href="#changes_3_0_beta_3">Changes 3.0 Beta 3</a></li>
+		<ul>
+
+			<li><a href="#mailing_monitor">Mailing Monitor</a></li>
+			<li><a href="#mailing_monitor__continued___">Mailing Monitor, continued...</a></li>
+			<li><a href="#mailing_monitor_responsiveness">Mailing Monitor  responsiveness</a></li>
+			<li><a href="#cpan_module_juggling">CPAN module Juggling</a></li>
+			<li><a href="#blog_index_cgi_plugin">blog_index.cgi Plugin</a></li>
+			<li><a href="#send_a_list_message_api">&quot;Send a List Message&quot; API</a></li>
+			<li><a href="#_monitor_mailouts_after_every_execution">$MONITOR_MAILOUTS_AFTER_EVERY_EXECUTION</a></li>
+			<li><a href="#list_control_panel_menu_enhancements">List Control Panel Menu Enhancements</a></li>
+			<li><a href="#customize_feature_set_changes">Customize Feature Set Changes</a></li>
+		</ul>
+
+		<li><a href="#new_admin_screen__manage_list_control_panel___options">New Admin Screen: Manage List Control Panel - Options</a></li>
+		<li><a href="#bug_fixes_3_0_beta_3">Bug Fixes 3.0 Beta 3</a></li>
+		<ul>
+
+			<li><a href="#open_bugs_3_0_beta_3">Open Bugs 3.0 Beta 3</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#3_0_beta_2">3.0 Beta 2</a></li>
+	<ul>
+
+		<li><a href="#download_3_0_beta_2">Download 3.0 Beta 2</a></li>
+		<li><a href="#changes_3_0_beta_2">Changes 3.0 Beta 2</a></li>
+		<ul>
+
+			<li><a href="#beatitude">Beatitude</a></li>
+			<li><a href="#dada_mail_admin_menu">Dada Mail Admin Menu</a></li>
+			<li><a href="#dada_mail_queueing_notifications">Dada Mail Queueing Notifications</a></li>
+		</ul>
+
+		<li><a href="#bug_fixes">Bug Fixes</a></li>
+		<ul>
+
+			<li><a href="#general">General</a></li>
+			<li><a href="#mail_sending">Mail Sending</a></li>
+			<li><a href="#dada_bridge">Dada Bridge</a></li>
+			<li><a href="#beatitude">Beatitude</a></li>
+			<li><a href="#mystery_girl__bounce_handler_">Mystery Girl (Bounce Handler)</a></li>
+			<li><a href="#multiple_subscribe_extension">Multiple Subscribe Extension</a></li>
+			<li><a href="#dada_digest_pl_extension">dada_digest.pl Extension</a></li>
+		</ul>
+
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="dada_mail_changelog_for_version_3_x_x">Dada Mail Changelog for version 3.x.x</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_5">3.0.5</a></h1>
+<p>
+</p>
+<h2><a name="download">Download</a></h2>
+<p>See the Dada Mail download page:</p>
+<p><a href="http://dadamailproject.com/download">http://dadamailproject.com/download</a></p>
+<p>Huzzah!</p>
+<p>
+</p>
+<h2><a name="bug_fixes">Bug Fixes</a></h2>
+<ul>
+<li><strong><a name="bugfix_plugin_url_needs_to_be_used_in_both_forms_not_just_one_id_2848712" class="item">BUGFIX: Plugin_URL needs to be used in both forms, not just one. - ID: 2848712</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/?func=detail&aid=2848712&group_id=13002&atid=113002">http://sourceforge.net/tracker/?func=detail&aid=2848712&group_id=13002&atid=113002</a></p>
+<p>Hat tip:  <a href="http://sourceforge.net/users/billpowell/">http://sourceforge.net/users/billpowell/</a></p>
+</li>
+<li><strong><a name="bugfix_2858688_3_0_4_charset_not_set_in_multipart_message_parts" class="item">BUGFIX:  2858688  	 3.0.4 - charset not set in multipart/* message *parts*</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/?func=detail&aid=2858688&group_id=13002&atid=113002">https://sourceforge.net/tracker/?func=detail&aid=2858688&group_id=13002&atid=113002</a></p>
+<p>This fixes the problem for the, &quot;Send a List Message&quot; screen, both when create an HTML message (with no PlainText version) and when you create an HTML and PlainText Message.</p>
+</li>
+<li><strong><a name="bugfix_3_0_4_unable_to_mass_add_black_list_addresses_id_2858250" class="item">BUGFIX: 3.0.4 - unable to mass-add black list addresses - ID: 2858250</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=2858250&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=2858250&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_4">3.0.4</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_4">Download 3.0.4</a></h2>
+<ul>
+<li><strong><a name="tar_gz" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_4.tar.gz?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_4.tar.gz?use_mirror=voxel</a></p>
+</li>
+<li><strong><a name="zip" class="item">zip</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_4.zip?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_4.zip?use_mirror=voxel</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="changes_3_0_4">Changes 3.0.4</a></h2>
+<p>This release focuses almost soley on bug fixes and ease of upgrading from previous versions, most especially, version 3.0.23 (the last stable release) and earlier versions.</p>
+<p>
+</p>
+<h2><a name="default_list_setting_changes_3_0_4">Default List Setting Changes 3.0.4</a></h2>
+<p>We've changed one list setting in Dada Mail, 3.0.4, <code>enable_mass_subscribe</code>. It's now set to, <code>0</code>.</p>
+<p><code>enable_mass_subscribe</code> changes the behaviour of Dada Mail and when set to, <code>0</code> you won't be able to mass-subscribe subscribers, via the list control panel.</p>
+<p>Do not fret.</p>
+<p>You may enable the mass-subscription of subscribers in the list control panel,  by logging into the list control panel with the Dada Mail Root Password and going to: <em>Manage List Control Panel - Options</em> and checking the option labeled, <em>Enable, &quot;Subscribe Checked Subscribers&quot; button in the, Manage Subscribers -</em> Add -&gt; Verify&gt; screen.</p>
+<p>You may also enable this feature by default globally in the <code>Config.pm</code> file, in the <code>%LIST_SETUP_DEFAULTS</code> variable (look for the key, <code>enable_mass_subscribe</code> and change its value to, <code>1</code></p>
+<p>There are really good reasons why you should not mass-subscribe people except for importing an already existing and <em>verified</em> list. Other than that, it should never, ever be used and we'd like to hit that point home, as people, who shall remain nameless, can't possibly get a clue on why it could be a bad idea. It's 2009, by the way.</p>
+<p>We've written a very well thought out response and encourage you to follow good measures when adding people to your mailing list:</p>
+<p><a href="http://dadamailproject.com/installation/using_dada_mail.html#subscriptions">http://dadamailproject.com/installation/using_dada_mail.html#subscriptions</a></p>
+<p>If you cannot follow this, than maybe Dada Mail is not for you. Once again, this option can be re-enabled easily and is only disabled to give you pause and perhaps allow you to think about just what you're going to get yourself into, if you go mass-subscribing addresses without first properly validating and verifying the addresses. With that, we honestly wash our hands of this issue.</p>
+<p>This setting also makes it easy to globally and irrevocably disable the feature of mass-subscription of unverified addresses, by adding this list setting to the <code>%LIST_SETUP_OVERRIDE</code> variable, like this:</p>
+<p>%LIST_SETUP_OVERRIDES = (
+	enable_mass_subscribe =&gt; 0, 
+);</p>
+<p>Of course, such a decision would have to be made by the person installing the program, or, providing the program for easy installation.</p>
+<p>
+</p>
+<h2><a name="cpan_modules_3_0_4">CPAN Modules 3.0.4</a></h2>
+<ul>
+<li><strong><a name="lwp_upgraded_to_5_827" class="item">LWP upgraded to: 5.827</a></strong>
+
+<p>LWP is a key module distribution for the, &quot;Send a Webpage&quot; functionality of Dada Mail.</p>
+</li>
+<li><strong><a name="cgi_sessoion_upgrade_to_4_41" class="item">CGI::Sessoion upgrade to: 4.41</a></strong>
+
+<p>CGI::Session handles all session management in Dada Mail.</p>
+</li>
+<li><strong><a name="list_utils_scalar_utils" class="item">List-Utils Scalar-Utils</a></strong>
+
+<p>The CPAN perl modules, Scalar::Util and List::Util are included with Dada Mail, but aren't actively used, so that any 
+server-wide installed versions will be used, instead. This is because the XS versions of these modules are needed for POP/SMTP 
+SSL connections and having these usable by default, breaks SSL connections. The directories,</p>
+<pre>
+ dada/DADA/perllib/List</pre>
+<p>and,</p>
+<pre>
+ dada/DADA/perllib/Scalar</pre>
+<p>have been renamed,</p>
+<pre>
+ dada/DADA/perllib/List-remove_to_install</pre>
+<p>and,</p>
+<pre>
+ dada/DADA/perllib/Scalar-remove_to_install</pre>
+<p>renaming them back to their original name will make them, &quot;active&quot;</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="bug_fixes_3_0_4">Bug Fixes 3.0.4</a></h2>
+<ul>
+<li><strong><a name="2817601_3_0_3_grammar_your_you_re_in_error_black_listed_screen_tm" class="item">2817601  	 3.0.3 - grammar: your/you're in error_black_listed_screen.tm</a></strong>
+
+<p><a href="http://github.com/justingit/dada-mail/issues">http://github.com/justingit/dada-mail/issues</a></p>
+</li>
+<li><strong><a name="2816670_3_0_3_external_dada_config_not_setting_variable" class="item">2816670  	 3.0.3 - External .dada_config not setting variable</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/?func=detail&aid=2816670&group_id=13002&atid=113002">https://sourceforge.net/tracker/?func=detail&aid=2816670&group_id=13002&atid=113002</a></p>
+<p>(remember to still set the variable in the outside config file to, <code>2</code>!</p>
+</li>
+<li><strong><a name="2769423_3_0_3_msg_size_always_reported" class="item">2769423  	 3.0.3 - Msg size always reported</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/?func=detail&aid=2769423&group_id=13002&atid=113002">http://sourceforge.net/tracker/?func=detail&aid=2769423&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_3_if_a_current_subscriber_attempts_to_subscribe_again" class="item">3.0.3 If a current subscriber attempts to subscribe again...</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2778910&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2778910&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2784714_3_0_3_specific_list_settings_not_webified_in_html_emails" class="item">2784714  	 3.0.3 - specific list_settings not webified in HTML emails</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/?func=detail&aid=2784714&group_id=13002&atid=113002">https://sourceforge.net/tracker/?func=detail&aid=2784714&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2768141_3_0_0_mistake_in_sub_erase_score_card" class="item">2768141  	 3.0.0 - mistake in sub erase_score_card</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/?func=detail&aid=2768141&group_id=13002&atid=113002">https://sourceforge.net/tracker/?func=detail&aid=2768141&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2791876_3_0_3_spaces_in_attachment_filenames_make_file_unviewable" class="item">2791876  	 3.0.3 - spaces in attachment filenames make file unviewable</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/?func=detail&aid=2791876&group_id=13002&atid=113002">https://sourceforge.net/tracker/?func=detail&aid=2791876&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2791550_3_0_3_undefined_subroutine_mime_headers_from_string" class="item">2791550 3.0.3 - Undefined subroutine _mime_headers_from_string</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/?func=detail&aid=2791550&group_id=13002&atid=113002">https://sourceforge.net/tracker/?func=detail&aid=2791550&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2791304_discussion_list_spam_vulnerability" class="item">2791304  	 Discussion list spam vulnerability</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/?func=detail&aid=2791304&group_id=13002&atid=113002">https://sourceforge.net/tracker/?func=detail&aid=2791304&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="string" class="item">2790606 3.0.3 - Can't use string (&quot;xxxxxxxx&quot;) as a HASH ref</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/?func=detail&aid=2790606&group_id=13002&atid=113002">http://sourceforge.net/tracker/?func=detail&aid=2790606&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_3">3.0.3</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_3">Download 3.0.3</a></h2>
+<ul>
+<li><strong><a name="tar_gz2" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_3.tar.gz?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_3.tar.gz?use_mirror=voxel</a></p>
+</li>
+<li><strong>zip</strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_3.zip?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_3.zip?use_mirror=voxel</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="changes_3_0_3">Changes 3.0.3</a></h2>
+<p>This release focuses almost soley on bug fixes and ease of upgrading from previous versions, most especially, version 3.0.2 (the last stable release), 3.0.1 and 3.0.0.</p>
+<p>This is similar to the 3.0.2 release and the same notes apply.</p>
+<p>
+</p>
+<h2><a name="bug_fixes_3_0_3">Bug Fixes 3.0.3</a></h2>
+<ul>
+<li><strong><a name="2670414_3_0_2_archive_but_don_t_send_broken_for_send_a_webpage" class="item">2670414  	 3.0.2 - Archive, but don't Send broken for Send a Webpage</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2670414&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2670414&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_2_subscription_cookbook_see_also_link_broken" class="item">3.0.2 - &quot;Subscription Cookbook&quot; see also link broken</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2660673&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2660673&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2660652_3_0_2_filter_subscribers_w_meta_docs_use_wrong_code_example" class="item">2660652  	 3.0.2 -filter_subscribers_w_meta docs use wrong code example</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2660652&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2660652&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_2_session_info_always_uses_default_driver" class="item">3.0.2 - Session info always uses default driver</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2592671&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2592671&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2563003_3_0_2_large_msgs_choke_dada_bridge_on_processing" class="item">2563003 3.0.2 - large msgs choke Dada Bridge on processing</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=2563003&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=2563003&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2520821_3_0_2_archive_back_date_missing_option_for_year_2009" class="item">2520821 3.0.2 - Archive Back Date missing option for year 2009</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2520821&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2520821&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2489198_3_0_2_dadaized_formmail_subscription_api_out_of_date" class="item">2489198  	 3.0.2 - Dadaized-FormMail - subscription API out of date</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2489198&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2489198&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2489192_3_0_2_dadaized_formmail_config_pm_variable_mailprog" class="item">2489192  	 3.0.2 - Dadaized-FormMail - Config.pm variable $MAILPROG...</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2489192&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2489192&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2481213_3_0_2_dada_mail_broken_without_dbi_module" class="item">2481213  	 3.0.2 - Dada Mail broken without DBI module</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2481213&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2481213&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_2">3.0.2</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_2">Download 3.0.2</a></h2>
+<ul>
+<li><strong><a name="tar_gz3" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_2.tar.gz?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_2.tar.gz?use_mirror=voxel</a></p>
+</li>
+<li><strong>zip</strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_2.zip?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_2.zip?use_mirror=voxel</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="changes_3_0_2">Changes 3.0.2</a></h2>
+<p>This release focuses almost soley on bug fixes and ease of upgrading from previous versions, most especially, version 3.0.1 (the last stable release) and 3.0.0. This is similar to the 3.0.1 release and the same notes apply.</p>
+<p>
+</p>
+<h2><a name="bug_fixes_3_0_2">Bug Fixes 3.0.2</a></h2>
+<ul>
+<li><strong><a name="2472382_3_0_1_login_form_broken_if_all_lists_are_hidden" class="item">2472382  	 3.0.1 - login form broken if all lists are hidden</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2472382&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2472382&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2473631_3_0_1_wrong_date_in_schedules" class="item">2473631  	 3.0.1 - Wrong date in schedules</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2473631&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2473631&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_1_wrong_url_in_docs_email_sending_pod_html" class="item">3.0.1 - wrong URL in docs - email_sending.pod.html</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2471846&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2471846&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2460735_3_0_1_simple_tmpl_if_usage_breaks_sending" class="item">2460735  	 3.0.1 - simple [tmpl_if ...] usage breaks sending</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2460735&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2460735&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2446770_3_0_1_show_email_list_config_variable_does_nothing" class="item">2446770  	 3.0.1 - $SHOW_EMAIL_LIST Config variable does NOTHING</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2446770&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2446770&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2432591_3_0_1_mailing_finished_message_vars_not_dada_configable" class="item">2432591  	 3.0.1 - $MAILING_FINISHED_MESSAGE* vars not .dada_configable</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2432591&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2432591&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2368754_3_0_1_cgi_ajax_module_out_of_date" class="item">2368754  	 3.0.1 - CGI::Ajax module out of date</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2368754&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2368754&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2375488_3_0_0_control_panel_test_option_fails_to_work" class="item">2375488  	 3.0.0 - Control Panel - &quot;test&quot; option fails to work?</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2375488&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2375488&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_1_messages_bounced_by_bluehost_s_qmail_send_not_parsed" class="item">3.0.1 - messages bounced by Bluehost's qmail-send not parsed</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2381461&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2381461&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2409945_3_0_1_can_t_use_an_undefined_value_as_a_symbol_reference" class="item">2409945  	 3.0.1 - Can't use an undefined value as a symbol reference</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2409945&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2409945&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_1_mass_mailings_broken_because_of_faulty_reply_to" class="item">3.0.1 - Mass Mailings broken because of faulty Reply-To?</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2415194&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2415194&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_1">3.0.1</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_1">Download 3.0.1</a></h2>
+<ul>
+<li><strong><a name="tar_gz4" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_1.tar.gz?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_1.tar.gz?use_mirror=voxel</a></p>
+</li>
+<li><strong>zip</strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_1.zip?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_1.zip?use_mirror=voxel</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="changes_3_0_1">Changes 3.0.1</a></h2>
+<p>This release focuses almost soley on bug fixes and ease of upgrading from previous versions, most especially, version 3.0.0 (the last stable release)</p>
+<p>Although we do not at all recommend this, you can install this version of Dada Mail over version 3.0.0 by uploaded all the files, except the dada/DADA/Config.pm file, using the previous version of that file, instead.</p>
+<p>We've also made little to no changes in any of the files in the:</p>
+<p><em>dada/DADA/Template/templates</em></p>
+<p>directory, except for perhaps a spelling mistake fixed (these are noted in the list of bug fixes, below). This means that any modifications you may have done to any of these files, using version 3.0.0 should be 100% compatible with 3.0.1.</p>
+<p>Finally, we also made minimal changes to the outsie config file examples we've included (this also goes for defaults set in the Config.pm file), so you should have no worries that the outside config file you've been using for version 3.0.0 will work for 3.0.1 - it should.</p>
+<p>Because of the bug-fix focus of this release and the almost 100% transparency of the configuration and template parts of Dada Mail, we suggest this upgrade to any and all users who are currently using Dada Mail, 3.0.0.</p>
+<p>
+</p>
+<h2><a name="bug_fixes_3_0_1">Bug Fixes 3.0.1</a></h2>
+<ul>
+<li><strong><a name="2347543_3_0_0_blog_index_cgi_screen_cache_does_work_with_1_list" class="item">2347543  	 3.0.0 - blog_index.cgi screen cache does work with &gt; 1 list</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2347543&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2347543&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2219316_3_0_0_libwww_perl_ver_5_819_incompatible_with_dada_mail" class="item">2219316 3.0.0 - libwww-perl ver. 5.819 incompatible with Dada Mail?</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2219316&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2219316&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2308530_3_0_0_sub_confirm_captcha_broken_w_close_loop_disabled" class="item">2308530 3.0.0 - sub Confirm CAPTCHA broken w/close-loop disabled</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2308530&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2308530&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2215463_3_0_0_typo_s_us_use_in_edit_type_screen_tmpl" class="item">2215463  	 3.0.0 - typo: s/us/use/ in edit_type_screen.tmpl</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2215463&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2215463&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2219972_3_0_0_mailout_pm_associate_method_broken" class="item">2219972  	 3.0.0 - Mailout.pm - associate method broken</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2219972&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2219972&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2219912_3_0_0_dbi_attribute_inactivedestroy_used_incorrectly" class="item">2219912  	 3.0.0 - DBI attribute: InactiveDestroy used incorrectly</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2219912&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2219912&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2219959_3_0_0_no_check_to_see_if_mailout_exists_after_sleeping" class="item">2219959  	 3.0.0 - no check to see if mailout exists after sleeping</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2219959&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2219959&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="available_lists" class="item">2222381  	 3.0.0 - DADA::App::Guts::available_lists() needs caching</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2222381&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2222381&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2191258_3_0_0_email_addresses_with_newlines_are_seen_as_valid" class="item">2191258  	 3.0.0 - email addresses with newlines are seen as valid</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2191258&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2191258&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_0_stale_mailout_can_still_clog_up_mail_queue" class="item">3.0.0 - Stale Mailout can still clog up mail queue</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2203220&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2203220&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_0_qmail_error_5dot5dot1_contains_two_actions" class="item">3.0.0 - qmail_error_5dot5dot1 contains two actions</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2185937&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2185937&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_0_multiple_subscribe_cgi_docs_wrong_about_lists_para" class="item">3.0.0 - multiple_subscribe.cgi docs wrong about &quot;lists&quot; para</a></strong>
+
+<p><a href="https://sourceforge.net/tracker2/?func=detail&aid=2183150&group_id=13002&atid=113002">https://sourceforge.net/tracker2/?func=detail&aid=2183150&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2167322_3_0_0_dada_app_pop3tools_lock_pop3_check_error" class="item">2167322 3.0.0 - DADA::App::POP3Tools _lock_pop3_check error</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2167322&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2167322&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2167227_3_0_0_pop_before_smtp_test_never_uses_mode_or_ssl_prefs" class="item">2167227 3.0.0 - POP-before-SMTP test never uses Mode or SSL prefs</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2167227&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2167227&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2167224_3_0_0_smtp_options_pop_before_smtp_auth_mode_option_broken" class="item">2167224 	3.0.0 - SMTP Options POP-before-SMTP Auth Mode option broken</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2167224&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2167224&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2120035_3_0_0_warning_mailout_seems_broken" class="item">2120035  	  3.0.0 - &quot;Warning! Mailout seems broken!&quot;</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2120035&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2120035&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2148744_3_0_0_adv_install_instructions_unclear_about_passwords" class="item">2148744  	  3.0.0 - Adv. install Instructions unclear about passwords</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2148744&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2148744&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2120386_3_0_0_scheduled_mailing_time_problem_with_12_am" class="item">2120386  	  3.0.0 - Scheduled Mailing Time problem with 12 am</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2120386&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2120386&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2124123_3_0_0_log_viewer_doesn_t_escape_in_searches" class="item">2124123  	  3.0.0 - Log viewer doesn't escape &quot;&gt;&quot; &quot;&lt;&quot; in searches</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2124123&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2124123&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_0_check_list_owner_return_path_header_fails_with_undef" class="item">3.0.0 - Check_List_Owner_Return_Path_Header fails with undef</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2136642&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2136642&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="3_0_0_send_a_webpage_msg_w_clickthrough_links_fails" class="item">3.0.0 - Send a Webpage msg w/Clickthrough Links Fails</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2145145&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2145145&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2147102_3_0_0_open_list_in_new_window_has_unwanted_linebreak" class="item">2147102  	  3.0.0 - &quot;Open List in New Window&quot; has unwanted linebreak?</a></strong>
+
+<p><a href="https://sourceforge.net/tracker/index.php?func=detail&aid=2147102&group_id=13002&atid=113002">https://sourceforge.net/tracker/index.php?func=detail&aid=2147102&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="2120407_3_0_0_dada_mail_admin_login_problem" class="item">2120407  	  3.0.0 - DADA Mail Admin login problem</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=2120407&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=2120407&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_0">3.0.0</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_0">Download 3.0.0</a></h2>
+<ul>
+<li><strong><a name="tar_gz5" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_0.tar.gz?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_0.tar.gz?use_mirror=voxel</a></p>
+</li>
+<li><strong>zip</strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_0.zip?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_0.zip?use_mirror=voxel</a></p>
+</li>
+</ul>
+<p>These changes are between 3.0.0 RC 1 and 3.0.0</p>
+<p>
+</p>
+<h2><a name="changes_3_0_0">Changes 3.0.0</a></h2>
+<p>
+</p>
+<h3><a name="support_site_url_change">Support Site URL Change</a></h3>
+<p>Mention of, <a href="http://mojo.skazat.com">http://mojo.skazat.com</a> has been changed to, <a href="http://dadamailproject.com">http://dadamailproject.com</a></p>
+<p>
+</p>
+<h2><a name="bug_fixes_3_0_0">Bug Fixes 3.0.0</a></h2>
+<ul>
+<li><strong><a name="1999560_3_0_rc1_discussion_pop_auth_mode_never_saved" class="item">1999560  	  3.0 rc1 - discussion_pop_auth_mode never saved</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1999560&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1999560&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_0___rc_1">3.0.0 - RC 1</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_0_rc_1">Download 3.0.0 RC 1</a></h2>
+<ul>
+<li><strong><a name="tar_gz6" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_0-rc_1.tar.gz?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_0-rc_1.tar.gz?use_mirror=voxel</a></p>
+</li>
+<li><strong>zip</strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_0-rc_1.zip?use_mirror=voxel">http://downloads.sourceforge.net/mojomail/dada-3_0_0-rc_1.zip?use_mirror=voxel</a></p>
+</li>
+</ul>
+<p>These changes are between 3.0 beta 3 and 3.0.0 RC 1</p>
+<p>
+</p>
+<h2><a name="changes_3_0_0_rc_1">Changes 3.0.0 RC 1</a></h2>
+<p>
+</p>
+<h2><a name="bug_fixes_3_0_rc_1">Bug Fixes 3.0 RC 1</a></h2>
+<ul>
+<li><strong><a name="3_0_b3_blog_index_cgi_attempts_to_show_x_archives" class="item">3.0 b3 - blog_index.cgi - attempts to show x archives...</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1971594&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1971594&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1971596_3_0_b3_you_need_to_login_form_doesn_t_redirect_correctly" class="item">1971596  	  3.0 b3 - &quot;You need to login&quot; form doesn't redirect correctly</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1971596&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1971596&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1971606_3_0_b3_sending_monitor_does_not_do_a_list_exists_check" class="item">1971606  	  3.0 b3 - Sending Monitor does not do a list exists check!</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1971606&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1971606&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1971608_3_0_b3_authorized_senders_function_broken_in_discuss_lists" class="item">1971608  	  3.0 b3 - Authorized Senders function broken in discuss lists</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1971608&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1971608&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1973334_3_0_b3_blog_index_cgi_raw_subject_messages_shown" class="item">1973334  	  3.0 b3 - blog_index.cgi - raw subject/messages shown?</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1973334&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1973334&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="verify" class="item">1973868  	  3.0 b3 - Not White Listed Addresses not shown in add-&gt;verify</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1973868&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1973868&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1973894_3_0_b3_double_opt_in_terminology_used_in_dada_mail" class="item">1973894  	  3.0 b3 - &quot;Double Opt-in&quot; Terminology used in Dada Mail</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1973894&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1973894&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1975896_3_0_b3_test_messages_can_still_get_stuck_in_the_queue" class="item">1975896  	  3.0 b3 - Test messages can still get stuck in the queue</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1975896&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1975896&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1977000_3_0_b3_example_dada_config_tmpl_variables_gets_squashed" class="item">1977000  	  3.0 b3 - example_dada_config.tmpl variables gets squashed</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1977000&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1977000&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1982831_3_0_b3_mini_mailing_monitor_shows_incorrect_list_mailing" class="item">1982831  	  3.0 b3 - mini mailing monitor shows incorrect list mailing #</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1982831&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1982831&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1982853_3_0_b3_deleting_a_list_does_not_remove_mailouts" class="item">1982853  	  3.0 b3 - Deleting a list does not remove mailouts.</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1982853&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1982853&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1982864_3_0_b3_white_list_sublist_not_removed_on_list_deletion" class="item">1982864  	  3.0 b3 - White List sublist not removed on list deletion</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1982864&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1982864&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1985893_3_0_b3_wrong_login_info_on_one_list_will_break_logins" class="item">1985893  	  3.0 b3 - Wrong login info on one list will break logins</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1985893&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1985893&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1988324_3_0_b3_resend_confirmation_loses_extra_subscriber_info" class="item">1988324  	  3.0 b3 - resend confirmation loses extra subscriber info</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1988324&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1988324&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1993418_3_0_b3_plain_list_confirm_subscribe_not_backwards_compat" class="item">1993418  	  3.0 b3 - [plain_list_confirm_subscribe] not backwards compat</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1993418&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1993418&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_beta_3">3.0 Beta 3</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_beta_3">Download 3.0 Beta 3</a></h2>
+<ul>
+<li><strong><a name="tar_gz7" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_beta_3.tar.gz?use_mirror=osdn">http://downloads.sourceforge.net/mojomail/dada-3_0_beta_3.tar.gz?use_mirror=osdn</a></p>
+</li>
+<li><strong>zip</strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_beta_3.zip?use_mirror=osdn">http://downloads.sourceforge.net/mojomail/dada-3_0_beta_3.zip?use_mirror=osdn</a></p>
+</li>
+</ul>
+<p>These changes are between 3.0 beta 2 and 3.0 beta 3</p>
+<p>
+</p>
+<h2><a name="changes_3_0_beta_3">Changes 3.0 Beta 3</a></h2>
+<p>
+</p>
+<h3><a name="mailing_monitor">Mailing Monitor</a></h3>
+<p>Major changes have been enacted in the mailing monitor.</p>
+<p>The index screen on the mailing monitor now has separate columns for:</p>
+<ul>
+<li><strong><a name="subject" class="item">Subject</a></strong>
+
+<li><strong><a name="created" class="item">Created</a></strong>
+
+<li><strong><a name="paused" class="item">Paused</a></strong>
+
+<li><strong><a name="queued" class="item">Queued</a></strong>
+
+<li><strong><a name="stale" class="item">Stale</a></strong>
+
+<li><strong><a name="broken" class="item">Broken</a></strong>
+
+</ul>
+<p>The mailing monitor also now sorts the mailouts in the order they were created, instead of their line in the queue. The line in queue method was actually crtically confusing (even to me).</p>
+<p>The mailing monitor also handles, &quot;Broken&quot; mailouts better. There were a few notable problems with the previous revision, including:</p>
+<ul>
+<li><strong><a name="broken_mailouts_messed_up_the_queue" class="item">Broken Mailouts messed up the queue</a></strong>
+
+<p>If a mailout was broken, it would never leave the mail queue, so any mass mailings waiting to go out would always be stuck; since the default max number of mailouts is, 1 (this number is configurable)</p>
+</li>
+<li><strong><a name="mailing_monitor_broken_with_a_broken_mailing" class="item">Mailing monitor broken with a broken mailing</a></strong>
+
+<p>If you had a broken mailing, it wouldn't show up in the mailing monitor index - essentially breaking it, since information was missing.</p>
+</li>
+</ul>
+<p>Along with these problems, a lack of notice about a broken mailing plagued the entire interface - probably because of wishful thinking that a mailout would <em>NEVER</em> become broken. Proper feedback should now be in place, in the mailing monitor index, individual mailing monitor screens, as well as the detailed and nerdy printout.</p>
+<p>
+</p>
+<h3><a name="mailing_monitor__continued___">Mailing Monitor, continued...</a></h3>
+<p>Much work has also been done with the mailing monitor, to deal with broken mass mailings. If a mass mailing is seen as broken, it's now also, &quot;paused&quot; to move it out of the way of the mail queue.</p>
+<p>Feedback is terribly wanted to make sure the mailing monitor and coupled auto-pickup functionality is working for you - so let us know!</p>
+<p>
+</p>
+<h3><a name="mailing_monitor_responsiveness">Mailing Monitor  responsiveness</a></h3>
+<p>The responsiveness of the, pause and resume buttons, as well as seeing if a mailing is queued should be a bit better now, as the status of the mailouts is checked before a batch is begun and after a batch begins. (before it was only afterwards). Queueing, I want to say, was never checked after a mailout began, which really is a bug.</p>
+<p>The individual mailing monitor screens also have a way to turn off the auto-refresh, which can be annoying, if you're attemting to read the, &quot;Verbose Sending Information&quot; in the screen itself;</p>
+<p>
+</p>
+<h3><a name="cpan_module_juggling">CPAN module Juggling</a></h3>
+<p>The included group of CPAN modules known as, <strong>MIME-Tools</strong> was downgraded in Dada Mail from version 5.426 to version 5.420. One of the reasons was that versions above 5.420 require Perl, version 5.8 to run and we're still spec'ing Dada Mail to be able to run on Perl, version 5.6. Another reason is the newest version has major conflicts with other bundled CPAN modules, as well as site-wide Perl modules, installed from CPAN. It's quite a headache.</p>
+<p>
+</p>
+<h3><a name="blog_index_cgi_plugin">blog_index.cgi Plugin</a></h3>
+<p>The blog_index.cgi plugin has been refreshed and allows you to now embed the HTML it creates via a javascript library, or as straight HTML. A new menu item in the Admin Contol Panel has been added.</p>
+<p>
+</p>
+<h3><a name="send_a_list_message_api">&quot;Send a List Message&quot; API</a></h3>
+<p>The API used in the, &quot;Send a List Message&quot; screen has been introduced in an... introductory manner, in the, <em>Integrating Dada Mail into other Programs</em> docs:</p>
+<p><a href="COOKBOOK-integration.pod.html#accessing_the__send_a_list_message_api">COOKBOOK-integration.pod.html#accessing_the__send_a_list_message_api</a></p>
+<p>If there's interest, I'll expand on this topic.</p>
+<p>
+</p>
+<h3><a name="_monitor_mailouts_after_every_execution">$MONITOR_MAILOUTS_AFTER_EVERY_EXECUTION</a></h3>
+<p>A new Config.pm variable, <code>$MONITOR_MAILOUTS_AFTER_EVERY_EXECUTION</code> was introducted. If set to, <code>1</code>, Dada Mail will call the same code as it does in the Mailing Monitor and auto_pick.pl scripts in the mail.cgi script itself, after its finished with whatever else it has to do.</p>
+<p><strong>See also:</strong></p>
+<p><a href="Config.pm.html#_monitor_mailouts_after_every_execution">Config.pm.html#_monitor_mailouts_after_every_execution</a></p>
+<p>
+</p>
+<h3><a name="list_control_panel_menu_enhancements">List Control Panel Menu Enhancements</a></h3>
+<p>The List Control Panel's Admin Menu menu items have been tweaked.</p>
+<p>The top level title, <em>Customize Feature Set</em> has been moved below a new top level title, <em>Manage List Control Panel</em>. Underneith this same title is a new menu item labeled, <em> Options</em></p>
+<p>
+</p>
+<h3><a name="customize_feature_set_changes">Customize Feature Set Changes</a></h3>
+<p>The option, <em>Grey Out Disabled Screens</em> still greys out the titles on the lost control panel's admin menu, but the text is now clickable. Clicking these links will give you an error page, telling the user they don't have access to this screen.</p>
+<p>The order of some of the menu items have also changed. Most notably, the, <strong>Plugins</strong> and, <strong>Extensions</strong> items have been moved to be before the, &quot;About Dada Mail&quot;, &quot;Logout&quot; and, &quot;Log Into Another List&quot; items.</p>
+<p>
+</p>
+<h2><a name="new_admin_screen__manage_list_control_panel___options">New Admin Screen: Manage List Control Panel - Options</a></h2>
+<p>Currently, it's only functionality is to enable and disable FCKeditor support. This new setting currently does not affect Beatitude (but should).</p>
+<p>
+</p>
+<h2><a name="bug_fixes_3_0_beta_3">Bug Fixes 3.0 Beta 3</a></h2>
+<ul>
+<li><strong><a name="1959728_3_0_b2_smtp_sending_broken_because_of_missing_cpan_module" class="item">1959728  	  3.0 b2 - SMTP sending broken because of missing CPAN module</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1959728&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1959728&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="open_bugs_3_0_beta_3">Open Bugs 3.0 Beta 3</a></h3>
+<ul>
+<li><strong><a name="1963127_3_0_b2_send_a_webpage_assets_w_urls_w_query_strings_break" class="item">1963127  	  3.0 b2 - Send a Webpage, Assets w/URLS w/Query Strings break</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1963127&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1963127&group_id=13002&atid=113002</a></p>
+<p>This bug has been added to the, &quot;KNOWN ISSUES&quot; list, as no workaround can be found at present.</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="3_0_beta_2">3.0 Beta 2</a></h1>
+<p>
+</p>
+<h2><a name="download_3_0_beta_2">Download 3.0 Beta 2</a></h2>
+<ul>
+<li><strong><a name="tar_gz8" class="item">tar.gz</a></strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_beta_2.tar.gz?use_mirror=osdn">http://downloads.sourceforge.net/mojomail/dada-3_0_beta_2.tar.gz?use_mirror=osdn</a></p>
+</li>
+<li><strong>zip</strong>
+
+<p><a href="http://downloads.sourceforge.net/mojomail/dada-3_0_beta_2.zip?use_mirror=osdn">http://downloads.sourceforge.net/mojomail/dada-3_0_beta_2.zip?use_mirror=osdn</a></p>
+</li>
+</ul>
+<p>These changes are between 3.0 beta 1 and 3.0 beta 2</p>
+<p>
+</p>
+<h2><a name="changes_3_0_beta_2">Changes 3.0 Beta 2</a></h2>
+<p>
+</p>
+<h3><a name="beatitude">Beatitude</a></h3>
+<p>The Beatitude-Specific Plugin Config, <code>FCKeditor_Support</code> param has been removed.</p>
+<p>
+</p>
+<h3><a name="dada_mail_admin_menu">Dada Mail Admin Menu</a></h3>
+<p>The left hand side admin menu now shows how many mailouts per list, and per Dada Mail install, iin the, &quot;Monitor Your Mailings&quot; menu item</p>
+<p>
+</p>
+<h3><a name="dada_mail_queueing_notifications">Dada Mail Queueing Notifications</a></h3>
+<p>There are now messages on top of the, Send a List Message, Send a Webpage and Send a List Invitation screens to let you know if the limit of 
+individual mass mailings has been reached and if the message you're about to send will be queued. This is to help any confusion about why messages don't go out 
+right away.</p>
+<p>
+</p>
+<h2><a name="bug_fixes">Bug Fixes</a></h2>
+<p>The following bug fixes seem to be fixed, but are still labeled as, <em>Pending</em> in the BugTraq</p>
+<p>
+</p>
+<h3><a name="general">General</a></h3>
+<ul>
+<li><strong><a name="1957601_3_0_b1_included_cpan_modules_out_of_date" class="item">1957601  	  3.0 b1 - included CPAN modules out of date</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1957601&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1957601&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1957147_3_0_b1_note_that_unsub_is_from_bouncing_never_applied" class="item">1957147  	  3.0 b1 - note that unsub is from bouncing never applied</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1957147&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1957147&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1948393_3_0_b1_default_captcha_type_set_to_recatpcha" class="item">1948393  	  3.0 b1 - Default $CAPTCHA_TYPE set to, &quot;reCATPCHA&quot;...</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1948393&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1948393&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1948391_3_0_b1_archive_send_to_a_friend_catpcha_directions_show" class="item">1948391  	  3.0 b1 - Archive send to a friend CATPCHA directions show...</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1948391&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1948391&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="mail_sending">Mail Sending</a></h3>
+<ul>
+<li><strong><a name="1957152_3_0_b1_queued_msgs_get_in_the_way_of_sending_test_msgs" class="item">1957152  	  3.0 b1 - queued msgs get in the way of sending test msgs</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1957152&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1957152&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1957026_3_0_b1_sending_multiple_messages_per_smtp_con_broken" class="item">1957026  	  3.0 b1 - sending multiple messages per SMTP con. broken</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1957026&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1957026&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1957017_3_0_b1_enabling_clickthrough_breaks_mass_mailings" class="item">1957017  	  3.0 b1 - enabling Clickthrough breaks mass mailings</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1957017&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1957017&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="dada_bridge">Dada Bridge</a></h3>
+<ul>
+<li><strong><a name="3_0_b1_pop_ssl_connection_is_broken" class="item">3.0 b1 - POP SSL connection is broken</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1951108&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1951108&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1950165_3_0_b1_incorrect_api_for_net_pop3tools_for_quit_ing_con" class="item">1950165  	  3.0 b1 - Incorrect API for Net::POP3Tools for quit'ing con.</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1950165&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1950165&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1949432_3_0_b1_authorized_senders_enabled_breaks_discussion_lists" class="item">1949432  	  3.0 b1 - Authorized Senders enabled breaks discussion lists</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1949432&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1949432&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="beatitude">Beatitude</a></h3>
+<ul>
+<li><strong><a name="1947601_3_0_b1_fckeditor_enabled_falsely_gives_blank_html_ver" class="item">1947601  	  3.0 b1 - FCKEditor enabled falsely gives blank HTML ver</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1947601&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1947601&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="mystery_girl__bounce_handler_">Mystery Girl (Bounce Handler)</a></h3>
+<ul>
+<li><strong><a name="removed" class="item">1957141  	  3.0 b1 - Bouncing email addy's never removed (SQL backend)</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1957141&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1957141&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="multiple_subscribe_extension">Multiple Subscribe Extension</a></h3>
+<ul>
+<li><strong><a name="1947602_3_0_b1_dada_config_program_url_used_only_once" class="item">1947602  	  3.0 b1 - $DADA::CONFIG::PROGRAM_URL - used only once?</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1947602&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1947602&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h3><a name="dada_digest_pl_extension">dada_digest.pl Extension</a></h3>
+<p><strong>Note:</strong> This extension is currently deprecated.</p>
+<ul>
+<li><strong><a name="1951409_3_0_b1_dada_digest_pl_ext_sends_msgs_to_non_digest_list" class="item">1951409  	  3.0 b1 - dada_digest.pl ext. sends msgs to non-digest list -</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1951409&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1951409&group_id=13002&atid=113002</a></p>
+</li>
+<li><strong><a name="1948424_3_0_b1_dada_digest_pl_ext_not_fully_ported_to_3_0_api" class="item">1948424  	  3.0 b1 - dada_digest.pl ext. not fully ported to 3.0 API</a></strong>
+
+<p><a href="http://sourceforge.net/tracker/index.php?func=detail&aid=1948424&group_id=13002&atid=113002">http://sourceforge.net/tracker/index.php?func=detail&aid=1948424&group_id=13002&atid=113002</a></p>
+</li>
+</ul>
+
+</body>
+
+</html>

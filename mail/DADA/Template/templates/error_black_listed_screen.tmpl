@@ -1,0 +1,34 @@
+<!-- begin error_black_listed_screen.tmpl --> 
+
+<!-- tmpl_set name="title" value="There Seems to be a Problem" -->
+<!-- tmpl_set name="show_profile_widget" value="0" -->
+
+
+<h1>You Are Unable to Subscribe</h1> 
+
+<p>It seems that your email address, 
+
+	<blockquote>
+		<p>
+			<strong>
+			 <!-- tmpl_var email -->
+			</strong>
+		</p>
+	</blockquote> 
+	
+
+May not be allowed to subscribe to:</p>
+
+<blockquote>
+	<p>
+		<strong>
+		 <!-- tmpl_var list_settings.list_name -->
+		</strong>
+	</p>
+</blockquote> 
+
+<p>For one reason or another. This list may be closed to particular participants.</p>
+
+<!-- tmpl_include error_footer_widget.tmpl -->
+
+<!-- end error_black_listed_screen.tmpl --> 

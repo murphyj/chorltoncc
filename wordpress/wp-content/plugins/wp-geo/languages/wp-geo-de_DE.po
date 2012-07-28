@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Geo 1.4\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Ben Huson <ben@thewhiteroom.net>\n"
+"Language-Team: Ivan Graf <contact@bildergallery.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+# Latitude
+msgid "Latitude"
+msgstr "Latitude"
+
+# Longitude
+msgid "Longitude"
+msgstr "Longitude"
+
+# Label for location search field in admin
+msgid "Search for location"
+msgstr "Suche nach Standort"
+
+# Label for location search field in admin (in brackets)
+msgid "town, postcode or address"
+msgstr "Ort, Postleitzahl oder Adresse"
+
+# Admin search button
+msgid "Search"
+msgstr "Suche"
+
+# Clear location link in admin
+msgid "clear location"
+msgstr "Lösche Standort"
+
+# Widget options - Title
+msgid "Title"
+msgstr "Titel"
+
+# Widget options - Width
+msgid "Width"
+msgstr "Breite"
+
+# Widget options - Height
+msgid "Height"
+msgstr "Höhe"
+
+# Settings - Updated Message
+msgid "WP Geo settings updated"
+msgstr "WP Geo Einstellungen gespeichert"
+
+# Settings - <h2> Page Title
+msgid "WP Geo Settings"
+msgstr "WP Geo Einstellungen"
+
+# Settings - <h3> General Settings Title
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+# Settings - General Settings - Intro Para 1
+msgid "For more information and documentation about this plugin please visit the <a %s>WP Geo Plugin</a> home page."
+msgstr "Eine Dokumentation sowie weitere Informationen zu diesem Plugin finden Sie auf der <a %s>WP Geo Plugin</a> Webseite."
+
+# Settings - General Settings - Intro Para 2
+msgid "If you experience any problems/bugs with the plugin, please <a %s>log it here</a>."
+msgstr "Wenn Sie Fehler finden oder Probleme mit dem Plugin haben, tragen Sie es <a %s>hier ein</a>."
+
+# Settings - Label for Google API Key field
+msgid "Google API Key"
+msgstr "Google Maps API Schlüssel"
+
+# Settings - Label for Map Type field
+msgid "Map Type"
+msgstr "Karten Typ"
+
+# Settings - Label for Show Post Map field
+msgid "Show Post Map"
+msgstr "Map anzeigen"
+
+# Settings - Show Post Map - At top of post
+msgid "At top of post"
+msgstr "am Anfang"
+
+# Settings - Show Post Map - At bottom of post
+msgid "At bottom of post"
+msgstr "am Ende"
+
+# Settings - Show Post Map - Manually
+msgid "Manually"
+msgstr "Manuell"
+
+# Settings - Label for Default Map Width field
+msgid "Default Map Width"
+msgstr "Standard Map Breite"
+
+# Settings - Label for Default Map Height field
+msgid "Default Map Height"
+msgstr "Standard Map Höhe"
+
+# Settings - Label for Default Map Zoom field
+msgid "Default Map Zoom"
+msgstr "Standard Map Zoom"
+
+# Settings - Default Map Zoom - Zoomed In
+msgid "Zoomed In"
+msgstr "Zoom in"
+
+# Settings - Default Map Zoom - Zoomed Out
+msgid "Zoomed Out"
+msgstr "Zoom aus"
+
+# Settings - Label for Default Map Controls fields
+msgid "Default Map Controls"
+msgstr "Standard Map Steuerung"
+
+# Settings - Default Map Controls - Large pan/zoom control
+msgid "Large pan/zoom control"
+msgstr "Grosse Steuerung/Zoom Kontrolle"
+
+# Settings - Default Map Controls - Smaller pan/zoom control
+msgid "Smaller pan/zoom control"
+msgstr "Schmale Steuerung/Zoom Kontrolle"
+
+# Settings - Default Map Controls - Small zoom control (no panning controls)
+msgid "Small zoom control (no panning controls)"
+msgstr "Nur Zoom Kontrolle"
+
+# Settings - Default Map Controls - No pan/zoom controls
+msgid "No pan/zoom controls"
+msgstr "Keine Steuerung/Zoom"
+
+# Settings - Label for Default Map Controls fields
+msgid "Map Type Controls"
+msgstr "Karten Typ Steuerung"
+
+# Settings - Default Map Controls - Map Type - Message
+msgid "You must select at least 2 map types for the control to show."
+msgstr "Sie müssen mindestens zwei Map Typen auswählen, um in der Ansicht den Karten Typ zu wechseln."
+
+# Settings - Default Map Controls - Map Type - Normal
+msgid "Normal"
+msgstr "Normal"
+
+# Settings - Default Map Controls - Map Type - Satellite
+msgid "Satellite (photographic map)"
+msgstr "Satelliten Map (Satellitenbilder ohne Ortsbezeichnung)"
+
+# Settings - Default Map Controls - Map Type - Hybrid
+msgid "Hybrid (photographic map with normal features)"
+msgstr "Hybrid Map (Satellitenbilder mit Ortsbezeichnung)"
+
+# Settings - Default Map Controls - Map Type - Physical
+msgid "Physical (terrain map)"
+msgstr "Gelände Map"
+
+# Settings - Default Map Controls - Other
+msgid "Other Controls"
+msgstr "Optionale Steuerung"
+
+# Settings - Label for Show Maps On fields
+msgid "Show map scale"
+msgstr "Kartenmassstab anzeigen"
+
+# Settings - Default Map Controls - Other - Show collapsible overview map (in the corner of the map)
+msgid "Show collapsible overview map (in the corner of the map)"
+msgstr "Zusammenklappbare Übersichtskarte anzeigen (rechts unten in der Ecke)"
+
+# Settings - Label for Show Maps On fields
+msgid "Show Maps On"
+msgstr "Google Maps anzeigen in"
+
+# Settings - Show Maps On - Pages
+msgid "Pages"
+msgstr "Seiten"
+
+# Settings - Show Maps On - Posts (single posts)
+msgid "Posts (single posts)"
+msgstr "Artikeln"
+
+# Settings - Show Maps On - Posts home page
+msgid "Posts home page"
+msgstr "Artikeln auf der Startseite"
+
+# Settings - Show Maps On - Posts in date archives
+msgid "Posts in date archives"
+msgstr "Artikeln im Datum Archiv"
+
+# Settings - Show Maps On - Posts in category archives
+msgid "Posts in category archives"
+msgstr "Artikeln im Kategorien Archiv"
+
+# Admin search button
+msgid "Search Results"
+msgstr "Suchresultaten"
+
+# Settings - Label for Feeds fields
+msgid "Feeds"
+msgstr "Feeds"
+
+# Settings - Feeds - Checkbox
+msgid "Add geographic information"
+msgstr "Geografische Informationen hinzufügen"
+
+# Settings - Save Changes Button Text
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+# Settings - <h2> Marker Settings Title
+msgid "Marker Settings"
+msgstr "Marker Einstellungen"
+
+# Settings - Marker Settings - Text
+msgid "<p>Custom marker images are automatically created in your WordPress uploads folder and used by WP Geo.<br />A copy of these images will remain in the WP Geo folder in case you need to revert to them at any time.<br />You may edit these marker icons if you wish - they must be PNG files. Each marker consist of a marker image and a shadow image. If you do not wish to show a marker shadow you should use a transparent PNG for the shadow file.</p><p>Currently you must update these images manually and the anchor point must be the same - looking to provide more control in future versions.</p>"
+msgstr "<p>Die Marker werden automatisch im Wordpress Uploads Ordner unter WP Geo gespeichert.<br />Eine Kopie der Marker verbleibt im WP Geo Plugin Ordner.<br />Sie können jederzeit die Marker-Icons bearbeiten, jedoch wird nur das PNG Bildformat akzeptiert. Jeder Marker besteht aus einem Bild und einem Schatteneffekt. Wenn Sie keine Schatten im Marker wünschen, verwenden Sie für den Schatten eine transparente PNG Datei.</p><p>Derzeit müssen Sie die selbsterstellten Marker manuell hochladen und der Ankerpunkt muss identisch sein. In zukünftigen Versionen wird diese Funktion verbessert und vereinfacht.</p>"
+
+# Settings - Large Marker Title
+msgid "Large Marker"
+msgstr "Grosser Marker"
+
+# Settings - Large Marker Description
+msgid "This is the default marker used to indicate a location on most maps."
+msgstr "Dies ist die Standard Marker, er wird als Standort in den meisten Karten verwendet."
+
+# Settings - Small Marker Title
+msgid "Small Marker"
+msgstr "Kleiner Marker"
+
+# Settings - Small Marker Description
+msgid "This is the default marker used for the WP Geo sidebar widget."
+msgstr "Dies ist der Standard Marker für das WP Geo Sidebar Widget."
+
+# Settings - Dot Marker Title
+msgid "Dot Marker"
+msgstr "Punkt Marker"
+
+# Settings - Dot Marker Description
+msgid "This marker image is not currently used but it is anticipated that it will be used to indicate less important locations in a future versions of WP Geo."
+msgstr "Dieses Marker Bild wird zurzeit nicht genutzt aber es könnte sein, das in zukünftigen Versionen von WP Geo weniger wichtige Standorte damit angezeigt werden."
+
+# Settings - Show polylines (to connect multiple points on a single map)
+msgid "Show polylines (to connect multiple points on a single map)"
+msgstr "Polylines anzeigen (zum Verbinden von mehreren Punkten auf einer Karte)"
+
+# Settings - Documentation
+msgid "Documentation"
+msgstr "Dokumentation"
+
+# Settings - Documentation Text
+msgid "<p>If you set the Show Post Map setting to &quot;Manual&quot;, you can use the Shortcode <code>[wp_geo_map]</code> in a post to display a map (if a location has been set for the post). You can only include the Shortcode once within a post. If you select another Show Post Map option then the Shortcode will be ignored and the map will be positioned automatically.</p>"
+msgstr "<p>Wenn Sie bei &quot;Map anzeigen&quot; auf &quot;Manuell&quot; gewechselt haben, benützen Sie im Artikel den Kurzcode <code>[wp_geo_map]</code> für das Anzeigen der Google Maps (Koordinaten müssen vorhanden sein). Der Kurzcode kann in einem Artikel nur einmal verwendet werden. Falls bei &quot;Map anzeigen&quot; eine andere Option eingestellt wird als &quot;Manuell&quot;, dann wird der Kurzcode ignoriert und Google Maps automatisch positioniert.</p>"
+
+# Settings - Label for Feeds fields
+msgid "Feedback"
+msgstr "Feedback"
+
+# Settings - Feedback - Text 1
+msgid "<p>If you experience any problems or bugs with the plugin, or want to suggest an improvement, please visit the <a %s>WP Geo Google Code page</a> to log your issue. If you would like to feedback or comment on the plugin please visit the <a %s>WP Geo plugin</a> page.</p>"
+msgstr "<p>Wenn Sie Fehler finden, Probleme mit dem Plugin haben oder vielleicht eine Funktion vermissen, besuchen Sie die <a %s>WP Geo Google Code</a> Webseite. Möchten Sie gerne einen Kommentar oder ein Feedback schreiben, dann besuchen Sie die <a %s>WP Geo Plugin</a> Webseite.</p>"
+
+# Settings - Feedback - Text 2
+msgid "<p>If you like WP Geo and would like to make a donation, please do so on the <a %s>WP Geo website</a>. Your contributions help to ensure that I can dedicate more time to the support and development of the plugin.</p>"
+msgstr "<p>Wenn Ihnen WP Geo gefällt und Sie das Projekt unterstützen möchten, können Sie mit einer Spende auf der <a %s>WP Geo Website</a> helfen. Ihre Spenden tragen dazu bei, dass mehr Zeit in die Unterstützung und Entwicklung des Plugins investiert wird.</p>"
+
+# Admin Section Title
+msgid "WP Geo Location"
+msgstr "WP Geo Standort"
+
+# Admin - Google API Key Notice
+msgid "WP Geo is not currently active as you have not entered a Google API Key"
+msgstr "WP Geo ist derzeit nicht aktiv, Sie haben keinen Google API Schlüssel eingegeben"
+
+# Admin - Please update your WP Geo settings
+msgid "Please update your WP Geo settings"
+msgstr "Bitte WP Geo Einstellungen aktualisieren"
+
+# Settings - Label for Default Map Zoom field
+msgid "Default"
+msgstr "Standard"
+
+# Admin - Show Polylines
+msgid "Show Polylines"
+msgstr "Polylines anzeigen"
+
+# Admin - Hide Polylines
+msgid "Hide Polylines"
+msgstr "Polylines verstecken"
+
+# Admin - Polyline Colour
+msgid "Polyline Colour"
+msgstr "Polyline Farbe"
+

@@ -1,0 +1,356 @@
+I think the best thing about this will be that we've moved to git, so I can work on 3 or 4 separate branched (included the master) and if I don't finish one, or the other, no worries. I can also work on feature x until bored, and work on feature y. I'll probably do this: 
+
+master: bug fixes - whatever I also put in the separate dada-3.x.x repo
+misc_features     - little things that would be nice
+multiple_fields-subscriber_editable_fields - feature #1
+preview_mass_mailing_message - feature #2
+
+Anything else, like a little larger feature, would need its own branch
+
+
+The good thing is that the two features being funded don't have much overlap - not that I'm worried about conflicts (but, that's nice...), but either can be merged with the master when it's well and ready. So... I guess it is because of not-much-overlap. 
+
+
+These two features are currently and actively being worked on
+
+(and this is a rough to-do)
+
+Multiple Fields: Subscriber-Editable Fields
+Branch via Git
+The main trick to this feature is that subscribers will need their own login and session handling
+
+The bad news is that the current session handling needs to be revised. 
+It may behoove us to build a completely need session handling part of Dada Mail that first, only handles subscriber sessions, but has an outlook to work with the list sessioning stuff as well. 
+
+The good news as well is that the current session handler, CGI::Session will work just fine for this new task, so no new backend/SQL table is needed. This will make upgrading a lot easier. 
+
+The other thing that needs to be created is an extensible way to error check the data being giving. At the moment, the data can be pretty free-form, so this isn't a major issue, but an eye should once again be open for upgrade-friendliness. 
+
+Other major things to work on. 
+
+Password! 
+
+I forgot a password has to be saved, so the subscriber can, you know, *log on* 
+So things like password retrieval also have to be addressed, which isn't rocket science. 
+
+The issue is where to save the password information: 
+
+Currently, there's one table called, 'dada_subscribers' - we can put it in there, I guess...
+
+But it would also be nice to have a separate table that only has one instance of a particular email address - this table can also house any of the various global preferences for an email address.... 
+
+	dada_subscribers_profile
+
+? 
+
+This is probably the best way forward, as it will be easiest for people to upgrade and I can do a simple check to see if the table is there - and if not, ask for it to be created.
+
+I'm still going to run into the problem of the Subscriber Profile Fields data is going to be possibly duplicated and *different* per list - I may, in fact fake this for now, and just have one point of edit for subscriber information, and save that information in multiple places. 
+
+The only other alternative - and it would be best to take care of this sooner, rather than later, is to move the Subscriber Profile Fields somewhere else - 
+
+
+	dada_subscriber_fields
+	
+? 
+
+
+This would again require some sort of upgrade thingy - it may be something that can be done via SQL all on its own. 
+
+These major infrastructure changes should probably be addressed before getting to the actual features. So: 
+
+dada_subscribers
+Holds multiple entries for each subscriber, each entry just tells you what list and what sublist on that list a subscriber is subscribed to. Yes. 
+
+
+
+
+dada_subscriber_profile
+Holds GLOBAL preferences - right now, we can use: 
+
+pin
+password
+
+and in the future, we could do other subscriber preferences
+
+text or html messages?
+on vacation? 
+
+and maybe even move the bounce scorecard here (hey, it's just one more field - although the bounce scorecard is currently on a per-list basis) 
+
+
+dada_subscriber_fields 
+
+Holds the arbitrary fields about a subscriber - can/will be edited by the list owner and the subscriber themselves. This sort of leads to the problem of, a list owner can edit information that other list owners have access to - which is sort of weird. 
+
+I guess perhaps there could be a preference that list owners *can't* edit subscriber information, but that's a little whacky. (No, actually, I like it) 
+
+There has to be at least a preference that says something like, "hey, what information do I use for new subscribers - they're new information, or their old information"
+
+There also is a problem that of, does the dada_subscriber_fields and dada_subscriber_profile go away, after a subscriber is unsubscribed from all the lists they were subscribed from? Or, does it stay - is their profile still active? 
+
+Perhaps, when a subscriber unsubscribed, the, "You just unsubscribed" screen has a link to the profile.... (if profiles are activated - if not, just delete the profile outright) 
+
+I think I may side that if a subscriber has unsubscribed from ALL lists - that's it, their profile is wiped out to... or have this as a subscriber-controlled pref? 
+
+Ahh, geez, this just got a lot more complex... 
+
+So I guess: 
+
+"profile" automatically created upon first subscription - easy enough - or even, "only when needed". Once you've subscribed, you can basically be asked to create a password - and if you don't - if you skip this step, then, whatever, you won't be able to log in (or, we can make a password for ya and send it to ya - or, something - or use the pin number as a password for a little bit)  
+
+What if someone wants to subscribe to another list? Do they have to go through the subscription process *yet again* - that doesn't make too too much sense. Why don't we just say, if they're already subscribed to one list - then good, they can subscribe to any other list now - unless the list is *closed*. Neat. 
+
+
+This kind of makes the entire subscription process kind of odd - since it's, under the covers, a, "make a profile and then add a list or two (or three) that you want to be a part of. Hmm. I guess it's going to be a little hybrid-ish for a little while. Not in this release - I won't have time to make it, but next release, perhaps I'll add in the idea that you can make a profile before you even subscribe to a list. 
+
+
+And I have no idea how all this above is going to work on a PlainText list - I may have to, actually drop support for the PlainText backend. Bad idea? Perhaps - but if this is so, then SQLite could be a good default...?
+
+I'm def. not going to give profile support for a plaintext list, but not having support for a profile, and, "not having the profile thingy enabled" is sort of one and the same thing. 
+
+
+
+
+You know? I think it would behoove me to just say something like, 
+
+"each mailing list has it's own rules on how to subscribe" 
+
+And then, let you simple click a link to start the subscription process... *for that one list*
+
+This may just be augmented with an option in each list that says something like, "Allow one-click subscription for members of other lists"
+
+And call it down. That way, I'm not re-writing the entire subscription process stuff and we stay with this weird, hybrid idea. 
+
+*Maybe*, as well as that note, list what each list needs (double opt-in, list-owner approval, you-can't subscribe, because you're blacklisted, closed list, etc etc etc) 
+
+
+
+
+
+
+
+
+
+Screens needed: 
+
+Subscriber Login
+Subscriber, "Control Panel" - wrapper template will just use the list template? 
+
+It may be a nice time to re-think the List Template - perhaps a two-column design? 
+
+Screens that need modification:
+
+List Template? It would be nice to be able to see that I (as a subscriber) is logged into the system and I can visit my personal control panel that way. 
+
+Things that should be addressed
+
+The pin number is not completely secure - not at the standard I'd like it at. It may be a good idea to harden this system down, for at least the SQL backends. This *would* require changes to the SQL backend, either by adding a new field for the, "pin" to be saved, or create a new table that will hold meta information about the subscriber, like the tmp pin number and perhaps other options... The former would be easier, the latter would be more upgrade-friendly
+
+Things that would be nice:
+
+Other than the subscriber-editable fields, it would be nice to do other things with the login, including allowing people to Reply to discussion messages in the archives themselves, as well as having the archives presented in thread-view, instead of the very basic, descending (usually order) 
+
+I think it may be better to start this feature with some non-working prototypes of the design and give it to people to look over. Then, I can start hooking the ideas up!
+
+
+Another really really nice thing may be to start using a more advanced Javascript library, like, Prototype, and make the current JavaScript in Dada Mail more contemporary. Then, I can think about making more fancy things available to that Subscriber Control Panel. 
+
+I may just also put in Gravatar support, so that's one more bling thing. 
+
+
+API Changes
+
+DADA::MailingList::Subscribers
+
+needs to be split up into: 
+
+	DADA::MailingList::Subscribers
+	DADA::MailingList::Subscribers::Fields
+
+and, 
+
+	DADA::MailingList::Subscribers::Profile
+
+added. 
+
+the following D::M::S methods that need to be moved into D::M::S::F: 
+
+	subscriber_fields
+	add_subscriber_field
+	edit_subscriber_field
+	remove_subscriber_field
+	subscriber_field_exists
+	validate_subscriber_field_name
+	validate_remove_subscriber_field_name
+	can_have_subscriber_fields (perhaps?)
+
+These methods could also drop the, "subscriber_" part of their name, but I could call it like: 
+
+my $sh = DADA::MailingList::Subscribers->new(...)
+   $sh->fields->add;
+   $sh->fields->edit;
+   $sh->fields->remove; 
+   $sh->fields->validate_name; 
+
+perhaps?
+
+It would also be nice to add a simple reorder_fields method
+
+
+# THis below will be a lot later, I'm guessing
+I really need a DADA:MailingList::Subscriber object, too:
+
+	$sh->subscriber->add
+	etc...
+
+	And then, 
+
+		$sh->subscriber->profile->password
+
+Although, that *Would* be nice, it's probably information that'll just be returned via the, get_subscriber method atm: 
+
+my $subscriber = $sh->get_subscriber({-email => $email}); 
+
+But, I'd have to change the API a little bit, so it returns something like, 
+
+{
+	email => 'you@yours.com', 
+	fields => {
+				first_name => "Jon", 
+				...
+ 			  },
+	profile => { 
+		password => '1234abcd',  
+		pin      => 'yadda', 
+	
+	},
+};	
+
+
+}
+
+
+or maybe just, 
+
+my $subscriber_profile = $sh->get_subscriber_profile({-email => $email}); 
+
+All of a sudden, it looks like a great idea to make a subscriber object... 
+
+at least for, 
+
+	get
+	edit
+	delete 
+	perhaps...add?
+
+	$sh->subscriber->get();
+
+Well, actually, everthing except like, num_subscribers. heh... 
+
+
+I think it's time for me to do some more, "isa" hasa" research with Perl. 
+
+Has is just, 
+
+use Base... 
+
+stuff, right? 
+
+I don't want to extend an object, I just want an object to have methods to other objects?
+
+Whatever it is, I can make these new objects: 
+
+::Fields
+::Profile
+::Subscriber
+
+and make it hooked up to, 
+
+::Subscribers
+
+easily, Something like,
+ 
+D::M::SubscriberProfile #I'm not sure if I even need this, 
+since I don't need to work with it?
+
+D::M::SubscriberFields
+D::M::Subscribers
+	Subscriber
+		fields() # perhaps (not an object, just a method)
+		profile()# perhaps (not an object, just a method)
+
+# Looks like, Subscriber hasa Fields and hasa Profile and, "Subscribers" just 
+# has a utility method to easily access the Subscriber object? Perhaps it would 
+# just have, "add", and, "get", which would just return a, D::M::Subscriber 
+# object. From there, you can then call, "edit", or, "profile" or, "fields", 
+# (or whatever) 
+
+
+So, basically split up, D::M::Subscribers to, 
+
+D::M::Subscribers
+and, 
+D::M::Subscriber
+and, 
+D::M::SubscriberFields
+
+Which would be easy - all the methods are already written, it's just a organizational/normalization- most of the current methods will go into D::M::Subscriber - ok
+
+And we add, 
+
+profile methods to D::M::Subscriber - no problem!
+
+Do first step - split up, get the tests passing again, AND THEN change the SQL Schema, get the tests passing again, AND THEN, make sure the program actually works - tweak as needed, AND THEN add the new methods, make new tests to pass, AND THEN, add the new functionality. 
+
+
+TO DO LIST (what's above in todo list form) 
+
+Key: 
+[ ] not finished
+[-] working on
+[+] pending finishing
+[*] done! 
+
+
+[ ] Split up D::ML::Subscribers into: 
+	[ ] D::ML::Subscriber
+	[ ] D::ML::Subscriber::Profile
+	[ ] D::ML::Subscribers
+	[ ] D::ML::SubscriberFields
+
+[ ] Get current test to pass 100% - for now, let's keep backwards 
+compatibility with current API - shouldn't be hard. 
+
+[ ] Change SQL schema 
+[ ] Get tests to pass 100%
+[ ] Figure out migration steps from old schema to new schema, this basically means: 
+	[ ] move column values from dada_subscribers to dada_subscriber_fields
+	[ ] add dada_subscriber_fields and dada_subscriber_profile - fairly easy?
+
+[ ] Add stuff for D::ML::Profile - basically just password? Pin can come later, as that's a big change, but really worth it
+
+[ ] Add session handling things and start working on UI for the actually subscriber to edit their own things. (this to-do needs to be extrapolated
+
+
+
+
+
+
+Sending Mailing List Messages: Preview
+
+Branch via Git
+
+The main trick to this, is that there needs to be a general MIME message viewer - and right now there isn't. There's parts all over Dada Mail that kinda do this, but not really. the good thing is, the heavy lifting of actually templating out a MIME message is already done! For the previewer, we just need to then (one more step), show either the HTML or PlainText version - easy enough!
+
+
+	Tying into the other thing up there, it would be nice if the MIME template 		
+	thingy made would also be used for the archives themseleves, which are a
+	total mess. That's going to have to be on my own time though, so I guess 
+	It's not the highest priority. 
+	
+The other trick is that we need to have testing Subscriber Profile Fields available to be filled out, so that you can test specific values in them and see what type of effect they have on your message. 
+
+The other nice thing *may* be to have the message, once you've previewed it, then sent to either a test address or the list owner, for a final, once-over that everything looks good. 
+
+I'll probably start this with just popping out a new window, with controls at the top and the preview below that, so you can continue to play with various params? The message itself won't be editable (you can still do that in the, "Send a Message", screen, but the subscriber field variables will be editable. 
